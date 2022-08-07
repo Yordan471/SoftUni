@@ -1,2 +1,3 @@
-# First-repo
-For overall practice
+# SoftUni
+
+Homework
