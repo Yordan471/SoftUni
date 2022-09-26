@@ -34,7 +34,7 @@ namespace Calculations
 
         static void Add(int firstNumber, int secondNumber)
         {
-            Console.WriteLine($"{firstNumber} + {secondNumber}");
+            Console.WriteLine(firstNumber + secondNumber);
         }
 
         static void Subtract(int firstNumber, int secondNumber)

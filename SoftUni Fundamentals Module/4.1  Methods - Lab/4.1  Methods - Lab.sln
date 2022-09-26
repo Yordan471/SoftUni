@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grades", "Grades\Grades.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculations", "Calculations\Calculations.csproj", "{93A07B82-1EE2-408C-A9AF-E64028595643}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingTriangle", "PrintingTriangle\PrintingTriangle.csproj", "{75A55E25-526B-4492-BFEB-2B27D3C3BC79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93A07B82-1EE2-408C-A9AF-E64028595643}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A07B82-1EE2-408C-A9AF-E64028595643}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A07B82-1EE2-408C-A9AF-E64028595643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75A55E25-526B-4492-BFEB-2B27D3C3BC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A55E25-526B-4492-BFEB-2B27D3C3BC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A55E25-526B-4492-BFEB-2B27D3C3BC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A55E25-526B-4492-BFEB-2B27D3C3BC79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
