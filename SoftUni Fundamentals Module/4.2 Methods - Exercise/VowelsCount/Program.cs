@@ -23,7 +23,9 @@ namespace VowelsCount
             for (int i = 0; i < chars.Length; i++)
             {
                 if (chars[i] == 'e' || chars[i] == 'i' || chars[i] == 'o' ||
-                    chars[i] == 'u' || chars[i] == 'a')
+                    chars[i] == 'u' || chars[i] == 'a' || chars[i] == 'A' ||
+                    chars[i] == 'E' || chars[i] == 'I' || chars[i] == 'O' ||
+                    chars[i] == 'U')
                 {
                     counterVowels++;
                 }
