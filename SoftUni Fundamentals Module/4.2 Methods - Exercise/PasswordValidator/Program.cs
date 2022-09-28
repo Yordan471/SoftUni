@@ -22,7 +22,7 @@ namespace PasswordValidator
     
             if (CheckCharachters(password) == false)
             {
-                Console.WriteLine("Password must be between 6 and 10");
+                Console.WriteLine("Password must be between 6 and 10 characters");
             }
 
             if (CheckLettersAndDigits(password) == false)
