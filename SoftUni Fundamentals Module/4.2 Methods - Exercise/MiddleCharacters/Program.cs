@@ -11,7 +11,7 @@ namespace MiddleCharacters
         static void Main(string[] args)
         {
             string wordOrNumber = Console.ReadLine();
-
+           
             MiddleChar(wordOrNumber);
         }
 

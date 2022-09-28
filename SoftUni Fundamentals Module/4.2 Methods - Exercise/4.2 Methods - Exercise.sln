@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddAndSubtract", "AddAndSub
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleCharacters", "MiddleCharacters\MiddleCharacters.csproj", "{53F275F0-9184-47F8-8422-6F9529480732}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NxNMatrix", "NxNMatrix\NxNMatrix.csproj", "{E44C8926-4440-4F4B-A38D-7A3BE54C7345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactorialDevision", "FactorialDevision\FactorialDevision.csproj", "{557624A0-59B2-4603-86E9-D554D5DCF187}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{53F275F0-9184-47F8-8422-6F9529480732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53F275F0-9184-47F8-8422-6F9529480732}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53F275F0-9184-47F8-8422-6F9529480732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E44C8926-4440-4F4B-A38D-7A3BE54C7345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E44C8926-4440-4F4B-A38D-7A3BE54C7345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E44C8926-4440-4F4B-A38D-7A3BE54C7345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E44C8926-4440-4F4B-A38D-7A3BE54C7345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557624A0-59B2-4603-86E9-D554D5DCF187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557624A0-59B2-4603-86E9-D554D5DCF187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557624A0-59B2-4603-86E9-D554D5DCF187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557624A0-59B2-4603-86E9-D554D5DCF187}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
