@@ -10,10 +10,10 @@ namespace PalindromeIntegers
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                string number = Console.ReadLine();
+            string number = Console.ReadLine();
 
+            while (number != "END")
+            {
                 int counter = 0;
 
                 for (int i = 0; i < number.Length; i++)
@@ -24,18 +24,17 @@ namespace PalindromeIntegers
                 if (counter % 2 == 0)
                 {
                     CheckIfEvenNumberIsPalindome(number);
-                    break;
                 }
                 else if (counter % 2 != 0)
                 {
                     CheckIfOddNumberIsPalindrome(number);
-                    break;
                 }
                 else
                 {
                     OneDigitNumberIsPalindrome(number);
-                    break;
                 }
+
+                number = Console.ReadLine();
             }
         }
 
