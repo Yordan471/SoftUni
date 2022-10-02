@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,11 +26,11 @@ namespace MergingLists
             for (int i = 0; i < Math.Min(firstListNumbers.Count, secondListNumbers.Count); i++)
             {
                 counter++;
-
+      
                  MergingList.Add(firstListNumbers[0 + i]);
                  MergingList.Add(secondListNumbers[0 + i]);                                                                       
             }
-
+      
             for (int i = 0; i < Math.Max(firstListNumbers.Count, secondListNumbers.Count) - counter - 1; i++)
             {
                 if (firstListNumbers.Count > secondListNumbers.Count)
@@ -40,10 +41,9 @@ namespace MergingLists
                 {
                     MergingList.Add(secondListNumbers[counter + 1 + i]);
                 }
-
             }
-
-            Console.WriteLine(String.Join(" ", MergingList));
+      
+            Console.WriteLine(String.Join(" ", MergingList));         
         }
     }
 }
