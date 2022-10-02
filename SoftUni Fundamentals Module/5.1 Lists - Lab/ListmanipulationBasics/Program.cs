@@ -17,6 +17,7 @@ namespace ListmanipulationBasics
                 .ToList();
 
             string command = Console.ReadLine();
+
             while (command != "end")
             {
                 List<string> strings = new List<string>();
@@ -48,7 +49,6 @@ namespace ListmanipulationBasics
                 }
 
                 command = Console.ReadLine();
-
             }
 
                 Console.WriteLine(String.Join(" ", numbers));
