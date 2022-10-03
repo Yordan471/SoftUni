@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Train", "Train\Train.csproj", "{6FAD20D3-8647-4642-B3BF-504444D4AE22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeList", "ChangeList\ChangeList.csproj", "{F41A1CDC-7EEE-4B76-91C1-37D8C2D38E1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6FAD20D3-8647-4642-B3BF-504444D4AE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FAD20D3-8647-4642-B3BF-504444D4AE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FAD20D3-8647-4642-B3BF-504444D4AE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41A1CDC-7EEE-4B76-91C1-37D8C2D38E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41A1CDC-7EEE-4B76-91C1-37D8C2D38E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41A1CDC-7EEE-4B76-91C1-37D8C2D38E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41A1CDC-7EEE-4B76-91C1-37D8C2D38E1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
