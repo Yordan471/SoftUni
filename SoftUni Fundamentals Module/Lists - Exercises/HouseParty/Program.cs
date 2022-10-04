@@ -38,7 +38,7 @@ namespace HouseParty
                 {
                     if (guestsGoing.Contains(nameOfGuest))
                     {
-                        Console.WriteLine($"{nameOfGuest} is already in the list");
+                        Console.WriteLine($"{nameOfGuest} is already in the list!");
                     }
                     else
                     {
