@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftUniRecepton", "SoftUniR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayModifier", "ArrayModifier\ArrayModifier.csproj", "{73C56E91-4A65-4F18-BC46-0E8DC4EF30AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numbers", "Numbers\Numbers.csproj", "{65B11086-A38A-4E02-A2D4-C5D6EFF0D488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{73C56E91-4A65-4F18-BC46-0E8DC4EF30AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73C56E91-4A65-4F18-BC46-0E8DC4EF30AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C56E91-4A65-4F18-BC46-0E8DC4EF30AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B11086-A38A-4E02-A2D4-C5D6EFF0D488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B11086-A38A-4E02-A2D4-C5D6EFF0D488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B11086-A38A-4E02-A2D4-C5D6EFF0D488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B11086-A38A-4E02-A2D4-C5D6EFF0D488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
