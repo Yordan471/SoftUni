@@ -78,6 +78,7 @@ namespace MemoryGame
                 {
                     Console.WriteLine($"You have won in {movesCounter} turns!");
                     won = true;
+                    break;
                 }
 
                 command = Console.ReadLine();
