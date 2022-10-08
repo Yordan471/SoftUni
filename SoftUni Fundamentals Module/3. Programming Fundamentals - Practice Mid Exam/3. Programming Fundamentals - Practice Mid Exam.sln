@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter-Strike", "Counter-Strike\Counter-Strike.csproj", "{E95BC355-CFC4-400E-B46F-AAF056730CDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootForTheWin", "ShootForTheWin\ShootForTheWin.csproj", "{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E95BC355-CFC4-400E-B46F-AAF056730CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E95BC355-CFC4-400E-B46F-AAF056730CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E95BC355-CFC4-400E-B46F-AAF056730CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
