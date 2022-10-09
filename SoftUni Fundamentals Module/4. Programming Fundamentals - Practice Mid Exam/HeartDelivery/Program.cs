@@ -35,7 +35,7 @@ namespace HeartDelivery
                 {
                     if (listOfIntegers[0] == 0)
                     {
-                        Console.WriteLine("Place 0 already has Valentine's day.");
+                        Console.WriteLine("Place 0 already had Valentine's day.");
                         lastPosition = 0;
                         index = 0;
                     }
@@ -56,7 +56,7 @@ namespace HeartDelivery
                 {
                     if (listOfIntegers[lastPosition + index] == 0)
                     {
-                        Console.WriteLine($"Place {index + lastPosition} already has Valentine's day.");
+                        Console.WriteLine($"Place {index + lastPosition} already had Valentine's day.");
                     }
                     else
                     {
@@ -64,7 +64,7 @@ namespace HeartDelivery
 
                         if (listOfIntegers[index + lastPosition] == 0)
                         {
-                            Console.WriteLine($"Place {index + lastPosition} has Valentine's day");
+                            Console.WriteLine($"Place {index + lastPosition} has Valentine's day.");
                         }
                     }
                 }
