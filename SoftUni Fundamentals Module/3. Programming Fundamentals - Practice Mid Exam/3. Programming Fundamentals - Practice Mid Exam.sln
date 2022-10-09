@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter-Strike", "Counter-S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootForTheWin", "ShootForTheWin\ShootForTheWin.csproj", "{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovingTarget", "MovingTarget\MovingTarget.csproj", "{1931964F-F45C-4B99-A2F6-47BAE4791366}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED6FC3DC-A59F-4A64-A851-CE674847A9EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1931964F-F45C-4B99-A2F6-47BAE4791366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1931964F-F45C-4B99-A2F6-47BAE4791366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1931964F-F45C-4B99-A2F6-47BAE4791366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1931964F-F45C-4B99-A2F6-47BAE4791366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

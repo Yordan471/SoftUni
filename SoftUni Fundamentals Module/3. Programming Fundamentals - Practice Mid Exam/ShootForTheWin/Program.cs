@@ -46,7 +46,7 @@ namespace ShootForTheWin
                 counterForTargetsShot++;
             }
 
-            Console.Write($"Shot targets {counterForTargetsShot} -> ");
+            Console.Write($"Shot targets: {counterForTargetsShot} -> ");
             Console.Write(String.Join(" ", targets));
         }
     }
