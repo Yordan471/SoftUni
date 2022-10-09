@@ -12,8 +12,8 @@ namespace GuineaPig
         {
             decimal quantityFood = decimal.Parse(Console.ReadLine());
             decimal quantityHay = decimal.Parse(Console.ReadLine());
-            double quantityCover = double.Parse(Console.ReadLine());
-            double pigWeight = double.Parse(Console.ReadLine());
+            decimal quantityCover = decimal.Parse(Console.ReadLine());
+            decimal pigWeight = decimal.Parse(Console.ReadLine());
 
             int counterDays = 0;
             bool outOfProvisions = false;
@@ -31,7 +31,7 @@ namespace GuineaPig
 
                 if (counterDays % 3 == 0)
                 {
-                    quantityCover -= 0.33333333333 * pigWeight;
+                    quantityCover -= 0.33333333333M * pigWeight;
                 }
 
                 if (quantityFood <= 0 || quantityHay <= 0 ||
