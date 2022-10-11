@@ -46,8 +46,8 @@ namespace CarRace
             }
             else
             {
-                secondRacerTime.ToString("0.##");
-                Console.WriteLine($"The winner is right with total time: {secondRacerTime}");
+                string output = secondRacerTime.ToString("0.##");
+                Console.WriteLine($"The winner is right with total time: {output}");
             }
         }
     }
