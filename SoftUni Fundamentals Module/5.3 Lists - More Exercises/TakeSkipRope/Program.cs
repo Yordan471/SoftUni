@@ -51,27 +51,15 @@ namespace TakeSkipRope
 
             while (counter < takeList.Count)
             {
-                for (int i = 0; i < takeList.Count; i++)
+                for (int i = 0; i < skipList.Count; i++)
                 {
-                    if (takeList[i] == '0')
+                    if (takeList[i] != 0)
                     {
-                        continue;
-                    }
-                    else
-                    {
-                        for (int j = 0; j < takeList[i]; j++)
+                        for (int j = 0 + ; j < takeList[i]; j++)
                         {
-                            result += saveChar[takeList[j + skipChars]];
-                        }
+                            result += saveChar[takeList[j]];
+                        }            
                     }
-
-                    for (int j = 0 + i; j < skipList.Count; j++)
-                    {
-                        skipChars += skipList[i];
-                        break;
-                    }
-
-                    counter++;
                 }
 
                 
