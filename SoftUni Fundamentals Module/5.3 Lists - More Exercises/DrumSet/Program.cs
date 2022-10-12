@@ -48,12 +48,8 @@ namespace DrumSet
                         else
                         {
                             drumsQuality.RemoveAt(i);
-                            saveDrumsQuality.RemoveAt(i);
-
-                            if (i == 0)
-                            {
-                                i--;
-                            }
+                            saveDrumsQuality.RemoveAt(i);                            
+                            i--;                       
                         }
                     }
                 }
@@ -61,8 +57,15 @@ namespace DrumSet
                 command = Console.ReadLine();
             }
 
-            Console.WriteLine(String.Join(" ", drumsQuality));
-            Console.WriteLine($"Gatsby has {savings:f2}lv.");
+            if (drumsQuality.Count >= 0 && drumsQuality[0] != 0)
+            {
+                Console.WriteLine(String.Join(" ", drumsQuality));
+                Console.WriteLine($"Gabsy has {savings:f2}lv.");
+            }
+            else
+            {
+                Console.WriteLine($"Gabsy has {savings:f2}lv.");
+            }
         }
     }
 }
