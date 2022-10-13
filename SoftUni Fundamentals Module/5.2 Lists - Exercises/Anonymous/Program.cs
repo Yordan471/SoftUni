@@ -43,49 +43,11 @@ namespace Anonymous
                         endIndex = inputLine.Count - 1;
                     }
 
-                    for (int i = startIndex; i <= endIndex; i++)
+                    for (int i = startIndex + 1; i <= endIndex; i++)
                     {
-                        inputLine[startIndex] += inputLine[i + 1];
-                        inputLine.RemoveAt(i + 1);
+                        inputLine[startIndex] += inputLine[startIndex + 1];
+                        inputLine.RemoveAt(startIndex + 1);
                     }
-
-               //    if ((startIndex >= 0 && startIndex < inputLine.Count) && 
-               //        (endIndex >= 0 && endIndex < inputLine.Count))
-               //    {
-               //        for (int i = startIndex; i < endIndex; i++)
-               //        {
-               //            inputLine[startIndex] += inputLine[i + 1];
-               //            inputLine.RemoveAt(i + 1);
-               //            i--;
-               //            endIndex--;
-               //        }                 
-               //    }
-               //    else if ((startIndex < 0 || startIndex > inputLine.Count) && 
-               //        endIndex >= 0 && endIndex < inputLine.Count)
-               //    {
-               //        for (int i = 0; i <= endIndex; i++)
-               //        {
-               //            inputLine[0] += inputLine[i + 1];
-               //            inputLine.RemoveAt(i + 1);
-               //        }
-               //    }
-               //    else if ((endIndex < 0 || endIndex >= inputLine.Count) && 
-               //        startIndex >= 0 && startIndex < inputLine.Count)
-               //    {
-               //        for (int i = startIndex; i <= inputLine.Count; i++)
-               //        {
-               //            if (i + 1 >= inputLine.Count)
-               //            {
-               //                break;
-               //            }
-               //
-               //            inputLine[startIndex] += inputLine[i + 1];
-               //            inputLine.RemoveAt(i + 1);
-               //            i--;
-               //        }
-               //        
-               //    }
-                    
                 }
                 else if (operation == "divide")
                 {
