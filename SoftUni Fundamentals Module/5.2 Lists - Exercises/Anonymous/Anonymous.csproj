@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA3056C4-4EBB-4E52-9439-7D210EAE939A}</ProjectGuid>
+    <ProjectGuid>{789499E9-A732-4A9E-9B28-7B1AA4197C60}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AnonimousThreat</RootNamespace>
-    <AssemblyName>AnonimousThreat</AssemblyName>
+    <RootNamespace>Anonymous</RootNamespace>
+    <AssemblyName>Anonymous</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

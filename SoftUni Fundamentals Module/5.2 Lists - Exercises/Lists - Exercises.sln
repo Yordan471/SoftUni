@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardsGame", "CardsGame\Card
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppendArrays", "AppendArrays\AppendArrays.csproj", "{262E6150-832E-45B4-B60C-D9687106E534}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousThreat", "AnonimousThreat\AnonymousThreat.csproj", "{DA3056C4-4EBB-4E52-9439-7D210EAE939A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anonymous", "Anonymous\Anonymous.csproj", "{789499E9-A732-4A9E-9B28-7B1AA4197C60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{262E6150-832E-45B4-B60C-D9687106E534}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{262E6150-832E-45B4-B60C-D9687106E534}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{262E6150-832E-45B4-B60C-D9687106E534}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA3056C4-4EBB-4E52-9439-7D210EAE939A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA3056C4-4EBB-4E52-9439-7D210EAE939A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA3056C4-4EBB-4E52-9439-7D210EAE939A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA3056C4-4EBB-4E52-9439-7D210EAE939A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{789499E9-A732-4A9E-9B28-7B1AA4197C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{789499E9-A732-4A9E-9B28-7B1AA4197C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{789499E9-A732-4A9E-9B28-7B1AA4197C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{789499E9-A732-4A9E-9B28-7B1AA4197C60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
