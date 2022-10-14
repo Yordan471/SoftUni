@@ -10,6 +10,11 @@ namespace PokemonDontGo
     {
         static void Main(string[] args)
         {
+            string word = "something";
+            string partOfWord = string.Empty;
+
+            partOfWord = word.Substring(2);
+            Console.WriteLine(partOfWord);
         }
     }
 }
