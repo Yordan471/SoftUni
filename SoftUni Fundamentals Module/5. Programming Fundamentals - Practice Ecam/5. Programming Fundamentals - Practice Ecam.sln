@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BonusScoringSystem", "5. Programming Fundamentals - Practice Ecam\BonusScoringSystem.csproj", "{72409F28-BB0E-4559-9758-2CB9A13DF790}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline", "MuOnline\MuOnline.csproj", "{9C086E6E-DBFA-4C3F-9185-1BCEDFE394E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{72409F28-BB0E-4559-9758-2CB9A13DF790}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72409F28-BB0E-4559-9758-2CB9A13DF790}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72409F28-BB0E-4559-9758-2CB9A13DF790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C086E6E-DBFA-4C3F-9185-1BCEDFE394E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C086E6E-DBFA-4C3F-9185-1BCEDFE394E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C086E6E-DBFA-4C3F-9185-1BCEDFE394E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C086E6E-DBFA-4C3F-9185-1BCEDFE394E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
