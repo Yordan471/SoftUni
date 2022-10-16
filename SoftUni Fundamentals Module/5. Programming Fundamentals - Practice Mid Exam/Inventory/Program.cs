@@ -101,6 +101,7 @@ namespace Inventory
                     if(collectingItems[i] == oldItem)
                     {
                         collectingItems.Insert(i + 1, newItem);
+                        break;
                     }
                 }
             }
