@@ -67,7 +67,7 @@ namespace MuOnline
                         }
                         else
                         {
-                            Console.WriteLine($"You've slayed {command}");
+                            Console.WriteLine($"You slayed {command}.");
                         }
                     }
                 }
