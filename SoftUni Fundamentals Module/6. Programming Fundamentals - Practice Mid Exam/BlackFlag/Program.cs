@@ -37,8 +37,7 @@ namespace BlackFlag
             }
             else
             {
-                decimal diff = expectedPlunder - sumPlunder;
-                decimal prcntgGained = (diff * 100M) * 1.0M / diff * 1.0M;
+                decimal prcntgGained = (sumPlunder * 100M) * 1.0M / expectedPlunder* 1.0M;
                 Console.WriteLine($"Collected only {prcntgGained:f2}% of the plunder.");
             }
         }

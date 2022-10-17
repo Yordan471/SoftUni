@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackFlag", "BlackFlag\BlackFlag.csproj", "{2FCBD80A-FC4A-4036-88D1-3E7D9E325FF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreasureHunt", "TreasureHunt\TreasureHunt.csproj", "{877D6D03-F734-4BBD-986E-2C6877D792D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2FCBD80A-FC4A-4036-88D1-3E7D9E325FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FCBD80A-FC4A-4036-88D1-3E7D9E325FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FCBD80A-FC4A-4036-88D1-3E7D9E325FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877D6D03-F734-4BBD-986E-2C6877D792D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877D6D03-F734-4BBD-986E-2C6877D792D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877D6D03-F734-4BBD-986E-2C6877D792D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877D6D03-F734-4BBD-986E-2C6877D792D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
