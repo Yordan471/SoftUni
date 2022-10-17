@@ -29,10 +29,26 @@ namespace TreasureHunt
                     .ToArray();
 
                 string operation = operations[0];
+                List<string> lootedItems = new List<string>();
 
                 if (operation == "Loot")
                 {
                     LootItems(ref initialLoot, operations);
+
+                    for (int i = 1; i < operations.Length; i++)
+                    {
+                        bool exists = false;
+
+                        for (int j = 0; j < initialLoot.Length; j++)
+                        {
+                            if (initialLoot[j] == operations[i])
+                            {
+                                exists = true;
+                                break;
+                            }
+                        }
+
+                    }
                 }
                 else if (operation == "Drop")
                 {
@@ -66,11 +82,7 @@ namespace TreasureHunt
             else
             {
                 Console.WriteLine("Failed treasure hunt.");
-            }
-
-            
-
-         
+            }      
         }
 
         static string[] LootItems(ref string[] initialLoot, string[] operations)
@@ -81,6 +93,8 @@ namespace TreasureHunt
             {
                 listInitialLoot.Add(item);
             }
+
+            int countLootedItems = 0;
 
             for (int i = 1; i < operations.Length; i++)
             {
@@ -98,13 +112,13 @@ namespace TreasureHunt
                 if (!exists)
                 {
                     listInitialLoot.Insert(0, operations[i]);
+                    countLootedItems++;
                 }
             }
 
             initialLoot = listInitialLoot.ToArray();
 
-            return initialLoot;
-                
+            return initialLoot;          
         }
 
         static string[] DropItem(ref string[] initialLoot, int index)
