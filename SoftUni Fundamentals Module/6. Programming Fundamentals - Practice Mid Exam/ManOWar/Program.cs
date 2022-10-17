@@ -93,7 +93,6 @@ namespace ManOWar
                     Console.WriteLine($"{countSectionsToRepair} sections need repair.");
                 }
 
-               // command = Console.ReadLine();
             } 
             
             if (!endProgram)

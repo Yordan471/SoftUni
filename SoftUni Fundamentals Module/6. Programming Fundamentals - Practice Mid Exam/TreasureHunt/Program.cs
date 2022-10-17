@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Tracing;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.ExceptionServices;
 
@@ -15,9 +16,10 @@ namespace TreasureHunt
             .Split('|')
             .ToArray();
 
-            string command = Console.ReadLine();
+            string command = string.Empty;
+            List<string> saveLootItems = new List<string>();
 
-            while (true)
+            while ((command = Console.ReadLine()) != "Yohoho")
             {
                 if (command == "Yohoho!")
                 {
@@ -29,41 +31,49 @@ namespace TreasureHunt
                     .ToArray();
 
                 string operation = operations[0];
-                List<string> lootedItems = new List<string>();
 
                 if (operation == "Loot")
                 {
+                    string firstItem = initialLoot[0];
+
                     LootItems(ref initialLoot, operations);
 
-                    for (int i = 1; i < operations.Length; i++)
+                    for (int i = 0; i < operations.Length; i++)
                     {
-                        bool exists = false;
-
-                        for (int j = 0; j < initialLoot.Length; j++)
+                        if (initialLoot[i] == firstItem)
                         {
-                            if (initialLoot[j] == operations[i])
-                            {
-                                exists = true;
-                                break;
-                            }
+                            break;
                         }
 
+                        saveLootItems.Add(initialLoot[i]);
                     }
                 }
                 else if (operation == "Drop")
                 {
                     int index = int.Parse(operations[1]);
 
+                    if (index < 0 || index >= initialLoot.Length)
+                    {
+                        continue;
+                    }
+
                     DropItem(ref initialLoot, index);
                 }
                 else if (operation == "Steal")
                 {
-                    int Count = int.Parse(operations[1]);
+                    int count = int.Parse(operations[1]);
 
-                    StealItems(ref initialLoot, Count);
+                    if (initialLoot.Length <= count)
+                    {
+                        PrintStolenItems(ref initialLoot, count);
+                        initialLoot = new string[0];
+                    }
+                    else
+                    {
+                        PrintStolenItems(ref initialLoot, count);
+                        StealItems(ref initialLoot, count);
+                    }
                 }
-
-                command = Console.ReadLine();
             }
 
             if (initialLoot.Length > 0)
@@ -76,33 +86,31 @@ namespace TreasureHunt
                 }
 
                 decimal resultSum = sum / initialLoot.Length;
-                Console.WriteLine(string.Join(", ", initialLoot));
                 Console.WriteLine($"Average treasure gain: {resultSum:f2} pirate credits.");
             }
             else
             {
                 Console.WriteLine("Failed treasure hunt.");
-            }      
+            }          
         }
 
         static string[] LootItems(ref string[] initialLoot, string[] operations)
         {
             List<string> listInitialLoot = new List<string>();
+            bool exists = false;
 
-            foreach (string item in initialLoot)
+            for (int i = 0; i < initialLoot.Length; i++)
             {
-                listInitialLoot.Add(item);
+                listInitialLoot.Add(initialLoot[i]);
             }
-
-            int countLootedItems = 0;
 
             for (int i = 1; i < operations.Length; i++)
             {
-                bool exists = false;
+                exists = false;
 
                 for (int j = 0; j < initialLoot.Length; j++)
                 {
-                    if (listInitialLoot[j] == operations[i])
+                    if (initialLoot[j] == operations[i])
                     {
                         exists = true;
                         break;
@@ -111,68 +119,78 @@ namespace TreasureHunt
 
                 if (!exists)
                 {
-                    listInitialLoot.Insert(0, operations[i]);
-                    countLootedItems++;
+                   listInitialLoot.Insert(0, operations[i]);
                 }
             }
 
-            initialLoot = listInitialLoot.ToArray();
-
-            return initialLoot;          
+            return initialLoot = listInitialLoot.ToArray();
         }
 
         static string[] DropItem(ref string[] initialLoot, int index)
         {
-            if (index < 0 || index >= initialLoot.Length)
-            {
-                return initialLoot;
-            }
-            else
-            {
-                string[] saveItems = new string[initialLoot.Length];
+            string[] saveInitialLoot = new string[initialLoot.Length];
 
-                for (int i = 0; i < initialLoot.Length; i++)
+            for (int i = 0; i < initialLoot.Length; i++)
+            {
+                if (i == initialLoot.Length - 1)
                 {
-                    if (i >= index)
-                    {
-                        if (i == initialLoot.Length - 1)
-                        {
-                            saveItems[i] = initialLoot[index];
-                            continue;
-                        }
-
-                        saveItems[i] = initialLoot[i + 1];
-                        continue;
-                    }
-
-                    saveItems[i] = initialLoot[i];
+                    saveInitialLoot[i] = initialLoot[index];
+                    break;
                 }
 
-                initialLoot = saveItems;
+                if (i >= index)
+                {
+                    saveInitialLoot[i] = initialLoot[i + 1];
+                }
+                else
+                {
+                    saveInitialLoot[i] = initialLoot[i];
+                }
+            }
 
-                return initialLoot;
-            }        
+            return initialLoot = saveInitialLoot;          
         }
 
         static string[] StealItems(ref string[] initialLoot, int count)
         {
+            string[] saveInitialLoot = new string[initialLoot.Length - count];
+
+            for (int i = 0; i < saveInitialLoot.Length; i++)
+            {
+                saveInitialLoot[i] = initialLoot[i];
+            }
+
+            return initialLoot = saveInitialLoot;
+        }
+
+        static void PrintStolenItems(ref string[] initialLoot, int count)
+        {
             if (initialLoot.Length - count <= 0)
             {
-                return initialLoot = new string[0];
+                for (int j = 0; j < initialLoot.Length; j++)
+                {
+                    if (j == initialLoot.Length - 1)
+                    {
+                        Console.Write($"{initialLoot[j]}");
+                        continue;
+                    }
+
+                    Console.Write($"{initialLoot[j]}, ");
+                }
             }
             else
             {
-                string[] saveString = new string[initialLoot.Length - count];
-
-                for (int i = 0; i < saveString.Length; i++)
+                for (int i = initialLoot.Length - count; i < initialLoot.Length; i++)
                 {
-                    saveString[i] = initialLoot[i];
+                    if (i == initialLoot.Length - 1)
+                    {
+                        Console.Write($"{initialLoot[i]}");
+                        continue;
+                    }
+
+                    Console.Write($"{initialLoot[i]}, ");
                 }
-
-                initialLoot = saveString;
-
-                return initialLoot;
-            }          
+            }
         }
     }
 }
