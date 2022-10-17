@@ -17,7 +17,6 @@ namespace TreasureHunt
             .ToArray();
 
             string command = string.Empty;
-            List<string> saveLootItems = new List<string>();
 
             while ((command = Console.ReadLine()) != "Yohoho")
             {
@@ -37,16 +36,6 @@ namespace TreasureHunt
                     string firstItem = initialLoot[0];
 
                     LootItems(ref initialLoot, operations);
-
-                    for (int i = 0; i < operations.Length; i++)
-                    {
-                        if (initialLoot[i] == firstItem)
-                        {
-                            break;
-                        }
-
-                        saveLootItems.Add(initialLoot[i]);
-                    }
                 }
                 else if (operation == "Drop")
                 {
@@ -171,7 +160,7 @@ namespace TreasureHunt
                 {
                     if (j == initialLoot.Length - 1)
                     {
-                        Console.Write($"{initialLoot[j]}");
+                        Console.WriteLine($"{initialLoot[j]}");
                         continue;
                     }
 
@@ -184,7 +173,7 @@ namespace TreasureHunt
                 {
                     if (i == initialLoot.Length - 1)
                     {
-                        Console.Write($"{initialLoot[i]}");
+                        Console.WriteLine($"{initialLoot[i]}");
                         continue;
                     }
 
