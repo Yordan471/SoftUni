@@ -70,12 +70,14 @@ namespace SoftUniCoursePlanning
                 else if (operation == "Exercise")
                 {
                     string lessonTitle = commandToList[1];
+                    string exercise = lessonTitle + "-Exercise";
 
-                    if (initialLessons.Contains(lessonTitle))
+                    if (initialLessons.Contains(lessonTitle) &&
+                        initialLessons.Contains(exercise) == false)
                     {
                         AddExerciseLesson(initialLessons, lessonTitle);
                     }
-                    else
+                    else if (initialLessons.Contains(exercise) == false)
                     {
                         AddLessonAndExercise(initialLessons, lessonTitle);
                     }
