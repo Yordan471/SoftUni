@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Reflection.Metadata;
 
 namespace SoftUniCoursePlanning
 {
@@ -9,7 +11,7 @@ namespace SoftUniCoursePlanning
         static void Main(string[] args)
         {
             List<string> initialLessons = Console.ReadLine()
-                .Split(", ")
+                .Split(", ", StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
             string command = string.Empty;
@@ -48,6 +50,11 @@ namespace SoftUniCoursePlanning
                     string lessonTitle = commandToList[1];
 
                     RemoveLessons(initialLessons, lessonTitle);
+
+                    if (initialLessons.Contains(lessonTitle + "-Exercise"))
+                    {
+                        initialLessons.Remove(lessonTitle + "-Exercise");
+                    }
                 }
                 else if (operation == "Swap")
                 {
@@ -70,14 +77,20 @@ namespace SoftUniCoursePlanning
                     }
                     else
                     {
-
+                        AddLessonAndExercise(initialLessons, lessonTitle);
                     }
                 }
 
                 command = Console.ReadLine();
             }
 
+            int counter = 0;
 
+            foreach (string lesson in initialLessons)
+            {
+                counter++;
+                Console.WriteLine($"{counter}.{lesson}");
+            }
         }
 
         static List<string> AddLessons(List<string> initialLessons, string lessonTitle)
@@ -113,22 +126,47 @@ namespace SoftUniCoursePlanning
         static List<string> SwapLessons(List<string> initialLessons, string lessonTitleFirst, string lessonTitleSecond)
         {
             int firstIndex = initialLessons.IndexOf(lessonTitleFirst);
-            int secondIndex = initialLessons.IndexOf(lessonTitleSecond);
-
+            int secondIndex = initialLessons.IndexOf(lessonTitleSecond);   
+         
             initialLessons.RemoveAt(firstIndex);
-            initialLessons.RemoveAt(secondIndex);
-
             initialLessons.Insert(firstIndex, lessonTitleSecond);
+
+            initialLessons.RemoveAt(secondIndex);
             initialLessons.Insert(secondIndex, lessonTitleFirst);
 
+            if (initialLessons.Contains(lessonTitleFirst + "-Exercise"))
+            {
+                initialLessons.RemoveAt(firstIndex + 1);
+
+                if (initialLessons.Contains(lessonTitleSecond + "-Exercise"))
+                {
+                    initialLessons.Insert(firstIndex + 1, lessonTitleSecond + "-Exercise");
+                    initialLessons.RemoveAt(secondIndex + 1);
+                }
+
+                initialLessons.Insert(secondIndex + 1, lessonTitleFirst + "-Exercise");
+            }
+            else if (initialLessons.Contains(lessonTitleSecond + "-Exercise"))
+            {
+                initialLessons.RemoveAt(secondIndex + 1);
+
+                if (initialLessons.Contains(lessonTitleFirst + "-Exercise"))
+                {
+                    initialLessons.Insert(secondIndex + 1, lessonTitleFirst + "-Exercise");
+                    initialLessons.RemoveAt(firstIndex + 1);
+                }
+
+                initialLessons.Insert(firstIndex + 1, lessonTitleSecond + "-Exercise");
+            }
+           
             return initialLessons;
         }
 
         static List<string> AddExerciseLesson(List<string> initialLessons, string lessonTitle)
         {
             int indexOfLesson = initialLessons.IndexOf(lessonTitle);
-            string AddingExercise = lessonTitle + "-Exercise";
-            initialLessons.Insert(indexOfLesson + 1, AddingExercise);
+            string addingExercise = lessonTitle + "-Exercise";
+            initialLessons.Insert(indexOfLesson + 1, addingExercise);
 
             return initialLessons;
 
@@ -136,7 +174,11 @@ namespace SoftUniCoursePlanning
 
         static List<string> AddLessonAndExercise(List<string> initialLessons, string lessonTitle)
         {
+            initialLessons.Add(lessonTitle);
+            string addingExercise = lessonTitle + "-Exercise";
+            initialLessons.Add(addingExercise);
 
+            return initialLessons;
         }
     }
 }
