@@ -7,8 +7,6 @@ namespace RandomizeWords
     {
         static void Main(string[] args)
         {
-         
-
             string sequence = Console.ReadLine();
             string[] arrayOfWords = sequence
                 .Split()
@@ -18,8 +16,17 @@ namespace RandomizeWords
           
             for (int i = 0; i < arrayOfWords.Length; i++)
             {
-                int randomNum = randomize.Next(i, arrayOfWords.Length);
-                Console.WriteLine(arrayOfWords[randomNum]);
+                int randomNum = randomize.Next(0, arrayOfWords.Length);
+
+                string tempWord = arrayOfWords[i];
+
+                arrayOfWords[i] = arrayOfWords[randomNum];
+                arrayOfWords[randomNum] = tempWord; 
+            }
+
+            foreach (string word in arrayOfWords)
+            {
+                Console.WriteLine(word);
             }
         }
     }
