@@ -27,16 +27,14 @@ namespace Students
                     commandToInformationArray[1], int.Parse(commandToInformationArray[2]),
                     commandToInformationArray[3]);
 
-                students.Add(student);
-
-                command = Console.ReadLine();                   
+                students.Add(student);                               
             }
 
-            command = Console.ReadLine();
+            string homeTownCity = Console.ReadLine();
 
             foreach (Students student in students)
             {
-                if (student.HomeTown == command)
+                if (student.HomeTown == homeTownCity)
                 {
                     Console.WriteLine($"{student.FirstName} {student.LastName} is" +
                         $" {student.age} years old.");
