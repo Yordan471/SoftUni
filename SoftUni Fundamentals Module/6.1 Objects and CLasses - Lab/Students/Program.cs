@@ -23,11 +23,34 @@ namespace Students
                     .Split(' ')
                     .ToArray();
 
-                Students student = new Students(commandToInformationArray[0],
-                    commandToInformationArray[1], int.Parse(commandToInformationArray[2]),
-                    commandToInformationArray[3]);
+                string firstName = commandToInformationArray[0];
+                string lastName = commandToInformationArray[1];
+                int age = int.Parse(commandToInformationArray[2]);
+                string homeTown = commandToInformationArray[3];
 
-                students.Add(student);                               
+                if (StudentExists(students, firstName, lastName))
+                {
+                    Students student = GetStudent(students, firstName, lastName);
+
+                    student.FirstName = firstName;
+                    student.LastName = lastName;
+                    student.Age = age;
+                    student.HomeTown = homeTown;
+                }
+                else
+                {
+                    Students student = new Students()
+                    {
+                        FirstName = firstName,
+                        LastName = lastName,
+                        Age = age,
+                        HomeTown = homeTown
+                    };
+
+                    students.Add(student);
+                }
+
+                command = Console.ReadLine();
             }
 
             string homeTownCity = Console.ReadLine();
@@ -37,28 +60,49 @@ namespace Students
                 if (student.HomeTown == homeTownCity)
                 {
                     Console.WriteLine($"{student.FirstName} {student.LastName} is" +
-                        $" {student.age} years old.");
+                        $" {student.Age} years old.");
                 }
             }         
+        }
+
+        static bool StudentExists(List<Students> students, string firstName, string lastName)
+        {
+            foreach (Students student in students)
+            {
+                if (student.FirstName == firstName && student.LastName == lastName)
+                {
+                    return true;
+                }
+            }
+      
+            return false;
+        }
+
+        static Students GetStudent(List<Students> students, string firstName, string lastName)
+        {
+            Students existingStudent = null;
+
+            foreach (Students student in students)
+            {
+                if (student.FirstName == firstName && student.LastName == lastName)
+                {
+                    existingStudent = student;
+                }
+            }
+
+            return existingStudent;
         }
     }
 
     class Students
     {
-        public Students(string firstName, string lastName, int age, string homeTown)
-        {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.age = age;
-            this.HomeTown = homeTown;
-        }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }    
 
-        public int age { get; set; }    
+        public int Age { get; set; }    
 
-        public string HomeTown { get; set; }    
+        public string HomeTown { get; set; }
+
     }
 }
