@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBiscuitFactory", "TheBis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiendListMaintenance", "FiendListMaintenance\FiendListMaintenance.csproj", "{D9498706-E580-411F-81EE-031BF4F6174D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolLibary", "SchoolLibary\SchoolLibary.csproj", "{B19A4216-AB45-4B27-978A-53167D4281A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D9498706-E580-411F-81EE-031BF4F6174D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9498706-E580-411F-81EE-031BF4F6174D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9498706-E580-411F-81EE-031BF4F6174D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19A4216-AB45-4B27-978A-53167D4281A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19A4216-AB45-4B27-978A-53167D4281A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19A4216-AB45-4B27-978A-53167D4281A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19A4216-AB45-4B27-978A-53167D4281A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
