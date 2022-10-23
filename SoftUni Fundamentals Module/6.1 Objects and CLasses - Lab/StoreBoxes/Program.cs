@@ -49,8 +49,8 @@ namespace StoreBoxes
             foreach (Box box in orderBoxes)
             {
                 Console.WriteLine($"{box.SerialNumber}");
-                Console.WriteLine($"-- {box.Item.Name} - {box.Item.Price}: {box.ItemQuantity}");
-                Console.WriteLine($"{box.PriceForABox:f2}");
+                Console.WriteLine($"-- {box.Item.Name} - ${box.Item.Price:f2}: {box.ItemQuantity}");
+                Console.WriteLine($"-- ${box.PriceForABox:f2}");
             }
         }
     }
