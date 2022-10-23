@@ -34,12 +34,12 @@ namespace TheBiscuitFactory
             
             if (producedBiscuitsForMonth > numberOfBiscutsCompFactory)
             {
-                Console.WriteLine($"You produce {prcntgDiff:f2}% percent more biscuits.");
+                Console.WriteLine($"You produce {prcntgDiff:f2} percent more biscuits.");
             }
             else if (producedBiscuitsForMonth < numberOfBiscutsCompFactory)
             {
                 productionDiff = Math.Abs(productionDiff);
-                Console.WriteLine($"You produce {prcntgDiff:f2}% percent less biscuits.");
+                Console.WriteLine($"You produce {prcntgDiff:f2} percent less biscuits.");
             }
         }
                     
