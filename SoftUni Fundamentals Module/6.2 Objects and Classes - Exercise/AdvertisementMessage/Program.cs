@@ -6,7 +6,7 @@ namespace AdvertisementMessage
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
