@@ -39,10 +39,7 @@ namespace Students
             this.LastName = lastName;
             this.Grade = grade;
         }
-        public Students()
-        {
 
-        }
 
         public string FirstName { get; set; }
 
@@ -50,7 +47,7 @@ namespace Students
 
         public string Grade { get; set; }
 
-        public override string ToString() => $"{FirstName} {LastName} {Grade}";
+        public override string ToString() => $"{FirstName} {LastName}: {Grade}";
 
         public List<Students> students { get; set; }
     }
