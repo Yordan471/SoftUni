@@ -68,12 +68,21 @@ namespace VehicleCatalogue
             List<Vehicle> trucks = vehicles.Where(vehicle => vehicle.Type ==
                VehicleType.Truck).ToList();
 
-            //double sumCarsHorsepower = cars.Sum(car => car.Horsepower) / cars.Count * 1.0;
-            double avrgCarsHorsepower = cars.Average(car => car.Horsepower);
+            double avrgCarsHorsepower = 0.00;
+
+            if (cars.Count > 0)
+            {
+                avrgCarsHorsepower = cars.Average(car => car.Horsepower);
+            }
             Console.WriteLine($"Cars have average horsepower of: {avrgCarsHorsepower:f2}.");
 
-            double avrgTrucksHorsepower = trucks.Average(truck => truck.Horsepower);
-            Console.WriteLine($"Trucks have average horsepower of: {avrgTrucksHorsepower:f2}.");
+            double avrgTruckHorsepwoer = 0.00;
+
+            if (trucks.Count > 0)
+            {
+                avrgTruckHorsepwoer = trucks.Average(truck => truck.Horsepower);
+            }          
+            Console.WriteLine($"Trucks have average horsepower of: {avrgTruckHorsepwoer:f2}.");
         }
     }
 
