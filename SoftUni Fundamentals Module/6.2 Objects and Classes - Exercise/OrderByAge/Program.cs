@@ -25,7 +25,7 @@ namespace OrderByAge
                     .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
                 Identification identity = new Identification(idInformation[0],
-                    idInformation[1], idInformation[2]);
+                    idInformation[1], int.Parse(idInformation[2]));
 
                 identities.Add(identity);
 
@@ -41,7 +41,7 @@ namespace OrderByAge
 
     class Identification
     {
-        public Identification(string name, string iD, string age)
+        public Identification(string name, string iD, int age)
         {
             Name = name;
             ID = iD;
@@ -52,7 +52,7 @@ namespace OrderByAge
 
         public string ID { get; set; }  
 
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         public override string ToString() => $"{Name} with ID: {ID} is {Age} years old.";
         
