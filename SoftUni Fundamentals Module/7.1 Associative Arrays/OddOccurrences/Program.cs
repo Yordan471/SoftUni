@@ -18,23 +18,36 @@ namespace OddOccurrences
 
             AddingToDictionary(sequenceOfElements, keyValuePairs);
 
-            List<string> oddByOccurrences = new List<string>();
+            // List<string> oddByOccurrences = new List<string>();
 
-            OddOccurrencesElements(keyValuePairs, oddByOccurrences);
+            PrintOddKeyOccurrences(keyValuePairs);
 
-            Console.WriteLine(string.Join(" ", oddByOccurrences));
+            //  OddOccurrencesElements(keyValuePairs, oddByOccurrences);
+
+            //  Console.WriteLine(string.Join(" ", oddByOccurrences));
         }
 
-        private static void OddOccurrencesElements(Dictionary<string, int> keyValuePairs, List<string> oddByOccurrences)
+        private static void PrintOddKeyOccurrences(Dictionary<string, int> keyValuePairs)
         {
-            foreach (KeyValuePair<string, int> keyValue in keyValuePairs)
+            foreach (KeyValuePair<string, int> keyValuePair in keyValuePairs)
             {
-                if (keyValue.Value % 2 != 0)
+                if (keyValuePair.Value % 2 != 0)
                 {
-                    oddByOccurrences.Add(keyValue.Key.ToLower());
+                    Console.Write(keyValuePair.Key + " ");
                 }
             }
         }
+
+        //   private static void OddOccurrencesElements(Dictionary<string, int> keyValuePairs, List<string> oddByOccurrences)
+        //   {
+        //       foreach (KeyValuePair<string, int> keyValue in keyValuePairs)
+        //       {
+        //           if (keyValue.Value % 2 != 0)
+        //           {
+        //               oddByOccurrences.Add(keyValue.Key.ToLower());
+        //           }
+        //       }
+        //   }
 
         private static void AddingToDictionary(string[] sequenceOfElements, Dictionary<string, int> keyValuePairs)
         {
