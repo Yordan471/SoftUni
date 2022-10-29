@@ -10,26 +10,26 @@ namespace WordSynonyms
         {
             int numberOfPairs = int.Parse(Console.ReadLine());
 
-            Dictionary<string, string> wordsAndSynonyms = new Dictionary<string, string>();
+            Dictionary<string, List<string>> wordsAndSynonyms = new Dictionary<string, List<string>>();
 
             for (int i = 0; i < numberOfPairs; i++)
             {
                 string word = Console.ReadLine();
                 string synonym = Console.ReadLine();
 
-                if (wordsAndSynonyms.ContainsKey(word))
+                if (!wordsAndSynonyms.ContainsKey(word))
                 {
-                    wordsAndSynonyms[word] += ", " + synonym;
+                    wordsAndSynonyms.Add(word, new List<string>());
                 }
-                else
-                {
-                    wordsAndSynonyms.Add(word, synonym);
-                }              
+
+                wordsAndSynonyms[word].Add(synonym);
             }
 
             foreach (var word in wordsAndSynonyms)
             {
-                Console.WriteLine($"{word.Key} - {word.Value}");
+                List <string> synonyms = new List<string>(word.Value);
+
+                Console.WriteLine($"{word.Key} - {string.Join(", ", synonyms)}");
             }
         }
     }
