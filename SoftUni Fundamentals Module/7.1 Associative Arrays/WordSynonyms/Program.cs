@@ -27,9 +27,9 @@ namespace WordSynonyms
 
             foreach (var word in wordsAndSynonyms)
             {
-                List <string> synonyms = new List<string>(word.Value);
+                //List <string> synonyms = new List<string>(word.Value);
 
-                Console.WriteLine($"{word.Key} - {string.Join(", ", synonyms)}");
+                Console.WriteLine($"{word.Key} - {string.Join(", ", word.Value)}");
             }
         }
     }

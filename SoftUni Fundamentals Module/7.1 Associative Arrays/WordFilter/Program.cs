@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace WordFilter
 {
@@ -6,7 +7,12 @@ namespace WordFilter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string[] words = Console.ReadLine()
+                .Split()
+                .ToArray();
+
+            Console.WriteLine(string.Join(Environment.NewLine,
+                words.Where(word => word.Length % 2 == 0)));
         }
     }
 }
