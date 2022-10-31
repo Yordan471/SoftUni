@@ -9,8 +9,8 @@ namespace Judge
         {
             string inputInfo = string.Empty;
 
-            Dictionary<string, Dictionary<string, List<int>>> contestNameAndPoints =
-                    new Dictionary<string, Dictionary<string, List<int>>>();
+            Dictionary<string, Dictionary<string, int>> contestNameAndPoints =
+                    new Dictionary<string, Dictionary<string, int>>();
 
             while ((inputInfo = Console.ReadLine()) != "no more time")
             {
@@ -21,7 +21,37 @@ namespace Judge
                 string contest = inputInfoArray[1];
                 int points = int.Parse(inputInfoArray[2]);
 
+                if (!contestNameAndPoints.ContainsKey(contest))
+                {
+                    contestNameAndPoints.Add(contest, new Dictionary<string, int>());
 
+                    if (!contestNameAndPoints[contest].ContainsKey(userName))
+                    {
+                        contestNameAndPoints[contest][userName] = points;        
+                    }
+                    else
+                    {
+                        if (!(contestNameAndPoints[contest][userName] < points))
+                        {
+                            contestNameAndPoints[contest][userName] = points;
+                        }
+                    }
+                }
+                else
+                {                  
+                    if (!contestNameAndPoints[contest].ContainsKey(userName))
+                    {
+                        contestNameAndPoints[contest][userName] = points;
+                    }
+                    else
+                    {
+                        if (!(contestNameAndPoints[contest][userName] < points))
+                        {
+                            contestNameAndPoints[contest][userName] = points;
+                        }
+                    }
+                }
+                
             }
 
 
