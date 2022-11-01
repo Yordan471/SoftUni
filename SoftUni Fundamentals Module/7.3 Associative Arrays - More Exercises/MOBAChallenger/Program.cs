@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MOBAChallenger
 {
@@ -6,7 +9,121 @@ namespace MOBAChallenger
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Dictionary<string, Dictionary<string, int>> playerPositionAndSKill =
+                new Dictionary<string, Dictionary<string, int>>();
+
+            string inputInfo = string.Empty;
+            string firstSeparator = " -> ";
+            string secondSeparator = " vs ";
+
+            while ((inputInfo = Console.ReadLine()) != "Season end")
+            {
+                string[] inputInfoToArray = null;
+                string addPlayer = string.Empty;
+                string position = string.Empty;
+                int skillPoints = 0;
+                string firstPlayer = string.Empty;
+                string secondPlayer = string.Empty; 
+
+                if (inputInfo.Contains(firstSeparator))
+                {
+                    inputInfoToArray = inputInfo
+                        .Split(firstSeparator, 
+                        StringSplitOptions.RemoveEmptyEntries );
+
+                    addPlayer = inputInfoToArray[0];
+                    position = inputInfoToArray[1];
+                    skillPoints = int.Parse(inputInfoToArray[2]);
+
+                    if (!playerPositionAndSKill.ContainsKey(addPlayer))
+                    {
+                        playerPositionAndSKill.Add(addPlayer, new Dictionary<string, int>());
+                        playerPositionAndSKill[addPlayer].Add(position, skillPoints);
+                    }
+                    else
+                    {
+                        if (!playerPositionAndSKill[addPlayer].ContainsKey(position))
+                        {
+                            playerPositionAndSKill[addPlayer].Add(position, skillPoints);
+                        }
+                        else
+                        {
+                            if (playerPositionAndSKill[addPlayer][position] < skillPoints)
+                            {
+                                playerPositionAndSKill[addPlayer][position] = skillPoints;
+                            }
+                        }
+                    }
+                }
+                else if (inputInfo.Contains(secondSeparator))
+                {
+                    inputInfoToArray = inputInfo
+                        .Split(secondSeparator,
+                        StringSplitOptions.RemoveEmptyEntries);
+
+                    firstPlayer = inputInfoToArray[0];
+                    secondPlayer = inputInfoToArray[1];
+
+                    if (playerPositionAndSKill.ContainsKey(firstPlayer) &&
+                        playerPositionAndSKill.ContainsKey(secondPlayer))
+                    {
+                        bool toBreak = false;
+
+                        foreach (var first in playerPositionAndSKill[firstPlayer])
+                        {
+                            foreach (var second in playerPositionAndSKill[secondPlayer])
+                            {
+                                if (first.Key == second.Key)
+                                {
+                                    if (playerPositionAndSKill[firstPlayer].Sum(x => x.Value) <
+                                        playerPositionAndSKill[secondPlayer].Sum(x => x.Value))
+                                    {
+                                        playerPositionAndSKill.Remove(firstPlayer);
+                                        toBreak = true;
+                                        break;
+                                    }
+                                    else if (playerPositionAndSKill[firstPlayer].Sum(x => x.Value) >
+                                        playerPositionAndSKill[secondPlayer].Sum(x => x.Value))
+                                    {
+                                        playerPositionAndSKill.Remove(secondPlayer);
+                                        toBreak = true;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            if (toBreak)
+                            {
+                                break;
+                            }
+                        }                                                      
+                    }
+                }       
+            }
+
+            Dictionary<string, Dictionary<string, int>> orderByPointsThenName =
+                    playerPositionAndSKill
+                    .OrderByDescending(x => x.Value.Values.Sum())
+                    .ThenBy(x => x.Key)
+                    .ToDictionary(x => x.Key, x => x.Value);
+
+            foreach (var player in orderByPointsThenName)
+            {
+                int totalSkillPoints = player.Value.Values.Sum();
+                Console.WriteLine($"{player.Key}: {totalSkillPoints} skill");
+
+                Dictionary<string, int> orderBySkillAndPosition =
+                    player.Value;
+                orderBySkillAndPosition = orderBySkillAndPosition
+                    .OrderByDescending(x => x.Value)
+                    .ThenBy(x => x.Key)
+                    .ToDictionary(x => x.Key, x => x.Value);
+
+                foreach (var skill in orderBySkillAndPosition)
+                {
+                    Console.WriteLine($"- {skill.Key} <::> {skill.Value}");
+                }
+            }
         }
     }
 }
