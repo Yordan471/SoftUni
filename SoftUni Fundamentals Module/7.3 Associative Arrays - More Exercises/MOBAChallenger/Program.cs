@@ -54,7 +54,8 @@ namespace MOBAChallenger
             PrintOutputInformation(orderByPointsThenName);
         }
 
-        private static void AddingPlayerOrUpdateInfo(Dictionary<string, Dictionary<string, int>> playerPositionAndSKill, string[] inputInfoToArray)
+        private static void AddingPlayerOrUpdateInfo(Dictionary<string, Dictionary<string, int>> playerPositionAndSKill, 
+            string[] inputInfoToArray)
         {
             string addPlayer = inputInfoToArray[0];
             string position = inputInfoToArray[1];
@@ -81,7 +82,8 @@ namespace MOBAChallenger
             }
         }
 
-        private static void PlayerVsPlayer(Dictionary<string, Dictionary<string, int>> playerPositionAndSKill, string firstPlayer, string secondPlayer)
+        private static void PlayerVsPlayer(Dictionary<string, Dictionary<string, int>> playerPositionAndSKill, 
+            string firstPlayer, string secondPlayer)
         {
             bool toBreak = false;
 
