@@ -11,15 +11,12 @@ namespace RepeatStrings
             string[] wordsToArray = words.Split();
             string result = string.Empty;
 
-            for (int i = 0; i < wordsToArray.Length; i++)
+            foreach (string word in wordsToArray)
             {
-                for (int r = 0; r < wordsToArray[i].Length; r++)
+                for (int r = 0; r < word.Length; r++)
                 {
-                    for (int j = 0; j < wordsToArray[i].Length; j++)
-                    {
-                        result += wordsToArray[i][j];
-                    }
-                }              
+                    result += word;
+                }
             }
 
             Console.WriteLine(result);
