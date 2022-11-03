@@ -8,16 +8,20 @@ namespace Substring
         {
             string wordToRemove = Console.ReadLine();
             string word = Console.ReadLine();
-            string result = string.Empty;
             int index = word.IndexOf(wordToRemove);
 
+            //while (word.Contains(wordToRemove))
+            //{          
+            //    word = word.Remove(index, wordToRemove.Length);
+            //    index = word.IndexOf(wordToRemove);
+            //}
+
             while (word.Contains(wordToRemove))
-            {          
-                word = word.Remove(index, wordToRemove.Length);
-                index = word.IndexOf(wordToRemove);
+            {
+                word = word.Replace(wordToRemove, String.Empty);
             }
 
-            Console.WriteLine(result);
+            Console.WriteLine(word);
         }
     }
 }
