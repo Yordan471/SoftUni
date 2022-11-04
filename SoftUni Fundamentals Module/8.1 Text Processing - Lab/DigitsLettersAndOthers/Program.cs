@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace DigitsLettersAndOthers
@@ -9,29 +10,13 @@ namespace DigitsLettersAndOthers
         {
             string input = Console.ReadLine();
 
-            char[] chars = input.ToCharArray();
+            char[] digits = input.Where(ch => char.IsDigit(ch)).ToArray();
+            char[] letters = input.Where(ch => char.IsLetter(ch)).ToArray();
+            char[] others = input.Where(ch => !char.IsLetterOrDigit(ch)).ToArray();
 
-            StringBuilder digits = new StringBuilder();
-            StringBuilder letters = new StringBuilder();
-            StringBuilder others = new StringBuilder();
-
-            foreach (char ch in chars)  
-            {
-                if (char.IsDigit(ch))
-                {
-                    digits.Append(ch);
-                }
-                else if (char.IsLetter(ch))
-                {
-                    letters.Append(ch);
-                }
-                else if (!char.IsLetterOrDigit(ch))
-                {
-                    others.Append(ch);
-                }
-            }
-
-            Console.WriteLine($"{digits}\n{letters}\n{others}");
+            Console.WriteLine(digits);
+            Console.WriteLine(letters);
+            Console.WriteLine(others);
         }
     }
 }
