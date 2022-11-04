@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepeatStrings", "RepeatStri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substring", "Substring\Substring.csproj", "{5D13E3DA-FDE4-4FA1-92A2-6AB445253EFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFiltering", "TextFiltering\TextFiltering.csproj", "{A39AB3BA-7D1E-4EC8-8C18-A134FA7290FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5D13E3DA-FDE4-4FA1-92A2-6AB445253EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D13E3DA-FDE4-4FA1-92A2-6AB445253EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D13E3DA-FDE4-4FA1-92A2-6AB445253EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39AB3BA-7D1E-4EC8-8C18-A134FA7290FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39AB3BA-7D1E-4EC8-8C18-A134FA7290FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39AB3BA-7D1E-4EC8-8C18-A134FA7290FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39AB3BA-7D1E-4EC8-8C18-A134FA7290FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
