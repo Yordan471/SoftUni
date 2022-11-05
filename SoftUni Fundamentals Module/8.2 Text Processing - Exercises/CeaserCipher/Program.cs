@@ -9,6 +9,7 @@ namespace CeaserCipher
         {
             char[] text = Console.ReadLine()
                 .ToCharArray();
+            string textToString = text.ToString();
 
             for (int i = 0; i < text.Length; i++)
             {
