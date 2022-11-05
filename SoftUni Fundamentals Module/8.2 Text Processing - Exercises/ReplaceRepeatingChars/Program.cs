@@ -30,6 +30,7 @@ namespace ReplaceRepeatingChars
 
                         if (j == letters.Length - 2)
                         {
+                            sequenceToRemove += letter;
                             letters = letters.Replace(sequenceToRemove, letter.ToString());
                             break;
                         }
