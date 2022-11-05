@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CeaserCipher
 {
@@ -6,7 +7,16 @@ namespace CeaserCipher
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            char[] text = Console.ReadLine()
+                .ToCharArray();
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                int number = text[i] + 3;
+                text[i] = (char)number;
+            }
+
+            Console.WriteLine(text);
         }
     }
 }
