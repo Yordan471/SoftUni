@@ -94,7 +94,7 @@ namespace Ranking
                 }
             }
 
-            Console.WriteLine("Ranking");
+            Console.WriteLine("Ranking:");
 
             foreach (var names in contestNameWithPoints)
             {
@@ -107,7 +107,7 @@ namespace Ranking
 
                 foreach (KeyValuePair<string, int> kvp in namePoints)
                 {
-                    Console.WriteLine($"# {kvp.Key} -> {kvp.Value}");
+                    Console.WriteLine($"#  {kvp.Key} -> {kvp.Value}");
                 }
             }
         }
