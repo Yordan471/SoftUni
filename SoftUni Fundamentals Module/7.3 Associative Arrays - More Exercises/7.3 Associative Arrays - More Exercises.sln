@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Judge", "Judge\Judge.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOBAChallenger", "MOBAChallenger\MOBAChallenger.csproj", "{657456A0-F71E-44A8-82C1-B96FF6564790}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowwhite", "Snowwhite\Snowwhite.csproj", "{FB9C61FB-1F0F-4321-8DE7-24B606161D69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snowwhite", "Snowwhite\Snowwhite.csproj", "{FB9C61FB-1F0F-4321-8DE7-24B606161D69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnowwhiteDiffSolution", "SnowwhiteDiffSolution\SnowwhiteDiffSolution.csproj", "{6A55964E-E983-4169-A114-11123DF9C506}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnowwhiteDiffSolution", "SnowwhiteDiffSolution\SnowwhiteDiffSolution.csproj", "{6A55964E-E983-4169-A114-11123DF9C506}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonArmy", "DragonArmy\DragonArmy.csproj", "{D1852FD6-29C1-4F9D-9808-21F48A8EB7DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6A55964E-E983-4169-A114-11123DF9C506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A55964E-E983-4169-A114-11123DF9C506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A55964E-E983-4169-A114-11123DF9C506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1852FD6-29C1-4F9D-9808-21F48A8EB7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1852FD6-29C1-4F9D-9808-21F48A8EB7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1852FD6-29C1-4F9D-9808-21F48A8EB7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1852FD6-29C1-4F9D-9808-21F48A8EB7DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

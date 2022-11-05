@@ -6,7 +6,7 @@ namespace DragonArmy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
