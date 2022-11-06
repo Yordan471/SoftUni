@@ -41,11 +41,7 @@ namespace MorseCodeTranslator
 
             string result = string.Empty;
             
-            var key = dic.ToDictionary(x => x.Value, x => x.Key);
-
             string inputMorseCode = Console.ReadLine();
-           // inputMorseCode = inputMorseCode.Replace(" ", "");
-           // inputMorseCode = inputMorseCode.Replace("|", " ");
             string[] morseCodeToArray = inputMorseCode
                 .Split("|");
 
