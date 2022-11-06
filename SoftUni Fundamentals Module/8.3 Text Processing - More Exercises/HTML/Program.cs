@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HTML
 {
@@ -8,24 +9,28 @@ namespace HTML
         {
             string article = Console.ReadLine();
 
-            Console.WriteLine($"<h1>");
-            Console.WriteLine($"    {article}");
-            Console.WriteLine("</h1>");
+            List<string> list = new List<string>();
+
+            list.Add($"<h1>");
+            list.Add($"    {article}");
+            list.Add("</h1>");
 
             string contentOfArticle = Console.ReadLine();
 
-            Console.WriteLine($"<article>");
-            Console.WriteLine($"    {contentOfArticle}");
-            Console.WriteLine("</article>");
+            list.Add($"<article>");
+            list.Add($"    {contentOfArticle}");
+            list.Add("</article>");
 
             string comment = string.Empty;
 
             while ((comment = Console.ReadLine()) != "end of comments")
             {
-                Console.WriteLine($"<div>");
-                Console.WriteLine($"    {comment}");
-                Console.WriteLine("</div>");
+                list.Add($"<div>");
+                list.Add($"    {comment}");
+                list.Add("</div>");
             }
+
+            Console.WriteLine(string.Join(Environment.NewLine, list));
         }
     }
 }
