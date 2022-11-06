@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplyBigNumber", "Multip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceRepeatingChars", "ReplaceRepeatingChars\ReplaceRepeatingChars.csproj", "{A3FF3A0A-DA38-4131-B371-148FFFE8C139}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringExplosion", "StringExplosion\StringExplosion.csproj", "{5345D948-A8E4-4789-9998-5FAF7224A42E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{A3FF3A0A-DA38-4131-B371-148FFFE8C139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3FF3A0A-DA38-4131-B371-148FFFE8C139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3FF3A0A-DA38-4131-B371-148FFFE8C139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5345D948-A8E4-4789-9998-5FAF7224A42E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5345D948-A8E4-4789-9998-5FAF7224A42E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5345D948-A8E4-4789-9998-5FAF7224A42E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5345D948-A8E4-4789-9998-5FAF7224A42E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
