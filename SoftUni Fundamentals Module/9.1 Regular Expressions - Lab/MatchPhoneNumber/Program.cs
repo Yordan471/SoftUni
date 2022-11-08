@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MatchPhoneNumber
 {
@@ -6,7 +8,18 @@ namespace MatchPhoneNumber
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string pattern = @"\+359([ \-])2\1[0-9]{3}\1[0-9]{4}\b";
+
+            string phoneNumbers = Console.ReadLine();
+
+            MatchCollection phoneMatches = Regex.Matches(phoneNumbers, pattern);
+
+            string[] matchedPhones = phoneMatches
+                .Cast<Match>()
+                .Select(x => x.Value.Trim())
+                .ToArray();
+
+            Console.WriteLine(string.Join(", ", matchedPhones));
         }
     }
 }
