@@ -20,9 +20,7 @@ namespace MatchDates
                 string year = match.Groups["year"].Value;
 
                 Console.WriteLine($"Day: {day}, Month: {month}, Year: {year}");
-            }
-
-            
+            }        
         }
     }
 }
