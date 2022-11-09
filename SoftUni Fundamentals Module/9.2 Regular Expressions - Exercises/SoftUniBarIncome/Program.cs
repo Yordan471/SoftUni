@@ -6,7 +6,8 @@ namespace SoftUniBarIncome
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string pattern = @"(\w+)?%[A-Z][a-z]+\1?%\1?<\1?[A-Z][a-z]+\1?>([a-z]+)?\|\1?[0-9]+\1?\|\2?[0-9]+(\.[0-9]+)?\$";
+
         }
     }
 }

@@ -65,19 +65,19 @@ namespace Race
                     if (names[i] == pair.Key)
                     {
                         count++;
+
                         if (count == 1)
                         {
                             Console.WriteLine($"{count}st place: {pair.Key}");
                         }
-                        else if(count == 2)
+                        else if (count == 2)
                         {
                             Console.WriteLine($"{count}nd place: {pair.Key}");
                         }
                         else
                         {
                             Console.WriteLine($"{count}rd place: {pair.Key}");
-                        }
-                        
+                        }                     
                     }
                 }   
 
