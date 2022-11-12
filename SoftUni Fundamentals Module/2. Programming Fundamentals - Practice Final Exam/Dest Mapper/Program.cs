@@ -9,7 +9,7 @@ namespace Dest_Mapper
     {
         static void Main(string[] args)
         {
-            string pattern = @"([=\/]{1})(?<location>[A-Z][a-z]{2,})\1";
+            string pattern = @"([=\/]{1})(?<location>[A-Z][A-Za-z]{2,})\1";
 
             string inputInfo = Console.ReadLine();
             List<string> matchList = new List<string>();
@@ -39,8 +39,7 @@ namespace Dest_Mapper
                 Console.WriteLine("Destinations:");
             }
 
-            Console.WriteLine();
-            Console.WriteLine($"Travel points: {travelPoints}");
+            Console.WriteLine($"Travel Points: {travelPoints}");
         }
     }
 }
