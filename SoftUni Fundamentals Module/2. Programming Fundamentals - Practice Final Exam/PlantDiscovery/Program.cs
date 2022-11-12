@@ -101,7 +101,7 @@ namespace PlantDiscovery
                         avrgSum = plantRating[plant.Key].Average();
                     }
 
-                    Console.WriteLine($"{plant.Key}; Rarity: {plant.Value}; Rating: {avrgSum:F2}");                                
+                    Console.WriteLine($"- {plant.Key}; Rarity: {plant.Value}; Rating: {avrgSum:F2}");                                
             }
         }
     }
