@@ -27,24 +27,27 @@ namespace World_Tour
                     int index = int.Parse(commandToArray[1]);
                     string substring = commandToArray[2];
 
-                    if (index >= 0 && index <= tourStops.Length)
+                    if (index >= 0 && index <= tourStops.Length - 1)
                     {
                         tourStops = tourStops.Insert(index, substring);
-                        Console.WriteLine(tourStops);
-                    }         
+                    }
+
+                    Console.WriteLine(tourStops);
                 }
                 else if (operation == "Remove Stop")
                 {
                     int startIndex = int.Parse(commandToArray[1]);
                     int endIndex = int.Parse(commandToArray[2]);
 
-                    if ((startIndex >= 0 && startIndex <= tourStops.Length) &&
-                        (endIndex >= 0 && endIndex <= tourStops.Length))
+                    if ((startIndex >= 0 && startIndex <= tourStops.Length - 1) &&
+                        (endIndex >= 0 && endIndex <= tourStops.Length - 1))
                     {
                         int length = endIndex - startIndex;
                         tourStops = tourStops.Remove(startIndex, length + 1);
-                        Console.WriteLine(tourStops);
+                        
                     }
+
+                    Console.WriteLine(tourStops);
                 }
                 else
                 {
@@ -58,9 +61,9 @@ namespace World_Tour
                     if (inputToArray.Contains(oldString))
                     {
                         tourStops = tourStops.Replace(oldString, newString);
-                        Console.WriteLine(tourStops);
                     }
-    
+
+                    Console.WriteLine(tourStops);
                 }
             }
 
