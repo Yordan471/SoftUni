@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -43,7 +42,7 @@ namespace StarEnigma
                 decryptedMessage.Clear();
             }
 
-            string pattern = @"@(?<planet>[A-Z][a-z]+)\d?:(?<planetPopulation>\d+)!(?<attackType>[A-Z])!->(?<soldierCount>\d+)";
+            string pattern = @"@(?<planet>[A-Z][a-z]+)\d?([^@\-!:>])*:(?<planetPopulation>\d+)([^@\-!:>])*!(?<attackType>[A-Z])!([^@\-!:>])*->(?<soldierCount>\d+)";
 
             Regex regex = new Regex(pattern);
             Dictionary<string, List<string>> nameAndAttackType = new Dictionary<string, List<string>>();
@@ -71,21 +70,31 @@ namespace StarEnigma
                 Console.WriteLine($"Attacked planets: 0");
             }
 
-            foreach (KeyValuePair<string, List<string>> name in nameAndAttackType.OrderBy(x => x.Key).ThenBy(x => x.Value))
+            if (nameAndAttackType.ContainsKey("A") || nameAndAttackType.ContainsKey("D"))
             {
-                if (name.Key == "A")
+                foreach (KeyValuePair<string, List<string>> name in nameAndAttackType.OrderBy(x => x.Key).ThenBy(x => x.Value))
                 {
-                    Console.WriteLine($"Attacked planets: {name.Value.Count()}");
+                    if (name.Key == "A")
+                    {
+                        Console.WriteLine($"Attacked planets: {name.Value.Count()}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Destroyed planets: {name.Value.Count()}");
+                    }
+
+                    name.Value.Sort();
+
+                    foreach (string value in name.Value)
+                    {
+                        Console.WriteLine($"-> {value}");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine($"Destroyed planets: {name.Value.Count()}");
-                }
-                name.Value.Sort();
-                foreach (string value in name.Value)
-                {
-                    Console.WriteLine($"-> {value}");
-                }
+            }
+         
+            if (!nameAndAttackType.ContainsKey("D"))
+            {
+                Console.WriteLine($"Destroyed planets: 0");
             }
         }
     }
