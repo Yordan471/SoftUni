@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Imitation Game", "The I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ad Astra", "Ad Astra\Ad Astra.csproj", "{0D33276A-992D-4175-8985-E86CC01C9901}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Pianist", "The Pianist\The Pianist.csproj", "{D1BCE28D-59E6-4755-AB85-E0DF061399FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0D33276A-992D-4175-8985-E86CC01C9901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D33276A-992D-4175-8985-E86CC01C9901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D33276A-992D-4175-8985-E86CC01C9901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BCE28D-59E6-4755-AB85-E0DF061399FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BCE28D-59E6-4755-AB85-E0DF061399FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BCE28D-59E6-4755-AB85-E0DF061399FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BCE28D-59E6-4755-AB85-E0DF061399FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
