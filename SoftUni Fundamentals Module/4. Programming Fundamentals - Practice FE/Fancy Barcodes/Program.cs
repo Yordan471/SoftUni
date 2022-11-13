@@ -51,7 +51,6 @@ namespace Fancy_Barcodes
                     productGroup.Add("Invalid barcode");
                 }
             }
-
             
             Console.WriteLine(string.Join(Environment.NewLine, productGroup));
         }
