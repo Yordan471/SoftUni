@@ -48,13 +48,13 @@ namespace Secret_Chat
                         }
 
                         encryptedMessage += reversed;
+
+                        Console.WriteLine(encryptedMessage);
                     }
                     else
                     {
                         Console.WriteLine("error");
-                    }
-
-                    Console.WriteLine(encryptedMessage);
+                    }                   
                 }
                 else if (operation == "ChangeAll")
                 {
@@ -75,7 +75,7 @@ namespace Secret_Chat
                 }
             }
 
-            Console.WriteLine($"You have a new message: {encryptedMessage}");
+            Console.WriteLine($"You have a new text message: {encryptedMessage}");
         }
     }
 }
