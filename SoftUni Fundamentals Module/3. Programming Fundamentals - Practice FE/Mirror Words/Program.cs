@@ -41,7 +41,15 @@ namespace Mirror_Words
                 }
             }
 
-            Console.WriteLine($"{counter} word pairs found!");
+            if (counter > 0)
+            {
+                Console.WriteLine($"{counter} word pairs found!");
+            }
+            else
+            {
+                Console.WriteLine($"No word pairs found!");
+            }
+            
 
             if (mirrorWords.Count > 0 )
             {
