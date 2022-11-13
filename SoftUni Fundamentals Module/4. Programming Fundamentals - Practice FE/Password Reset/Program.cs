@@ -51,7 +51,7 @@ namespace Password_Reset
                     }
                     else
                     {
-                        Console.WriteLine("Nothing to replace");
+                        Console.WriteLine("Nothing to replace!");
                     }
                 }                   
             }
