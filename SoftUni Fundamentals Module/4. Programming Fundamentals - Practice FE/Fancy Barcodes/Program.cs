@@ -10,7 +10,7 @@ namespace Fancy_Barcodes
         {
             int number = int.Parse(Console.ReadLine());
 
-            string pattern = @"@#+(?<product>[A-Za-z0-9]+[A-Z])@#+";
+            string pattern = @"@#+(?<product>[A-Z][A-Za-z0-9]{4,}[A-Z])@#+";
 
             Regex regex= new Regex(pattern);
             List<string> productGroup = new List<string>();
