@@ -99,8 +99,6 @@ namespace Need_For_Speed_3
                 }
             }
 
-            //"{car} -> Mileage: {mileage} kms, Fuel in the tank: {fuel} lt."
-
             foreach (var carDistance in carAndDistance)
             {
                 foreach (var carFuel in carAndFuel)

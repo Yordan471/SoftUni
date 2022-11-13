@@ -35,7 +35,7 @@ namespace Secret_Chat
                     {
                         int index = encryptedMessage.IndexOf(substring);
 
-                        encryptedMessage = encryptedMessage.Replace(substring, string.Empty);
+                        encryptedMessage = encryptedMessage.Remove(index, substring.Length);
                         
                         char[] chars = substring.ToCharArray();
                         Array.Reverse(chars);
@@ -44,7 +44,7 @@ namespace Secret_Chat
 
                         foreach (char ch in chars)
                         {
-                            reversed+= ch;  
+                            reversed += ch;  
                         }
 
                         encryptedMessage += reversed;
