@@ -6,7 +6,7 @@ namespace Activation_Keys
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
