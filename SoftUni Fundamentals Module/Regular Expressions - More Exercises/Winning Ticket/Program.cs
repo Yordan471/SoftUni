@@ -8,24 +8,55 @@ namespace Winning_Ticket
     {
         static void Main(string[] args)
         {
-            string pattern = @"(?<ticket>[!-+\--~]+)([, ]+)?";
+            string[] ticketsArray = Console.ReadLine()
+                .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            string tickets = Console.ReadLine();
+            string regexPattern = @"(\@{6,}|\${6,}|\^{6,}|\#{6,})";
 
-            MatchCollection matches = Regex.Matches(tickets, pattern);
-            List<string> result = new List<string>();
+            Regex regex = new Regex(regexPattern);
 
-            foreach (Match match in matches)
+            for (int i = 0; i < ticketsArray.Length; i++)
             {
-                if (match.Success)
+                if (ticketsArray[i].Length == 20)
                 {
-                    char[] chars = match.Groups["ticket"].Value.ToCharArray();
+                    Match leftHalf = regex.Match(ticketsArray[i].Substring(0, 10));
+                    Match rightHalf = regex.Match(ticketsArray[i].Substring(10));
+                    int minLength = Math.Min(leftHalf.Length, rightHalf.Length);
 
-                    for (int i = 0; i < chars.Length; i++)
+                    if (leftHalf.Success && rightHalf.Success)
                     {
-                        if (c)
+                        string winLeftHalf = leftHalf.Value.Substring(0, minLength);
+                        string winRightHalf = rightHalf.Value.Substring(0, minLength);
+
+                        if (winLeftHalf == winRightHalf)
+                        {
+                            if (winLeftHalf.Length == 10)
+                            {
+                                Console.WriteLine($"ticket \"{ticketsArray[i]}\" - " +
+                                    $"{minLength}{winLeftHalf.Substring(0, 1)} Jackpot!");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"ticket \"{ticketsArray[i]}\" - " +
+                                    $"{minLength}{winLeftHalf.Substring(0, 1)}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"ticket \"{ticketsArray[i]}\" - " +
+                                $"no match");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"ticket \"{ticketsArray[i]}\" - " +
+                                $"no match");
                     }
                 }
+                else
+                {
+                    Console.WriteLine("invalid ticket");
+                }               
             }
         }
     }
