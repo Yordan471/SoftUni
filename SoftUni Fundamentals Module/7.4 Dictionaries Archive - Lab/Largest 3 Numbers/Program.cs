@@ -6,7 +6,7 @@ namespace Largest_3_Numbers
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
