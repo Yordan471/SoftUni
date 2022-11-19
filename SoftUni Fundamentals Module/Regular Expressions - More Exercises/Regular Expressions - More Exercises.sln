@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rage Quit", "Rage Quit\Rage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post Office", "Post Office\Post Office.csproj", "{EA8DA63A-FDCA-4FF7-A250-C8E1293614F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santa's Little Helper", "Santa's Little Helper\Santa's Little Helper.csproj", "{4E51877F-52D0-40FF-AEBE-C88597AC5F76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EA8DA63A-FDCA-4FF7-A250-C8E1293614F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA8DA63A-FDCA-4FF7-A250-C8E1293614F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA8DA63A-FDCA-4FF7-A250-C8E1293614F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E51877F-52D0-40FF-AEBE-C88597AC5F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E51877F-52D0-40FF-AEBE-C88597AC5F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E51877F-52D0-40FF-AEBE-C88597AC5F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E51877F-52D0-40FF-AEBE-C88597AC5F76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
