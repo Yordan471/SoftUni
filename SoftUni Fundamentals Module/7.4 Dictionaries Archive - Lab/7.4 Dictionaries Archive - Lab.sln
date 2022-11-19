@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Count Real Numbers", "Count Real Numbers\Count Real Numbers.csproj", "{C26E6249-F675-4303-A83F-6064A6E0192D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Min,Max,Sum,Avrg", "Min,Max,Sum,Avrg\Min,Max,Sum,Avrg.csproj", "{FF468601-2B77-42D7-9F18-B5A89BDE7379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C26E6249-F675-4303-A83F-6064A6E0192D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C26E6249-F675-4303-A83F-6064A6E0192D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C26E6249-F675-4303-A83F-6064A6E0192D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF468601-2B77-42D7-9F18-B5A89BDE7379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF468601-2B77-42D7-9F18-B5A89BDE7379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF468601-2B77-42D7-9F18-B5A89BDE7379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF468601-2B77-42D7-9F18-B5A89BDE7379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
