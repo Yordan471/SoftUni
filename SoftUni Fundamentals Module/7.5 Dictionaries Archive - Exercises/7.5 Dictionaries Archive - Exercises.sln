@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Phonebook\Phonebook.csproj", "{860C24F5-1377-4E23-8345-55878BB84F80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook Upgrade", "Phonebook Upgrade\Phonebook Upgrade.csproj", "{B7418D0E-3EA7-4639-8895-D45018FFD02B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{860C24F5-1377-4E23-8345-55878BB84F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{860C24F5-1377-4E23-8345-55878BB84F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{860C24F5-1377-4E23-8345-55878BB84F80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7418D0E-3EA7-4639-8895-D45018FFD02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7418D0E-3EA7-4639-8895-D45018FFD02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7418D0E-3EA7-4639-8895-D45018FFD02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7418D0E-3EA7-4639-8895-D45018FFD02B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
