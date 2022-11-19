@@ -6,7 +6,7 @@ namespace Fold_And_Sum
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
