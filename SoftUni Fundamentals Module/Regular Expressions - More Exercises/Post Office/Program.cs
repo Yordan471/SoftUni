@@ -32,7 +32,7 @@ namespace Post_Office
 
                 int wordLength = int.Parse(matchSecondWord.Groups["length"].Value);
 
-                string patternThirdWord = $@"(?<=\s|^){letter}[^\s]{wordLength}(?=\s|$)";
+                string patternThirdWord = $@"(?<=\s|^){letter}[^\s]{{{wordLength}}}(?=\s|$)";
                 Regex regexThirdWord = new Regex(patternThirdWord);
                 Match matchThirdWord = regexThirdWord.Match(thirdWord);
 
