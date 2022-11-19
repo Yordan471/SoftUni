@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Rage_Quit
@@ -17,58 +18,28 @@ namespace Rage_Quit
 
             Regex regex = new Regex(pattern);
 
-            int countUniqueSymbols = 0;
+            MatchCollection matches = regex.Matches(inputInfo);
 
-            string toLowerInput = inputInfo.ToLower();
-            char[] inputToCharArray = toLowerInput.ToCharArray();
+            StringBuilder outputInfo = new StringBuilder();
 
-            for (int i = 0; i < inputInfo.Length; i++)
+            foreach (Match match in matches)
             {
-                bool isEqual = false;
+                string letters = match.Groups["string"].Value;
+                int number = int.Parse(match.Groups["digit"].Value);
 
-                for (int j = 0 + i + 1; j < inputInfo.Length; j++)
+                for (int i = 0; i < number; i++)
                 {
-                    if ((inputToCharArray[i] == inputToCharArray[j]) || (char.IsDigit(inputToCharArray[i])))
-                    {
-                        isEqual = true;
-                        break;
-                    }
-                }
-                
-                if (!isEqual)
-                {
-                    if (i == inputInfo.Length - 1)
-                    {
-                        break;
-                    }
-
-
-                        countUniqueSymbols++;
-                                    
+                    outputInfo.Append(letters);
                 }
             }
 
-            while (inputInfo.Length != 0)
-            {
-                Match stringPart = regex.Match(inputInfo);
+            int countSymbols = 0;
 
-                inputInfo = inputInfo.Remove(0, stringPart.Length);
+            string lettersToString = outputInfo.ToString().ToUpper();
+            countSymbols = lettersToString.Distinct().Count();
 
-                string toString = stringPart.Groups["string"].Value;
-                int toDigit = int.Parse(stringPart.Groups["digit"].Value);
-
-                stringAndDigit[toString] = toDigit;
-            }
-
-            Console.WriteLine($"Unique symbols used: {countUniqueSymbols}");
-            
-            foreach (var kvp in stringAndDigit)
-            {
-                for (int i = 0; i < kvp.Value; i++)
-                {
-                    Console.Write(kvp.Key.ToUpper());
-                }
-            }
+            Console.WriteLine($"Unique symbols used: {countSymbols}");
+            Console.WriteLine(lettersToString);
         }
     }
 }
