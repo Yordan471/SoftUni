@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Security;
 using System.Text.RegularExpressions;
@@ -10,60 +11,81 @@ namespace Nether_Realms
     {
         static void Main(string[] args)
         {
-            string patternDamage = @"[-+]?[0-9]+(.[0-9]+)?([*\/]+)?";
-            string patternNames = @"(?<name>[A-Za-z\d\-.*\/]+)([0, ]*)?\k<name>?";
+            string splitPattern = @"[,\s]+";
 
-            string demonNames = Console.ReadLine();
+            List<string> inputInfo = Regex
+                .Split(Console.ReadLine(), splitPattern)
+                .OrderBy(x => x)
+                .ToList();
 
             Dictionary <string, int> nameAndHealth = new Dictionary<string, int>();
-            Dictionary <string, int> nameAndDamage = new Dictionary<string, int>();
+            Dictionary <string, double> nameAndDamage = new Dictionary<string, double>();
 
-            Regex regexName = new Regex(patternNames);
+            string patternHealth = @"(?<character>[^\+\-\*\/,.0-9])"; 
+            Regex regexHealth = new Regex(patternHealth);
 
-            MatchCollection mathes = regexName.Matches(demonNames);
-
-            foreach (Match match in mathes)
-            {
-                nameAndHealth[match.Groups["name"].Value] = 0;
-                nameAndDamage[match.Groups["name"].Value] = 0;
-            }
-
-            int health = 0;
-            
-            foreach (var name in nameAndHealth)
-            {
-                char[] toChars = name.Key.ToCharArray();
-                health = 0;
-
-                for (int i = 0; i < toChars.Length; i++) 
-                { 
-                    if (char.IsLetter(toChars[i]))
-                    {
-                        int charater = toChars[i];
-                        health += charater;
-                    }                  
-                }
-
-                nameAndHealth[name.Key] = health;
-            }
-            
+            string patternDamage = @"(?<damage>-?\d+\.?\d*)";
             Regex regexDamage = new Regex(patternDamage);
 
+            string patternMultyDivide = @"(?<operator>[\/\*])";
+            Regex regexMultyDivide = new Regex(patternMultyDivide);
 
-            foreach (var name in nameAndDamage)
+            foreach (string input in inputInfo)
             {
-                MatchCollection matchesDigits = regexDamage.Matches(name.Key);
+                int sum = 0;
+                MatchCollection matchesHealth = regexHealth.Matches(input);
 
-                foreach (var match in matchesDigits)
+                foreach (Match match in matchesHealth)
                 {
-
+                    char letter = char.Parse(match.Groups["character"].Value);
+                    sum += (int)letter;                   
                 }
 
-
-
+                nameAndHealth[input] = sum;
             }
 
-            
+            foreach (string input in inputInfo)
+            {
+                double damage = 0.00;       
+
+                MatchCollection matchesDamage = regexDamage.Matches(input);
+
+                foreach (Match match in matchesDamage)
+                {
+                    double number = double.Parse(match.Groups["damage"].Value);
+                    damage += number;
+                }
+
+                MatchCollection matchesMD = regexMultyDivide.Matches(input);
+
+                foreach (Match match in matchesMD)
+                {
+                    char currOperator = char.Parse(match.Groups["operator"].Value);
+
+                    if (currOperator == '*')
+                    {
+                        damage *= 2;
+                    }
+                    else if (currOperator == '/')
+                    {
+                        damage /= 2;    
+                    }
+                }
+
+                nameAndDamage[input] = damage;
+            }
+
+            foreach (var nameHealth in nameAndHealth)
+            {
+                foreach (var nameDamage in nameAndDamage)
+                {
+                    if (nameHealth.Key == nameDamage.Key)
+                    {
+                        Console.WriteLine($"{nameHealth.Key} - {nameHealth.Value} health, {nameDamage.Value:f2} damage");
+                        break;
+                    }                    
+                }
+            }
         }
     }
 }
