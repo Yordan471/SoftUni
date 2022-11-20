@@ -40,37 +40,15 @@ namespace Hands_of_Cards
             {
                 cardsToList = name.Value
                     .Split(", ")
+                    .Distinct()
                     .ToList();
 
-                for (int i = 0; i < cardsToList.Count; i++)
-                {
-                    string card = cardsToList[i];
-                    bool removed = false;
-
-                    for (int j = i + 1; j < cardsToList.Count; j++)
-                    {
-                        if (card == cardsToList[j])
-                        {
-                            cardsToList.Remove(cardsToList[j]);
-                            j--;
-                            removed = true;
-                        }
-                    }
-
-                    if (removed)
-                    {
-                        i--;
-                    }
-                }
-
-                int value = 0;
+                int value = 0;               
 
                 for (int i = 0; i < cardsToList.Count; i++)
                 {
                     int firstDigit = 0;
                     int secondDigit = 0;
-
-                 
 
                     foreach (char ch in cardsToList[i])
                     {                      
