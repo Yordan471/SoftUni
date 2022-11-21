@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reverse String", "Reverse String\Reverse String.csproj", "{D46C685F-AA79-49D7-AD89-FE6BD0CE6E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Count Substring Occurrences", "Count Substring Occurrences\Count Substring Occurrences.csproj", "{EE37298E-37AD-4F14-9924-A0EA862139EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D46C685F-AA79-49D7-AD89-FE6BD0CE6E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D46C685F-AA79-49D7-AD89-FE6BD0CE6E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D46C685F-AA79-49D7-AD89-FE6BD0CE6E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE37298E-37AD-4F14-9924-A0EA862139EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE37298E-37AD-4F14-9924-A0EA862139EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE37298E-37AD-4F14-9924-A0EA862139EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE37298E-37AD-4F14-9924-A0EA862139EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
