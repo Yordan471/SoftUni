@@ -6,7 +6,7 @@ namespace Letters_Change_Numbers
     {
         static void Main(string[] args)
         {
-            
+            string inputInfo = Console.ReadLine();
         }
     }
 }
