@@ -48,11 +48,11 @@ namespace WebApplication1.Controllers
                 case "-":
                     result = $"{firstNumber - secondNumber}";
                     break;
-                case "* ":
-                    result = $"{firstNumber - secondNumber}";
+                case "*":
+                    result = $"{firstNumber * secondNumber}";
                     break;
                 case "/":
-                    result = $"{firstNumber - secondNumber}";
+                    result = $"{firstNumber / secondNumber}";
                     break;
                 default:
                     result = "Invalid operator";
