@@ -48,7 +48,7 @@ namespace WebApplication1.Controllers
                 case "-":
                     result = $"{firstNumber - secondNumber}";
                     break;
-                case "*":
+                case "* ":
                     result = $"{firstNumber - secondNumber}";
                     break;
                 case "/":
