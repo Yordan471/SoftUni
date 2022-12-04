@@ -57,6 +57,7 @@ namespace Degustation_Party
                     {
                         likeGuestAndMeal[guest].Remove(meal);
                         dislikedCounter++;
+
                         Console.WriteLine($"{guest} doesn't like the {meal}.");
                     }                            
                 }
