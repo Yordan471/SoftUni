@@ -72,7 +72,9 @@ namespace StarEnigma
 
             if (nameAndAttackType.ContainsKey("A") || nameAndAttackType.ContainsKey("D"))
             {
-                foreach (KeyValuePair<string, List<string>> name in nameAndAttackType.OrderBy(x => x.Key).ThenBy(x => x.Value))
+                foreach (KeyValuePair<string, List<string>> name in nameAndAttackType
+                    .OrderBy(x => x.Key)
+                    .ThenBy(x => x.Value))
                 {
                     if (name.Key == "A")
                     {
