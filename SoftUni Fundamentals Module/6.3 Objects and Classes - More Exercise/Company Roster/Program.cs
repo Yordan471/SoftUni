@@ -35,7 +35,7 @@ namespace Company_Roster
                 string dep = employee.Department;
                 decimal sumSalary = 0;
 
-                foreach (Employee department in employees.Distinct())
+                foreach (Employee department in employees)
                 {
                     if (department.Department == dep)
                     {
