@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Speed_Racing
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
 
         }
+    }
+
+    public class Car
+    {
+
     }
 }
