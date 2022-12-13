@@ -46,18 +46,5 @@ namespace Oldest_Family_Member
         public string Name { get; set; }
 
         public int Age { get; set; }
-
-
     }
-
-    public class Family
-    {
-
-
-        List<Family> people;
-
-        public Person Person { get; set; }
-    }
-
-
 }

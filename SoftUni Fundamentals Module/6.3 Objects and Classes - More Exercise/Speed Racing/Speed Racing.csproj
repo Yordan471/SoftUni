@@ -7,7 +7,7 @@
     <ProjectGuid>{8B95CEA2-34CF-43B3-B513-F05495E94C10}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Speed_Racing</RootNamespace>
-    <AssemblyName>Speed_Racing</AssemblyName>
+    <AssemblyName>Speed Racing</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

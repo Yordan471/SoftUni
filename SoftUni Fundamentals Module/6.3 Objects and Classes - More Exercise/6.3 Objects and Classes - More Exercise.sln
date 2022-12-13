@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company Roster", "Company R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oldest Family Member", "Oldest Family Member\Oldest Family Member.csproj", "{1B38EB2B-BBA0-4491-931F-526B6EA33002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speed Racing", "Speed Racing\Speed Racing.csproj", "{8B95CEA2-34CF-43B3-B513-F05495E94C10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1B38EB2B-BBA0-4491-931F-526B6EA33002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B38EB2B-BBA0-4491-931F-526B6EA33002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B38EB2B-BBA0-4491-931F-526B6EA33002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B95CEA2-34CF-43B3-B513-F05495E94C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B95CEA2-34CF-43B3-B513-F05495E94C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B95CEA2-34CF-43B3-B513-F05495E94C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B95CEA2-34CF-43B3-B513-F05495E94C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
