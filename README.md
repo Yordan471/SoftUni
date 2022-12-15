@@ -1,1 +1,1 @@
-Exercises
+Learning C# with SoftUni
