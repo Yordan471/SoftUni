@@ -10,7 +10,19 @@ namespace Reverse_a_String
     {
         static void Main(string[] args)
         {
+            string input = Console.ReadLine();
 
+            Stack<char> stack = new Stack<char>();
+
+            foreach (char c in input)
+            {
+                stack.Push(c);
+            }
+
+            foreach (char c in stack)
+            {
+                Console.Write(c.ToString());
+            }
         }
     }
 }
