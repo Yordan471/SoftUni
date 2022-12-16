@@ -50,7 +50,7 @@ namespace Stack_sum
             }
 
             int sum = ints.Sum();
-            Console.WriteLine(sum);
+            Console.WriteLine($"Sum: {sum}");
         }
     }
 }
