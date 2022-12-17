@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basic Operations", "Basic Operations\Basic Operations.csproj", "{A5F08034-906C-4B7A-8445-A3FD6E35BD81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basix Q Operations", "Basix Q Operations\Basix Q Operations.csproj", "{F40AC158-6BB8-4005-B110-01A795E91F76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A5F08034-906C-4B7A-8445-A3FD6E35BD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5F08034-906C-4B7A-8445-A3FD6E35BD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5F08034-906C-4B7A-8445-A3FD6E35BD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F40AC158-6BB8-4005-B110-01A795E91F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F40AC158-6BB8-4005-B110-01A795E91F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F40AC158-6BB8-4005-B110-01A795E91F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F40AC158-6BB8-4005-B110-01A795E91F76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

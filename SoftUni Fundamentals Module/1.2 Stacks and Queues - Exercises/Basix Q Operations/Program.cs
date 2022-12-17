@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Basic_Operations
+namespace Basix_Q_Operations
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             int[] nsx = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
-                .ToArray();
+                 .Split()
+                 .Select(int.Parse)
+                 .ToArray();
             int[] numbers = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToArray();
 
-            Stack<int> integers = new Stack<int>();
+            Queue<int> integers = new Queue<int>();
 
             PushNumbersInStack(nsx, numbers, integers);
 
@@ -28,7 +28,7 @@ namespace Basic_Operations
             FindIfQueueContainsNumber(nsx, integers);
         }
 
-        private static void FindIfQueueContainsNumber(int[] nsx, Stack<int> integers)
+        private static void FindIfQueueContainsNumber(int[] nsx, Queue<int> integers)
         {
             if (integers.Count > 0)
             {
@@ -47,7 +47,7 @@ namespace Basic_Operations
             }
         }
 
-        private static void PopNumbersFromStack(int[] nsx, Stack<int> integers)
+        private static void PopNumbersFromStack(int[] nsx, Queue<int> integers)
         {
             if (nsx[1] >= integers.Count)
             {
@@ -57,16 +57,16 @@ namespace Basic_Operations
             {
                 for (int i = 0; i < nsx[1]; i++)
                 {
-                    integers.Pop();
+                    integers.Dequeue();
                 }
             }
         }
 
-        private static void PushNumbersInStack(int[] nsx, int[] numbers, Stack<int> integers)
+        private static void PushNumbersInStack(int[] nsx, int[] numbers, Queue<int> integers)
         {
             for (int i = 0; i < nsx[0]; i++)
             {
-                integers.Push(numbers[i]);
+                integers.Enqueue(numbers[i]);
             }
         }
     }
