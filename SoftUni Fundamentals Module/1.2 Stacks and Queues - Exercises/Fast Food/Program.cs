@@ -28,7 +28,7 @@ namespace Fast_Food
             if (orders.Count > 0)
             {
                 Console.Write($"Orders left: ");
-                Console.WriteLine(string.Join(", ", orders));
+                Console.WriteLine(string.Join(" ", orders));
             }
             else
             {
