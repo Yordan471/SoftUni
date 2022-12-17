@@ -10,7 +10,33 @@ namespace Fashion_Boutique
     {
         static void Main(string[] args)
         {
+            int[] clothesInTheBox = Console.ReadLine()
+                .Split()
+                .Select(int.Parse)
+                .ToArray();
 
+            Stack<int> clothesInBox = new Stack<int>(clothesInTheBox);
+
+            int capacityOfTheRack = int.Parse(Console.ReadLine());
+            int newRack = capacityOfTheRack;
+            int counterRacks = 0;
+
+            for (int i = 0; i < clothesInBox.Count; i++)
+            {
+                if (capacityOfTheRack >= clothesInBox.Peek())
+                {
+                    capacityOfTheRack -= clothesInBox.Pop();
+                    i--;
+                }
+                else
+                {
+                    counterRacks++;
+                    capacityOfTheRack = newRack;
+                    i--;
+                }
+            }
+
+            Console.WriteLine(counterRacks);
         }
     }
 }
