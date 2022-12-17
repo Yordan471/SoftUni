@@ -16,13 +16,15 @@ namespace Print_Even_Numbers
                 .Select(int.Parse)
                 .ToArray();
 
-            Queue<int> evenNumbers = new Queue<int>();
+            Queue<int> evenNumbers = new Queue<int>(integers);
 
             for (int i = 0; i < integers.Length; i++)
             {
-                if (integers[i] % 2 == 0)
+                int currNum = evenNumbers.Dequeue();
+
+                if (currNum % 2 == 0)
                 {
-                    evenNumbers.Enqueue(integers[i]);
+                    evenNumbers.Enqueue(currNum);
                 }
             }
 
