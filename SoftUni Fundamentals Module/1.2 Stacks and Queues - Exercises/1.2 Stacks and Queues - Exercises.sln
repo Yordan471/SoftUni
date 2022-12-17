@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fashion Boutique", "Fashion
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Songs Queue", "Songs Queue\Songs Queue.csproj", "{9E577625-5334-48D8-ABF9-03BE2F975268}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truck Tour", "Truck Tour\Truck Tour.csproj", "{0660F37F-A109-48AE-8243-FA0F2AA82D2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9E577625-5334-48D8-ABF9-03BE2F975268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E577625-5334-48D8-ABF9-03BE2F975268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E577625-5334-48D8-ABF9-03BE2F975268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0660F37F-A109-48AE-8243-FA0F2AA82D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0660F37F-A109-48AE-8243-FA0F2AA82D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0660F37F-A109-48AE-8243-FA0F2AA82D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0660F37F-A109-48AE-8243-FA0F2AA82D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
