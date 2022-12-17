@@ -19,7 +19,7 @@ namespace Fashion_Boutique
 
             int capacityOfTheRack = int.Parse(Console.ReadLine());
             int newRack = capacityOfTheRack;
-            int counterRacks = 0;
+            int counterRacks = 1;
 
             for (int i = 0; i < clothesInBox.Count; i++)
             {
