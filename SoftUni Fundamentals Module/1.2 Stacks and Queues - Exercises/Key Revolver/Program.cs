@@ -70,7 +70,7 @@ namespace Key_Revolver
                 barrelCount = 0;
             }
 
-            if (stackBullets.Count >= 0 && queueLocks.Count == 0)
+            if (queueLocks.Count > 0)
             {
                 Console.WriteLine($"Couldn't get through. Locks left: {queueLocks.Count}");
             }
