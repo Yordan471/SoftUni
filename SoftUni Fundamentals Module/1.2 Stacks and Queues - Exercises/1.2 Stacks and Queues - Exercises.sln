@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balanced Parentheses", "Bal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple Text Editor", "Simple Text Editor\Simple Text Editor.csproj", "{214B56DE-8783-4ED4-A52A-98F4929D844B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Key Revolver", "Key Revolver\Key Revolver.csproj", "{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{214B56DE-8783-4ED4-A52A-98F4929D844B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{214B56DE-8783-4ED4-A52A-98F4929D844B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{214B56DE-8783-4ED4-A52A-98F4929D844B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
