@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sum Matrix Columns", "Sum M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jagged-Array Modification", "Jagged-Array Modification\Jagged-Array Modification.csproj", "{13AFF87C-3B28-4321-B7D5-4D47B4C1A61D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pascal Triangle", "Pascal Triangle\Pascal Triangle.csproj", "{CEEB4755-B6E4-4410-9B1D-344D916B7FD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{13AFF87C-3B28-4321-B7D5-4D47B4C1A61D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13AFF87C-3B28-4321-B7D5-4D47B4C1A61D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13AFF87C-3B28-4321-B7D5-4D47B4C1A61D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEEB4755-B6E4-4410-9B1D-344D916B7FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEB4755-B6E4-4410-9B1D-344D916B7FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEEB4755-B6E4-4410-9B1D-344D916B7FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEEB4755-B6E4-4410-9B1D-344D916B7FD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
