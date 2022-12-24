@@ -10,6 +10,7 @@ namespace _2x2_Squares_in_Matrix
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

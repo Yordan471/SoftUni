@@ -7,7 +7,7 @@
     <ProjectGuid>{75DB3C36-DF20-4AF0-A7E5-41248BA030CE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>_2x2_Squares_in_Matrix</RootNamespace>
-    <AssemblyName>_2x2_Squares_in_Matrix</AssemblyName>
+    <AssemblyName>2x2 Squares in Matrix</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
