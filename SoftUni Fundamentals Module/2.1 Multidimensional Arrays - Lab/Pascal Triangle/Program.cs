@@ -12,11 +12,11 @@ namespace Pascal_Triangle
         {
             int n = int.Parse(Console.ReadLine());
 
-            int[][] figure = new int[n][];
+            long[][] figure = new long[n][];
 
             for (int row = 0; row < n; row++)
             {
-                figure[row] = new int[row + 1];
+                figure[row] = new long[row + 1];
                 figure[row][0] = 1;
 
                 for (int col = 1; col < row; col++)

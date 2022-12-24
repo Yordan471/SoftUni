@@ -7,7 +7,7 @@
     <ProjectGuid>{B15B20DF-4B25-4806-80A5-EA48A4E51493}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Primary_Diagonal</RootNamespace>
-    <AssemblyName>Primary_Diagonal</AssemblyName>
+    <AssemblyName>Primary Diagonal</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
