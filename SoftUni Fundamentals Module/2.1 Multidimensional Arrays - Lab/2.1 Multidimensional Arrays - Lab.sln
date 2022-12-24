@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pascal Triangle", "Pascal T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primary Diagonal", "Primary Diagonal\Primary Diagonal.csproj", "{B15B20DF-4B25-4806-80A5-EA48A4E51493}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbol in Matrix", "Symbol in Matrix\Symbol in Matrix.csproj", "{5903BBA5-4EA2-4467-8C13-926EC53F3ADD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B15B20DF-4B25-4806-80A5-EA48A4E51493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B15B20DF-4B25-4806-80A5-EA48A4E51493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B15B20DF-4B25-4806-80A5-EA48A4E51493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5903BBA5-4EA2-4467-8C13-926EC53F3ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5903BBA5-4EA2-4467-8C13-926EC53F3ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5903BBA5-4EA2-4467-8C13-926EC53F3ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5903BBA5-4EA2-4467-8C13-926EC53F3ADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
