@@ -10,6 +10,7 @@ namespace Maximal_Sum
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
