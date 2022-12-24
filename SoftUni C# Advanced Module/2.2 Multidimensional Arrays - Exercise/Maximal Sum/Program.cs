@@ -55,14 +55,14 @@ namespace Maximal_Sum
                     if (saveSum < sum)
                     {
                         saveSum = sum;
-                        saveSquare = $"{rectangleMatrix[row, col]} {rectangleMatrix[row, col + 1]} {rectangleMatrix[row, col + 2]}" +
-                            $" \n {rectangleMatrix[row + 1, col]} {rectangleMatrix[row + 1, col + 1]} {rectangleMatrix[row + 1, col + 2]}" +
-                            $" \n {rectangleMatrix[row + 2, col]} {rectangleMatrix[row + 2, col + 1]} {rectangleMatrix[row + 2, col + 2]}";
+                        saveSquare = $"{rectangleMatrix[row, col]} {rectangleMatrix[row, col + 1]} {rectangleMatrix[row, col + 2]}"+
+                            $"\n{rectangleMatrix[row + 1, col]} {rectangleMatrix[row + 1, col + 1]} {rectangleMatrix[row + 1, col + 2]}"+
+                            $"\n{rectangleMatrix[row + 2, col]} {rectangleMatrix[row + 2, col + 1]} {rectangleMatrix[row + 2, col + 2]}";
                     }                   
                 }
             }
 
-            Console.WriteLine(saveSum);
+            Console.WriteLine($"Sum = {saveSum}");
             Console.WriteLine(saveSquare);
         }
     }
