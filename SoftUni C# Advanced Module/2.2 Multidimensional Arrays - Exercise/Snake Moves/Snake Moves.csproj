@@ -7,7 +7,7 @@
     <ProjectGuid>{3FFBFB06-5908-4D44-A3CB-C5E77D7AC568}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Snake_Moves</RootNamespace>
-    <AssemblyName>Snake_Moves</AssemblyName>
+    <AssemblyName>Snake Moves</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

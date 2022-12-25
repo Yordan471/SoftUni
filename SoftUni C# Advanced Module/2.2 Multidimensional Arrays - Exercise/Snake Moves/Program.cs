@@ -10,6 +10,7 @@ namespace Snake_Moves
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

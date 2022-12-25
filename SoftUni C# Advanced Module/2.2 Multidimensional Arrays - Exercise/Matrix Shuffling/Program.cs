@@ -25,11 +25,11 @@ namespace Matrix_Shuffling
             while ((command = Console.ReadLine()) != "END")
             {
                 string[] commandToArray = command
-                    .Split();
+                    .Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 
                 string operation = commandToArray[0];
 
-                if (operation == "swap")
+                if (commandToArray.Length == 5 && operation == "swap")
                 {
                     int row1 = int.Parse(commandToArray[1]);
                     int col1 = int.Parse(commandToArray[2]);
