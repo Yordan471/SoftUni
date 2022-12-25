@@ -23,7 +23,7 @@ namespace Maximal_Sum
             for (int row = 0; row < rows; row++)
             {
                 int[] rowArray = Console.ReadLine()
-                    .Split()
+                    .Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
 
@@ -33,15 +33,14 @@ namespace Maximal_Sum
                 }
             }
 
-            int sum = 0;
-            int saveSum = 0;
+            int sum = -9999999;
+            int saveSum = -9999999;
             string saveSquare = string.Empty;
 
-            for (int row = 0; row < rows - 2; row++)
+            for (int row = 0; row < rectangleMatrix.GetLength(0) - 2; row++)
             {
-                for (int col = 0; col < cols - 2; col++)
-                {
-                    
+                for (int col = 0; col < rectangleMatrix.GetLength(1) - 2; col++)
+                {                   
                     sum = rectangleMatrix[row, col] +
                         rectangleMatrix[row, col + 1] +
                         rectangleMatrix[row, col + 2] +
