@@ -7,7 +7,7 @@
     <ProjectGuid>{E12F6FCD-8570-43D2-9035-38518CCD8D6F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Jagged_Array_Manipulator</RootNamespace>
-    <AssemblyName>Jagged_Array_Manipulator</AssemblyName>
+    <AssemblyName>Jagged Array Manipulator</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
