@@ -16,7 +16,15 @@ namespace Jagged_Array_Manipulator
 
             for (int row = 0; row < numberOfRows; row++)
             {
+                int[] rowArray = Console.ReadLine()
+                    .Split(' ')
+                    .Select(int.Parse)
+                    .ToArray();
 
+                for (int col = 0; col < rowArray.Length; col++)
+                {
+                    jagged[row][col] = rowArray[col];
+                }
             }
         }
     }
