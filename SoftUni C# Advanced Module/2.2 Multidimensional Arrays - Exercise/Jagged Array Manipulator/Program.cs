@@ -70,8 +70,8 @@ namespace Jagged_Array_Manipulator
                 int columnIndex = int.Parse(commandToArray[2]);
                 int value = int.Parse(commandToArray[3]);
 
-                if (rowIndex >= 0 && rowIndex <= jagged.GetLength(0) &&
-                    columnIndex >= 0 && columnIndex <= jagged[rowIndex].Length)
+                if (rowIndex >= 0 && rowIndex < jagged.GetLength(0) &&
+                    columnIndex >= 0 && columnIndex < jagged[rowIndex].Length)
                 {
                     if (operation == "Add")
                     {
