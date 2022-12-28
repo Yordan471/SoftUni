@@ -10,6 +10,7 @@ namespace Count_Same_Values_in_Array
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
