@@ -30,7 +30,6 @@ namespace Product_Shop
 
                     productAndPrice[product] = price;
                    
-
                     shopAndProductPrice[shop] = productAndPrice;
                 }
                 else
