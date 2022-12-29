@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Count Same Values in Array", "Count Same Values in Array\Count Same Values in Array.csproj", "{B30D30D6-D836-4641-8E90-B3CE77A9B03D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Average Student Grades", "ConsoleApp1\Average Student Grades.csproj", "{04D54872-6279-4B2F-825F-1222A7160206}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B30D30D6-D836-4641-8E90-B3CE77A9B03D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B30D30D6-D836-4641-8E90-B3CE77A9B03D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B30D30D6-D836-4641-8E90-B3CE77A9B03D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D54872-6279-4B2F-825F-1222A7160206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D54872-6279-4B2F-825F-1222A7160206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D54872-6279-4B2F-825F-1222A7160206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D54872-6279-4B2F-825F-1222A7160206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
