@@ -32,7 +32,14 @@ namespace Parking_Lot
                 }
             }
 
-            Console.WriteLine(string.Join(Environment.NewLine, set));
+            if (set.Count > 0)
+            {
+                Console.WriteLine(string.Join(Environment.NewLine, set));
+            }
+            else
+            {
+                Console.WriteLine("Parking Lot is Empty");
+            }         
         }
     }
 }
