@@ -12,7 +12,7 @@ namespace Product_Shop
         {
             string command = string.Empty;
 
-            Dictionary<string, Dictionary<string, decimal>> shopAndProductPrice = new Dictionary<string, Dictionary<string, decimal>>();
+            Dictionary<string, Dictionary<string, double>> shopAndProductPrice = new Dictionary<string, Dictionary<string, double>>();
 
             while ((command = Console.ReadLine()) != "Revision")
             {
@@ -22,11 +22,11 @@ namespace Product_Shop
 
                 string shop = shopInfo[0];
                 string product = shopInfo[1];
-                decimal price = decimal.Parse(shopInfo[2]);
+                double price = double.Parse(shopInfo[2]);
 
                 if (!(shopAndProductPrice.ContainsKey(shop)))
                 {
-                    Dictionary<string, decimal> productAndPrice = new Dictionary<string, decimal>();
+                    Dictionary<string, double> productAndPrice = new Dictionary<string, double>();
 
                     productAndPrice[product] = price;               
                     shopAndProductPrice[shop] = productAndPrice;
@@ -50,7 +50,7 @@ namespace Product_Shop
 
                 foreach (var product in shop.Value)
                 {
-                    Console.WriteLine($"Product: {product.Key}, Price: {product.Value:f1}");
+                    Console.WriteLine($"Product: {product.Key}, Price: {product.Value}");
                 }
             }
         }
