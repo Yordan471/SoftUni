@@ -24,30 +24,33 @@ namespace Product_Shop
                 string product = shopInfo[1];
                 decimal price = decimal.Parse(shopInfo[2]);
 
-                if (!(shopAndProductPrice.ContainsKey(product)))
+                if (!(shopAndProductPrice.ContainsKey(shop)))
                 {
-                    Dictionary<string, decimal> productAndPrice = new Dictionary<string, decimal>
+                    Dictionary<string, decimal> productAndPrice = new Dictionary<string, decimal>();
 
-                    productAndPrice[product] = price;
-                   
+                    productAndPrice[product] = price;               
                     shopAndProductPrice[shop] = productAndPrice;
                 }
                 else
                 {
                     if (!(shopAndProductPrice[shop].ContainsKey(product)))
                     {
-
+                        shopAndProductPrice[shop].Add(product, price);
+                    }
+                    else
+                    {
+                        shopAndProductPrice[shop][product] = price;
                     }
                 }
             }
 
-            foreach (var shop in shopAndProductPrice)
+            foreach (var shop in shopAndProductPrice.OrderBy(x => x.Key))
             {
                 Console.WriteLine($"{shop.Key}->");
 
                 foreach (var product in shop.Value)
                 {
-                    Console.WriteLine($"Product: {product.Key}, Price: {product.Value}");
+                    Console.WriteLine($"Product: {product.Key}, Price: {product.Value:f1}");
                 }
             }
         }
