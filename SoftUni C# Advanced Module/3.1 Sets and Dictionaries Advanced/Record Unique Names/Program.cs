@@ -10,7 +10,16 @@ namespace Record_Unique_Names
     {
         static void Main(string[] args)
         {
+            int numberOfNames = int.Parse(Console.ReadLine());
 
+            HashSet<string> set = new HashSet<string>();
+
+            for (int i = 0; i < numberOfNames; i++)
+            {
+                set.Add(Console.ReadLine());
+            }
+
+            Console.WriteLine(string.Join(Environment.NewLine, set));
         }
     }
 }
