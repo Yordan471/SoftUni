@@ -10,6 +10,7 @@ namespace Unique_Usernames
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
