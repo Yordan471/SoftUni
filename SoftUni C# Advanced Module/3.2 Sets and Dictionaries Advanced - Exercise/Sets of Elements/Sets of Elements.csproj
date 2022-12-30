@@ -7,7 +7,7 @@
     <ProjectGuid>{1C0E6E73-66A2-4DFE-9A4F-E0CAC4A350D4}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Sets_of_Elements</RootNamespace>
-    <AssemblyName>Sets_of_Elements</AssemblyName>
+    <AssemblyName>Sets of Elements</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
