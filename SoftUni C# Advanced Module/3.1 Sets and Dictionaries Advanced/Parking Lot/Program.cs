@@ -10,7 +10,29 @@ namespace Parking_Lot
     {
         static void Main(string[] args)
         {
+            string command = string.Empty;
 
+            HashSet<string> set = new HashSet<string>();
+
+            while ((command = Console.ReadLine()) != "END")
+            {
+                string[] directionCarNumber = command
+                    .Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+
+                string direction = directionCarNumber[0];
+                string carNuber = directionCarNumber[1];
+
+                if (direction == "IN")
+                {
+                    set.Add(carNuber);
+                }
+                else
+                {
+                    set.Remove(carNuber);
+                }
+            }
+
+            Console.WriteLine(string.Join(Environment.NewLine, set));
         }
     }
 }
