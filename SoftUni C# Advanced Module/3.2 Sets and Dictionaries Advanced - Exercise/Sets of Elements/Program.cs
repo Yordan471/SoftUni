@@ -32,7 +32,7 @@ namespace Sets_of_Elements
                 secondSet.Add(int.Parse(Console.ReadLine()));
             }
 
-            firstSet.Intersect(secondSet);
+            firstSet.IntersectWith(secondSet);
 
             Console.WriteLine(string.Join(" ", firstSet));
         }

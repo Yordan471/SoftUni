@@ -10,6 +10,7 @@ namespace Periodic_Table
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

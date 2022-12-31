@@ -7,7 +7,7 @@
     <ProjectGuid>{6C0C5C0F-C55B-4621-902D-2E7CAB7261E0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Periodic_Table</RootNamespace>
-    <AssemblyName>Periodic_Table</AssemblyName>
+    <AssemblyName>Periodic Table</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
