@@ -7,7 +7,7 @@
     <ProjectGuid>{881B719D-001A-488F-B80E-F7603BD2B3F6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Even_Times</RootNamespace>
-    <AssemblyName>Even_Times</AssemblyName>
+    <AssemblyName>Even Times</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
