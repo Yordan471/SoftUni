@@ -25,8 +25,15 @@ namespace Even_Times
                     numbers.Add(number);
                 }
                 else
-                {
-                    saveNumbers.Add(number);
+                {                    
+                    if (saveNumbers.Contains(number))
+                    {
+                        saveNumbers.Remove(number);
+                    }
+                    else
+                    {
+                        saveNumbers.Add(number);
+                    }                   
                 }               
             }
 
