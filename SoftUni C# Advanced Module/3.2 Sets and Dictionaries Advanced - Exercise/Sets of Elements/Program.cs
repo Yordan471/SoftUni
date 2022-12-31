@@ -16,13 +16,25 @@ namespace Sets_of_Elements
                 .Select(int.Parse)
                 .ToArray();
 
-            HashSet<int> set = new HashSet<int>();
-            HashSet<int> saveNumbers = new HashSet<int>();
+            HashSet<int> firstSet = new HashSet<int>();
+            HashSet<int> secondSet = new HashSet<int>();
 
             int firstSetLength = setsLength[0];
             int secondSetLength = setsLength[1];
 
-            
+            for (int i = 0; i < firstSetLength; i++)
+            {
+                firstSet.Add(int.Parse(Console.ReadLine()));
+            }
+
+            for (int i = 0; i < secondSetLength; i++)
+            {
+                secondSet.Add(int.Parse(Console.ReadLine()));
+            }
+
+            firstSet.Intersect(secondSet);
+
+            Console.WriteLine(string.Join(" ", firstSet));
         }
     }
 }
