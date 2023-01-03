@@ -10,6 +10,7 @@ namespace Odd_Lines
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
