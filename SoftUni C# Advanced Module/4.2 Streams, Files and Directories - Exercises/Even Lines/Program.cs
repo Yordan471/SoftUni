@@ -10,6 +10,7 @@ namespace Even_Lines
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
