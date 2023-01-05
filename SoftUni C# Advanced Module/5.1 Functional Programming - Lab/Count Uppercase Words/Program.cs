@@ -10,7 +10,13 @@ namespace Count_Uppercase_Words
     {
         static void Main(string[] args)
         {
+            Predicate<string> isCapitalFirstLetter = 
+                (string x) => x.Length > 0 && char.IsUpper(x[0]);
 
+            Console.WriteLine(string.Join(Environment.NewLine, Console.ReadLine()
+                .Split(' ')
+                .Where(x =>isCapitalFirstLetter(x))
+                .ToArray()));
         }
     }
 }
