@@ -10,12 +10,12 @@ namespace Sort_Even_Numbers
     {
         static void Main(string[] args)
         {
-            int[] numbers = (Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
+            int[] numbers = Console.ReadLine()
+                .Split(new string[] {", "}, StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => int.Parse(x))
                 .Where(x => x % 2 == 0)
                 .OrderBy(x => x)
-                .ToArray());
+                .ToArray();
 
             Console.WriteLine(string.Join(", ", numbers));
         }
