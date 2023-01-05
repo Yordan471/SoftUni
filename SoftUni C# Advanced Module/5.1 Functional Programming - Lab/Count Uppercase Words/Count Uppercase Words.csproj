@@ -7,7 +7,7 @@
     <ProjectGuid>{23571232-11BD-4D66-947C-EF46D2091EEA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Count_Uppercase_Words</RootNamespace>
-    <AssemblyName>Count_Uppercase_Words</AssemblyName>
+    <AssemblyName>Count Uppercase Words</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

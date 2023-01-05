@@ -19,7 +19,6 @@ namespace Sum_Numbers
 
             Console.WriteLine(lineOfIntegers.Length);
             Console.WriteLine(lineOfIntegers.Sum());
-
         }
     }
 }
