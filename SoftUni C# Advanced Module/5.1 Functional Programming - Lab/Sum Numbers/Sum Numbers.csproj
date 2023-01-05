@@ -7,7 +7,7 @@
     <ProjectGuid>{7A20AA86-D47C-4BB2-A2B0-DD72499F807A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Sum_Numbers</RootNamespace>
-    <AssemblyName>Sum_Numbers</AssemblyName>
+    <AssemblyName>Sum Numbers</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
