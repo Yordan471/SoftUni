@@ -1,98 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Filter_By_Age
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            int numberOfPeople = int.Parse(Console.ReadLine());
+            List<Person> people = new List<Person>();
 
-            Dictionary<string, int> nameAndAge = new Dictionary<string, int>();
+            int numberOfPeople = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < numberOfPeople; i++)
             {
                 string[] personInfo = Console.ReadLine()
-                    .Split(new string[] {", "}, StringSplitOptions.RemoveEmptyEntries)
-                    .ToArray();
+                    .Split();
 
                 string name = personInfo[0];
                 int age = int.Parse(personInfo[1]);
 
-                if (!nameAndAge.ContainsKey(name))
-                {
-                    nameAndAge[name] = 0;
-                }
-
-                nameAndAge[name] = age;
+                Person person = new Person(name, age);
+                people.Add(person);                  
             }
 
-            string oldOrYoungCondition = Console.ReadLine();
-            int ageCondition = int.Parse(Console.ReadLine());
-            string[] nameAgeCondition = Console.ReadLine()
-                .Split()
-                .ToArray();
+            string conditionYoungOrOld = Console.ReadLine();
+            int conditionAge = int.Parse(Console.ReadLine());
 
-            if (oldOrYoungCondition == "older")
+            Func<Person, bool> filterAge = CreateFilter(conditionYoungOrOld, conditionAge);
+        }
+
+        static Func<Person, bool> CreateFilter(string conditionYoungOrOld, int conditionAge)
+        {
+            switch (conditionYoungOrOld)
             {
-                nameAndAge = nameAndAge
-                       .Where(p => p.Value >= ageCondition)
-                       .ToDictionary(p => p.Key, c => c.Value);
-
-                if (nameAgeCondition.Length > 1)
-                {
-                    foreach(KeyValuePair<string, int> person in nameAndAge)
-                    {
-                        Console.WriteLine($"{person.Key} - {person.Value}");
-                    }
-                }
-                else if (nameAgeCondition[0] == "name")
-                {
-                    foreach (string name in nameAndAge.Keys)
-                    {
-                        Console.WriteLine(name);
-                    }
-                }
-                else
-                {
-                    foreach (int age in nameAndAge.Values)
-                    {
-                        Console.WriteLine(age);
-                    }
-                }
-            }
-            else
-            {
-                nameAndAge = nameAndAge
-                      .Where(p => p.Value < ageCondition)
-                      .ToDictionary(p => p.Key, c => c.Value);
-
-                if (nameAgeCondition.Length > 1)
-                {
-                    foreach (KeyValuePair<string, int> person in nameAndAge)
-                    {
-                        Console.WriteLine($"{person.Key} - {person.Value}");
-                    }
-                }
-                else if (nameAgeCondition[0] == "name")
-                {
-                    foreach (string name in nameAndAge.Keys)
-                    {
-                        Console.WriteLine(name);
-                    }
-                }
-                else
-                {
-                    foreach (int age in nameAndAge.Values)
-                    {
-                        Console.WriteLine(age);
-                    }
-                }
+                case "older":
+                    return x => x.Age >= conditionAge;
+                case "younger":
+                    return x => x.Age < conditionAge;
+                default:
+                    throw new ArgumentException(conditionYoungOrOld);
             }
         }
+
+    }
+
+    class Person
+    {
+        public Person (string name, int age)
+        {
+            this.Name = name;
+            this.Age = age;
+        }
+
+        public string Name { get; set; }
+
+        public int Age { get; set; }
     }
 }
