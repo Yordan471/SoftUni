@@ -10,6 +10,16 @@ namespace Add_VAT
     {
         static void Main(string[] args)
         {
+            Func<decimal, decimal> addVAT =
+                x => x * 1.2m;
+
+            List<decimal> prices = Console.ReadLine()
+                .Split(',')
+                .Select(p => decimal.Parse(p))
+                .Select(addVAT)
+                .ToList();
+           
+            prices.ForEach(p => Console.WriteLine($"{p:f2}"));
         }
     }
 }

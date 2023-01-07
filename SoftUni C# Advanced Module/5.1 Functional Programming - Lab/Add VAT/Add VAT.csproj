@@ -7,7 +7,7 @@
     <ProjectGuid>{6171340E-88CA-4EE4-A4C7-50808105C2B4}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Add_VAT</RootNamespace>
-    <AssemblyName>Add_VAT</AssemblyName>
+    <AssemblyName>Add VAT</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
