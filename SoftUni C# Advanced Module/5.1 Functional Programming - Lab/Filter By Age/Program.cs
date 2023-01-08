@@ -31,6 +31,33 @@ namespace Filter_By_Age
             int conditionAge = int.Parse(Console.ReadLine());
 
             Func<Person, bool> filterAge = CreateFilter(conditionYoungOrOld, conditionAge);
+
+            string conditionNameAge = Console.ReadLine();
+
+            Action<Person> print = CreatePriner(conditionNameAge);
+        }
+
+        static void PrintResult(List<Person> people, Func<Person, bool> filterAge, Action<Person> print)
+        {
+            foreach (Person person in people)
+            {
+                print(person);
+            }
+        }
+
+        static Action<Person> CreatePriner(string conditionNameAge)
+        {
+            switch (conditionNameAge)
+            {
+                case "name":
+                    return person => Console.WriteLine($"{person.Name}");
+                case "age":
+                    return age => Console.WriteLine($"{age.Age}");
+                case "name age":
+                    return nameAge => Console.WriteLine($"{nameAge.Name} - {nameAge.Age}");
+                default:
+                    throw new ArgumentException(conditionNameAge);
+            }
         }
 
         static Func<Person, bool> CreateFilter(string conditionYoungOrOld, int conditionAge)
