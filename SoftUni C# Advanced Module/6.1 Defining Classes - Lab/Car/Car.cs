@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarManufacturer
 {
-    class Vehicle
+    public class Car
     {
-        public Vehicle (string make, string model, int year)
+        public Car(string make, string model, int year)
         {
             this.Make = make;
             this.Model = model;
@@ -19,10 +19,25 @@ namespace CarManufacturer
         private string model;
         private int year;
 
-        public string Make { get; set; }
+        public string Make
+        {
+            get { return make; }
 
-        public string Model { get; set; }
+            set { make = value; }
+        }
 
-        public int Year { get; set; }
+        public string Model
+        {
+            get { return model; }
+
+            set { this.model = value; }
+        }
+
+        public int Year
+        {
+            get { return this.year; }
+
+            set { this.year = value; }
+        }
     }
 }
