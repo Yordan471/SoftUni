@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Car
+namespace CarManufacturer
 {
-    internal class Program
+    internal class Car
     {
         static void Main(string[] args)
         {
