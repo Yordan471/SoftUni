@@ -13,16 +13,20 @@ namespace Reverse_a_String
             string input = Console.ReadLine();
 
             Stack<char> stack = new Stack<char>();
+            StringBuilder sb = new StringBuilder();
 
             foreach (char c in input)
             {
                 stack.Push(c);
             }
 
-            foreach (char c in stack)
+            while (stack.Count > 0)
             {
-                Console.Write(c.ToString());
+                sb.Append(stack.Peek().ToString());
+                stack.Pop();
             }
+
+            Console.WriteLine(sb);
         }
     }
 }
