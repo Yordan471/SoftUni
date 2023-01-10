@@ -49,7 +49,12 @@ namespace Stack_sum
                 }
             }
 
-            int sum = ints.Sum();
+            int sum = 0;
+
+            while (ints.Count > 0)
+            {
+                sum += ints.Pop();
+            }
 
             Console.WriteLine($"Sum: {sum}");
         }
