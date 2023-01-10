@@ -12,22 +12,22 @@ namespace Matching_Brackets
         {
             string input = Console.ReadLine();
 
-            Stack<int> stack = new Stack<int>();
+            Stack<int> indexes = new Stack<int>();
 
             for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] == '(')
                 {
-                    stack.Push(i);
+                    indexes.Push(i);
                 }
                 else if (input[i] == ')')
                 {
-                    int startIndex = stack.Pop();
+                    int startIndex = indexes.Pop();
                     int endIndex = i;
 
-                    string substring = input.Substring(startIndex, endIndex - startIndex + 1);
+                    string substringExpression = input.Substring(startIndex, endIndex - startIndex + 1);
 
-                    Console.WriteLine(substring);
+                    Console.WriteLine(substringExpression);
                 }
             }
         }
