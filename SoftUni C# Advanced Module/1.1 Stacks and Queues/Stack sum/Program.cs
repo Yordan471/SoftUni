@@ -37,8 +37,8 @@ namespace Stack_sum
                 }
                 else if (operation == "remove")
                 {
-                    int count = int.Parse(commandToArray[1]);
-                   
+                    int count = int.Parse(commandToArray[1]);                
+
                     for (int i = 0; i < count; i++)
                     {
                         if (count <= ints.Count)
@@ -50,6 +50,7 @@ namespace Stack_sum
             }
 
             int sum = ints.Sum();
+
             Console.WriteLine($"Sum: {sum}");
         }
     }
