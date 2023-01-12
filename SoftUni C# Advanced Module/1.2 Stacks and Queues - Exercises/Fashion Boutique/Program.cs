@@ -10,12 +10,10 @@ namespace Fashion_Boutique
     {
         static void Main(string[] args)
         {
-            int[] clothesInTheBox = Console.ReadLine()
+            Stack<int> clothesInBox = new Stack<int>(
+                Console.ReadLine()
                 .Split()
-                .Select(int.Parse)
-                .ToArray();
-
-            Stack<int> clothesInBox = new Stack<int>(clothesInTheBox);
+                .Select(int.Parse));
 
             int capacityOfTheRack = int.Parse(Console.ReadLine());
             int newRack = capacityOfTheRack;
