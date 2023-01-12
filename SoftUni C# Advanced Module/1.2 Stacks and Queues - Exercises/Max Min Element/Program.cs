@@ -21,24 +21,44 @@ namespace Max_Min_Element
 
                 string operation = operations[0];
 
-                if (operation == "1")
+                switch (operation)
                 {
-                    int number = int.Parse(operations[1]);
+                    case "1":
+                        int number = int.Parse(operations[1]);
+                        numbers.Push(number);
+                        break;
+                    case "2":
+                        if (numbers.Any())
+                        numbers.Pop();
+                        break;
+                    case "3":
+                        if (numbers.Any())
+                        Console.WriteLine(numbers.Max());
+                        break;
+                    case "4":
+                        if (numbers.Any())
+                        Console.WriteLine(numbers.Min());
+                        break;
+                }
 
-                    numbers.Push(number);
-                }
-                else if (operation == "2" && numbers.Count > 0)
-                {
-                        numbers.Pop();                    
-                }
-                else if (operation == "3" && numbers.Count > 0)
-                {
-                        Console.WriteLine($"{numbers.Max()}");                    
-                }
-                else if (operation == "4" && numbers.Count > 0)
-                {                  
-                        Console.WriteLine($"{numbers.Min()}");                                   
-                }
+                //if (operation == "1")
+                //{
+                    //int number = int.Parse(operations[1]);
+
+                    //numbers.Push(number);
+                //}
+                //else if (operation == "2" && numbers.Count > 0)
+                //{
+                        //numbers.Pop();                    
+                //}
+                //else if (operation == "3" && numbers.Count > 0)
+                //{
+                        //Console.WriteLine($"{numbers.Max()}");                    
+                //}
+                //else if (operation == "4" && numbers.Count > 0)
+                //{                  
+                        //Console.WriteLine($"{numbers.Min()}");                                   
+                //}
             }
 
             if (numbers.Count > 0)
