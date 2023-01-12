@@ -13,7 +13,10 @@ namespace Songs_Queue
             string[] input = Console.ReadLine()
                 .Split(new string[] { ", " }, StringSplitOptions.None);
 
-            Queue<string> songs = new Queue<string>(input);
+            Queue<string> songs = new Queue<string>(
+                Console.ReadLine()
+                .Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries));
+                
 
             while (songs.Count != 0)
             {
