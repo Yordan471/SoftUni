@@ -11,12 +11,11 @@ namespace Fast_Food
         static void Main(string[] args)
         {
             int quantityOfTheFood = int.Parse(Console.ReadLine());
-            int[] quantityOfOrders = Console.ReadLine()
-                .Split()
-                .Select(int.Parse)
-                .ToArray();
 
-            Queue<int> orders = new Queue<int>(quantityOfOrders);
+            Queue<int> orders = new Queue<int>(
+                Console.ReadLine()
+                .Split()
+                .Select(int.Parse));
 
             Console.WriteLine(orders.Max());
 
