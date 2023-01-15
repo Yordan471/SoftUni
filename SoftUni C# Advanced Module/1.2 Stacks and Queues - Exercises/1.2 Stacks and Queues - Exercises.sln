@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple Text Editor", "Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Key Revolver", "Key Revolver\Key Revolver.csproj", "{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossroads", "Crossroads\Crossroads.csproj", "{0C448BB7-9ACD-4EDA-90FF-92906BCDA502}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FCCEEDE-9683-4429-B9DF-1C55D7E5C908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C448BB7-9ACD-4EDA-90FF-92906BCDA502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C448BB7-9ACD-4EDA-90FF-92906BCDA502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C448BB7-9ACD-4EDA-90FF-92906BCDA502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C448BB7-9ACD-4EDA-90FF-92906BCDA502}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
