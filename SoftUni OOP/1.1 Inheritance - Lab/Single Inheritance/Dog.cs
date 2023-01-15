@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Farm
 {
-    public class StartUp
+    internal class Dog
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
