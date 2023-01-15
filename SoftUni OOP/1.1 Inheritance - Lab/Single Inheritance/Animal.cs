@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Farm
 {
-    internal class Animal
+    public class Animal
     {
-        public static void Eat()
+        public void Eat()
         {
-            Console.WriteLine("eating");
+            Console.WriteLine("eating...");
         }
     }
 }
