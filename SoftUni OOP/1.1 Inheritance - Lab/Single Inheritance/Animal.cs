@@ -8,5 +8,9 @@ namespace Farm
 {
     internal class Animal
     {
+        public static void Eat()
+        {
+            Console.WriteLine("eating");
+        }
     }
 }
