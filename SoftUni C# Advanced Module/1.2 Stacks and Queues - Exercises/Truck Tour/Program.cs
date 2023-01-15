@@ -33,20 +33,21 @@ namespace Truck_Tour
 
                 foreach (int[] que in pumps)
                 {
-                    litersLeft += que
+                    int liters = que[0];
+                    int distance = que[1];
 
-                    if (litersLeft - distanceToNextPump.Peek() < 0)
+                    litersLeft += liters;
+
+                    if (litersLeft - distance < 0)
                     {
-                        int petrolLiters = amountOfPetrol.Dequeue();
-                        int distance = distanceToNextPump.Dequeue();
-                        amountOfPetrol.Enqueue(petrolLiters);
-                        distanceToNextPump.Enqueue(distance);
+                        int[] currPump = pumps.Dequeue();
+                        pumps.Enqueue(currPump);
                         countPumps++;
                         circleIsComplete = false;
                         break;
                     }
 
-                    litersLeft -= distanceToNextPump.Peek();
+                    litersLeft -= distance;
                 }
 
                 if (circleIsComplete)
