@@ -18,7 +18,7 @@ namespace Jagged_Array_Manipulator
             {
                 jagged[row] = Console.ReadLine()
                     .Split(' ')
-                    .Select(int.Parse)
+                    .Select(x =>int.Parse(x))
                     .ToArray();
             }
 
