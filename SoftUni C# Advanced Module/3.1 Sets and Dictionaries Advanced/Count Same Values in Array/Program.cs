@@ -10,19 +10,19 @@ namespace Count_Same_Values_in_Array
     {
         static void Main(string[] args)
         {
-            string[] numbers = Console.ReadLine()
+            string[] inputNumbers = Console.ReadLine()
                 .Split(' ');
 
             Dictionary<string, int> numbersAndCount = new Dictionary<string, int>();
 
-            foreach (string number in numbers)
+            foreach (string number in inputNumbers)
             {
                 if (!(numbersAndCount.ContainsKey(number)))
                 {
                     numbersAndCount.Add(number, 0);
                 }
 
-                numbersAndCount[number] += 1;
+                numbersAndCount[number]++;
             }
 
             foreach (KeyValuePair<string, int> pair in numbersAndCount)
