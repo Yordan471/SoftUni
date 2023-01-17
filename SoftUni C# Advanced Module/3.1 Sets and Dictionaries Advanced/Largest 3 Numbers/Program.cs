@@ -10,17 +10,17 @@ namespace Largest_3_Numbers
     {
         static void Main(string[] args)
         {
-            int[] numbers = Console.ReadLine()
+            int[] inputNumbers = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            numbers = numbers
+            inputNumbers = inputNumbers
                 .OrderByDescending(num => num)
                 .Take(3)
                 .ToArray();
 
-            Console.WriteLine(string.Join(" ", numbers));
+            Console.WriteLine(string.Join(" ", inputNumbers));
         }
     }
 }
