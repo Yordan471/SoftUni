@@ -44,8 +44,6 @@ namespace The_V_Logger
                     }                   
                 }
             }
-
-
         }
     }
 }
