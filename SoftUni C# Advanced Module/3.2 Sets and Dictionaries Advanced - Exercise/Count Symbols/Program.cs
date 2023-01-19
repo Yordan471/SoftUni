@@ -13,7 +13,8 @@ namespace Count_Symbols
         {
             string inputInfo = Console.ReadLine();
 
-            Dictionary<char, int> countChars = new Dictionary<char, int>();
+            Dictionary<char, int> countChars = new 
+                Dictionary<char, int>();
 
             for (int i = 0; i < inputInfo.Length; i++)
             {
