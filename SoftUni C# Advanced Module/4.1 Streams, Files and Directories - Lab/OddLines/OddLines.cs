@@ -14,6 +14,7 @@
 
         public static void ExtractOddLines(string inputFilePath, string outputFilePath)
         {
+
         }
     }
 }
