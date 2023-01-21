@@ -10,7 +10,13 @@ namespace ForceBook
     {
         static void Main(string[] args)
         {
+            Dictionary<Dictionary<string, int>, Dictionary<string, int>> asd = new
+                Dictionary<Dictionary<string, int>, Dictionary<string, int>>();
 
+            if (!asd.ContainsKey(new Dictionary<string, int>()))
+            {
+                asd.Add(new Dictionary<string, int>(), Dictionary<string, int>());
+            }
         }
     }
 }
