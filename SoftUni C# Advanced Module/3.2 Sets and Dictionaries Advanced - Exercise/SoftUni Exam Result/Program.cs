@@ -59,7 +59,7 @@ namespace SoftUni_Exam_Result
                 }
             }
 
-            Console.WriteLine($"Result:");
+            Console.WriteLine($"Results:");
 
             foreach (var student in studentAndSubPoints
                 .OrderByDescending(x => x.Value.Values.Max())
@@ -71,7 +71,11 @@ namespace SoftUni_Exam_Result
                 }
             }
 
-            foreach (var language in submissionsCount.OrderByDescending(x => x.Value))
+            Console.WriteLine("Submissions:");
+
+            foreach (var language in submissionsCount
+                .OrderByDescending(x => x.Value)
+                .ThenBy(x => x.Key))
             {
                 Console.WriteLine($"{language.Key} - {language.Value}");
             }
