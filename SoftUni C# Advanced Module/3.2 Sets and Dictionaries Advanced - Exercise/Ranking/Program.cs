@@ -10,6 +10,7 @@ namespace Ranking
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

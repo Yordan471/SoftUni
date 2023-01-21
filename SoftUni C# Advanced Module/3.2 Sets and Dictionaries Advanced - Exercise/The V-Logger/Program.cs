@@ -63,9 +63,9 @@ namespace The_V_Logger
 
                 if (counter == 1)
                 {
-                    foreach (string follower in vloggerFollowers.Value["followers"])
+                    foreach (string follower in vloggerFollowers.Value["followers"].OrderBy(v => v))
                     {
-                        Console.WriteLine($"* {follower}");
+                        Console.WriteLine($"*  {follower}");
                     }
                 }
 
