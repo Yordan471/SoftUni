@@ -101,15 +101,16 @@ namespace Ranking
             }
            
             Console.WriteLine($"Best candidate is {bestStudent} with total {maxSum} points.");
+            Console.WriteLine("Ranking:");
 
             foreach (var userName in userAndContestPoints
                 .OrderBy(x => x.Key))           
-            {
+            {              
                 Console.WriteLine($"{userName.Key}");
 
                 foreach (var contest in userName.Value.OrderByDescending(x => x.Value))
                 {
-                    Console.WriteLine($"# {contest.Key}->{contest.Value}");
+                    Console.WriteLine($"#  {contest.Key} -> {contest.Value}");
                 }
             }
         }
