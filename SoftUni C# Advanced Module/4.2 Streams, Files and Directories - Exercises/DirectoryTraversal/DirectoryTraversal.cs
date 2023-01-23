@@ -43,6 +43,11 @@
             foreach (var extensionFiles in extensionsFiles.OrderByDescending(ex => ex.Value.Count()))
             {
                 sb.AppendLine(extensionFiles.Key);
+
+                foreach (var file in extensionFiles.Value.OrderBy(f => f.Length))
+                {
+                    sb.AppendLine($"--{file.Name} - {(double)file.Length / 1024:f3} kb");
+                }
             }
 
             return sb.ToString();
@@ -50,7 +55,10 @@
 
         public static void WriteReportToDesktop(string textContent, string reportFileName)
         {
-            throw new NotImplementedException();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string filePath = path + reportFileName;
+
+            File.WriteAllText(filePath, textContent);
         }
     }
 }
