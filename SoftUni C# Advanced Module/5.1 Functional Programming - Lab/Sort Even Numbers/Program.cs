@@ -13,8 +13,8 @@ namespace Sort_Even_Numbers
             int[] numbers = Console.ReadLine()
                 .Split(new string[] {", "}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => int.Parse(x))
-                .Where(x => x % 2 == 0)
-                .OrderBy(x => x)
+                //.Where(x => x % 2 == 0)
+                .OrderBy(x => x % 2)
                 .ToArray();
 
             Console.WriteLine(string.Join(", ", numbers));
