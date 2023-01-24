@@ -12,8 +12,9 @@ namespace Sum_Numbers
     {
         static void Main(string[] args)
         {
+
             int[] lineOfIntegers = Console.ReadLine()
-                .Split(new string[] {", "}, StringSplitOptions.RemoveEmptyEntries)
+                .Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(num => int.Parse(num))
                 .ToArray();
 
