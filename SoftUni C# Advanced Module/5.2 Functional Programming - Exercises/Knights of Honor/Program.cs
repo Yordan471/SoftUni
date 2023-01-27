@@ -10,7 +10,19 @@ namespace Knights_of_Honor
     {
         static void Main(string[] args)
         {
+            List<string> listOfNames = Console.ReadLine()
+                .Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
 
+            Action<List<string>> print = names =>
+            {
+                foreach (string name in names)
+                {
+                    Console.WriteLine($"Sir {name}");
+                }
+            };
+
+            print(listOfNames);
         }
     }
 }
