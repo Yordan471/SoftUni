@@ -27,7 +27,7 @@ namespace Find_Evens_or_Odds
             {
                 List<int> numsInRange = new List<int>();
 
-                for (int range = lowRange; range < highRange; range++)
+                for (int range = lowRange; range <= highRange; range++)
                 {
                     numsInRange.Add(range);
                 }
@@ -41,7 +41,7 @@ namespace Find_Evens_or_Odds
 
             if (oddOrEven == "odd")
             {
-                match = number => number % 2 == 1;
+                match = number => number % 2 != 0;
             }
             else if (oddOrEven == "even")
             {
