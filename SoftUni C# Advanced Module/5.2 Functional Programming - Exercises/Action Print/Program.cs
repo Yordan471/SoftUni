@@ -10,6 +10,13 @@ namespace Action_Print
     {
         static void Main(string[] args)
         {
+            string[] names = Console.ReadLine()
+                .Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+           
+            Action<string[]> print = name => 
+            Console.WriteLine(string.Join(Environment.NewLine, names));
+
+            print(names);
         }
     }
 }
