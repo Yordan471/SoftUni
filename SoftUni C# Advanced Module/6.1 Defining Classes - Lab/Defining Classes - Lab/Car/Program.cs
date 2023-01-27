@@ -10,7 +10,7 @@
             car.Model = "MK3";
             car.Year= 1992;
 
-
+            Console.WriteLine($"Make: {car.Make}, Model: {car.Model}, Year: {car.Year}");
         }
     }
 }
