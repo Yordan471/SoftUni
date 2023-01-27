@@ -14,15 +14,15 @@ namespace Knights_of_Honor
                 .Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-            Action<List<string>> print = names =>
+            Action<List<string>, string> printNameWithTitle = (names, title) =>
             {
                 foreach (string name in names)
                 {
-                    Console.WriteLine($"Sir {name}");
+                    Console.WriteLine($"{title} {name}");
                 }
             };
 
-            print(listOfNames);
+            printNameWithTitle(listOfNames, "Sir");
         }
     }
 }
