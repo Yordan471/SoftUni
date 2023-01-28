@@ -62,11 +62,11 @@ namespace CarManufacturer
 
         public void Drive(double distance)
         {
-            double neededFuel = distance * fuelConsumption;
+            double neededFuel = distance * (this.FuelConsumption / 100);
 
-            if (neededFuel < fuelQuantity)
+            if (neededFuel < FuelQuantity)
             {
-                fuelQuantity -= neededFuel;
+                FuelQuantity -= neededFuel;
             }
             else
             {
