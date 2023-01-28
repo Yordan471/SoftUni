@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Car_Engine_and_Tires;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace Car_Constructors
         private int year;
         private double fuelQuantity;
         private double fuelConsumption;
+        private Engine engine;
+        private Tire[] tires;
 
         public Car()
         {
@@ -39,6 +42,7 @@ namespace Car_Constructors
             this.FuelConsumption = fuelConsumption;
         }
 
+        
 
         public string Make { get; set; }
 
