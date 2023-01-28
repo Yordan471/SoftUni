@@ -64,7 +64,7 @@ namespace CarManufacturer
         {
             double neededFuel = distance * (this.FuelConsumption / 100);
 
-            if (neededFuel < FuelQuantity)
+            if (neededFuel <= FuelQuantity)
             {
                 FuelQuantity -= neededFuel;
             }
