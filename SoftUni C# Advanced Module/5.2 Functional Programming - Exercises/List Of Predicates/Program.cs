@@ -25,12 +25,13 @@ foreach (int number in numbers)
         if (!match(number))
         {
             isDivisible = false;
+            break;
         }
     }
 
     if (isDivisible)
     {
-        Console.WriteLine($"{number} ");
+        Console.Write($"{number} ");
     }
 }
 
