@@ -12,8 +12,15 @@ namespace DefiningClasses
 		private int age;
 
         public Person() 
-        { 
+        {
+            this.Name = "No name";
+            this.Age = 1;
+        }
 
+        public Person (int age) : this()
+        {
+            //this.Name = name;
+            this.Age = age;
         }
 
         public Person (string name, int age)
