@@ -8,8 +8,6 @@ namespace DefiningClasses
             int numberOfCars = int.Parse(Console.ReadLine());
 
             List<Car> cars = new();
-           // Car cars = new();
-           // cars.Cars = new();
 
             for (int i = 0; i < numberOfCars; i++)
             {

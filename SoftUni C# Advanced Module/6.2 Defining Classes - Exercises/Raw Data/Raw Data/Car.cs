@@ -9,10 +9,6 @@ namespace DefiningClasses
 {
     internal class Car
     {
-       //public Car()
-       //{
-       //    Cars = new();
-       //}
 
         public Car(
            string model, int engineSpeed, int enginePower, int cargoWeight,
@@ -40,7 +36,5 @@ namespace DefiningClasses
         public Cargo Cargo { get; set; }
 
         public Tires[] Tires { get; set; }
-
-        //public List<Car> Cars { get; set; }
     }
 }
