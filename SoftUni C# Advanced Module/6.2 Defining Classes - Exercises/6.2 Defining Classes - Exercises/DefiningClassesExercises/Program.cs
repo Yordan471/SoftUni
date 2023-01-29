@@ -22,10 +22,17 @@ namespace DefiningClasses
                 family.AddMember(person);
             }
 
-            Person oldestPerson = new Person();
-            oldestPerson = family.GetOldestMember();
+            List<Person> filteredAbove30 = family.GetAgeAbove30();
 
-            Console.WriteLine($"{oldestPerson.Name} {oldestPerson.Age}");
+            PrintPeople(filteredAbove30);
+        }
+
+        public static void PrintPeople(List<Person> filteredAbove30)
+        {
+            foreach (Person person in filteredAbove30)
+            {
+                Console.WriteLine($"{person.Name} - {person.Age}");
+            }
         }
     }
 }

@@ -28,5 +28,13 @@ namespace DefiningClasses
                 .OrderByDescending(p => p.Age)
                 .FirstOrDefault();
         }
+
+        public List<Person> GetAgeAbove30()
+        {
+            return People
+                .FindAll(p => p.Age > 30)
+                .OrderBy(p => p.Name)
+                .ToList();
+        }
     }
 }
