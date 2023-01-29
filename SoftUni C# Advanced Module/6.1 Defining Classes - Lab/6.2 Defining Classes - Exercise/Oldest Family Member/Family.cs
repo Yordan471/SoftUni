@@ -9,7 +9,7 @@ namespace DefiningClasses
 {
     public class Family
     {
-        List<Person> people = null;
+        private List<Person> people = null;
 
         public Family()
         {
@@ -18,12 +18,12 @@ namespace DefiningClasses
 
         public List<Person> People { get; set; }
 
-        void AddMember(Person person)
+        public void AddMember(Person person)
         {
             People.Add(person);
         }
 
-        public Person GetOldestMember(List<Person> People)
+        public Person GetOldestMember()
         {
             return People
                 .OrderByDescending(p => p.Age)
