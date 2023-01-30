@@ -53,8 +53,8 @@ namespace CarSalesman
         public override string ToString()
         {
             StringBuilder sb = new();
-            sb.AppendLine($"{this.Model}");
-            sb.AppendLine($"  {this.Engine.Model}");
+            sb.AppendLine($"{this.Model}:");
+            sb.AppendLine($"  {this.Engine.Model}:");
             sb.AppendLine($"    Power: {this.Engine.Power}");
 
             if (this.Engine.Displacement == 0)
