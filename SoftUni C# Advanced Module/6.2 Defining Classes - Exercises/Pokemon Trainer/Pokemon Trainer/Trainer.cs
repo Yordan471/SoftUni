@@ -4,34 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pokemon_Trainer
+namespace PokemonTrainer
 {
     public class Trainer
     {
         public Trainer()
         {
-            Name = "";
-            NumberOfBadges = 0;
-            Pokemons = new List<Pokemon>();
+            //Name = "";
+            this.NumberOfBadges = 0;
+            this.ACollectionOfPokemon = new List<Pokemon>();
         }
 
         public Trainer(string name, List<Pokemon> pokemons)
         {
-            Name = name;
+            this.Name = name;
 
-            Pokemons = new List<Pokemon>();
+            this.ACollectionOfPokemon = new List<Pokemon>();
         }
 
         public string Name { get; set; }
 
         public int NumberOfBadges { get; set; }
 
-        public List<Pokemon> Pokemons { get; set; }
+        public List<Pokemon> ACollectionOfPokemon { get; set; }
 
 
         public void PrintOutput(Trainer trainer)
         {
-            Console.WriteLine($"{trainer.Name} {trainer.NumberOfBadges} {trainer.Pokemons.Count}");
+            Console.WriteLine($"{trainer.Name} {trainer.NumberOfBadges} {trainer.ACollectionOfPokemon.Count}");
         }
     }
 }

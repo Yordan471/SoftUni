@@ -1,11 +1,13 @@
-﻿namespace Pokemon_Trainer
-{
-    public class StartUp
+﻿
+
+using PokemonTrainer;
+
+    public class Program
     {
         public static void Main()
         {
             string command = string.Empty;
-            
+
             List<Trainer> listTrainers = new List<Trainer>();
 
             while ((command = Console.ReadLine()) != "Tournament")
@@ -17,14 +19,15 @@
                 string pokemonName = trainerInfo[1];
                 string pokemonElement = trainerInfo[2];
                 int pokemonHealth = int.Parse(trainerInfo[3]);
-                
+
                 Pokemon pokemon = new(pokemonName, pokemonElement, pokemonHealth);
                 Trainer currTrainer = new();
 
                 if (!listTrainers.Any(t => t.Name == trainerName))
                 {
                     currTrainer.Name = trainerName;
-                    currTrainer.Pokemons.Add(pokemon);
+                    //currTrainer.ACollectionOfPokemon = new();
+                    currTrainer.ACollectionOfPokemon.Add(pokemon);
                     listTrainers.Add(currTrainer);
                 }
                 else
@@ -33,7 +36,7 @@
                     {
                         if (trainer.Name == trainerName)
                         {
-                            trainer.Pokemons.Add(pokemon);
+                            trainer.ACollectionOfPokemon.Add(pokemon);
                             break;
                         }
                     }
@@ -48,15 +51,15 @@
 
                 foreach (var trainer in listTrainers)
                 {
-                    if (trainer.Pokemons.Any(p => p.Element == inputElement))
+                    if (trainer.ACollectionOfPokemon.Any(p => p.Element == inputElement))
                     {
                         trainer.NumberOfBadges++;
                     }
                     else
                     {
-                        trainer.Pokemons.ForEach(p => p.Health -= 10);
+                        trainer.ACollectionOfPokemon.ForEach(p => p.Health -= 10);
 
-                        trainer.Pokemons = trainer.Pokemons.FindAll(h => h.Health > 0).ToList();
+                        trainer.ACollectionOfPokemon = trainer.ACollectionOfPokemon.FindAll(h => h.Health > 0).ToList();
                     }
                 }
             }
@@ -67,4 +70,3 @@
             }
         }
     }
-}
