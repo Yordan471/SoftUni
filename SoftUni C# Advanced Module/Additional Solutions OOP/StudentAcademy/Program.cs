@@ -26,6 +26,11 @@
                     .Grades.Add(grade);
             }
 
+            students = students
+                .Select(s => s)
+                .Where(s => s.Grades.Average() >= 4.50M)
+                .ToList();
+
             foreach (var student in students)
             {
                 Console.WriteLine(student.ToString());
