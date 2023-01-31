@@ -27,5 +27,11 @@ namespace Pokemon_Trainer
         public int NumberOfBadges { get; set; }
 
         public List<Pokemon> Pokemons { get; set; }
+
+
+        public void PrintOutput(Trainer trainer)
+        {
+            Console.WriteLine($"{trainer.Name} {trainer.NumberOfBadges} {trainer.Pokemons.Count}");
+        }
     }
 }

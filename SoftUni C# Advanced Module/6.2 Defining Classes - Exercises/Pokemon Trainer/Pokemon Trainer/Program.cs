@@ -34,12 +34,37 @@
                         if (trainer.Name == trainerName)
                         {
                             trainer.Pokemons.Add(pokemon);
+                            break;
                         }
                     }
                 }
             }
 
+            string secondCommand = string.Empty;
 
+            while ((secondCommand = Console.ReadLine()) != "End")
+            {
+                string inputElement = secondCommand;
+
+                foreach (var trainer in listTrainers)
+                {
+                    if (trainer.Pokemons.Any(p => p.Element == inputElement))
+                    {
+                        trainer.NumberOfBadges++;
+                    }
+                    else
+                    {
+                        trainer.Pokemons.ForEach(p => p.Health -= 10);
+
+                        trainer.Pokemons = trainer.Pokemons.FindAll(h => h.Health > 0).ToList();
+                    }
+                }
+            }
+
+            foreach (var trainer in listTrainers.OrderByDescending(t => t.NumberOfBadges))
+            {
+                trainer.PrintOutput(trainer);
+            }
         }
     }
 }
