@@ -19,15 +19,27 @@
                 int pokemonHealth = int.Parse(trainerInfo[3]);
                 
                 Pokemon pokemon = new(pokemonName, pokemonElement, pokemonHealth);
-                Trainer currTraier = new();
+                Trainer currTrainer = new();
 
                 if (!listTrainers.Any(t => t.Name == trainerName))
                 {
-                    currTraier.Name = trainerName;
-                    currTraier.Pokemons.Add(pokemon);
-                    listTrainers.Add(currTraier);
-                }                      
+                    currTrainer.Name = trainerName;
+                    currTrainer.Pokemons.Add(pokemon);
+                    listTrainers.Add(currTrainer);
+                }
+                else
+                {
+                    foreach (var trainer in listTrainers)
+                    {
+                        if (trainer.Name == trainerName)
+                        {
+                            trainer.Pokemons.Add(pokemon);
+                        }
+                    }
+                }
             }
+
+
         }
     }
 }
