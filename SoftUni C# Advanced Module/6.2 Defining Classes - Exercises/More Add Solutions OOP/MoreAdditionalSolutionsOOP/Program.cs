@@ -45,29 +45,24 @@ namespace Ranking
 
                 if (gatherContests.Any(c => c.ContestName == contestName && c.Password == password))
                 {
-                   //if (users.Count == 0)
-                   //{
-                   //    contest = new(contestName, password, points);
-                   //    currUser = new();
-                   //    currUser.UserName = userName;
-                   //    currUser.ContestsPoints.Add(contest);
-                   //    users.Add(currUser);
-                   //    continue;
-                   //}                   
-
                     if (users.Any(u => u.UserName == userName))
                     {
                         foreach (User user in users)
                         {
-                            if (user.UserName == userName && user.ContestsPoints.Any(c => c.ContestName.Equals(contestName) && c.Points < points))
+                            if (user.UserName == userName && user.ContestsPoints
+                                .Any(c => c.ContestName.Equals(contestName) && c.Points < points))
 
                             {
-                                Contest removeContest = user.ContestsPoints.Where(c => c.ContestName.Equals(contestName)).FirstOrDefault();
+                                Contest removeContest = user.ContestsPoints
+                                    .Where(c => c.ContestName.Equals(contestName))
+                                    .FirstOrDefault();
+
                                 user.ContestsPoints.Remove(removeContest);
                                 user.ContestsPoints.Add(new Contest(contestName, password, points));
                                 break;
                             }
-                            else if (user.UserName == userName && !user.ContestsPoints.Any(x => x.ContestName == contestName))
+                            else if (user.UserName == userName && !user.ContestsPoints
+                                .Any(x => x.ContestName == contestName))
                             {
                                 contest = new(contestName, password, points);
                                 user.ContestsPoints.Add(contest);
@@ -77,9 +72,8 @@ namespace Ranking
                     }
                     else
                     {
-                        contest = new(contestName, password, points);
                         currUser = new(userName);
-                        currUser.ContestsPoints.Add(contest);
+                        currUser.ContestsPoints.Add(contest = new(contestName, password, points));
                         users.Add(currUser);
                     }                                                    
                 }
@@ -88,6 +82,7 @@ namespace Ranking
             int maxPoints = 0;
             int maxValue = -100000;
             string bestUser = string.Empty;
+
             foreach (var user in users)
             {
                 foreach (var contest in user.ContestsPoints)
@@ -163,20 +158,6 @@ namespace Ranking
         public string UserName { get; set; }
         
         public List<Contest> ContestsPoints { get; set; }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new();
-
-            sb.AppendLine($"{this.UserName}");
-
-            foreach (var contest in ContestsPoints)
-            {
-                sb.AppendLine($"# {contest.ContestName} -> {contest.Points}");
-            }
-
-            return sb.ToString().Trim();
-        }
     }
 
 }
