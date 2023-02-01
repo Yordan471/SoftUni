@@ -30,13 +30,14 @@ namespace Judge
                 {
                     foreach (var cont in contests)
                     {
-                        Student removeStudent = cont.Students
-                            .Where(c => c.StudentName.Equals(studentName))
-                            .FirstOrDefault();
-
-                        cont.Students.Remove(removeStudent);
-                        cont.Students.Add(new Student(studentName, points));
-                        break;
+                        if (cont.ContestName.Equals(contestName))
+                        {
+                            Student removeStudent = cont.Students
+                                .Where(c => c.StudentName.Equals(studentName))
+                                .FirstOrDefault();
+                            removeStudent.Points = points;
+                            break;
+                        }                      
                     }
                 }
                 else if (contests
@@ -47,7 +48,8 @@ namespace Judge
                         .Find(s => s.ContestName.Equals(contestName)).Students
                         .Add(new Student(studentName, points));
                 }
-                else
+                
+                if (!contests.Any(c => c.ContestName.Equals(contestName)))
                 {
                     contest.ContestName = contestName;
                     contest.Students.Add(new Student(studentName, points));
@@ -68,7 +70,7 @@ namespace Judge
             }
 
             Console.WriteLine("Individual standings:");
-            Dictionary<string, int> studentPoints = new();
+            Dictionary<string, List<int>> studentPoints = new();
 
             foreach (var cont in contests)
             {
@@ -76,17 +78,18 @@ namespace Judge
                 {
                     if (!studentPoints.ContainsKey(student.StudentName))
                     {
-                        studentPoints.Add(student.StudentName, 0);
+                        studentPoints.Add(student.StudentName, new List<int>());
                     }
 
-                    studentPoints[student.StudentName] += student.Points;
+                    studentPoints[student.StudentName].Add(student.Points);
                 }
             }
 
             int counter = 0;
-            foreach (var student in studentPoints.OrderByDescending(s => s.Value).ThenBy(s => s.Key))
+            foreach (var student in studentPoints.OrderByDescending(s => s.Value.Sum()).ThenBy(s => s.Key))
             {
-                Console.WriteLine($"{++counter}. {student.Key} -> {student.Value}");
+                counter++;
+                Console.WriteLine($"{counter}. {student.Key} -> {student.Value.Sum()}");
             }
         }
     }
