@@ -101,8 +101,9 @@ namespace Ranking
                 maxPoints = 0;
             }
             
-            Console.WriteLine($"Best candidate is {bestUser} with total {maxValue}");
-                    
+            Console.WriteLine($"Best candidate is {bestUser} with total {maxValue} points.");
+            Console.WriteLine("Ranking:");
+
             foreach (User user in users.OrderBy(u => u.UserName))
             {
                 Console.WriteLine($"{user.UserName}");
