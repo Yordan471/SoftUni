@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Drawing;
+using System.Text;
 
 namespace Ranking
 {
@@ -44,15 +45,15 @@ namespace Ranking
 
                 if (gatherContests.Any(c => c.ContestName == contestName && c.Password == password))
                 {
-                    if (users.Count == 0)
-                    {
-                        contest = new(contestName, password, points);
-                        currUser = new();
-                        currUser.UserName = userName;
-                        currUser.ContestsPoints.Add(contest);
-                        users.Add(currUser);
-                        continue;
-                    }                   
+                   //if (users.Count == 0)
+                   //{
+                   //    contest = new(contestName, password, points);
+                   //    currUser = new();
+                   //    currUser.UserName = userName;
+                   //    currUser.ContestsPoints.Add(contest);
+                   //    users.Add(currUser);
+                   //    continue;
+                   //}                   
 
                     if (users.Any(u => u.UserName == userName))
                     {
@@ -61,7 +62,9 @@ namespace Ranking
                             if (user.UserName == userName && user.ContestsPoints.Any(c => c.ContestName.Equals(contestName) && c.Points < points))
 
                             {
-                                user.ContestsPoints.Find(c => c.Points == points);
+                                Contest removeContest = user.ContestsPoints.Where(c => c.ContestName.Equals(contestName)).FirstOrDefault();
+                                user.ContestsPoints.Remove(removeContest);
+                                user.ContestsPoints.Add(new Contest(contestName, password, points));
                                 break;
                             }
                             else if (user.UserName == userName && !user.ContestsPoints.Any(x => x.ContestName == contestName))
