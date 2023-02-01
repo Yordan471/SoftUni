@@ -8,6 +8,7 @@ namespace Ranking
         {
             string firstCommand = string.Empty;
             List<Contest> gatherContests = new();
+
             while ((firstCommand= Console.ReadLine()) != "end of contests")
             {
                 string[] contestInfo = firstCommand
@@ -39,49 +40,77 @@ namespace Ranking
                 int points = int.Parse(userInfp[3]);
 
                 Contest contest = new();
+                User currUser = new User();
 
                 if (gatherContests.Any(c => c.ContestName == contestName && c.Password == password))
                 {
                     if (users.Count == 0)
                     {
-                        contest = new(contestName, password);
-                        User user = new();
-                        user.UserName = userName;
-                        user.ContestsPoints.Add(contest, points);
-                        users.Add(user);
+                        contest = new(contestName, password, points);
+                        currUser = new();
+                        currUser.UserName = userName;
+                        currUser.ContestsPoints.Add(contest);
+                        users.Add(currUser);
                         continue;
-                    }
+                    }                   
 
-                    foreach (User user in users)
+                    if (users.Any(u => u.UserName == userName))
                     {
-                        if (user.UserName == userName && user.ContestsPoints
-                            .Any(c => c.Key.ContestName == contestName && c.Value < points))
+                        foreach (User user in users)
                         {
-                            user.ContestsPoints.Remove(contest);
-                            contest = new(contestName, password);
-                            user.ContestsPoints.Add(contest, points);
-                            //contest = new(contestName, password);
-                            //user.Contests.Add(contest);
-                            break;
-                        }
+                            if (user.UserName == userName && user.ContestsPoints.Any(c => c.ContestName.Equals(contestName) && c.Points < points))
 
-                        //user.Points = points;
-                        contest = new(contestName, password);
-                        user.ContestsPoints.Add(contest, points);
-                        users.Add(user);
-                        break;
+                            {
+                                user.ContestsPoints.Find(c => c.Points == points);
+                                break;
+                            }
+                            else if (user.UserName == userName && !user.ContestsPoints.Any(x => x.ContestName == contestName))
+                            {
+                                contest = new(contestName, password, points);
+                                user.ContestsPoints.Add(contest);
+                                break;
+                            }
+                        }
                     }
+                    else
+                    {
+                        contest = new(contestName, password, points);
+                        currUser = new(userName);
+                        currUser.ContestsPoints.Add(contest);
+                        users.Add(currUser);
+                    }                                                    
                 }
             }
 
-            foreach (User user in users.OrderByDescending(u => u.ContestsPoints.Values.Average()))
+            int maxPoints = 0;
+            int maxValue = -100000;
+            string bestUser = string.Empty;
+            foreach (var user in users)
             {
-                Console.WriteLine($"Best candidate is {user.UserName.First()} with total {user.ContestsPoints.Values.Sum()}");
+                foreach (var contest in user.ContestsPoints)
+                {
+                    maxPoints += contest.Points;
+                }
+
+                if (maxValue < maxPoints)
+                {
+                    maxValue = maxPoints;
+                    bestUser = user.UserName;
+                }
+
+                maxPoints = 0;
             }
             
+            Console.WriteLine($"Best candidate is {bestUser} with total {maxValue}");
+                    
             foreach (User user in users.OrderBy(u => u.UserName))
             {
-                Console.WriteLine(user);
+                Console.WriteLine($"{user.UserName}");
+
+                foreach (var contest in user.ContestsPoints.OrderByDescending(p => p.Points))
+                {
+                    Console.WriteLine($"#  {contest.ContestName} -> {contest.Points}");
+                }
             }
         }
     }
@@ -90,6 +119,7 @@ namespace Ranking
     {
         public Contest()
         {
+            this.Points = 0;
             this.ContestName = "test";
             this.Password= "password";
         }
@@ -99,6 +129,13 @@ namespace Ranking
             this.ContestName = contestName;
             this.Password = password;
         }
+
+        public Contest(string contestName, string password, int points) : this(contestName, password)
+        {
+            this.Points = points;
+        }
+
+        public int Points { get; set; }
 
         public string ContestName { get; set; }
 
@@ -110,15 +147,18 @@ namespace Ranking
         public User()
         {
             this.UserName = string.Empty;
-            this.Points = 0;
             this.ContestsPoints = new();
         }
 
-        public string UserName { get; set; }
+        public User(string userName ) : this()
+        {
+            UserName = userName;
+           // ContestsPoints = contestsPoints;
+        }
 
-        public int Points { get; set; }
+        public string UserName { get; set; }
         
-        public Dictionary<Contest, int> ContestsPoints { get; set; }
+        public List<Contest> ContestsPoints { get; set; }
 
         public override string ToString()
         {
@@ -128,7 +168,7 @@ namespace Ranking
 
             foreach (var contest in ContestsPoints)
             {
-                sb.AppendLine($"# {contest.Key} -> {contest.Value}");
+                sb.AppendLine($"# {contest.ContestName} -> {contest.Points}");
             }
 
             return sb.ToString().Trim();
