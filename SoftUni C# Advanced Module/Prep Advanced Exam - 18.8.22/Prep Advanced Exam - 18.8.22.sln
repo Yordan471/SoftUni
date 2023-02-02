@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaristaContest", "BaristaContest\BaristaContest.csproj", "{D64A2E7F-CDB5-4A69-835A-DD6DF7201DD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D64A2E7F-CDB5-4A69-835A-DD6DF7201DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64A2E7F-CDB5-4A69-835A-DD6DF7201DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64A2E7F-CDB5-4A69-835A-DD6DF7201DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64A2E7F-CDB5-4A69-835A-DD6DF7201DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {001B24F1-FE52-4B13-B8A8-2B5E59DC626D}
+	EndGlobalSection
+EndGlobal
