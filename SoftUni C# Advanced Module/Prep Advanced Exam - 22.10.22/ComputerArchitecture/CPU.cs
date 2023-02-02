@@ -30,9 +30,9 @@ namespace ComputerArchitecture
 
             sb.AppendLine($"{this.Brand} CPU:");
             sb.AppendLine($"Cores: {this.Cores}");
-            sb.AppendLine($"Frequency: {this.Frequency}:f1");
+            sb.AppendLine($"Frequency: {this.Frequency:f1} GHz");
 
-            return sb.ToString();
+            return sb.ToString().Trim();
         }
     }
 }
