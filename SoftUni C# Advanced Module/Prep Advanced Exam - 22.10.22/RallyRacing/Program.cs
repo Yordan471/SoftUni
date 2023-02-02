@@ -166,7 +166,6 @@ int GoingTo(string nextPosition, int kilometersPassed)
             break;
         case "T":
             kilometersPassed += 30;
-           // matrix = ThroughTunel(matrix, saveRow, saveCol);
             break;
         case "F":           
             kilometersPassed += 10;
