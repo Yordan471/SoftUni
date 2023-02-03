@@ -52,15 +52,9 @@ namespace BaristaContestOldV
                     continue;
                 }
 
-                if (coffeeQ.Any())
-                {
-                    coffeeQ.Dequeue();
-                }
-                if (milkQ.Any())
-                {
-                    int currMilk = milkQ.Pop() - 5;
-                    milkQ.Push(currMilk);                
-                }
+                coffeeQ.Dequeue();
+                int currMilk = milkQ.Pop() - 5;
+                milkQ.Push(currMilk);
             }
 
             if (coffeeQ.Count == 0 && milkQ.Count == 0)
@@ -72,7 +66,7 @@ namespace BaristaContestOldV
                 Console.WriteLine("Nina needs to exercise more! She didn't use all the coffee and milk!");
             }
 
-            if (coffeeQ.Any())
+            if (coffeeQ.Count > 0)
             {
                 Console.WriteLine($"Coffee left: {string.Join(", ", coffeeQ)}");
             }
@@ -81,9 +75,9 @@ namespace BaristaContestOldV
                 Console.WriteLine("Coffee left: none");
             }
 
-            if (milkQ.Any())
+            if (milkQ.Count > 0)
             {
-                Console.WriteLine($"Coffee left: {string.Join(", ", milkQ)}");
+                Console.WriteLine($"Milk left: {string.Join(", ", milkQ)}");
             }
             else
             {

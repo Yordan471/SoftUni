@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaristaContestOldV", "BaristaContestOldV\BaristaContestOldV.csproj", "{AE6A35F8-19CA-41E7-B78B-107C82A7A5CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpAMole", "HelpAMole\HelpAMole.csproj", "{F6F5B2C9-31DE-451F-B2C1-7755D382781C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AE6A35F8-19CA-41E7-B78B-107C82A7A5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE6A35F8-19CA-41E7-B78B-107C82A7A5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE6A35F8-19CA-41E7-B78B-107C82A7A5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F5B2C9-31DE-451F-B2C1-7755D382781C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F5B2C9-31DE-451F-B2C1-7755D382781C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F5B2C9-31DE-451F-B2C1-7755D382781C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F5B2C9-31DE-451F-B2C1-7755D382781C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
