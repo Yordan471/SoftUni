@@ -42,7 +42,7 @@ namespace Basketball
             sb.AppendLine($"--Raiting: {Raiting:f2}");
             sb.AppendLine($"Games player: {Games}");
 
-            return sb.ToString();
+            return sb.ToString().Trim();
         }
     }
 }
