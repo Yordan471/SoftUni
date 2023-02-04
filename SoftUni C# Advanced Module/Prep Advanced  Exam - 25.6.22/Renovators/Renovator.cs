@@ -8,11 +8,10 @@ namespace Renovators
 {
     public class Renovator
     {
-        private string Name;
-        private string Type;
-        private double Rate;
-        private int Days;
-        private bool Hired;
+        private string name;
+        private string type;
+        private double rate;
+        private int days;
 
         public Renovator(string name, string type, double rate, int days)
         {
@@ -20,16 +19,25 @@ namespace Renovators
             this.Type = type;
             this.Rate = rate;
             this.Days = days;
-            Hired = false;
         }
+
+        public string Name { get; private set; }
+
+        public string Type { get; private set; }
+
+        public double Rate { get; private set; }
+
+        public int Days { get; private set; }
+
+        public bool Hired { get; set; } = false;
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"-Renovator: {Name}");
-            sb.AppendLine($"--Specialty: {Type}");
-            sb.AppendLine($"--Rate per day: {Rate} BGN");
+            sb.AppendLine($"-Renovator: {this.Name}");
+            sb.AppendLine($"--Specialty: {this.Type}");
+            sb.AppendLine($"--Rate per day: {this.Rate} BGN");
 
             return sb.ToString().Trim();
         }
