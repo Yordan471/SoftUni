@@ -47,7 +47,7 @@ namespace TilesMaster
                     while(whiteTiles.Count != 0)
                     {
                         countS++;
-                        saveStack[saveStack.Length - 1 - countS] = whiteTiles.Pop();
+                        saveStack[saveStack.L - 1 - countS] = whiteTiles.Pop();
                     }
 
                     whiteTiles = new Stack<int>(saveStack);
