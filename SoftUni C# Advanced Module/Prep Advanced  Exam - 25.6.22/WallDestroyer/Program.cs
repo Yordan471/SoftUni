@@ -140,10 +140,10 @@ namespace WallDestroyer
                 case "right":
                    return --saveCol;
                     
-                case "Down":
+                case "down":
                    return --saveRow;
                     
-                case "Up":
+                case "up":
                    return ++saveRow;
                 default:
                     return default;
