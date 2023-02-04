@@ -6,11 +6,27 @@ using System.Threading.Tasks;
 
 namespace GenericArrayCreator
 {
-    public class ArrayCreator<T>
+    public class ArrayCreator
     {
-        private T[] array;
+      // private T[] array;
+      //
+      // private int length;
+      //
+      // private T item;
+      //
+      // public ArrayCreator()
+      // {
+      //     array= new T[0];
+      // }
+      //
+      // public ArrayCreator(T[] array, int length, T item) : this()
+      // {
+      //     //this.array = array;
+      //     this.length = length;
+      //     this.item = item;
+      // }
 
-        static T[] Creater(int length, T Item)
+        public static T[] Create<T>(int length, T Item)
         {
             T[] array = new T[length];
 
