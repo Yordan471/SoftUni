@@ -39,7 +39,7 @@ namespace HelpAMole
 
             string command = string.Empty;
 
-            while ((command = Console.ReadLine()) != "End" && currPoints < 25)
+            while (currPoints < 25 && (command = Console.ReadLine()) != "End")
             {
                 string direction = command;
 
