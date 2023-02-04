@@ -16,24 +16,26 @@ namespace BoxOfT
         public Box()
         {
            // count = list.Count;
-            list = new List<T> { };
+            list = new List<T>();
         }
 
         public int Count
         {
             get
             {
-                return count;
+                return this.count;
             }
         }
 
         public void Add(T element)
         {
+            count++;
            list.Add(element);
         }
 
         public T Remove()
         {
+            count--;
             T removedElement = list[list.Count - 1];
             list.Remove(removedElement);
 
