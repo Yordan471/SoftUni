@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meal Plan", "Meal Plan\Meal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Truffle Hunter", "Truffle Hunter\Truffle Hunter.csproj", "{5EBB7868-A654-4C96-8B54-B26906E8FFEA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoo", "Zoo\Zoo\Zoo.csproj", "{E35134E7-2255-4ED7-8172-49F91F4BC31B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5EBB7868-A654-4C96-8B54-B26906E8FFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EBB7868-A654-4C96-8B54-B26906E8FFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EBB7868-A654-4C96-8B54-B26906E8FFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E35134E7-2255-4ED7-8172-49F91F4BC31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E35134E7-2255-4ED7-8172-49F91F4BC31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E35134E7-2255-4ED7-8172-49F91F4BC31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E35134E7-2255-4ED7-8172-49F91F4BC31B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
