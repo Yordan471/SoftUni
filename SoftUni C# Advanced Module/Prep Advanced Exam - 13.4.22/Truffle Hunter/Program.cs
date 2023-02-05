@@ -28,7 +28,9 @@ namespace Truffle_Hunter
                 }
             }
 
-            Dictionary<string, int> PeterTrufflesNumber = new Dictionary<string, int>();
+            int countBlack = 0;
+            int countWhite = 0;
+            int countSummer = 0;
             int countBoarTruffles = 0;
             string command = string.Empty;
 
@@ -46,14 +48,9 @@ namespace Truffle_Hunter
                     if (CheckCoordinates(forest, rowInfo, colInfo))
                     {
                         string nextPosition = forest[rowInfo, colInfo];
-                        string truffle = string.Empty;
 
-                        if (nextPosition != "-")
-                        {
-                            truffle = GetTruffle(nextPosition, truffle);
-                            AddTruffle(PeterTrufflesNumber, truffle);
-                        }
-                        
+                        CountTruffles(ref countBlack, ref countWhite, ref countSummer, nextPosition);
+
                         forest[rowInfo, colInfo] = "-";
                     }
                 }
@@ -142,7 +139,7 @@ namespace Truffle_Hunter
                 }
             }
 
-            Console.WriteLine($"Peter manages to harvest {PeterTrufflesNumber["black"]} black, {PeterTrufflesNumber["summer"]} summer, and {PeterTrufflesNumber["white"]} white truffles.");
+            Console.WriteLine($"Peter manages to harvest {countBlack} black, {countSummer} summer, and {countWhite} white truffles.");
             Console.WriteLine($"The wild boar has eaten {countBoarTruffles} truffles.");
 
             for (int row = 0; row < forest.GetLength(0); row++)
@@ -156,34 +153,23 @@ namespace Truffle_Hunter
             }
         }
 
-        private static string GetTruffle(string nextPosition, string truffle)
+        private static void CountTruffles(ref int countBlack, ref int countWhite, ref int countSummer, string nextPosition)
         {
-            if (nextPosition == "B")
+            if (nextPosition != "-")
             {
-                truffle = "black";
+                if (nextPosition == "B")
+                {
+                    countBlack++;
+                }
+                else if (nextPosition == "S")
+                {
+                    countSummer++;
+                }
+                else if (nextPosition == "W")
+                {
+                    countWhite++;
+                }
             }
-            else if (nextPosition == "S")
-            {
-                truffle = "summer";
-            }
-            else if (nextPosition == "W")
-            {
-                truffle = "white";
-            }
-
-            return truffle;
-        }
-
-        private static void AddTruffle(Dictionary<string, int> PeterTrufflesNumber, string truffle)
-        {
-
-             if (!PeterTrufflesNumber.ContainsKey(truffle))
-             {
-                 PeterTrufflesNumber.Add(truffle, 0);
-             }
-
-             PeterTrufflesNumber[truffle]++;
-                
         }
 
         private static bool CheckCoordinates(string[,] forest, int rowInfo, int colInfo)
