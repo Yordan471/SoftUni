@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericBoxOfString", "GenericBoxOfString\GenericBoxOfString.csproj", "{74EC80D3-EE05-4AFF-92C1-8AC0C6BD272D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericBoxOfString", "GenericBoxOfString\GenericBoxOfString.csproj", "{74EC80D3-EE05-4AFF-92C1-8AC0C6BD272D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericBoxOfInteger", "GenericBoxOfInteger\GenericBoxOfInteger.csproj", "{699A1361-B709-4B80-8ACB-B38DACE85442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericBoxOfInteger", "GenericBoxOfInteger\GenericBoxOfInteger.csproj", "{699A1361-B709-4B80-8ACB-B38DACE85442}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericSwapMethodString", "GenericSwapMethodString\GenericSwapMethodString.csproj", "{60879CD5-03F2-4118-BF7A-9075C8F1AFE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericSwapMethodString", "GenericSwapMethodString\GenericSwapMethodString.csproj", "{60879CD5-03F2-4118-BF7A-9075C8F1AFE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwapMethodInteger", "SwapMethodInteger\SwapMethodInteger.csproj", "{0EC2287F-563A-4F63-8018-C2F837907FFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwapMethodInteger", "SwapMethodInteger\SwapMethodInteger.csproj", "{0EC2287F-563A-4F63-8018-C2F837907FFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCountMethodString", "GenericCountMethodString\GenericCountMethodString.csproj", "{8CA0980B-0930-4D7A-9E72-212C3CF1E924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericCountMethodString", "GenericCountMethodString\GenericCountMethodString.csproj", "{8CA0980B-0930-4D7A-9E72-212C3CF1E924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCountMethodDoubles", "GenericCountMethodDoubles\GenericCountMethodDoubles.csproj", "{ED400E9E-7999-403A-94F0-50081E462705}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericCountMethodDoubles", "GenericCountMethodDoubles\GenericCountMethodDoubles.csproj", "{ED400E9E-7999-403A-94F0-50081E462705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuple", "Tuple\Tuple.csproj", "{19D88917-8AAD-49E3-983E-637EB06EF3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuple", "Tuple\Tuple.csproj", "{19D88917-8AAD-49E3-983E-637EB06EF3B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threeuple", "Threeuple\Threeuple.csproj", "{FD1EEB6E-9F89-4344-ADA7-148F6AFFE2A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{19D88917-8AAD-49E3-983E-637EB06EF3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19D88917-8AAD-49E3-983E-637EB06EF3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19D88917-8AAD-49E3-983E-637EB06EF3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1EEB6E-9F89-4344-ADA7-148F6AFFE2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1EEB6E-9F89-4344-ADA7-148F6AFFE2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1EEB6E-9F89-4344-ADA7-148F6AFFE2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1EEB6E-9F89-4344-ADA7-148F6AFFE2A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
