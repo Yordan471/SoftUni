@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IteratorsAndComparators
 {
-    public class Book
+    public class Book : IComparable<Book>
     {
         public Book(string title, int year, params string[] authors)
         {
@@ -15,11 +15,29 @@ namespace IteratorsAndComparators
             Authors = authors.ToList();
         }
 
-
         public string Title { get; set; }
 
         public int Year { get; set; }
 
         public List<string> Authors { get; set; }
+
+        public int CompareTo(Book other)
+        {
+            if (other.Year > Year)
+            {
+                return -1;
+            }
+            else if (other.Year < Year)
+            {
+                return 1;
+            }
+            
+            return Title.CompareTo(other.Title);
+        }
+
+        public override string ToString()
+        {
+            return $"{Title} - {Year}";
+        }
     }
 }

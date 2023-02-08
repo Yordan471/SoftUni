@@ -33,6 +33,7 @@ namespace IteratorsAndComparators
             public LibraryIteratir (List<Book> books)
             {
                 this.books = books;
+                books.Sort(new BookComparator());
             }
 
             public Book Current => books[index];
@@ -45,8 +46,7 @@ namespace IteratorsAndComparators
             }
 
             public bool MoveNext()
-            {
-               
+            {              
                 return ++index < books.Count;
             }
 

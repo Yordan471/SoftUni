@@ -1,4 +1,6 @@
-﻿namespace IteratorsAndComparators
+﻿using System.Collections.Immutable;
+
+namespace IteratorsAndComparators
 {
     public class StartUp
     {
@@ -11,10 +13,11 @@
 
             Library libraryOne = new Library();
             Library libraryTwo = new Library(bookOne, bookTwo, bookThree);
+            
 
             foreach (Book book in libraryTwo)
             {
-                Console.WriteLine(book.Title);
+                Console.WriteLine(book);
             }
         }
     }
