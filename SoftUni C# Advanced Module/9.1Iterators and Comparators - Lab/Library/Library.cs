@@ -5,20 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library
+namespace Libraries
 {
     public class Library : IEnumerable<Book>
     {
-        public Library()
-        {
-            Books = new List<Book>();
-        }
+        private List<Book> books;
 
-        public List<Book> Books { get; set; }
+        public Library(params Book[] books)
+        {
+            this.books = new List<Book>();
+        }
 
         public IEnumerator<Book> GetEnumerator()
         {
-            return Books.GetEnumerator();
+            return books.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
