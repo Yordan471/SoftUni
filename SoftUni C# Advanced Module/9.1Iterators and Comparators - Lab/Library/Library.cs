@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Libraries
+namespace IteratorsAndComparators
 {
     public class Library : IEnumerable<Book>
     {
