@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorsAndComparators", "Library\IteratorsAndComparators.csproj", "{7AFAB3DB-1045-4B39-809C-A76442ED4F1A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryIterator", "LibraryIterator\LibraryIterator.csproj", "{19131B9E-ABE7-45DD-BA10-A16F5DD6BA48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorsAndComparators", "IteratorsAndComparators\IteratorsAndComparators.csproj", "{4051C509-2ACB-4609-82A9-FA123F8BC3E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7AFAB3DB-1045-4B39-809C-A76442ED4F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7AFAB3DB-1045-4B39-809C-A76442ED4F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7AFAB3DB-1045-4B39-809C-A76442ED4F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7AFAB3DB-1045-4B39-809C-A76442ED4F1A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19131B9E-ABE7-45DD-BA10-A16F5DD6BA48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19131B9E-ABE7-45DD-BA10-A16F5DD6BA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19131B9E-ABE7-45DD-BA10-A16F5DD6BA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19131B9E-ABE7-45DD-BA10-A16F5DD6BA48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4051C509-2ACB-4609-82A9-FA123F8BC3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4051C509-2ACB-4609-82A9-FA123F8BC3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4051C509-2ACB-4609-82A9-FA123F8BC3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4051C509-2ACB-4609-82A9-FA123F8BC3E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
