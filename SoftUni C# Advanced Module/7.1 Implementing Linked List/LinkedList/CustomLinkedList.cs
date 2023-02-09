@@ -81,5 +81,23 @@ namespace LinkedList
 
             Head.Previouse = null;
         }
+
+        public void RemoveLast(int value)
+        {
+            Count--;
+            // Removing element for Queue
+            if (Tail.Previouse == null)
+            {
+                Tail = null;
+                Head = null;
+            }
+            Node oldTail = Tail;
+
+            Tail = Tail.Previouse;
+
+            oldTail.Previouse = null;
+
+            Tail.Next = null;
+        }
     }
 }
