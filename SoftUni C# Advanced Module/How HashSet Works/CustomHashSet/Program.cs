@@ -10,6 +10,15 @@ namespace CustomHashSet
     {
         static void Main(string[] args)
         {
+            MyHashSet myHashSet = new MyHashSet();
+
+            myHashSet.Add("Gosho");
+            myHashSet.Add("Peter");
+            myHashSet.Add("Svilen");
+
+            Console.WriteLine(myHashSet.Contains("Gosho"));
+            Console.WriteLine(myHashSet.Contains("Spas"));
+            
 
         }
     }
