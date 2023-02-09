@@ -59,5 +59,27 @@ namespace LinkedList
             Tail.Next = node;
             Tail = node;
         }
+
+        public void RemoveFirst(int value)
+        {
+            // Remove element from the start
+            // For Stack
+            Count--;
+
+            // If we dont have more elements to remove
+            if (Head.Next == null)
+            {
+                Head = null;
+                Tail = null;
+            }
+
+            Node oldHead = Head;
+
+            Head = Head.Next;
+
+            oldHead.Next = null;
+
+            Head.Previouse = null;
+        }
     }
 }
