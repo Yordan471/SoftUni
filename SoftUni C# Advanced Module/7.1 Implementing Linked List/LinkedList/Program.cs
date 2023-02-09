@@ -14,11 +14,20 @@ linkedList.AddLast(5);
 // First in first out - Queue
 Node node = linkedList.Head;
 
+int[] arr = linkedList.ToArray();
+Console.WriteLine("Print Array from LinkedList:");
+Console.WriteLine(string.Join(" ", arr));
+Console.WriteLine();
+
+Console.WriteLine("ForEach:");
 // Iterate through the linked List
 linkedList.ForEach(x =>
 {
     Console.WriteLine($"Node {x}");
 });
+Console.WriteLine();
+
+Console.WriteLine("Reversed ForEach:");
 
 // Reversed
 linkedList.ForEachReverse(x =>
