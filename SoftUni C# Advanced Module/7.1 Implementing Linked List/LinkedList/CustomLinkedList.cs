@@ -99,5 +99,29 @@ namespace LinkedList
 
             Tail.Next = null;
         }
+
+        public void ForEach(Action<int> callback)
+        {
+            // With this method we iterate through the linkedList
+            Node current = Head;
+
+            while (current != null)
+            {
+                callback(current.Value);
+                current = current.Next;
+            }
+        }
+
+        public void ForEachReverse(Action<int> callback)
+        {
+            // reversed iteration 
+            Node current = Tail;
+
+            while (current != null)
+            {
+                callback(current.Value);
+                current = current.Previouse;
+            }
+        }
     }
 }
