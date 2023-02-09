@@ -14,8 +14,21 @@ linkedList.AddLast(5);
 // First in first out - Queue
 Node node = linkedList.Head;
 
-while (node != null)
+// Iterate through the linked List
+linkedList.ForEach(x =>
 {
-    Console.WriteLine(node.Value);
-    node = node.Next;
-}
+    Console.WriteLine($"Node {x}");
+});
+
+// Reversed
+linkedList.ForEachReverse(x =>
+{
+    Console.WriteLine($"Node {x}");
+});
+
+
+//while (node != null)
+//{
+//    Console.WriteLine(node.Value);
+//    node = node.Next;
+//}

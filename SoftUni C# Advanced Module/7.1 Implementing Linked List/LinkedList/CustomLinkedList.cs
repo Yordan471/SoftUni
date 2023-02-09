@@ -123,5 +123,19 @@ namespace LinkedList
                 current = current.Previouse;
             }
         }
+
+        public int[] ToArray()
+        {
+            // Fill an array from our LinkedList
+            int[] array = new int[Count];
+            int i = 0;
+            // for every index "i" in array add node;
+            ForEach(n =>
+            {
+                array[i++] = n;
+            });
+
+            return array;
+        }
     }
 }
