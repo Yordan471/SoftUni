@@ -83,7 +83,7 @@ namespace TheBattleoftheFiveArmies
                         break;
                     }
 
-                    mapOfMordor[orcsRow][orcsCol] = "-";
+                    mapOfMordor[armyRow][armyCol] = "-";
                     //PrintMapOfMordor(mapOfMordor);
                     continue;
                 }
