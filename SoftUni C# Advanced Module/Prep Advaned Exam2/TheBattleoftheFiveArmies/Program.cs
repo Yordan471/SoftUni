@@ -32,10 +32,13 @@ namespace TheBattleoftheFiveArmies
                 int orcsRow = int.Parse(spawnAndPosition[1]);
                 int orcsCol = int.Parse(spawnAndPosition[2]);
 
+                mapOfMordor[orcsRow][orcsCol] = "O";
+
                 if (position == "left")
                 {
                     if (ChechBoundaries(mapOfMordor ,armyRow, armyCol - 1))
                     {
+                        //mapOfMordor[armyRow][armyCol] = "-";
                         armyCol--;
                     }                   
                 }
@@ -43,6 +46,7 @@ namespace TheBattleoftheFiveArmies
                 {
                     if (ChechBoundaries(mapOfMordor, armyRow, armyCol + 1))
                     {
+                        //mapOfMordor[armyRow][armyCol] = "-";
                         armyCol++;
                     }
                 }
@@ -50,6 +54,7 @@ namespace TheBattleoftheFiveArmies
                 {
                     if (ChechBoundaries(mapOfMordor, armyRow - 1, armyCol))
                     {
+                        //mapOfMordor[armyRow][armyCol] = "-";
                         armyRow--;
                     }
                 }
@@ -57,13 +62,16 @@ namespace TheBattleoftheFiveArmies
                 {
                     if (ChechBoundaries(mapOfMordor, armyRow + 1, armyCol))
                     {
+                        //mapOfMordor[armyRow][armyCol] = "-";
                         armyRow++;
                     }
                 }
 
+                //mapOfMordor[armyRow][armyCol] = "A";
                 armyArmor--;
+                
 
-                if (armyRow == orcsRow && armyCol == orcsCol)
+                if (mapOfMordor[armyRow][armyCol] == "O")
                 {
                     armyArmor -= 2;
 
@@ -71,9 +79,12 @@ namespace TheBattleoftheFiveArmies
                     {
                         mapOfMordor[armyRow][armyCol] = "X";
                         armyIsDead = true;
+                       //PrintMapOfMordor(mapOfMordor);
                         break;
                     }
 
+                    mapOfMordor[orcsRow][orcsCol] = "-";
+                    //PrintMapOfMordor(mapOfMordor);
                     continue;
                 }
                 else if (mapOfMordor[armyRow][armyCol] == "M")
@@ -83,7 +94,14 @@ namespace TheBattleoftheFiveArmies
                     break;
                 }
 
-                mapOfMordor[orcsRow][orcsCol] = "O";             
+                if (armyArmor <= 0)
+                {
+                    armyIsDead = true;
+                    mapOfMordor[armyRow][armyCol] = "X";
+                    break;
+                }
+
+                //PrintMapOfMordor(mapOfMordor);
             }
 
             if (winWar)
