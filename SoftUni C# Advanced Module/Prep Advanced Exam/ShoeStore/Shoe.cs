@@ -28,7 +28,7 @@ namespace ShoeStore
 
         public override string ToString()
         {
-            return $"Size {this.Size} {this.Material} {this.Brand} {this.Type} shoe.";
+            return $"Size {this.Size} {this.Material} {this.Brand} {this.Type} shoe.".ToString().Trim();
         }
     }
 }

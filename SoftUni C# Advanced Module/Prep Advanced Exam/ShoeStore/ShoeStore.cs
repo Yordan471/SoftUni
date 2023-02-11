@@ -29,7 +29,7 @@ namespace ShoeStore
             }
         }
 
-        string AddShoe(Shoe shoe)
+        public string AddShoe(Shoe shoe)
         {
             if (this.Count == this.StorageCapacity)
             {
@@ -40,32 +40,35 @@ namespace ShoeStore
             return $"Successfully added {shoe.Type} {shoe.Material} pair of shoes to the store.";
         }
 
-        int RemoveShoes(string material)
+        public int RemoveShoes(string material)
         {
             int countRemovedShoes = 0;
 
             while (Shoes.Any(s => s.Material == material))
             {
-                Shoes.Remove(Shoes.First());
+                Shoes.Remove(Shoes.First(s => s.Material == material));
                 countRemovedShoes++;
             }
 
             return countRemovedShoes;
         }
 
-        List<Shoe> GetShoesByType(string type)
+        public List<Shoe> GetShoesByType(string type)
         {
             List<Shoe> specificType = new();
 
-            while (Shoes.Any(s => s.Type.ToLower() == type.ToLower()))
+            if (Shoes.Any(s => s.Type.ToLower() == type.ToLower()))
             {
-                specificType.Add(Shoes.First());
+                foreach (Shoe shoe in Shoes.FindAll(s => s.Type.ToLower() == type.ToLower()))
+                {
+                    specificType.Add(shoe);
+                }
             }
 
             return specificType;
         }
 
-        Shoe GetShoeBySize(double size)
+        public Shoe GetShoeBySize(double size)
         {
             Shoe shoeBySize = new();
 
@@ -77,7 +80,7 @@ namespace ShoeStore
             return shoeBySize;
         }
 
-        string StockList(double size, string type)
+        public string StockList(double size, string type)
         {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -85,12 +88,12 @@ namespace ShoeStore
             {
                 stringBuilder.AppendLine($"Stock list for size {size} - {type} shoes:");
 
-                foreach (var sho in Shoes)
+                foreach (var sho in Shoes.FindAll(s => s.Size == size && s.Type == type))
                 {
                     stringBuilder.AppendLine(sho.ToString());
                 }
 
-                return stringBuilder.ToString();
+                return stringBuilder.ToString().Trim();
             }
 
             return "No matches found!";
