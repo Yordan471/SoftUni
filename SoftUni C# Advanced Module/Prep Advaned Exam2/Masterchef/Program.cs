@@ -43,11 +43,9 @@ namespace Masterchef
 
                     dishAndCount[freshnessAndDish[ingredients.Peek() * freshness.Peek()]]++;
                     ingredients.Dequeue();
-                    //freshness.Pop();
                 }
                 else if (ingredients.Peek() != 0)
                 {
-                    //freshness.Pop();
                     int removedIngredient = ingredients.Dequeue() + 5;
                     int[] rearangeIngredients = new int[ingredients.Count + 1];
                     int count = 0;
