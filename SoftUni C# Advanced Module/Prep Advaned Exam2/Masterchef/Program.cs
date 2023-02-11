@@ -70,7 +70,7 @@ namespace Masterchef
 
             if (dishAndCount.Count == 4)
             {
-                Console.WriteLine("Applause! The judges are fascinated by your dishes");
+                Console.WriteLine("Applause! The judges are fascinated by your dishes!");
             }
             else
             {
@@ -87,7 +87,7 @@ namespace Masterchef
             {
                 foreach (var dish in dishAndCount.OrderBy(d => d.Key))
                 {
-                    Console.WriteLine($"# {dish.Key} --> {dish.Value}");
+                    Console.WriteLine($" # {dish.Key} --> {dish.Value}");
                 }
             }
         }
