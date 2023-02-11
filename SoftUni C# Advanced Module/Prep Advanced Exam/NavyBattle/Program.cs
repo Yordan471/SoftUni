@@ -81,7 +81,6 @@ void PrintBattlefield(string[,] battlefield)
         }
 
         Console.WriteLine();
-
     }
 }
 
