@@ -8,6 +8,7 @@ namespace ShoeStore
 {
     public class Shoe
     {
+        public Shoe() { }
         public Shoe(string brand, string type, double size, string material)
         {
             this.Brand = brand;
