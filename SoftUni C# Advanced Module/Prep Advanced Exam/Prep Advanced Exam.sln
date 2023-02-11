@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Climb hePeaks", "Climb hePeaks\Climb hePeaks.csproj", "{9A876A3D-19DE-4274-B261-F8EE7BB8D397}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavyBattle", "NavyBattle\NavyBattle.csproj", "{9EFB4D90-6998-4FC0-99AE-BD652F6462AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9A876A3D-19DE-4274-B261-F8EE7BB8D397}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A876A3D-19DE-4274-B261-F8EE7BB8D397}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A876A3D-19DE-4274-B261-F8EE7BB8D397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EFB4D90-6998-4FC0-99AE-BD652F6462AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EFB4D90-6998-4FC0-99AE-BD652F6462AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EFB4D90-6998-4FC0-99AE-BD652F6462AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EFB4D90-6998-4FC0-99AE-BD652F6462AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
