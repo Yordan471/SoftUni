@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryShop", "BakeryShop\BakeryShop.csproj", "{9D0DF624-9D27-4A79-94E5-B91FBB6BD18C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaverAtWork", "BeaverAtWork\BeaverAtWork.csproj", "{79FC1B6F-EE34-4E5D-9EB6-EEC30A6DD134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingNet", "FishingNet\FishingNet.csproj", "{8D194D74-6E3D-4E63-A493-817605FC6484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9D0DF624-9D27-4A79-94E5-B91FBB6BD18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0DF624-9D27-4A79-94E5-B91FBB6BD18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D0DF624-9D27-4A79-94E5-B91FBB6BD18C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FC1B6F-EE34-4E5D-9EB6-EEC30A6DD134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FC1B6F-EE34-4E5D-9EB6-EEC30A6DD134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FC1B6F-EE34-4E5D-9EB6-EEC30A6DD134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FC1B6F-EE34-4E5D-9EB6-EEC30A6DD134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D194D74-6E3D-4E63-A493-817605FC6484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D194D74-6E3D-4E63-A493-817605FC6484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D194D74-6E3D-4E63-A493-817605FC6484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D194D74-6E3D-4E63-A493-817605FC6484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
