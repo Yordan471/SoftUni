@@ -41,11 +41,25 @@ namespace StreetRacing
 
         public void Add(Car car)
         {
-            if (this.Count != this.Capacity &&
-                car.HorsePower >= MaxHorsePower &&
-                Participants.Any(c => c.LicensePlate != car.LicensePlate))
+            bool addCar = true;
+
+            if (this.Count < this.Capacity &&
+                car.HorsePower <= MaxHorsePower)
+               
             {
-                Participants.Add(car);
+                foreach (var participant in Participants)
+                {
+                    if (participant.LicensePlate == car.LicensePlate)
+                    {
+                        addCar = false;
+                        break;
+                    }
+                }
+
+                if (addCar)
+                {
+                    Participants.Add(car);
+                }              
             }
         }
 
@@ -88,13 +102,16 @@ namespace StreetRacing
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Race: {this.Name} - {this.Type} (Laps: {this.Laps}");
+            sb.AppendLine($"Race: {this.Name} - Type: {this.Type} (Laps: {this.Laps})");
             
-            foreach (Car car in Participants)
+            if (Participants.Count > 0)
             {
-                sb.AppendLine(car.ToString());
+                foreach (Car car in Participants)
+                {
+                    sb.AppendLine(car.ToString());
+                }
             }
-
+            
             return sb.ToString().Trim();
         }
     }
