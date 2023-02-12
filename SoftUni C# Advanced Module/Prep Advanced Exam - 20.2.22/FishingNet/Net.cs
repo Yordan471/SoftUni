@@ -76,6 +76,7 @@ namespace FishingNet
                 foreach (var f in this.fish.OrderByDescending(f => f.Length))
                 {
                     longestFish = f;
+                    break;
                 }
             }
 
