@@ -31,8 +31,8 @@ namespace FishingNet
 
         public string AddFish(Fish fish)
         {
-            if (string.IsNullOrEmpty(fish.FishType) &&
-                fish.Weight <= 0 && fish.Length <= 0)
+            if (string.IsNullOrEmpty(fish.FishType) ||
+                fish.Weight <= 0 || fish.Length <= 0)
             {
                 return "Invalid fish.";
             }
