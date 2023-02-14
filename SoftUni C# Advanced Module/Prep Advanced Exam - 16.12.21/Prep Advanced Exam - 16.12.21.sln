@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blacksmith", "Blacksmith\Bl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armory", "Arrory\Armory.csproj", "{5AFD311D-C662-4A1F-AE70-03A4B3400385}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drones", "Drones\Drones.csproj", "{1FD68064-5F43-4D63-8A10-2F7C39199CF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5AFD311D-C662-4A1F-AE70-03A4B3400385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AFD311D-C662-4A1F-AE70-03A4B3400385}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AFD311D-C662-4A1F-AE70-03A4B3400385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD68064-5F43-4D63-8A10-2F7C39199CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD68064-5F43-4D63-8A10-2F7C39199CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD68064-5F43-4D63-8A10-2F7C39199CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD68064-5F43-4D63-8A10-2F7C39199CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
