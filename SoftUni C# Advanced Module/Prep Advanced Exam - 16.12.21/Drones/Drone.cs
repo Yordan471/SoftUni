@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    public class Program
+    public class Drone
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
