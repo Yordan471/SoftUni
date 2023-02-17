@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFinder", "FoodFinder\Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawnWars", "PawnWars\PawnWars.csproj", "{44EAD149-5C7C-4C40-A729-E1968135B697}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket", "StockMarket\StockMarket.csproj", "{513E764D-56CB-4746-AE82-CD370545B00C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{44EAD149-5C7C-4C40-A729-E1968135B697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44EAD149-5C7C-4C40-A729-E1968135B697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44EAD149-5C7C-4C40-A729-E1968135B697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513E764D-56CB-4746-AE82-CD370545B00C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513E764D-56CB-4746-AE82-CD370545B00C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513E764D-56CB-4746-AE82-CD370545B00C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513E764D-56CB-4746-AE82-CD370545B00C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

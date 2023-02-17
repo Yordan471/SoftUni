@@ -78,7 +78,7 @@ namespace PawnWars
             }
             else
             {
-                if (-blackRow + boardSize - 1 >= boardSize - 1 - whiteRow)
+                if (-blackRow + boardSize - 1 >= whiteRow)
                 {
                     saveWhiteCol = whiteCol;
                     saveWhiteRow = 8;
@@ -97,12 +97,12 @@ namespace PawnWars
                 if (blackWins)
                 {
                     string letter = numberAndLetter[saveBlackCol];
-                    Console.WriteLine($"Game over! Black capture on {letter}{boardSize - saveBlackRow}");
+                    Console.WriteLine($"Game over! Black capture on {letter}{boardSize - saveBlackRow}.");
                 }
                 else
                 {
                     string letter = numberAndLetter[saveWhiteCol];
-                    Console.WriteLine($"Game over! White capture on {letter}{boardSize - saveWhiteRow}");
+                    Console.WriteLine($"Game over! White capture on {letter}{boardSize - saveWhiteRow}.");
                 }
             }
             else
@@ -110,16 +110,14 @@ namespace PawnWars
                 if (blackWins)
                 {
                     string letter = numberAndLetter[saveBlackCol];
-                    Console.WriteLine($"Game over! Black pawn is promoted to a queen at {letter}{saveBlackRow}");
+                    Console.WriteLine($"Game over! Black pawn is promoted to a queen at {letter}{saveBlackRow}.");
                 }
                 else
                 {
                     string letter = numberAndLetter[saveWhiteCol];
-                    Console.WriteLine($"Game over! White pawn is promoted to a queen at {letter}{saveWhiteRow}");
+                    Console.WriteLine($"Game over! White pawn is promoted to a queen at {letter}{saveWhiteRow}.");
                 }
-            }
-            
-            
+            }        
         }
     }
 }
