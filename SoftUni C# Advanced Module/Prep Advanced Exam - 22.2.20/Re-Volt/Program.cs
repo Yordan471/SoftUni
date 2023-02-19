@@ -84,7 +84,7 @@ namespace Re_Volt
             }
             else
             {
-                Console.WriteLine("Player lost");
+                Console.WriteLine("Player lost!");
             }
 
             for (int row = 0; row < matrix.GetLength(0); row++)
