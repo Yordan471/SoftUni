@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Guild
 {
-    internal class Program
+    internal class StartUp
     {
         static void Main(string[] args)
         {
