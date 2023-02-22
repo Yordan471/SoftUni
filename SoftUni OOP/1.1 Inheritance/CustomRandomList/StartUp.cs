@@ -10,7 +10,7 @@
                 "spas"
             };
 
-            Console.WriteLine(randomList.RemoveString()); 
+            Console.WriteLine(randomList.RandomString()); 
         }
     }
 }

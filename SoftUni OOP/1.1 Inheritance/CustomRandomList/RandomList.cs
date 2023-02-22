@@ -8,7 +8,7 @@ namespace CustomRandomList
 {
     public class RandomList : List<string>
     {       
-        public string RemoveString()
+        public string RandomString()
         {
             Random random = new Random();
 
