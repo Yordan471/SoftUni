@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace Person
 {
-    internal class Child
+    public class Child : Person
     {
+        //private int age;
+
+        public Child(string name, int age) : base(name, age)
+        {
+
+        }
+
+        public override int Age
+        {
+            get => base.Age;
+
+            protected set
+            {
+                if (value <= 15)
+                {
+                    base.Age = value;
+                }
+            }
+        }
     }
 }
