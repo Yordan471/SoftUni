@@ -20,8 +20,8 @@ namespace PersonsInfo
 
             decimal parcentage = decimal.Parse(Console.ReadLine());
 
-           //persons.ForEach(p => p.IncreaseSalary(parcentage));
-           //persons.ForEach(p => Console.WriteLine(p.ToString()));
+            persons.ForEach(p => p.IncreaseSalary(parcentage));
+            persons.ForEach(p => Console.WriteLine(p.ToString()));
 
             Team team = new Team("SoftUni");
 
