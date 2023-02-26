@@ -1,7 +1,5 @@
 ﻿namespace AnimalFarm
 {
-    using System;
-    using AnimalFarm.Models;
     class Program
     {
         static void Main(string[] args)
@@ -18,7 +16,7 @@
                     chicken.Age,
                     chicken.ProductPerDay);
             }
-            catch (Exception ex)AC
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
