@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    public class Tesla : IElectricalCar
+    public class Tesla : IElectricCar
     {
         private int battery;
         private string model;
