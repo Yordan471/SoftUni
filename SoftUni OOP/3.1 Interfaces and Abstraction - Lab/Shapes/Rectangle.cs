@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    public class Rectangle
+    public class Rectangle : IDrawable
     {
+        public Rectangle(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
 
+        public int Width { get; set; }
+
+        public int Height { get; set; }
+
+        public void Draw()
+        {
+            
+        }
     }
 }
