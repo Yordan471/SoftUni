@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    public interface IElectricalCar : ICar
+    public class Tesla
     {
-        public int Battery { get; }
+
     }
 }
