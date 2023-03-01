@@ -35,11 +35,11 @@ namespace Shapes
 
                     if (value >= rIn * rIn && value <= rOut * rOut)
                     {
-                        Console.WriteLine("*");
+                        Console.Write("*");
                     }
                     else
                     {
-                        Console.WriteLine(" ");
+                        Console.Write(" ");
                     }
                 }
 

@@ -8,7 +8,6 @@ namespace Shapes
 {
     public interface IDrawable
     {
-        void Draw();
-                
+        void Draw();              
     }
 }
