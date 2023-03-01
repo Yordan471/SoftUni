@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Circle
+    public class Circle
     {
+        public Circle(int radius)
+        {
+            Radius = radius;
+        }
+
+        public int Radius { get; set; }
     }
 }
