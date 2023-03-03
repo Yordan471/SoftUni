@@ -11,22 +11,23 @@ string[] productsInfo = Console.ReadLine()
 
 try
 {
-    foreach (string peopleInf in peopleInfo)
+    for (int i = 0; i < peopleInfo.Length; i++)
     {
-        string name = peopleInf.Split("=")[0].ToString();
-        decimal money = decimal.Parse(peopleInf.Split("=")[1].ToString());
-
+        string name = peopleInfo[i].Split("=")[0].ToString();
+        decimal money = decimal.Parse(peopleInfo[i].Split("=", StringSplitOptions.RemoveEmptyEntries)[1].ToString());
+      
         Person person = new(name, money);
-        people.Add(person);
+        people.Add(person);              
     }
-                  
-    foreach (string productInf in productsInfo)
-    {
-        string name = productInf.Split("=").ToString();
-        decimal money = decimal.Parse(productInf.Split("=").ToString());
 
+    for (int i = 0; i < productsInfo.Length; i++)
+    {
+        string name = productsInfo[i].Split("=")[0].ToString();
+        decimal money = decimal.Parse(productsInfo[i].Split("=", StringSplitOptions.RemoveEmptyEntries)[1].ToString());
+
+        
         Product product = new(name, money);
-        products.Add(product);
+        products.Add(product);      
     }
 }
 catch (Exception ex)
@@ -41,7 +42,7 @@ string command = string.Empty;
 while ((command = Console.ReadLine()) != "END")
 {
     string[] commandInfo = command
-        .Split(" ");
+        .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
     string name = commandInfo[0];
     string product = commandInfo[1];
