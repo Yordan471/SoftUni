@@ -10,11 +10,7 @@ namespace ShoppingSpree
     {
         private string name;
         private decimal money;
-        private List<Product> bagOfProducts;
-        private List<Person> persons;
-        
-
-        public Person() { }
+        private List<Product> bagOfProducts;     
 
         public Person(string name, decimal money)
         {
@@ -28,7 +24,7 @@ namespace ShoppingSpree
             get => this.name;
             private set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullException("Name cannot be empty");
                 }
@@ -51,38 +47,27 @@ namespace ShoppingSpree
             }
         }
 
-        public IReadOnlyCollection<Product> BagOfProducts => bagOfProducts;
+        public List<Product> BagOfProducts => bagOfProducts;
 
-        public bool AddProduct(Product product)
+        public string AddProduct(Product product)
         {
-            if (this.Money >= product.Cost)
+            if (this.Money < product.Cost)
             {
-                this.bagOfProducts.Add(product);
-                this.Money -= product.Cost;
-                return true;
+                return $"{this.name} can't afford {product}";
             }
 
-            return false;
-        }
-
-        public Person GetPerson(string name)
-        {
-            return persons.FirstOrDefault(p => p.Name == name);
+            this.bagOfProducts.Add(product);
+            this.Money -= product.Cost;
+            return $"{this.name} bought {product}";
         }
 
         public override string ToString()
         {
-            StringBuilder sb = new();
+            string allProducts = bagOfProducts.Any()
+                ? string.Join(", ", bagOfProducts)
+                : "Nothing bought";
 
-            if (persons.Count > 0)
-            {
-                foreach (var person in persons)
-                {
-                    sb.AppendLine($"{person.Name} - {string.Join(", ", this.bagOfProducts)}");
-                }
-            }
-
-            return sb.ToString().Trim();
+            return $"{this.Name} - {allProducts}".ToString().Trim();
         }
     }
 }

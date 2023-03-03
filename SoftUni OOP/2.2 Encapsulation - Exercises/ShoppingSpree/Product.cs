@@ -11,9 +11,6 @@ namespace ShoppingSpree
     {
         private string name;
         private decimal cost;
-        private List<Product> products;
-
-        public Product() { }
 
         public Product(string name, decimal cost)
         {
@@ -26,7 +23,7 @@ namespace ShoppingSpree
             get => this.name;
             private set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullException("Name cannot be empty");
                 }
@@ -49,9 +46,9 @@ namespace ShoppingSpree
             }
         }
 
-        public Product GetProduct(string product)
+        public override string ToString()
         {
-            return products.FirstOrDefault(p => p.Name == product);
+            return name.ToString();
         }
     }
 }

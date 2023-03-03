@@ -5,70 +5,60 @@ List<Person> people = new();
 List<Product> products = new();
 
 string[] peopleInfo = Console.ReadLine()
-    .Split(";", StringSplitOptions.RemoveEmptyEntries);
+    .Split(";");
 string[] productsInfo = Console.ReadLine()
-    .Split(";", StringSplitOptions.RemoveEmptyEntries);
+    .Split(";");
 
-for (int i = 0; i < peopleInfo.Length; i++)
+try
 {
-    string name = peopleInfo[i].Split("=")[0].ToString();
-    decimal money = decimal.Parse(peopleInfo[i].Split("=")[1].ToString());
-
-    try
+    foreach (string peopleInf in peopleInfo)
     {
+        string name = peopleInf.Split("=")[0].ToString();
+        decimal money = decimal.Parse(peopleInf.Split("=")[1].ToString());
+
         Person person = new(name, money);
         people.Add(person);
     }
-    catch (Exception ex)
+                  
+    foreach (string productInf in productsInfo)
     {
-        Console.WriteLine(ex.Message);
-    }   
-}
+        string name = productInf.Split("=").ToString();
+        decimal money = decimal.Parse(productInf.Split("=").ToString());
 
-for (int i = 0; i < productsInfo.Length; i++)
-{
-    string name = productsInfo[i].Split("=")[0].ToString();
-    decimal money = decimal.Parse(productsInfo[i].Split("=")[1].ToString());
-
-    try
-    {
         Product product = new(name, money);
         products.Add(product);
     }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-    }
 }
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    return;
+}
+
 
 string command = string.Empty;
 
 while ((command = Console.ReadLine()) != "END")
 {
     string[] commandInfo = command
-        .Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        .Split(" ");
 
     string name = commandInfo[0];
     string product = commandInfo[1];
 
-    Person findPerson = new();
-    Product findProduct = new();
+    Product findProduct = products.FirstOrDefault(p => p.Name == product);
+    Person findPerson = people.FirstOrDefault(p => p.Name == name);
 
-    findProduct.GetProduct(product);
-    findPerson.GetPerson(name);
-
-    if (!findPerson.AddProduct(findProduct))
+    
+    if (findPerson is not null && findProduct is not null)
     {
-        Console.WriteLine($"{findPerson.Name} can't afford {findProduct.Name}");
-    }
-    else
-    {
-        Console.WriteLine($"{findPerson.Name} bought {findProduct.Name}");
-    }
+        Console.WriteLine(findPerson.AddProduct(findProduct));
+    }   
 }
 
-foreach (var person in people)
+if (people.Count > 0)
 {
-    Console.WriteLine(person);
+    Console.WriteLine(string.Join(Environment.NewLine, people));
 }
+
 
