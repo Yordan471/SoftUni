@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace PizzaCalories
 {
-    public class Dough : Flour
+    public class Dough 
     {
+        private Dictionary<string, double> flourTypeAndModifier;
+        private Dictionary<string, double> bakingtechniqueAndModifier;
+        private const int minGrams = 1;
+        private const int maxGrams = 200;
+        private const int baseCaloriesPerGram = 2;
+
         private string flourType;
         private string bakingTechnique;
         private double grams;
-        private int caloriesPerGram = 2;
 
+        
         public Dough(string flourType, string bakingTechnique, double grams)
         {
+            flourTypeAndModifier = new Dictionary<string, double> { { "white", 1.5 }, { "wholegrain", 1.0 } };
+            bakingtechniqueAndModifier = new Dictionary<string, double> { { "crispy", 0.9 }, { "chewy", 1.1 }, { "homemade", 1.0 } };
+
             FlourType = flourType;
             BakingTechnique = bakingTechnique;
             Grams = grams;
@@ -26,7 +35,7 @@ namespace PizzaCalories
             get => flourType;
             set
             {
-                if (value != White && value != Wholegrain)
+                if (!flourTypeAndModifier.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
@@ -40,7 +49,7 @@ namespace PizzaCalories
             get => bakingTechnique;
             set
             {
-                if (value != Crispy && value != Chewy && value != Homemade)
+                if (!bakingtechniqueAndModifier.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
@@ -54,47 +63,21 @@ namespace PizzaCalories
             get => grams;
             set
             {
-                if (value < MinGrams || value > MaxGrams)
+                if (value < minGrams || value > maxGrams)
                 {
-                    throw new ArgumentException($"Dough weight should be in the range [{MinGrams}..{MaxGrams}].");
+                    throw new ArgumentException($"Dough weight should be in the range [{minGrams}..{maxGrams}].");
                 }
 
                 grams = value;
             }
         }
 
-        public string CalculateDoughCalories()
+        public double CaloriesPerGram { get => baseCaloriesPerGram; }
+
+        public double CalculateDroughCalories()
         {
-            double doughtTypeModifier = 0;
-            double backingTechniqueModifier = 0;
-
-
-            switch (this.FlourType)
-            {
-                case "White":
-                    doughtTypeModifier = 1.5;
-                    break;
-                case "Wholegrain":
-                    doughtTypeModifier = 1.0;
-                    break;
-            }
-
-            switch(this.BakingTechnique)
-            {
-                case "Crispy":
-                    backingTechniqueModifier = 0.9;
-                    break;
-                case "Chewy":
-                    backingTechniqueModifier = 1.1;
-                    break;
-                case "Homemade":
-                    backingTechniqueModifier = 1.0;
-                    break;
-            }
-
-            double doughCalories = caloriesPerGram * Grams * doughtTypeModifier * backingTechniqueModifier;
-
-            return $"{doughCalories:f2}".ToString();
+            double calories = CaloriesPerGram * flourTypeAndModifier[flourType.ToLower()] * bakingtechniqueAndModifier[bakingTechnique.ToLower()] * grams;
+            return CaloriesPerGram * flourTypeAndModifier[flourType.ToLower()] * bakingtechniqueAndModifier[bakingTechnique.ToLower()] * grams;
         }
     }
 }
