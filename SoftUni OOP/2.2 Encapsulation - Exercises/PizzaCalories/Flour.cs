@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace PizzaCalories
 {
-    public class Pizza
+    public class Flour
     {
-        private string name;
-        private Dough dough;
 
     }
 }

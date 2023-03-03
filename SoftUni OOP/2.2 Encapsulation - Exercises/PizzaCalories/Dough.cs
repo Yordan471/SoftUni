@@ -8,6 +8,18 @@ namespace PizzaCalories
 {
     public class Dough
     {
+        private string flourType;
+        private string backingTechnique;
+        private double grams;
 
+
+        public string FlourType;
+        {
+            get => flourType;
+            set
+            {
+                if (value != )
+            }
+        }
     }
 }
