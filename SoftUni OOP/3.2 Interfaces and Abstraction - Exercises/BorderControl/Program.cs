@@ -2,41 +2,47 @@
 
 string command = string.Empty;
 
-List<IIdentifiable> identifiers = new();
-IIdentifiable identifier;
+List<IMammal> mammals = new();
+IMammal mammal;
 
 while ((command = Console.ReadLine()) != "End")
 {
     string[] inputInfo = command
         .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-    if (inputInfo.Length == 3)
+    if (inputInfo.Length == 5)
     {
-        string name = inputInfo[0];
-        int age = int.Parse(inputInfo[1]);
+        string name = inputInfo[1];
+        int age = int.Parse(inputInfo[2]);
+        string id = inputInfo[3];
+        string birthdate = inputInfo[4];
+
+        mammal = new Citizen(name, age, id, birthdate);
+        mammals.Add(mammal);
+    }
+    else if (inputInfo[0] == "Robot")
+    {
+        string model = inputInfo[1];
         string id = inputInfo[2];
-
-        identifier = new Citizen(name, age, id);
     }
-    else
+    else if (inputInfo[0] == "Pet")
     {
-        string model = inputInfo[0];
-        string id = inputInfo[1];
+        string name = inputInfo[1];
+        string birthdate = inputInfo[2];
 
-        identifier = new Robot(model, id);
+        mammal = new Pet(name, birthdate);
+        mammals.Add(mammal);
     }
 
-    identifiers.Add(identifier);
+    
 }
 
-string lastDigitsOfFakeId = Console.ReadLine();
+string year = Console.ReadLine();
 
-foreach (IIdentifiable ident in identifiers)
+foreach (IMammal mammall in mammals)
 {
-    if (ident.Id.Substring(ident.Id.Length - lastDigitsOfFakeId.Length, lastDigitsOfFakeId.Length)
-        .Equals(lastDigitsOfFakeId))
+    if (mammall.Birthdate.Contains(year))
     {
-        //string sub = ident.Id.Substring(ident.Id.Length - 3, 3);
-        Console.WriteLine(ident.Id);
+        Console.WriteLine(mammall.Birthdate);
     }
 }
