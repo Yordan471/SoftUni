@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonInfo", "PersonInfo\PersonInfo.csproj", "{6446734D-53E4-4B46-9423-0F9A42BC3E37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telephony", "Telephony\Telephony.csproj", "{8A6F18A3-4B74-4A5E-B744-53839014D8F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6446734D-53E4-4B46-9423-0F9A42BC3E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6446734D-53E4-4B46-9423-0F9A42BC3E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6446734D-53E4-4B46-9423-0F9A42BC3E37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6F18A3-4B74-4A5E-B744-53839014D8F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6F18A3-4B74-4A5E-B744-53839014D8F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6F18A3-4B74-4A5E-B744-53839014D8F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6F18A3-4B74-4A5E-B744-53839014D8F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
