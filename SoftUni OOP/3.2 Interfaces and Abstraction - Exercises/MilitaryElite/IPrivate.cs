@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public interface ISoldier
+    public interface IPrivate
     {
-        public string Id { get; }
 
-        public string FirstName { get; }
-
-        public string LastName { get; }
     }
 }
