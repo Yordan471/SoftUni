@@ -5,29 +5,47 @@ string[] phoneNumbers = Console.ReadLine()
 string[] webAdresses = Console.ReadLine()
     .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-Smartphone smartphone = new Smartphone();
-StationaryPhone stationaryPhone = new StationaryPhone();
+ICallable phone;
 
-try
+foreach (string phoneNumber in phoneNumbers)
 {
-    foreach (string phoneNumber in phoneNumbers)
+    try
     {
         if (phoneNumber.Length == 10)
         {
-            Console.WriteLine(smartphone.Calling(phoneNumber)); 
+            phone = new Smartphone();
+            Console.WriteLine(phone.Calling(phoneNumber));
         }
         else if (phoneNumber.Length == 7)
         {
-            Console.WriteLine(stationaryPhone.Calling(phoneNumber)); 
+            phone = new StationaryPhone();
+            Console.WriteLine(phone.Calling(phoneNumber));
         }
     }
-
-    foreach (string webAdress in webAdresses)
+    catch (Exception e)
     {
-        Console.WriteLine(smartphone.Browsing(webAdress)); 
+        Console.WriteLine(e.Message);
+        
     }
 }
-catch (Exception ex)
+
+IBrowsable browsablePhone = new Smartphone();
+
+foreach (string webAdress in webAdresses)
 {
-    Console.WriteLine(ex.Message);
+    try
+    {
+        Console.WriteLine(browsablePhone.Browsing(webAdress));
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+        
+    }
 }
+    
+
+
+
+
+
