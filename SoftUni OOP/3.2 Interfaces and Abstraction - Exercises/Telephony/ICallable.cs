@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Telephony
 {
-    internal interface ISmarthPhone
+    public interface ICallable
     {
+        public string Calling(string phoneNumber);
     }
 }
