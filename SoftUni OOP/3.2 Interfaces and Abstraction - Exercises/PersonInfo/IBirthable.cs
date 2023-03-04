@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PersonInfo
 {
-    public interface IIdentifiable
+    public interface IBirthable
     {
-        public string ID { get; set; }
+
     }
 }
