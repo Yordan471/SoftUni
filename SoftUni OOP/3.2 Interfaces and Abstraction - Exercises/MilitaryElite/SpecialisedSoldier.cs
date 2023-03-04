@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public interface IPrivate
+    public abstract class SpecialisedSoldier : ISpecialisedSoldier
     {
-        public decimal Salary();
+        public string Airforces { get; set; }
+
+        public string Marines { get; set; }
     }
 }

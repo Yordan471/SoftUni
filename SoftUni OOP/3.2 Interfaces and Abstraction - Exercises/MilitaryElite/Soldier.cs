@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class Soldier : ISoldier
+    public abstract class Soldier : ISoldier
     {
         public string Id { get; set; }
 

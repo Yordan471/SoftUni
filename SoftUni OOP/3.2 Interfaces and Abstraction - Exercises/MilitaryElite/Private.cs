@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public interface IPrivate
+    public class Private : Soldier, IPrivate
     {
-        public decimal Salary();
+        public decimal Salary()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
