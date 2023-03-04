@@ -1,27 +1,21 @@
-﻿using System;
+﻿using BorderControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BorderControl
+namespace BirthdayCelebrations
 {
-    public class Citizen : IMammal, IIdentifiable
+    public class Pet : IMammal
     {
-        public Citizen(string name, int age, string id, string birthdate)
+        public Pet(string name, string birthdate)
         {
-            Id = id;
             Name = name;
-            Age = age;
             Birthdate = birthdate;
         }
 
-
         public string Name { get; set; }
-
-        public int Age { get; set; }
-
-        public string Id { get; set; }
 
         public string Birthdate { get; set; }
     }

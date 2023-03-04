@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace BorderControl
 {
-    public interface IPerson
+    public interface IMammal
     {
         public string Name { get; }
 
-        public int Age { get; }
+        public string Birthdate { get;}
+
+       // public int Age { get; }
     }
 }
