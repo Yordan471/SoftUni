@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace FoodShortage
 {
-    public class Rebel : IPerson
+    public interface IBuyer
     {
-        public string Name { get; set; }
 
-        public int Age { get; set; }
     }
 }
