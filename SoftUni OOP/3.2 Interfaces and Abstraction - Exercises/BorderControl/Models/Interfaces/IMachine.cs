@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BorderControl
 {
-    public class Robot
+    public interface IMachine
     {
-
+        public string Model { get; }
     }
 }
