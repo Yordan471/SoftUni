@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public interface IEngineer
+    public interface ICommando
     {
-        public Dictionary<string, int> JobNameAndHours { get; }
+        Dictionary<string, string> MissionCodeNameAndState { get; }
     }
 }

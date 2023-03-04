@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MilitaryElite
 {
-    public class LeutenantGeneral : Soldier, ILieutenantGeneral, IPrivate
+    public class Commando : SpecialisedSoldier, IPrivate, ICommando
     {
-        public List<Private> Privates { get; set; }
+        public Dictionary<string, string> MissionCodeNameAndState { get; set; }
 
         public decimal Salary()
         {
-            return 10;
+            throw new NotImplementedException();
         }
     }
 }
