@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BorderControl
 {
-    public class Citizen
+    public class Robot
     {
+
     }
 }
