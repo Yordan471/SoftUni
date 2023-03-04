@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Telephony
 {
-    public class Smartphone
+    public class StationaryPhone
     {
-
     }
 }
