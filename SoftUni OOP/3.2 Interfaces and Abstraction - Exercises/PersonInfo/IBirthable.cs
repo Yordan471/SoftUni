@@ -8,6 +8,6 @@ namespace PersonInfo
 {
     public interface IBirthable
     {
-        public string Birthdate { get; set; }
+        public string Birthdate { get; }
     }
 }

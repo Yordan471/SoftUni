@@ -12,15 +12,15 @@ namespace PersonInfo
         {
             this.Name = name;
             this.Age = age;
-            this.ID = iD;
+            this.Id = iD;
             this.Birthdate = birthdate;
         }
 
 
-        public string Name { get;  set; }
-        public int Age { get; set;   }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
-        public string ID { get; set; }
+        public string Id { get; set; }
 
         public string Birthdate { get; set; }
     }

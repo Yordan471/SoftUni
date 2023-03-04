@@ -8,6 +8,6 @@ namespace PersonInfo
 {
     public interface IIdentifiable
     {
-        public string ID { get; set; }
+        public string Id { get; }
     }
 }
