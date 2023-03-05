@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilitaryElite
+namespace MilitaryElite.Models.Interfaces
 {
-    public interface ICommando
+    public interface ISpy : ISoldier
     {
-        Dictionary<string, string> MissionCodeNameAndState { get; }
+        public int CodeNumber { get; }
     }
 }

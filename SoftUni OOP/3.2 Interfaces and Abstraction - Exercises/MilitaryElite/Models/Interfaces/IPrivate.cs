@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilitaryElite
+namespace MilitaryElite.Models.Interfaces
 {
-    public interface ILieutenantGeneral
+    public interface IPrivate : ISoldier
     {
-        public List<Private> Privates { get; }
+        public decimal Salary { get; }
     }
 }

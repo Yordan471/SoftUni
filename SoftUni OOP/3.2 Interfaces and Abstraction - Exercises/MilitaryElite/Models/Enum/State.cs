@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilitaryElite
+namespace MilitaryElite.Models.Enum
 {
-    public interface IPrivate
+    public enum State
     {
-        public decimal Salary();
+        inProgress,
+        Finished
     }
 }

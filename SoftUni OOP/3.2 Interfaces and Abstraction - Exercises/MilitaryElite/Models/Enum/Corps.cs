@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilitaryElite
+namespace MilitaryElite.Models.Enum
 {
-    public interface IEngineer
+    public enum Corps
     {
-        public Dictionary<string, int> JobNameAndHours { get; }
+        Airforces,
+        Marines
     }
 }

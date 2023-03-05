@@ -3,16 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MilitaryElite.Models.Enum;
+using MilitaryElite.Models.Interfaces;
 
 namespace MilitaryElite
 {
-    public class Commando : SpecialisedSoldier, IPrivate, ICommando
+    public class Commando : SpecialisedSoldier, ICommando
     {
-        public Dictionary<string, string> MissionCodeNameAndState { get; set; }
-
-        public decimal Salary()
+        public Commando(string id, 
+            string firstName, 
+            string lastName, 
+            decimal salary, 
+            Corps corps, 
+            IReadOnlyCollection<Mission> missions)
+            : base(id, firstName, lastName, salary, corps)
         {
-            throw new NotImplementedException();
+            Missions = missions;
+        }
+
+        public IReadOnlyCollection<Mission> Missions { get; private set; }
+
+        IReadOnlyCollection<IMission> ICommando.Missions => throw new NotImplementedException();
+
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+
+            sb.AppendLine($"{base.ToString()}{Environment.NewLine}Missions:");
+
+            if (Missions.Any())
+            {
+                foreach (var mission in Missions)
+                {
+                    sb.AppendLine($"  {mission.ToString()}");
+                }              
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
