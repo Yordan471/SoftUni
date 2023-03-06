@@ -16,7 +16,7 @@ namespace MilitaryElite
             Repairs = repairs;
         }
 
-        public IReadOnlyCollection<Repair> Repairs { get; set; }
+        public IReadOnlyCollection<IRepair> Repairs { get; set; }
 
         public override string ToString()
         {

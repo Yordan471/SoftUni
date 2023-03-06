@@ -21,9 +21,9 @@ namespace MilitaryElite
             Missions = missions;
         }
 
-        public IReadOnlyCollection<Mission> Missions { get; private set; }
+        public IReadOnlyCollection<IMission> Missions { get; private set; }
 
-        IReadOnlyCollection<IMission> ICommando.Missions => throw new NotImplementedException();
+        //IReadOnlyCollection<IMission> ICommando.Missions => throw new NotImplementedException();
 
         public override string ToString()
         {

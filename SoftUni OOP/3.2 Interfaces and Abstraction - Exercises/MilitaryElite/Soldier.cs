@@ -9,7 +9,7 @@ namespace MilitaryElite
 {
     public abstract class Soldier : ISoldier
     {
-        public Soldier(string id, string firstName, string lastName)
+        protected Soldier(string id, string firstName, string lastName)
         {
             Id = id;
             FirstName = firstName;
