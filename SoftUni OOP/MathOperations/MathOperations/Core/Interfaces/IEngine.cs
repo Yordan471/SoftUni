@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Operations
 {
-    public class Engine
+    public interface IEngine
     {
-
+        public void Run();
     }
 }
