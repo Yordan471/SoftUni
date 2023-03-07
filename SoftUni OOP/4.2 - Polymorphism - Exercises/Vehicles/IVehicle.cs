@@ -13,8 +13,8 @@ namespace Vehicles
         public double FuelConsumption { get; }
 
 
-        public string Drive(int distance);
+        public string Drive(double distance);
 
-        public string Refuel(int amount);
+        public void Refuel(double amount);
     }
 }

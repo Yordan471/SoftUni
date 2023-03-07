@@ -20,22 +20,22 @@ namespace Vehicles
             get => base.FuelConsumption + AddedFuelConsumption;
         }
 
-        public override string Drive(int distance)
-        {
-            if (distance * this.FuelConsumption > this.FuelQuantity)
-            {
-                return "Car needs refueling";
-            }
+        //public override string Drive(int distance)
+        //{
+        //    if (distance * this.FuelConsumption > this.FuelQuantity)
+        //    {
+        //        return "Car needs refueling";
+        //    }
+        //
+        //    this.FuelQuantity -= distance * this.FuelConsumption;
+        //    return $"Car travelled {distance}";
+        //}
 
-            this.FuelQuantity -= distance * this.FuelConsumption;
-            return $"Car travelled {distance}";
-        }
-
-        public override string Refuel(int amount)
-        {
-            this.FuelQuantity += amount;
-
-            return $"Car: {this.FuelQuantity:f2}";
-        }
+        //public override string Refuel(int amount)
+        //{
+        //    this.FuelQuantity += amount;
+        //
+        //    return $"Car: {this.FuelQuantity:f2}";
+        //}
     }
 }

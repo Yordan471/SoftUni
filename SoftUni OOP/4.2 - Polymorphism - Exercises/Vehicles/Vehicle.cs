@@ -27,10 +27,26 @@ namespace Vehicles
             get => fuelConsuption; private set => fuelConsuption = value;
         }
 
-        public abstract string Drive(int distance);
+        public virtual string Drive(double distance)
+        {
+            if (distance * this.FuelConsumption > this.FuelQuantity)
+            {
+                return $"{this.GetType().Name} needs refueling";
+            }
+
+            this.FuelQuantity -= distance * this.FuelConsumption;
+            return $"{this.GetType().Name} travelled {distance} km";
+        }
 
 
-        public abstract string Refuel(int amount);
-        
+        public virtual void Refuel(double amount)
+        {
+            this.FuelQuantity += amount;           
+        }
+
+        public override string ToString()
+        {
+            return $"{this.GetType().Name}: {this.FuelQuantity:f2}".ToString();
+        }
     }
 }

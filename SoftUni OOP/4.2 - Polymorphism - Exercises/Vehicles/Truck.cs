@@ -8,18 +8,23 @@ namespace Vehicles
 {
     public class Truck : Vehicle
     {
-        public Truck(double fuelQuantity, double fuelConsuption) : base(fuelQuantity, fuelConsuption)
+        private const double AddedFuelConsumption = 1.6;
+
+        public Truck(double fuelQuantity, double fuelConsuption) 
+            : base(fuelQuantity, fuelConsuption)
         {
         }
 
-        public override string Drive(int distance)
+        public override double FuelConsumption
         {
-            throw new NotImplementedException();
+            get => base.FuelConsumption + AddedFuelConsumption;
         }
 
-        public override string Refuel(int amount)
+        public override void Refuel(double amount)
         {
-            throw new NotImplementedException();
+            this.FuelQuantity += amount * 0.95;
+
+            //return $"{this.GetType().Name}: {this.FuelQuantity:f2}";
         }
     }
 }
