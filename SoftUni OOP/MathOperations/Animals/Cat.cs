@@ -12,9 +12,9 @@ namespace Animals
         {
         }
 
-        public override string ExmpainSelf()
+        public override string ExplainSelf()
         {
-            return "MEEOW";
+            return base.ExplainSelf() + $"{Environment.NewLine}MEEOW";
         }
     }
 }

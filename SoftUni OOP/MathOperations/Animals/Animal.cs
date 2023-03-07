@@ -20,18 +20,18 @@ namespace Animals
         public string Name
         {
             get => name;
-            set => name = value;
+            private set => name = value;
         }
 
         public string FavouriteFood
         {
             get => favouriteFood;
-            set => favouriteFood = value;
+            private set => favouriteFood = value;
         }
 
-        public virtual string ExmpainSelf()
+        public virtual string ExplainSelf()
         {
-            return "";
-        }
+            return $"I am {this.Name} and my fovourite food is {this.FavouriteFood}".ToString();
+        } 
     }
 }
