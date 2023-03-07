@@ -1,4 +1,5 @@
 ﻿using Vehicles;
+using Vehicles.Models;
 
 List<Vehicle> vehicles = new List<Vehicle>();
 

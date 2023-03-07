@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vehicles
+namespace Vehicles.Models.Interfaces
 {
     public interface IVehicle
     {
+        public int Capacity { get; }
+
         public double FuelQuantity { get; }
 
         public double FuelConsumption { get; }

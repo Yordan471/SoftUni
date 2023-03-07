@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vehicles
+namespace Vehicles.Models
 {
     public class Truck : Vehicle
     {
         private const double AddedFuelConsumption = 1.6;
 
-        public Truck(double fuelQuantity, double fuelConsuption) 
+        public Truck(double fuelQuantity, double fuelConsuption)
             : base(fuelQuantity, fuelConsuption)
         {
         }
@@ -22,8 +22,12 @@ namespace Vehicles
 
         public override void Refuel(double amount)
         {
-            this.FuelQuantity += amount * 0.95;
+            if (this.Capacity < this.FuelQuantity + amount * 0.95)
+            {
+                throw new ArgumentException($"Cannot fit {amount} fuel in the tank");             
+            }
 
+            FuelQuantity += amount * 0.95;
             //return $"{this.GetType().Name}: {this.FuelQuantity:f2}";
         }
     }
