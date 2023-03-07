@@ -11,15 +11,16 @@ for (int i = 0; i < 2; i++)
     string vehicleType = vehicleInfo[0];
     double fuelQuantity = double.Parse(vehicleInfo[1]);
     double fuelConsumption = double.Parse(vehicleInfo[2]);
+    int capacity = int.Parse(vehicleInfo[3]);
 
     if (vehicleType == "Truck")
     {
-        Vehicle vehicle = new Truck(fuelQuantity, fuelConsumption);
+        Vehicle vehicle = new Truck(fuelQuantity, fuelConsumption, capacity);
         vehicles.Add(vehicle);
     }
     else if (vehicleType == "Car")
     {
-        Vehicle vehicle = new Car(fuelQuantity, fuelConsumption);
+        Vehicle vehicle = new Car(fuelQuantity, fuelConsumption, capacity);
         vehicles.Add(vehicle);
     }
 }

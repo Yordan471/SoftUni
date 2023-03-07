@@ -10,8 +10,8 @@ namespace Vehicles.Models
     {
         private const double AddedFuelConsumption = 0.9;
 
-        public Car(double fuelQuantity, double fuelConsuption)
-            : base(fuelQuantity, fuelConsuption)
+        public Car(double fuelQuantity, double fuelConsuption, int capacity)
+            : base(fuelQuantity, fuelConsuption, capacity)
         {
         }
 

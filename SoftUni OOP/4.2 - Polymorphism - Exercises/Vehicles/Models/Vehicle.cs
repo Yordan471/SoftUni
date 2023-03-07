@@ -13,10 +13,11 @@ namespace Vehicles.Models
         private double fuelConsuption;
         private int capacity;
 
-        protected Vehicle(double fuelQuantity, double fuelConsuption)
+        protected Vehicle(double fuelQuantity, double fuelConsuption, int capacity)
         {
             FuelQuantity = fuelQuantity;
             FuelConsumption = fuelConsuption;
+            Capacity = capacity;
         }
 
         public double FuelQuantity
@@ -31,7 +32,18 @@ namespace Vehicles.Models
 
         public int Capacity
         {
-            get => capacity; private set => capacity = value;
+            get => capacity;
+            set
+            {
+                if (value < this.FuelQuantity)
+                {
+                    capacity = 0;
+                }
+                else
+                {
+                    capacity = value;
+                }                
+            }
         }
 
         public virtual string Drive(double distance)
