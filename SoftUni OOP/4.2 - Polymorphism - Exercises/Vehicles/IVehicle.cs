@@ -8,6 +8,13 @@ namespace Vehicles
 {
     public interface IVehicle
     {
+        public double FuelQuantity { get; }
 
+        public double FuelConsumption { get; }
+
+
+        public string Drive(int distance);
+
+        public string Refuel(int amount);
     }
 }
