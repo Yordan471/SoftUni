@@ -16,7 +16,7 @@ namespace Shapes
 
         public virtual string Draw()
         {
-            return $"Drawing {this.GetType().Name}";
+            return $"Drawing";
         }
     }
 }
