@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Animals
 {
-    public class Animal
+    public abstract class Animal
     {
         private string name;
         private string favouriteFood;
 
-
+        protected Animal(string name, string favouriteFood)
+        {
+            Name = name;
+            FavouriteFood = favouriteFood;
+        }
 
         public string Name
         {
