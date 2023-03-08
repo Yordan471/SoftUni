@@ -10,13 +10,13 @@ namespace Raiding.Models
     {
         private const int WarriorPower = 100;
 
-        public Warrior(string name, int power) : base(name, WarriorPower)
+        public Warrior(string name) : base(name, WarriorPower)
         {
         }
 
         public override string CastAbility()
         {
-            return $"{this.GetType().Name} - {this.Name} Hit for {this.Power} damage";
+            return $"{this.GetType().Name} - {this.Name} hit for {this.Power} damage";
         }
     }
 }
