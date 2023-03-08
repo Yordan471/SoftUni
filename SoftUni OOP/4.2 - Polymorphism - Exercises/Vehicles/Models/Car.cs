@@ -11,31 +11,8 @@ namespace Vehicles.Models
         private const double AddedFuelConsumption = 0.9;
 
         public Car(double fuelQuantity, double fuelConsuption, int capacity)
-            : base(fuelQuantity, fuelConsuption, capacity)
+            : base(fuelQuantity, fuelConsuption, capacity, AddedFuelConsumption)
         {
         }
-
-        public override double FuelConsumption
-        {
-            get => base.FuelConsumption + AddedFuelConsumption;
-        }
-
-        //public override string Drive(int distance)
-        //{
-        //    if (distance * this.FuelConsumption > this.FuelQuantity)
-        //    {
-        //        return "Car needs refueling";
-        //    }
-        //
-        //    this.FuelQuantity -= distance * this.FuelConsumption;
-        //    return $"Car travelled {distance}";
-        //}
-
-        //public override string Refuel(int amount)
-        //{
-        //    this.FuelQuantity += amount;
-        //
-        //    return $"Car: {this.FuelQuantity:f2}";
-        //}
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Vehicles.Models.Interfaces;
@@ -10,57 +11,74 @@ namespace Vehicles.Models
     public abstract class Vehicle : IVehicle
     {
         private double fuelQuantity;
-        private double fuelConsuption;
+        private double fuelConsumption;
         private int capacity;
+        private double additionalFuelConsumption;
 
-        protected Vehicle(double fuelQuantity, double fuelConsuption, int capacity)
+        protected Vehicle(double fuelQuantity, double fuelConsuption, int capacity, double additionalFuelConsuption)
         {
+            Capacity = capacity;
             FuelQuantity = fuelQuantity;
             FuelConsumption = fuelConsuption;
-            Capacity = capacity;
+            this.additionalFuelConsumption = additionalFuelConsuption;
         }
 
         public double FuelQuantity
         {
-            get => fuelQuantity; set => fuelQuantity = value;
+            get => fuelQuantity;
+            private set    
+            {
+                if (capacity < value)
+                {
+                    fuelQuantity = 0;
+                }
+                else
+                {
+                    fuelQuantity = value;
+                }
+            }
         }
 
         public virtual double FuelConsumption
         {
-            get => fuelConsuption; private set => fuelConsuption = value;
+            get => fuelConsumption; set => fuelConsumption = value;
         }
 
         public int Capacity
         {
             get => capacity;
-            set
-            {
-                if (value < this.FuelQuantity)
-                {
-                    capacity = 0;
-                }
-                else
-                {
-                    capacity = value;
-                }                
-            }
+            private set => capacity = value;
         }
 
-        public virtual string Drive(double distance)
+        public virtual string Drive(double distance, bool isAddedConsumption = true)
         {
-            if (distance * FuelConsumption > FuelQuantity)
+            double consumption = 0;
+
+            if (isAddedConsumption)
             {
-                return $"{GetType().Name} needs refueling";
+                consumption += additionalFuelConsumption;
             }
 
-            FuelQuantity -= distance * FuelConsumption;
+            consumption += FuelConsumption;
+
+            if (distance * consumption > FuelQuantity)
+            {
+                throw new ArgumentException($"{GetType().Name} needs refueling");
+                //return $"{GetType().Name} needs refueling";
+            }
+
+            FuelQuantity -= distance * consumption;
             return $"{GetType().Name} travelled {distance} km";
         }
 
 
         public virtual void Refuel(double amount)
         {
-            if (this.Capacity < this.FuelQuantity + amount)
+            if (amount <= 0)
+            {
+                throw new ArgumentException($"Fuel must be a positive number");
+            }
+            else if (this.Capacity < this.FuelQuantity + amount)
             {
                 throw new ArgumentException($"Cannot fit {amount} fuel in the tank");
             }

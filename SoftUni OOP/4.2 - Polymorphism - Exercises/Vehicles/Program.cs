@@ -3,7 +3,7 @@ using Vehicles.Models;
 
 List<Vehicle> vehicles = new List<Vehicle>();
 
-for (int i = 0; i < 2; i++)
+for (int i = 0; i < 3; i++)
 {
     string[] vehicleInfo = Console.ReadLine()
         .Split(" ", StringSplitOptions.RemoveEmptyEntries);
@@ -23,6 +23,11 @@ for (int i = 0; i < 2; i++)
         Vehicle vehicle = new Car(fuelQuantity, fuelConsumption, capacity);
         vehicles.Add(vehicle);
     }
+    else if (vehicleType == "Bus")
+    {
+        Vehicle vehicle = new Bus(fuelQuantity, fuelConsumption, capacity);
+        vehicles.Add(vehicle);
+    }
 }
 
 
@@ -36,36 +41,61 @@ for (int i = 0; i < numberOfCommands; i++)
     string commandType = commandInfo[0];
     string vehicleType = commandInfo[1];
     
-
-    if (commandType == "Drive")
+    try
     {
-        double distance = double.Parse(commandInfo[2]);
+        if(commandType == "Drive" || commandType == "DriveEmpty")
+        {   
+            double distance = double.Parse(commandInfo[2]);
 
-        if (vehicleType == "Car")
+            if (vehicleType == "Car")
+            {
+                Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Car");
+                Console.WriteLine(driveVehicle.Drive(distance));
+            }
+            else if (vehicleType == "Truck")
+            {
+                Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Truck");
+                Console.WriteLine(driveVehicle.Drive(distance));
+            }
+            if (vehicleType == "Bus")
+            {
+                Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Bus");
+                
+                if (commandType == "DriveEmpty")
+                {
+                    Console.WriteLine(driveVehicle.Drive(distance, false));
+                }
+                else
+                {
+                    Bus busVehicle = (Bus)driveVehicle;
+                    Console.WriteLine(busVehicle.Drive(distance));
+                }
+            }
+        }
+        else if (commandType == "Refuel")
         {
-            Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Car");
-            Console.WriteLine(driveVehicle.Drive(distance)); 
-        }      
-        else if (vehicleType == "Truck")
-        {
-            Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Truck");
-            Console.WriteLine(driveVehicle.Drive(distance));
+            double amount = double.Parse(commandInfo[2]);
+
+            if (vehicleType == "Car")
+            {
+                Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Car");
+                driveVehicle.Refuel(amount);
+            }
+            else if (vehicleType == "Truck")
+            {
+                Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Truck");
+                driveVehicle.Refuel(amount);
+            }
+            else if (vehicleType == "Bus")
+            {
+                Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Bus");
+                driveVehicle.Refuel(amount);
+            }
         }
     }
-    else if (commandType == "Refuel")
+    catch(Exception e)
     {
-        double amount = double.Parse(commandInfo[2]);
-
-        if (vehicleType == "Car")
-        {
-            Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Car");
-            driveVehicle.Refuel(amount); 
-        }
-        else if (vehicleType == "Truck")
-        {
-            Vehicle driveVehicle = vehicles.FirstOrDefault(c => c.GetType().Name == "Truck");
-            driveVehicle.Refuel(amount);
-        }
+        Console.WriteLine(e.Message);
     }
 }
 

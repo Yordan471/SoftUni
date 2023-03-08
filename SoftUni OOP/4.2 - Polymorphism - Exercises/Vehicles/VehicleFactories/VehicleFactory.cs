@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vehicles
+namespace Vehicles.VehicleFactories
 {
-    public interface IBus
+    internal class VehicleFactory
     {
-
     }
 }

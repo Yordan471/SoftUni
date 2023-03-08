@@ -11,23 +11,22 @@ namespace Vehicles.Models
         private const double AddedFuelConsumption = 1.6;
 
         public Truck(double fuelQuantity, double fuelConsuption, int capacity)
-            : base(fuelQuantity, fuelConsuption, capacity)
+            : base(fuelQuantity, fuelConsuption, capacity, AddedFuelConsumption)
         {
-        }
-
-        public override double FuelConsumption
-        {
-            get => base.FuelConsumption + AddedFuelConsumption;
         }
 
         public override void Refuel(double amount)
         {
-            if (this.Capacity < this.FuelQuantity + amount * 0.95)
+            if (amount <= 0)
+            {
+                throw new ArgumentException($"Fuel must be a positive number");
+            }
+            else if (this.Capacity < this.FuelQuantity + amount)
             {
                 throw new ArgumentException($"Cannot fit {amount} fuel in the tank");             
             }
 
-            FuelQuantity += amount * 0.95;
+            base.Refuel(amount * 0.95);
             //return $"{this.GetType().Name}: {this.FuelQuantity:f2}";
         }
     }
