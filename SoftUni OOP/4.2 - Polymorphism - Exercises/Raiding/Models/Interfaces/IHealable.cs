@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Raiding.Models.Interfaces
 {
-    internal interface IHealable
+    public interface IHealable
     {
+
     }
 }
