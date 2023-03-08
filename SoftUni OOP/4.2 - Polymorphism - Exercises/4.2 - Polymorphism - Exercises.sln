@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles", "Vehicles\Vehicl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raiding", "Raiding\Raiding.csproj", "{770EA85E-D2A8-4A31-B494-1BFD0A990EB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildFarm", "WildFarm\WildFarm.csproj", "{2BF36A1A-20F0-45A7-AC4A-BDEC94AE96CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{770EA85E-D2A8-4A31-B494-1BFD0A990EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{770EA85E-D2A8-4A31-B494-1BFD0A990EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{770EA85E-D2A8-4A31-B494-1BFD0A990EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF36A1A-20F0-45A7-AC4A-BDEC94AE96CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF36A1A-20F0-45A7-AC4A-BDEC94AE96CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF36A1A-20F0-45A7-AC4A-BDEC94AE96CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF36A1A-20F0-45A7-AC4A-BDEC94AE96CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
