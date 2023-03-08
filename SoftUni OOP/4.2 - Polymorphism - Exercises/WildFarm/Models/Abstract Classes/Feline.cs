@@ -7,13 +7,13 @@ using WildFarm.Models.Interfaces;
 
 namespace WildFarm.Models.Abstract_Classes
 {
-    public abstract class Bird : IBird
+    public abstract class Feline : IFeline
     {
-        public Bird(double wingSize)
+        public Feline(string breed)
         {
-            WingSize = wingSize;
+            Breed = breed;
         }
 
-        public double WingSize { get; }
+        public string Breed { get; private set; }
     }
 }
