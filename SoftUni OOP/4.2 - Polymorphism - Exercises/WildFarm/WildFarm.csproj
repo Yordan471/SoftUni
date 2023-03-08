@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Abstract Classes\" />
     <Folder Include="Models\Classes\" />
   </ItemGroup>
 
