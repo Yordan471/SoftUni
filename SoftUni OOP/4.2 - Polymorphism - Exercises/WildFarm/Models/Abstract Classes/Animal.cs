@@ -21,5 +21,10 @@ namespace WildFarm.Models.Abstract_Classes
         public double Weight { get; private set; }
 
         public int FoodEaten { get; private set; }
+
+        public virtual string ProduceSound()
+        {
+            return $"{this.GetType().Name} - ";
+        }
     }
 }
