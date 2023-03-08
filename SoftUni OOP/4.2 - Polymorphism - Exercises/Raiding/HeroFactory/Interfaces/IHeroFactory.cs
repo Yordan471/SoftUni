@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raiding.Models.Interfaces
+namespace Raiding.HeroFactory.Interfaces
 {
-    public interface IHealable
+    internal class IHeroFactory
     {
-
     }
 }
