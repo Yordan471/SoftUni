@@ -9,6 +9,8 @@ namespace Raiding.Models
 {
     public abstract class BaseHero : IBaseHero
     {
+        private int power = 0;
+
         public BaseHero(string name, int power)
         {
             Name = name;
@@ -23,6 +25,7 @@ namespace Raiding.Models
         public int Power
         {
             get; private set;
+            
         }
 
         public abstract string CastAbility();

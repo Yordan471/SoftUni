@@ -8,7 +8,9 @@ namespace Raiding.Models
 {
     public class Rogue : BaseHero
     {
-        public Rogue(string name, int power) : base(name, power)
+        private const int RoguePower = 80;
+
+        public Rogue(string name, int power) : base(name, RoguePower)
         {
         }
 

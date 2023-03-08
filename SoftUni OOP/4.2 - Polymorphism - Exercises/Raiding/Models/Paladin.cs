@@ -8,7 +8,9 @@ namespace Raiding.Models
 {
     public class Paladin : BaseHero
     {
-        public Paladin(string name, int power) : base(name, power)
+        private const int PaladinPower = 100;
+
+        public Paladin(string name) : base(name, PaladinPower)
         {
         }
 
