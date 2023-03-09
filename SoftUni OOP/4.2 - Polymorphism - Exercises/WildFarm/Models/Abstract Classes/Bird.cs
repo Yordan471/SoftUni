@@ -14,6 +14,6 @@ namespace WildFarm.Models.Abstract_Classes
             WingSize = wingSize;
         }
 
-        public double WingSize { get; }
+        public double WingSize { get; }      
     }
 }

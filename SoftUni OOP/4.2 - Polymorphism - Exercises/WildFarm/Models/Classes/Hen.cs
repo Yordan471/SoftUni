@@ -16,5 +16,10 @@ namespace WildFarm.Models.Classes
         }
 
         public double WingSize { get; private set; }
+
+        public override string ToString()
+        {
+            return base.ToString() + "Cluck";
+        }
     }
 }
