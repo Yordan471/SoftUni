@@ -26,16 +26,24 @@ namespace WildFarm.Models.Abstract_Classes
         public double Weight { get; private set; }
 
         public int FoodEaten { get; private set; }
+
+        public abstract double WeightModifier { get; }
         
+        public abstract IReadOnlyCollection<Type> SpecificFoods { get; }
 
         public virtual string ProduceSound()
         {
             return $"{this.GetType().Name} - ";
         }
 
-        public void WeightGain()
+        public void EatFood(IFood food)
         {
+            if (!SpecificFoods.Any(f => food.GetType().Name == f.Name))
+            {
+                throw new ArgumentException($"{this.GetType().Name} does not eat {food.GetType().Name}!");
+            }
 
+            Weight += food.
         }
     }
 }
