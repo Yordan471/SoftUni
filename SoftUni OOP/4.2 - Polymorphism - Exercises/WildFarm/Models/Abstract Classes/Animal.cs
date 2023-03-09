@@ -33,7 +33,7 @@ namespace WildFarm.Models.Abstract_Classes
 
         public virtual string ProduceSound()
         {
-            return $"{this.GetType().Name} - ";
+            return $"{this.GetType().Name} - {this.Name}";
         }
 
         public void EatFood(IFood food)
@@ -43,7 +43,9 @@ namespace WildFarm.Models.Abstract_Classes
                 throw new ArgumentException($"{this.GetType().Name} does not eat {food.GetType().Name}!");
             }
 
-            Weight += food.
+            Weight += food.Quantity * WeightModifier;
+
+            FoodEaten += food.Quantity;
         }
     }
 }
