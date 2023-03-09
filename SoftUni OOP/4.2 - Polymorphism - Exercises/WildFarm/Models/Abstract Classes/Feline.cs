@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using WildFarm.Models.Interfaces;
 
 namespace WildFarm.Models.Abstract_Classes
 {
-    public abstract class Feline : IFeline
+    public abstract class Feline : Animal, IFeline
     {
-        public Feline(string breed)
+        protected Feline(string name, double weight, string livingRegion, string breed) : base(name, weight)
         {
+            LivingRegion = livingRegion;
             Breed = breed;
         }
 

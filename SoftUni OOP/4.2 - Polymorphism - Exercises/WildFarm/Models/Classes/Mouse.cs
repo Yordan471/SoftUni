@@ -8,14 +8,14 @@ using WildFarm.Models.Interfaces;
 
 namespace WildFarm.Models.Classes
 {
-    public class Mouse : Animal, IMammal
+    public class Mouse : Mammal
     {
-        public Mouse(string name, double weight, int foodEaten) 
-            : base(name, weight, foodEaten)
+        private const double MouseWeight = 0.10;
+
+        public Mouse(string name, double weight, string livingRegion) 
+            : base(name, weight, livingRegion)
         {
         }
-
-        public string LivingRegion { get; private set; }
 
         public override string ToString()
         {

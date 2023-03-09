@@ -7,16 +7,15 @@ using WildFarm.Models.Abstract_Classes;
 using WildFarm.Models.Interfaces;
 
 namespace WildFarm.Models.Classes
-{
-    public class Dog : Animal, IMammal
-
+{  
+    public class Dog : Mammal
     {
-        public Dog(string name, double weight, int foodEaten) 
-            : base(name, weight, foodEaten)
+        private const double DogWeight = 0.40;
+
+        public Dog(string name, double weight, string livingRegion) 
+            : base(name, weight, livingRegion)
         {
         }
-
-        public string LivingRegion { get; private set; }
 
         public override string ToString()
         {

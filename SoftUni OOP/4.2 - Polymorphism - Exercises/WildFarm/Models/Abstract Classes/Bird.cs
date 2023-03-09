@@ -7,13 +7,18 @@ using WildFarm.Models.Interfaces;
 
 namespace WildFarm.Models.Abstract_Classes
 {
-    public abstract class Bird : IBird
+    public abstract class Bird : Animal, IBird
     {
-        public Bird(double wingSize)
+        protected Bird(string name, double weight, double wingSize) : base(name, weight)
         {
             WingSize = wingSize;
         }
 
-        public double WingSize { get; }      
+        public double WingSize { get; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
