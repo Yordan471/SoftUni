@@ -16,5 +16,10 @@ namespace WildFarm.Models.Abstract_Classes
         }
 
         public string LivingRegion { get; private set; }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}{this.Weight}, {this.LivingRegion}, {this.FoodEaten}]";
+        }
     }
 }

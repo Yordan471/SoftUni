@@ -28,9 +28,9 @@ namespace WildFarm.Models.Classes
             get => new HashSet<Type>() { typeof(Vegetable), typeof(Fruit), typeof(Meat), typeof(Seeds) };
         }
 
-        public override string ToString()
+        public override string ProduceSound()
         {
-            return base.ToString() + "Cluck";
+            return "Cluck";
         }
     }
 }

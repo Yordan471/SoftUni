@@ -18,7 +18,7 @@ namespace WildFarm.Models.Abstract_Classes
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{base.ToString()}{this.WingSize}, {this.Weight}, {this.FoodEaten}]";
         }
     }
 }

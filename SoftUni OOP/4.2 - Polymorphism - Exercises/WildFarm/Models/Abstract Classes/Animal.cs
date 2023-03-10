@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace WildFarm.Models.Abstract_Classes
 
         public void EatFood(IFood food)
         {
-            if (!SpecificFoods.Any(f => food.GetType().Name == f.Name))
+            if (!SpecificFoods.Any(f => f.Name == food.GetType().Name))
             {
                 throw new ArgumentException($"{this.GetType().Name} does not eat {food.GetType().Name}!");
             }
@@ -46,6 +47,11 @@ namespace WildFarm.Models.Abstract_Classes
             Weight += food.Quantity * WeightModifier;
 
             FoodEaten += food.Quantity;
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} [{this.Name}, ";
         }
     }
 }

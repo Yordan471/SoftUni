@@ -19,5 +19,10 @@ namespace WildFarm.Models.Abstract_Classes
         public string Breed { get; private set; }
 
         public string LivingRegion { get ; private set; }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}{this.Breed}, {this.Weight}, {LivingRegion}, {FoodEaten}]";
+        }
     }
 }

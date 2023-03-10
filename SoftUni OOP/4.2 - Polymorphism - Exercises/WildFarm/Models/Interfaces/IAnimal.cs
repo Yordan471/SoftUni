@@ -13,5 +13,13 @@ namespace WildFarm.Models.Interfaces
         public double Weight { get; }
 
         public int FoodEaten { get; }
+
+        public double WeightModifier { get; }
+
+        public IReadOnlyCollection<Type> SpecificFoods { get; }
+
+        public string ProduceSound();
+
+        public void EatFood(IFood food);
     }
 }

@@ -25,12 +25,12 @@ namespace WildFarm.Models.Classes
 
         public override IReadOnlyCollection<Type> SpecificFoods
         {
-            get => new HashSet<Type>() { typeof(Meat) };
+            get => new HashSet<Type>() { typeof(Meat), typeof(Vegetable) };
         }
 
-        public override string ToString()
+        public override string ProduceSound()
         {
-            return base.ToString() + "Meow";
+            return "Meow";
         }
     }
 }
