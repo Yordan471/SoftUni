@@ -49,7 +49,7 @@ namespace Skeleton.Tests
         [Test]
         public void Test_WhenDummyIsDead_GiveExp()
         {
-            Assert.That(dummyNegativeHealth, Is.AtMost(0), "Dummy is dead so it should give expirience.");
+            Assert.That(dummyWithNegativeHealth.Health, Is.AtMost(0), "Dummy is dead so it should give expirience.");
         }
 
         [Test]
@@ -57,6 +57,16 @@ namespace Skeleton.Tests
         {
             Assert.Throws<InvalidOperationException>(() =>
             dummy.GiveExperience(), "Dummy isn't Dead, you should not give exp");
+        }
+
+        [Test]
+        public void Test_DummyTakesAttackAndLoosesHealth()
+        {
+            int damageTaken = 2;
+            int dummyHealthLeft = dummy.Health - damageTaken;
+            dummy.TakeAttack(damageTaken);
+
+            Assert.That(dummy.Health, Is.EqualTo(dummyHealthLeft), "Dummy health is not the right amount after taking an attack");
         }
     }
 }
