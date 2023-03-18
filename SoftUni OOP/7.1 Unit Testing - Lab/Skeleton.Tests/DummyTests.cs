@@ -7,39 +7,49 @@ namespace Skeleton.Tests
     public class DummyTests
     {
         Dummy dummy;
-        int dummyHealth;
+        Dummy dummyWithZeroHealth;
+        Dummy dummyWithNegativeHealth;
+
+        int dummyPositiveHealth;
         int dummyExp;
+        int dummyZeroHealth;
+        int dummyNegativeHealth;
 
         [SetUp]
         public void SetUp()
         {
-            dummyHealth = 100;
+            dummyPositiveHealth = 100;
+            dummyZeroHealth = 0;
+            dummyNegativeHealth = -5;
             dummyExp = 10;
-            dummy = new(dummyHealth, dummyExp);
+
+            dummy = new(dummyPositiveHealth, dummyExp);
+            dummyWithZeroHealth = new(dummyZeroHealth, dummyExp);
+            dummyWithNegativeHealth = new(dummyNegativeHealth, dummyExp);
         }
 
         [Test]
         public void TestDummyConstructor()
         {
-            Assert.That(dummy.Health, Is.EqualTo(dummyHealth), "Dummy Health points are different then the one set from the constructor");
+            Assert.That(dummy.Health, Is.EqualTo(dummyPositiveHealth), "Dummy Health points are different then the one set from the constructor");
         }
 
         [Test]
         public void Test_DummyIsDead_WithHealthPoints_EqualZero()
         {
-            dummyHealth = 0;
-            dummy = new(dummyHealth, dummyExp);
-
-            Assert.That(dummyHealth, Is.EqualTo(0), "Dummy health points are 0, so it should be dead.");
+            Assert.That(dummyZeroHealth, Is.EqualTo(0), "Dummy health points are 0, so it should be dead.");
         }
 
         [Test]
         public void Test_DummyIsDead_WithHealthPointsBellowZero()
         {
-            dummyHealth = -5;
-            dummy = new(dummyHealth, dummyExp);
+            Assert.Negative(dummyNegativeHealth, "Dummy health points are negative number, so it should be dead.");
+        }
 
-            Assert.Negative(dummyHealth, "Dummy health points are negative number, so it should be dead.");
+        [Test]
+        public void Test_WhenDummyIsDeadGiveExp()
+        {
+            
         }
     }
 }
