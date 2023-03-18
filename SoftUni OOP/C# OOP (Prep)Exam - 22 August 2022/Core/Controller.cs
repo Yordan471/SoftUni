@@ -1,6 +1,8 @@
 ﻿using BookingApp.Core.Contracts;
 using BookingApp.Models.Hotels;
 using BookingApp.Models.Hotels.Contacts;
+using BookingApp.Models.Rooms;
+using BookingApp.Models.Rooms.Contracts;
 using BookingApp.Repositories;
 using BookingApp.Repositories.Contracts;
 using BookingApp.Utilities.Messages;
@@ -46,7 +48,40 @@ namespace BookingApp.Core
 
         public string UploadRoomTypes(string hotelName, string roomTypeName)
         {
-            throw new NotImplementedException();
+            if (hotels.Select(hotelName) == null)
+            {
+                return string.Format(OutputMessages.HotelNameInvalid, hotelName);
+            }
+
+            IHotel hotel = hotels.Select(hotelName);
+            if (hotel.Rooms.Select(roomTypeName) != default)
+            {
+                return string.Format(OutputMessages.RoomTypeAlreadyCreated);
+            }
+            
+            if (roomTypeName != nameof(DoubleBed) || 
+                roomTypeName != nameof(DoubleBed) ||
+                roomTypeName != nameof(DoubleBed))
+            {
+                throw new ArgumentException(ExceptionMessages.RoomTypeIncorrect);
+            }
+
+            IRoom room = null;
+            if (roomTypeName == nameof(DoubleBed))
+            {
+                room = new DoubleBed();
+            }
+            else if (roomTypeName == nameof(Studio))
+            {
+                room = new Studio();
+            }
+            else if (roomTypeName == nameof(Apartment))
+            {
+                room = new Apartment();
+            }
+
+            hotel.Rooms.AddNew(room);
+            return string.Format(OutputMessages.RoomTypeAdded, roomTypeName ,hotelName);
         }
     }
 }
