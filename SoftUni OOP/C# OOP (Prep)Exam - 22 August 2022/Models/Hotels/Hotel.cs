@@ -1,6 +1,7 @@
 ﻿using BookingApp.Models.Bookings.Contracts;
 using BookingApp.Models.Hotels.Contacts;
 using BookingApp.Models.Rooms.Contracts;
+using BookingApp.Repositories;
 using BookingApp.Repositories.Contracts;
 using BookingApp.Utilities.Messages;
 using System;
@@ -18,15 +19,13 @@ namespace BookingApp.Models.Hotels
 
         private string fullName;
         private int category;
-        private IRepository<IRoom> rooms;
-        private IRepository<IBooking> bookings;
 
         public Hotel(string fullName, int category)
         {
             this.FullName = fullName;
             this.Category = category;
-            this.rooms = new RoomRepository();
-            this.bookings = new BookingRepository();
+            this.Rooms = new RoomRepository();
+            this.Bookings = new BookingRepository();
         }
 
         public string FullName
@@ -59,8 +58,8 @@ namespace BookingApp.Models.Hotels
 
         public double Turnover => Math.Round(Bookings.All().Sum(b => b.ResidenceDuration * b.Room.PricePerNight), 2);
 
-        public IRepository<IRoom> Rooms => rooms;
+        public IRepository<IRoom> Rooms { get; set; }
 
-        public IRepository<IBooking> Bookings => bookings;
+        public IRepository<IBooking> Bookings { get; set; }
     }
 }
