@@ -37,19 +37,21 @@ namespace Skeleton.Tests
         [Test]
         public void Test_DummyIsDead_WithHealthPoints_EqualZero()
         {
-            Assert.That(dummyZeroHealth, Is.EqualTo(0), "Dummy health points are 0, so it should be dead.");
+            Assert.That(dummyWithZeroHealth.Health, Is.EqualTo(0), "Dummy health points are 0, so it should be dead.");
         }
 
         [Test]
         public void Test_DummyIsDead_WithHealthPointsBellowZero()
         {
-            Assert.Negative(dummyNegativeHealth, "Dummy health points are negative number, so it should be dead.");
+            Assert.Negative(dummyWithNegativeHealth.Health, "Dummy health points are negative number, so it should be dead.");
         }
 
         [Test]
         public void Test_WhenDummyIsDead_GiveExp()
         {
-            Assert.That(dummyWithNegativeHealth.Health, Is.AtMost(0), "Dummy is dead so it should give expirience.");
+            int getDummyExp = dummyWithNegativeHealth.GiveExperience();
+
+            Assert.That(dummyExp, Is.EqualTo(getDummyExp));
         }
 
         [Test]
@@ -60,13 +62,24 @@ namespace Skeleton.Tests
         }
 
         [Test]
-        public void Test_DummyTakesAttackAndLoosesHealth()
+        public void Test_DummyTakesAttack_And_LoosesHealth()
         {
             int damageTaken = 2;
             int dummyHealthLeft = dummy.Health - damageTaken;
             dummy.TakeAttack(damageTaken);
 
             Assert.That(dummy.Health, Is.EqualTo(dummyHealthLeft), "Dummy health is not the right amount after taking an attack");
+        }
+
+        [Test]
+        public void Test_DeadDummyCanNotBeAttacked()
+        {
+            int damageTaken = 100;
+            int dummyHealthLeft = dummy.Health - damageTaken;
+            dummy.TakeAttack(damageTaken);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            dummy.TakeAttack(1));
         }
     }
 }
