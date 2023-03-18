@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookingApp.Models.Rooms
 {
-    abstract class Room : IRoom
+    public abstract class Room : IRoom
     {
         private int bedCapacity;
         private double pricePerNight;
