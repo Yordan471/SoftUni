@@ -1,7 +1,9 @@
 ﻿using BookingApp.Core.Contracts;
+using BookingApp.Models.Hotels;
 using BookingApp.Models.Hotels.Contacts;
 using BookingApp.Repositories;
 using BookingApp.Repositories.Contracts;
+using BookingApp.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,19 @@ namespace BookingApp.Core
 {
     public class Controller : IController
     {
-        private IRepository<IHotel> hotels;
+        private IRepository<IHotel> hotels = new HotelRepository();
 
         public string AddHotel(string hotelName, int category)
         {
-            throw new NotImplementedException();
+            if (!(hotels.Select(hotelName).Category == category))
+            {
+                return string.Format(OutputMessages.HotelAlreadyRegistered, hotelName);
+            }
+
+            IHotel hotel = new Hotel(hotelName, category);
+            hotels.AddNew(hotel);
+
+            return string.Format(OutputMessages.HotelSuccessfullyRegistered, category ,hotel);
         }
 
         public string BookAvailableRoom(int adults, int children, int duration, int category)
