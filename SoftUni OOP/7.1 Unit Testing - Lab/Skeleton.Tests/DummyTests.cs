@@ -32,5 +32,14 @@ namespace Skeleton.Tests
 
             Assert.That(dummyHealth, Is.EqualTo(0), "Dummy health points are 0, so it should be dead.");
         }
+
+        [Test]
+        public void Test_DummyIsDead_WithHealthPointsBellowZero()
+        {
+            dummyHealth = -5;
+            dummy = new(dummyHealth, dummyExp);
+
+            Assert.That(dummyHealth, Is.EqualTo(0), "Dummy health points negative number, so it should be dead.");
+        }
     }
 }
