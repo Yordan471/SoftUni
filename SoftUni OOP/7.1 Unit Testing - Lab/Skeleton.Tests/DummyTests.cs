@@ -39,7 +39,7 @@ namespace Skeleton.Tests
             dummyHealth = -5;
             dummy = new(dummyHealth, dummyExp);
 
-            Assert.That(dummyHealth, Is.EqualTo(0), "Dummy health points negative number, so it should be dead.");
+            Assert.Negative(dummyHealth, "Dummy health points are negative number, so it should be dead.");
         }
     }
 }
