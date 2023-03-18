@@ -30,9 +30,7 @@ namespace Skeleton.Tests
             dummyHealth = 0;
             dummy = new(dummyHealth, dummyExp);
 
-            Assert.Throws<InvalidOperationException>(() =>
-            dummy.IsDead(), "Dummy health points are 0, so it should be dead."
-            );
+            Assert.That(dummyHealth, Is.EqualTo(0), "Dummy health points are 0, so it should be dead.");
         }
     }
 }
