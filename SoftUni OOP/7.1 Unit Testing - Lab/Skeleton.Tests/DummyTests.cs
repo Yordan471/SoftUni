@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace Skeleton.Tests
 {
@@ -23,6 +24,15 @@ namespace Skeleton.Tests
             Assert.That(dummy.Health, Is.EqualTo(dummyHealth), "Dummy Health points are different then the one set from the constructor");
         }
 
+        [Test]
+        public void Test_DummyIsDead_WithHealthPoints_EqualZero()
+        {
+            dummyHealth = 0;
+            dummy = new(dummyHealth, dummyExp);
 
+            Assert.Throws<InvalidOperationException>(() =>
+            dummy.IsDead(), "Dummy health points are 0, so it should be dead."
+            );
+        }
     }
 }
