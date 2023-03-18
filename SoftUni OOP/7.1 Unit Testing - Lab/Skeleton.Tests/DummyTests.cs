@@ -49,7 +49,7 @@ namespace Skeleton.Tests
         [Test]
         public void Test_WhenDummyIsDeadGiveExp()
         {
-            
+            Assert.That(dummyNegativeHealth, Is.AtMost(0), "Dummy is dead so it should give expirience.");
         }
     }
 }
