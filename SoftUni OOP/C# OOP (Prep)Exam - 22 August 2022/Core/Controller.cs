@@ -43,7 +43,32 @@ namespace BookingApp.Core
 
         public string SetRoomPrices(string hotelName, string roomTypeName, double price)
         {
-            throw new NotImplementedException();
+            if (hotels.Select(hotelName) == null)
+            {
+                return string.Format(OutputMessages.HotelNameInvalid, hotelName);
+            }
+
+            IHotel hotel = hotels.Select(hotelName);
+            if (roomTypeName != nameof(DoubleBed) ||
+                roomTypeName != nameof(DoubleBed) ||
+                roomTypeName != nameof(DoubleBed))
+            {
+                throw new ArgumentException(ExceptionMessages.RoomTypeIncorrect);
+            }
+            
+            if (hotel.Rooms.Select(roomTypeName) == null)
+            {
+                return string.Format(OutputMessages.RoomTypeNotCreated);
+            }
+
+            IRoom room = hotel.Rooms.Select(roomTypeName);
+            if (room.PricePerNight != 0)
+            {
+                throw new InvalidOperationException(ExceptionMessages.CannotResetInitialPrice);
+            }
+
+            room.SetPrice(price);
+            return string.Format(OutputMessages.PriceSetSuccessfully, roomTypeName, hotelName);
         }
 
         public string UploadRoomTypes(string hotelName, string roomTypeName)
