@@ -47,9 +47,16 @@ namespace Skeleton.Tests
         }
 
         [Test]
-        public void Test_WhenDummyIsDeadGiveExp()
+        public void Test_WhenDummyIsDead_GiveExp()
         {
             Assert.That(dummyNegativeHealth, Is.AtMost(0), "Dummy is dead so it should give expirience.");
+        }
+
+        [Test]
+        public void Test_WhenDummyIsNotDead_DoNotGiveExp_ThrowException()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            dummy.GiveExperience(), "Dummy isn't Dead, you should not give exp");
         }
     }
 }
