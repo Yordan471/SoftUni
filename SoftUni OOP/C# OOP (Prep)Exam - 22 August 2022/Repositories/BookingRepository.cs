@@ -1,11 +1,12 @@
 ﻿using BookingApp.Models.Bookings.Contracts;
+using BookingApp.Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingApp.Repositories.Contracts
+namespace BookingApp.Repositories
 {
     public class BookingRepository : IRepository<IBooking>
     {
@@ -23,7 +24,7 @@ namespace BookingApp.Repositories.Contracts
 
         public IBooking Select(string criteria)
         {
-            return bookings.FirstOrDefault(b => b.GetType().Name ==  criteria);
+            return bookings.FirstOrDefault(b => b.BookingNumber.ToString() == criteria);
         }
     }
 }

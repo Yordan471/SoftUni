@@ -1,4 +1,7 @@
 ﻿using BookingApp.Core.Contracts;
+using BookingApp.Models.Hotels.Contacts;
+using BookingApp.Repositories;
+using BookingApp.Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +12,8 @@ namespace BookingApp.Core
 {
     public class Controller : IController
     {
+        private IRepository<IHotel> hotels;
+
         public string AddHotel(string hotelName, int category)
         {
             throw new NotImplementedException();
