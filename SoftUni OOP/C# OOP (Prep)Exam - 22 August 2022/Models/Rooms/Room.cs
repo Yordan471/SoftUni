@@ -11,9 +11,9 @@ namespace BookingApp.Models.Rooms
     public abstract class Room : IRoom
     {
         private int bedCapacity;
-        private double pricePerNight;
+        private double pricePerNight = 0;
 
-        public Room(int bedCapacity, double pricePerNight = 0)
+        public Room(int bedCapacity)
         {
             this.BedCapacity = bedCapacity;
         }
@@ -21,7 +21,7 @@ namespace BookingApp.Models.Rooms
         public int BedCapacity
         {
             get => bedCapacity;
-            set
+            private set
             {
                 bedCapacity = value;
             }
@@ -30,11 +30,11 @@ namespace BookingApp.Models.Rooms
         public double PricePerNight
         { 
             get => pricePerNight;
-            set
+            private set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(ExceptionMessages.PricePerNightNegative);
+                    throw new ArgumentException(string.Format(ExceptionMessages.PricePerNightNegative));
                 }
 
                 pricePerNight = value;

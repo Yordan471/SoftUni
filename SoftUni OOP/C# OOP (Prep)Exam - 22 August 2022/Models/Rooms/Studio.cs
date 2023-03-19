@@ -8,9 +8,9 @@ namespace BookingApp.Models.Rooms
 {
     public class Studio : Room
     {
-        private const int studioBedCapacoty = 4;
+        private const int studioBedCapacity = 4;
 
-        public Studio(double pricePerNight = 0) : base(studioBedCapacoty, pricePerNight)
+        public Studio() : base(studioBedCapacity)
         {
         }
     }

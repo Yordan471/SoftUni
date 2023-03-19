@@ -10,7 +10,7 @@ namespace BookingApp.Repositories
 {
     public class BookingRepository : IRepository<IBooking>
     {
-        private readonly ICollection<IBooking> bookings;
+        private readonly List<IBooking> bookings;
 
         public BookingRepository()
         {
@@ -24,7 +24,7 @@ namespace BookingApp.Repositories
 
         public IReadOnlyCollection<IBooking> All()
         {
-            return (IReadOnlyCollection<IBooking>)bookings;
+            return bookings;
         }
 
         public IBooking Select(string criteria)

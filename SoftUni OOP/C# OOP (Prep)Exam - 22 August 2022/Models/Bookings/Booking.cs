@@ -31,7 +31,7 @@ namespace BookingApp.Models.Bookings
         public int ResidenceDuration
         {
             get => residenceDuration;
-            set
+            private set
             {
                 if (value <= 0)
                 {
@@ -45,7 +45,7 @@ namespace BookingApp.Models.Bookings
         public int AdultsCount
         {
             get => adultCount;
-            set
+            private set
             {
                 if (value < 1)
                 {
@@ -59,11 +59,11 @@ namespace BookingApp.Models.Bookings
         public int ChildrenCount
         {
             get => childrenCount;
-            set
+            private set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException(ExceptionMessages.ChildrenNegative);
+                    throw new ArgumentException(string.Format(ExceptionMessages.ChildrenNegative));
                 }
 
                 childrenCount = value;

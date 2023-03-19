@@ -10,7 +10,7 @@ namespace BookingApp.Repositories
 {
     public class RoomRepository : IRepository<IRoom>
     {
-        private readonly ICollection<IRoom> rooms;
+        private readonly List<IRoom> rooms;
 
         public RoomRepository()
         {
@@ -24,7 +24,7 @@ namespace BookingApp.Repositories
 
         public IReadOnlyCollection<IRoom> All()
         {
-            return (IReadOnlyCollection<IRoom>)rooms;
+            return rooms;
         }
 
         public IRoom Select(string criteria)

@@ -31,7 +31,7 @@ namespace BookingApp.Models.Hotels
         public string FullName
         {
             get => fullName;
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -45,11 +45,11 @@ namespace BookingApp.Models.Hotels
         public int Category
         {
             get => category;
-            set
+            private set
             {
                 if (value < minValueCategory || value > maxValueCategory)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidCategory);
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidCategory));
                 }
 
                 category = value;
