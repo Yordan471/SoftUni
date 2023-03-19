@@ -35,17 +35,6 @@ namespace PlanetWars.Repositories
             return planet;
         }
 
-        public bool RemoveItem(string name)
-        {
-            IPlanet planet = FindByName(name);
-
-            if (planet == null)
-            {
-                return false;
-            }
-
-            planets.Remove(planet);
-            return true;
-        }
+        public bool RemoveItem(string name) => this.planets.Remove(this.planets.FirstOrDefault(x => x.Name == name));
     }
 }

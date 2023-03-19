@@ -36,17 +36,7 @@ namespace PlanetWars.Repositories
             return militaryUnit;
         }
 
-        public bool RemoveItem(string name)
-        {
-            IMilitaryUnit militaryUnit = FindByName(name);
+        public bool RemoveItem(string name) => this.militaryUnits.Remove(this.militaryUnits.FirstOrDefault(x => x.GetType().Name == name));
 
-            if (militaryUnit == null)
-            {
-                return false;
-            }
-
-            militaryUnits.Remove(militaryUnit);
-            return true;
-        }
     }
 }

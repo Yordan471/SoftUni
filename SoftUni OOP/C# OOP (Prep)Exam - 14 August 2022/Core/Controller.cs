@@ -27,9 +27,10 @@ namespace PlanetWars.Core
 
         public string AddUnit(string unitTypeName, string planetName)
         {
-            IPlanet planet = planets.FindByName(planetName);
 
-            if (planet == null)
+            IPlanet planet = this.planets.FindByName(planetName);
+
+            if (planet == default)
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.UnexistingPlanet, planetName));
             }
@@ -38,19 +39,74 @@ namespace PlanetWars.Core
                 unitTypeName != nameof(SpaceForces) &&
                 unitTypeName != nameof(StormTroopers))
             {
-                throw new InvalidOperationException(string.Format(ExceptionMessages.ItemNotAvailable, unitTypeName));
+                throw new ArgumentException(string.Format(ExceptionMessages.ItemNotAvailable, unitTypeName));
             }
-          
-            IMilitaryUnit militaryUnit = planet.Army.FirstOrDefault(u => u.GetType().Name == unitTypeName);
-           
-            if (militaryUnit != null)
+
+            if (planet.Army.Any(u => u.GetType().Name == unitTypeName))
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.UnitAlreadyAdded, unitTypeName, planetName));
             }
 
-            planet.AddUnit(militaryUnit);
+            IMilitaryUnit unit;
+
+            if (unitTypeName == nameof(SpaceForces))
+            {
+                unit = new SpaceForces();
+            }
+            else if (unitTypeName == nameof(StormTroopers))
+            {
+                unit = new StormTroopers();
+            }
+            else
+            {
+                unit = new AnonymousImpactUnit();
+            }
+
+            planet.Spend(unit.Cost);
+            planet.AddUnit(unit);
 
             return string.Format(OutputMessages.UnitAdded, unitTypeName, planetName);
+            //IPlanet planet = planets.FindByName(planetName);
+
+            //if (planet == null)
+            //{
+            //    throw new InvalidOperationException(string.Format(ExceptionMessages.UnexistingPlanet, planetName));
+            //}
+
+
+            //if (unitTypeName != nameof(AnonymousImpactUnit) &&
+            //    unitTypeName != nameof(SpaceForces) &&
+            //    unitTypeName != nameof(StormTroopers))
+            //{
+            //    throw new InvalidOperationException(string.Format(ExceptionMessages.ItemNotAvailable, unitTypeName));
+            //}
+
+            //IMilitaryUnit existingMilitaryUnit = planet.Army.FirstOrDefault(u => u.GetType().Name == unitTypeName);
+
+            //if (existingMilitaryUnit != null)
+            //{
+            //    throw new InvalidOperationException(string.Format(ExceptionMessages.UnitAlreadyAdded, unitTypeName, planetName));
+            //}
+
+            //IMilitaryUnit militaryUnit = null;
+
+            //if (unitTypeName == nameof(SpaceForces))
+            //{
+            //    militaryUnit = new SpaceForces();
+            //}
+            //else if (unitTypeName == nameof(AnonymousImpactUnit))
+            //{
+            //    militaryUnit = new AnonymousImpactUnit();
+            //}
+            //else if (unitTypeName == nameof(StormTroopers))
+            //{
+            //    militaryUnit = new StormTroopers();
+            //}
+
+            //planet.Spend(militaryUnit.Cost);
+            //planet.AddUnit(militaryUnit);
+
+            //return string.Format(OutputMessages.UnitAdded, unitTypeName, planetName);
         }
 
         public string AddWeapon(string planetName, string weaponTypeName, int destructionLevel)
@@ -69,13 +125,29 @@ namespace PlanetWars.Core
                 throw new InvalidOperationException(string.Format(ExceptionMessages.ItemNotAvailable, weaponTypeName));
             }
 
-            IWeapon weapon = planet.Weapons.FirstOrDefault(u => u.GetType().Name == weaponTypeName);
+            IWeapon existingWeapon = planet.Weapons.FirstOrDefault(u => u.GetType().Name == weaponTypeName);
 
-            if (weapon != null)
+            if (existingWeapon != null)
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.WeaponAlreadyAdded, weaponTypeName, planetName));
             }
 
+            IWeapon weapon = null;
+
+            if (weaponTypeName == nameof(BioChemicalWeapon))
+            {
+                weapon = new BioChemicalWeapon(destructionLevel);
+            }
+            else if (weaponTypeName == nameof(NuclearWeapon))
+            {
+                weapon = new NuclearWeapon(destructionLevel);
+            }
+            else if (weaponTypeName == nameof(SpaceMissiles))
+            {
+                weapon = new SpaceMissiles(destructionLevel);
+            }
+
+            planet.Spend(weapon.Price);
             planet.AddWeapon(weapon);
 
             return string.Format(OutputMessages.WeaponAdded, planetName, weaponTypeName);
@@ -105,7 +177,7 @@ namespace PlanetWars.Core
                 .OrderByDescending(m => m.MilitaryPower)
                 .ThenBy(m => m.Name))
             {
-                sb.Append(planet.PlanetInfo());
+                sb.AppendLine(planet.PlanetInfo());
             }
 
             return sb.ToString().Trim();
@@ -118,9 +190,9 @@ namespace PlanetWars.Core
 
             if (attackingPlanet.MilitaryPower == defendingPlanet.MilitaryPower)
             {
-                if (attackingPlanet.Weapons.Any(w => w.GetType().Name == nameof(NuclearWeapon) ==
+                if (attackingPlanet.Weapons.Any(w => w.GetType().Name == nameof(NuclearWeapon) &&
                 defendingPlanet.Weapons.Any(w => w.GetType().Name == nameof(NuclearWeapon))) ||
-                attackingPlanet.Weapons.Any(w => w.GetType().Name != nameof(NuclearWeapon) ==
+                attackingPlanet.Weapons.Any(w => w.GetType().Name != nameof(NuclearWeapon) &&
                 defendingPlanet.Weapons.Any(w => w.GetType().Name != nameof(NuclearWeapon))))
                 {
                     attackingPlanet.Spend(attackingPlanet.Budget / 2);
@@ -157,7 +229,7 @@ namespace PlanetWars.Core
 
             planets.RemoveItem(attackingPlanet.Name);
 
-            return string.Format(OutputMessages.WinnigTheWar, defendingPlanet, attackingPlanet);
+            return string.Format(OutputMessages.WinnigTheWar, defendingPlanet.Name, attackingPlanet.Name);
         }
 
         private string attackingPlanetWins(IPlanet attackingPlanet, IPlanet defendingPlanet)
@@ -169,7 +241,7 @@ namespace PlanetWars.Core
 
             planets.RemoveItem(defendingPlanet.Name);
 
-            return string.Format(OutputMessages.WinnigTheWar, attackingPlanet, defendingPlanet);
+            return string.Format(OutputMessages.WinnigTheWar, attackingPlanet.Name, defendingPlanet.Name);
         }
 
         public string SpecializeForces(string planetName)
@@ -180,22 +252,17 @@ namespace PlanetWars.Core
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.UnexistingPlanet, planetName));
             }
-                
+
             if (!planet.Army.Any())
             {
                 throw new InvalidOperationException(String.Format(ExceptionMessages.NoUnitsFound));
-            }
-
-            foreach (var unit in planet.Army)
-            {
-                unit.IncreaseEndurance();
-            }
+            }     
 
             double costForTraining = 1.25;
             planet.TrainArmy();
             planet.Spend(costForTraining);
 
-            return string.Format(OutputMessages.ForcesUpgraded, planetName);               
+            return string.Format(OutputMessages.ForcesUpgraded, planetName);
         }
     }
 }

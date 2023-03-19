@@ -34,15 +34,6 @@ namespace PlanetWars.Repositories
             return this.weapons.FirstOrDefault(w => w.GetType().Name == name);
         }
 
-        public bool RemoveItem(string name)
-        {
-            if (!weapons.Any(w => w.GetType().Name == name))
-            {
-                return false;
-            }
-
-            weapons.Remove(FindByName(name));
-            return true;
-        }
+        public bool RemoveItem(string name) => this.weapons.Remove(this.weapons.FirstOrDefault(x => x.GetType().Name == name));
     }
 }
