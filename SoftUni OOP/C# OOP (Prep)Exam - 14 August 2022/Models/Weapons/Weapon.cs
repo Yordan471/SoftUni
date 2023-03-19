@@ -11,6 +11,11 @@ namespace PlanetWars.Models.Weapons
         private int destructionLevel;
         private double price;
 
+        public Weapon(int destructionLevel, double price)
+        {
+            DestructionLevel = destructionLevel;
+            Price = price;
+        }
         public double Price 
         { 
             get => price; 
