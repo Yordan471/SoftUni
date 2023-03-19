@@ -18,7 +18,7 @@ namespace BookingApp.Core
 {
     public class Controller : IController
     {
-        private IRepository<IHotel> hotels = new HotelRepository();
+        private IRepository<IHotel> hotels;
 
         public Controller()
         {
@@ -83,8 +83,9 @@ namespace BookingApp.Core
 
             sb.AppendLine($"Hotel name: {hotelName}");
             sb.AppendLine($"--{hotel.Category} star hotel");
-            sb.AppendLine($"--Turnover {hotel.Turnover:f2} $");
+            sb.AppendLine($"--Turnover: {hotel.Turnover:f2} $");
             sb.AppendLine($"--Bookings:");
+            sb.AppendLine();
 
             if (hotel.Bookings.All().Count() != 0)
             {
