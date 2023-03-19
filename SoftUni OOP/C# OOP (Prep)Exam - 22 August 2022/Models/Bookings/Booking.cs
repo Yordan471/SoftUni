@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookingApp.Models.Bookings
 {
-    public abstract class Booking : IBooking
+    public class Booking : IBooking
     {
         IRoom room;
         private int residenceDuration;

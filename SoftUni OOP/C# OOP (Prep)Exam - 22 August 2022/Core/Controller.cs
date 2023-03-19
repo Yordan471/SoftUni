@@ -1,4 +1,6 @@
 ﻿using BookingApp.Core.Contracts;
+using BookingApp.Models.Bookings;
+using BookingApp.Models.Bookings.Contracts;
 using BookingApp.Models.Hotels;
 using BookingApp.Models.Hotels.Contacts;
 using BookingApp.Models.Rooms;
@@ -33,7 +35,33 @@ namespace BookingApp.Core
 
         public string BookAvailableRoom(int adults, int children, int duration, int category)
         {
-            throw new NotImplementedException();
+            if (hotels.All().FirstOrDefault(h => h.Category == category) ==  null)
+            {
+                return string.Format(OutputMessages.CategoryInvalid, category);
+            }
+
+            var orderedHotels = hotels.All()
+                .Where(h => h.Category == category)
+                .OrderBy(h => h.Turnover)
+                .ThenBy(h => h.FullName);
+
+            foreach (var hotel in orderedHotels)
+            {
+                var neededRoom = hotel.Rooms.All()
+                    .Where(r => r.PricePerNight > 0)
+                    .OrderBy(r => r.BedCapacity)
+                    .FirstOrDefault(r => r.BedCapacity >= children + adults);
+
+                if (neededRoom != null)
+                {
+                    int bookingNumber = hotel.Bookings.All().Count() + 1;
+                    IBooking booking = new Booking(neededRoom, duration, adults, children, bookingNumber);
+                    hotel.Bookings.AddNew(booking);
+                    return string.Format(OutputMessages.BookingSuccessful, bookingNumber, hotel.FullName);
+                }
+            }
+
+            return string.Format(OutputMessages.RoomNotAppropriate);
         }
 
         public string HotelReport(string hotelName)
