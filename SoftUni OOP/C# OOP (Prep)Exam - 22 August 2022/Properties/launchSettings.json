@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BookingApp": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\User\\Documents\\GitHub\\SoftUni\\SoftUni OOP\\C# OOP (Prep)Exam - 22 August 2022\\obj\\Debug\\net6.0"
+    }
+  }
+}

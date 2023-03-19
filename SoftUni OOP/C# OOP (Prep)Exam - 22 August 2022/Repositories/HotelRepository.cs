@@ -10,8 +10,13 @@ namespace BookingApp.Repositories
 {
     public class HotelRepository : IRepository<IHotel>
     {
-        private readonly ICollection<IHotel> hotels;
+        private List<IHotel> hotels;
 
+        public HotelRepository()
+        {
+            hotels = new List<IHotel>();
+        }
+            
         public void AddNew(IHotel model)
         {
             hotels.Add(model);
@@ -19,7 +24,7 @@ namespace BookingApp.Repositories
 
         public IReadOnlyCollection<IHotel> All()
         {
-            return (IReadOnlyCollection<IHotel>)hotels;
+            return hotels;
         }
 
         public IHotel Select(string criteria)

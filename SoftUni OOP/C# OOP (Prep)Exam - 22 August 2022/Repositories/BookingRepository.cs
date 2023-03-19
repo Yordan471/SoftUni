@@ -12,6 +12,11 @@ namespace BookingApp.Repositories
     {
         private readonly ICollection<IBooking> bookings;
 
+        public BookingRepository()
+        {
+            bookings = new List<IBooking>();
+        }
+
         public void AddNew(IBooking model)
         {
             bookings.Add(model);

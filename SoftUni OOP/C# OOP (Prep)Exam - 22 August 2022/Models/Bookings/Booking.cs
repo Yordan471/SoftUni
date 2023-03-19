@@ -61,7 +61,7 @@ namespace BookingApp.Models.Bookings
             get => childrenCount;
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new ArgumentException(ExceptionMessages.ChildrenNegative);
                 }
@@ -72,14 +72,16 @@ namespace BookingApp.Models.Bookings
 
         public int BookingNumber => bookingNumber;
 
+        private double TotalPaid() => Math.Round(this.Room.PricePerNight * this.residenceDuration, 2);
+
         public string BookingSummary()
         {
             StringBuilder sb = new();
 
             sb.AppendLine($"Booking number: {BookingNumber}");
-            sb.AppendLine($"Room type: {Room.BedCapacity}");
+            sb.AppendLine($"Room type: {Room.GetType().Name}");
             sb.AppendLine($"Adults: {AdultsCount} Children: {ChildrenCount}");
-            sb.AppendLine($"Total amount paid: {Math.Round(ResidenceDuration * Room.PricePerNight):F2}");
+            sb.AppendLine($"Total amount paid: {TotalPaid():f2} $");
 
             return sb.ToString().Trim();
         }
