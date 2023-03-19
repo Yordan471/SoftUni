@@ -26,7 +26,7 @@ namespace PlanetWars.Repositories
 
         public IWeapon FindByName(string name)
         {
-            if (!weapons.Any(w => w.GetType().Name == name)
+            if (!weapons.Any(w => w.GetType().Name == name))
             {
                 return null;
             }
@@ -36,7 +36,7 @@ namespace PlanetWars.Repositories
 
         public bool RemoveItem(string name)
         {
-            if (!weapons.Any(w => w.GetType().Name == name)
+            if (!weapons.Any(w => w.GetType().Name == name))
             {
                 return false;
             }

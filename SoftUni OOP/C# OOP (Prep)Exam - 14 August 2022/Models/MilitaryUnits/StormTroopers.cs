@@ -6,7 +6,7 @@ namespace PlanetWars.Models.MilitaryUnits
 {
     public class StormTroopers : MilitaryUnit
     {
-        private const double StormTroopersPrice = 2.5
+        private const double StormTroopersPrice = 2.5;
 
         public StormTroopers() : base(StormTroopersPrice)
         {
