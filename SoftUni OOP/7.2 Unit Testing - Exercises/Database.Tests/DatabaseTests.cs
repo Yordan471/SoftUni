@@ -56,8 +56,6 @@ namespace Database.Tests
         {
             data.Add(element);
             int expectedAddedElement = element;
-            int actualAddedElement = 
-            Assert.That()
         }
     }
 }
