@@ -2,6 +2,7 @@ namespace Database.Tests
 {
     using NUnit.Framework;
     using System.Linq;
+    using System.Xml.Linq;
 
     [TestFixture]
     public class DatabaseTests
@@ -50,12 +51,32 @@ namespace Database.Tests
             Assert.That(expecterCount, Is.EqualTo(actualCount), "Wrong actual count, check Count Getter, or DB Constructor");
         }
 
-        [TestCase(new int() ,1 , 2, -1)]
+        [TestCase(1)]
+        [TestCase(-1)]
 
-        public void Test_IfMethodAdd_AddsElement(int element)
+        public void Test_If_MethodAdd_AddsElement(int element)
         {
             data.Add(element);
             int expectedAddedElement = element;
+            int actualElement = data.Fetch().FirstOrDefault();
+
+            int expectedCount = 1;
+            int ActualCount = data.Fetch().Count();
+
+            Assert.That(expectedAddedElement, Is.EqualTo(actualElement));
+            Assert.That(expectedCount, Is.EqualTo(ActualCount));
+        }
+
+
+        [TestCase(1)]
+        [TestCase(-1)]
+        public void Test_If_AddMethod_IncrementsAfterAddingElement(int element)
+        {
+            data.Add(element);
+            int expecterCount = 1;
+            int ActualCount = data.Fetch().Count();
+
+            Assert.That(expecterCount, Is.EqualTo(ActualCount));
         }
     }
 }
