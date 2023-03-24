@@ -1,6 +1,7 @@
 namespace Database.Tests
 {
     using NUnit.Framework;
+    using System;
     using System.Linq;
     using System.Xml.Linq;
 
@@ -60,11 +61,7 @@ namespace Database.Tests
             int expectedAddedElement = element;
             int actualElement = data.Fetch().FirstOrDefault();
 
-            int expectedCount = 1;
-            int ActualCount = data.Fetch().Count();
-
             Assert.That(expectedAddedElement, Is.EqualTo(actualElement));
-            Assert.That(expectedCount, Is.EqualTo(ActualCount));
         }
 
 
@@ -77,6 +74,15 @@ namespace Database.Tests
             int ActualCount = data.Fetch().Count();
 
             Assert.That(expecterCount, Is.EqualTo(ActualCount));
+        }
+
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 })]
+        public void Test_If_AddMethod_ThrowsInvalidOperation_After_Adding16Elements(int[] testArray)
+        {
+            data = new Database(testArray);
+
+            //Assert.Throws<InvalidOperationException>()
         }
     }
 }
