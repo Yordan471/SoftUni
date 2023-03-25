@@ -106,7 +106,7 @@ namespace ChristmasPastryShop.Models.Booths
                 sb.AppendLine($"--{delicacy}");
             }
 
-            return sb.ToString().Trim();
+            return sb.ToString().TrimEnd();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ChristmasPastryShop.Repositories
 {
     public class CocktailRepository : IRepository<ICocktail>
     {
-        private readonly List<ICocktail> cocktails;
+        private List<ICocktail> cocktails;
 
         public CocktailRepository()
         {
