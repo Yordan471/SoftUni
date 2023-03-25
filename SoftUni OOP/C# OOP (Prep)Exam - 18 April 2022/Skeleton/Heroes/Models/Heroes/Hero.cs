@@ -27,7 +27,7 @@ namespace Heroes.Models.Heroes
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException("Hero name cannot be null or empty.");
+                    throw new ArgumentException("Hero name cannot be null or empty.");
                 }
 
                 name = value;
@@ -65,13 +65,6 @@ namespace Heroes.Models.Heroes
         public IWeapon Weapon
         {
             get => weapon;
-            private set
-            {
-                if (weapon == null)
-                {
-                    throw new ArgumentNullException("Weapon cannot be null.");
-                }
-            }
         }
 
         public bool IsAlive
@@ -93,7 +86,7 @@ namespace Heroes.Models.Heroes
         {    
             if (weapon == null)
             {
-                throw new ArgumentNullException("Weapon cannot be null.");
+                throw new ArgumentException("Weapon cannot be null.");
             }
 
             this.weapon = weapon;
