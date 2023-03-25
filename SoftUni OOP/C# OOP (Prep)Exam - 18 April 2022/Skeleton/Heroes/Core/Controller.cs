@@ -23,7 +23,29 @@ namespace Heroes.Core
 
         public string AddWeaponToHero(string weaponName, string heroName)
         {
-            throw new NotImplementedException();
+            IHero hero = heroes.FindByName(heroName);
+
+            if (hero == null)
+            {
+                throw new InvalidOperationException($"Hero {heroName} does not exist.");
+            }
+
+            IWeapon weapon = weapons.FindByName(weaponName);
+
+            if (weapon == null)
+            {
+                throw new InvalidOperationException($"Weapon {weaponName} does not exist.");
+            }
+
+            if (hero.Weapon != null)
+            {
+                throw new InvalidOperationException($"Hero {heroName} is well-armed.");
+            }
+
+            hero.AddWeapon(weapon);
+            weapons.Remove(weapon);
+
+            return $"Hero {heroName} can participate in battle using a {weapon.GetType().Name.ToLower()}.";
         }
 
         public string CreateHero(string type, string name, int health, int armour)
@@ -86,7 +108,7 @@ namespace Heroes.Core
 
             weapons.Add(weapon);
 
-            return $"A {type.ToLower()} {name} is added to the collection."
+            return $"A {type.ToLower()} {name} is added to the collection.";
         }
 
         public string HeroReport()
