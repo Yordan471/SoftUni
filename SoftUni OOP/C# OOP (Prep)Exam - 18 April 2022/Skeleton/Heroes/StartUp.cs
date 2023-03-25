@@ -1,4 +1,5 @@
-﻿using Heroes.Core;
+﻿using System;
+using Heroes.Core;
 using Heroes.Core.Contracts;
 using Heroes.Models.Contracts;
 using Heroes.Models.Heroes;
@@ -10,8 +11,11 @@ namespace Heroes
     {
         public static void Main()
         {
-            IHero hero = new Hero("Pesho", 100, 50);
-            IWeapon Mace = new Mace("Pesho's Weapon", 15);
+            IHero hero = new Barbarian("Pesho", 100, 50);
+            IWeapon Mace = null;
+
+            hero.AddWeapon(Mace);
+            Console.WriteLine(hero.Weapon);
 
             IEngine engine = new Engine();
             engine.Run();

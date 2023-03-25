@@ -89,6 +89,11 @@ namespace Heroes.Models.Heroes
 
         public void AddWeapon(IWeapon weapon)
         {    
+            if (weapon == null)
+            {
+                throw new ArgumentNullException("Weapon cannot be null.");
+            }
+
             this.weapon = weapon;
         }
 
