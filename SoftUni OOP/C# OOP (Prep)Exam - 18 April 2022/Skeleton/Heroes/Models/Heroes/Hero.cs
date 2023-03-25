@@ -77,14 +77,17 @@ namespace Heroes.Models.Heroes
 
         public bool IsAlive
         {
-            get => isAlive;
-            private set
+            get => CheckIsAliveStatus();
+        }
+
+        private bool CheckIsAliveStatus()
+        {
+            if (Health > 0)
             {
-                if (Health > 0)
-                {
-                    isAlive = true;
-                }                   
+                return true;
             }
+
+            return false;
         }
 
         public void AddWeapon(IWeapon weapon)
