@@ -1,10 +1,12 @@
 ﻿using Heroes.Core.Contracts;
 using Heroes.Models.Contracts;
 using Heroes.Models.Heroes;
+using Heroes.Models.Map;
 using Heroes.Models.Weapons;
 using Heroes.Repositories;
 using Heroes.Repositories.Contracts;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -118,7 +120,11 @@ namespace Heroes.Core
 
         public string StartBattle()
         {
-            throw new NotImplementedException();
+            IMap map = new Map();
+
+            ICollection<IHero> players = (ICollection<IHero>)heroes.Models;
+
+            return map.Fight(players);
         }
     }
 }
