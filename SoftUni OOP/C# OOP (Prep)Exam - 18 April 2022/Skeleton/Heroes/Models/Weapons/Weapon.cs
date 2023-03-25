@@ -19,7 +19,7 @@ namespace Heroes.Models.Weapons
         public string Name
         {
             get => name;
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -33,7 +33,7 @@ namespace Heroes.Models.Weapons
         public int Durability
         {
             get => durability;
-            set
+            private set
             {
                 if (value < 0)
                 {
