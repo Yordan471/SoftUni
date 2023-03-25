@@ -12,7 +12,6 @@ namespace Heroes.Models.Heroes
         private int health;
         private int armour;
         private IWeapon weapon;
-        private bool isAlive;
 
         public Hero(string name, int health, int armour)
         {
@@ -102,12 +101,26 @@ namespace Heroes.Models.Heroes
 
         public void TakeDamage(int points)
         {
-            this.Armour -= points;
+            int armourAfterAttack = this.Armour - points;
 
-            if (this.Armour <= 0)
+            if (armourAfterAttack < 0)
             {
-                this.Health += this.Armour;
+                int healthAfterAttack = this.Health + armourAfterAttack;
+
+                if (healthAfterAttack < 0)
+                {
+                    this.Health = 0;
+                }
+                else
+                {
+                    this.Health += armourAfterAttack;
+                }
+
                 this.Armour = 0;
+            }
+            else
+            {
+                this.Armour -= points;
             }
         }
     }

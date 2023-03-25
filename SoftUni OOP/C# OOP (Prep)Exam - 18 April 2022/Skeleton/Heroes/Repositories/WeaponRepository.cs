@@ -11,6 +11,11 @@ namespace Heroes.Repositories
     {
         private ICollection<IWeapon> weapons;
 
+        public WeaponRepository()
+        {
+            weapons = new List<IWeapon>();
+        }
+
         public IReadOnlyCollection<IWeapon> Models => (IReadOnlyCollection<IWeapon>)weapons;
 
         public void Add(IWeapon model)

@@ -15,8 +15,8 @@ namespace Heroes.Models.Map
             List<IHero> knights = null;
             List<IHero> barbarians = null;
 
-            knights = players.Where(p => p.GetType().Name == nameof(Knight)).ToList();
-            barbarians = players.Where(p => p.GetType().Name == nameof(Barbarian)).ToList();
+            knights = players.Where(p => p.GetType().Name == nameof(Knight) && p.Weapon != null).ToList();
+            barbarians = players.Where(p => p.GetType().Name == nameof(Barbarian) && p.Weapon != null).ToList();
 
             //foreach (var knight in players)
             //{
@@ -39,38 +39,41 @@ namespace Heroes.Models.Map
 
             while (true)
             {
-                if (knights.Any(k => k.IsAlive))
+                if (knights.All(k => k.IsAlive == false))
                 {
                     barbariansWin = true;
                     break;
                 }
 
-                if (barbarians.Any(b => b.Health > 0))
+                if (barbarians.All(b => b.IsAlive == false))
                 {
                     knightsWin = true;
                     break;
                 }
 
-                barbarians.ForEach(b => b.TakeDamage(knights.Where(k => k.IsAlive == true)
-                    .Sum(k => k.Weapon.DoDamage())));
+                //List<IHero> aliveBarbarians = barbarians.Where(b => b.IsAlive).ToList();
+                //aliveBarbarians.ForEach(b => b.TakeDamage(knights.Where(k => k.IsAlive == true)
+                //    .Sum(k => k.Weapon.DoDamage())));
 
-                knights.ForEach(k => k.TakeDamage(barbarians.Where(b => b.IsAlive == true)
-                    .Sum(b => b.Weapon.DoDamage())));
-                //foreach (var knight in knights.Where(k => k.IsAlive))
-                //{
-                //    foreach (var barbarian in barbarians)
-                //    {
-                //        barbarian.TakeDamage(knight.Weapon.DoDamage());
-                //    }
-                //}
-                //
-                //foreach (var barbarian in barbarians.Where(b => b.IsAlive))
-                //{
-                //    foreach (var knight in knights)
-                //    {
-                //        knight.TakeDamage(barbarian.Weapon.DoDamage());
-                //    }
-                //}
+                //List<IHero> aliveKnights = knights.Where(k => k.IsAlive).ToList();
+                //aliveKnights.ForEach(k => k.TakeDamage(barbarians.Where(b => b.IsAlive == true)
+                //    .Sum(b => b.Weapon.DoDamage())));
+
+                //barbarians = aliveBarbarians;
+                //knights = aliveKnights;
+
+                foreach (var barbarian in barbarians.Where(b => b.IsAlive))
+                {
+                    barbarian.TakeDamage(knights.Where(k => k.IsAlive)
+                       .Sum(k => k.Weapon.DoDamage()));
+                }
+                            
+                foreach (var knight in knights.Where(k => k.IsAlive))
+                {
+                    knight.TakeDamage(barbarians.Where(b => b.IsAlive == true)
+                        .Sum(b => b.Weapon.DoDamage()));
+                }
+                
             }
 
             if (knightsWin)
