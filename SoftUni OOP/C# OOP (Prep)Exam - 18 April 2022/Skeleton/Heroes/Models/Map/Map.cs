@@ -39,13 +39,13 @@ namespace Heroes.Models.Map
 
             while (true)
             {
-                if (knights.All(k => k.Health <= 0))
+                if (knights.Any(k => k.IsAlive))
                 {
                     barbariansWin = true;
                     break;
                 }
 
-                if (barbarians.All(b => b.Health > 0))
+                if (barbarians.Any(b => b.Health > 0))
                 {
                     knightsWin = true;
                     break;
