@@ -40,7 +40,7 @@ namespace Formula1.Repositories
 
         public bool Remove(IFormulaOneCar model)
         {
-            IFormulaOneCar removeCar = cars.FirstOrDefault(c => c.Model.Equals(model));
+            IFormulaOneCar removeCar = cars.FirstOrDefault(c => c.Equals(model));
 
             if (removeCar != null)
             {
