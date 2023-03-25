@@ -47,7 +47,7 @@ namespace Formula1.Models.Models
             {
                 if (value < LessThen1Laps)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidLapNumbers, value.ToString());)
+                    throw new ArgumentException(ExceptionMessages.InvalidLapNumbers, value.ToString());
                 }
 
                 numberOfLaps = value;
