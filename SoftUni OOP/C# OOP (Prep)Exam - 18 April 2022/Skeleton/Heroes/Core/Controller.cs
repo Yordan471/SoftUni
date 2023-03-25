@@ -8,6 +8,7 @@ using Heroes.Repositories.Contracts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Heroes.Core
@@ -115,7 +116,30 @@ namespace Heroes.Core
 
         public string HeroReport()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var hero in heroes.Models
+                .OrderBy(h => h.GetType().Name)
+                .ThenByDescending(h => h.Health)
+                .ThenBy(h => h.Name))
+            {
+                sb.AppendLine($"{hero.GetType().Name}: {hero.Name}");
+                sb.AppendLine($"--Health: {hero.Health}");
+                sb.AppendLine($"--Armour: {hero.Armour}");
+
+                if (hero.Weapon != null)
+                {
+                    sb.AppendLine($"--Weapon: {hero.Weapon.Name}");
+                }
+                else
+                {
+                    sb.AppendLine("Unarmed");
+                }
+
+                //sb.AppendLine();
+            }
+
+            return sb.ToString().Trim();
         }
 
         public string StartBattle()
