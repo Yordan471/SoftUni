@@ -5,15 +5,43 @@ using System.Text;
 
 namespace Heroes.Models.Weapons
 {
-    public class Weapon : IWeapon
+    public abstract class Weapon : IWeapon
     {
-        public string Name => throw new NotImplementedException();
+        private string name;
+        private int durability;
 
-        public int Durability => throw new NotImplementedException();
-
-        public int DoDamage()
+        public Weapon(string name, int durability)
         {
-            throw new NotImplementedException();
+            this.Name = name;
+            this.Durability = durability;
         }
+
+        public string Name
+        {
+            get => name;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Weapon type cannot be null or empty.");
+                }
+
+                name = value;
+            }
+        }
+
+        public int Durability
+        {
+            get => durability;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Durability cannot be below 0.");
+                }
+            }
+        }
+
+        public abstract int DoDamage();
     }
 }
