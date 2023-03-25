@@ -33,12 +33,14 @@ namespace Heroes.Models.Weapons
         public int Durability
         {
             get => durability;
-            private set
+            protected set
             {
                 if (value < 0)
                 {
                     throw new ArgumentException("Durability cannot be below 0.");
                 }
+
+                durability = value;
             }
         }
 
