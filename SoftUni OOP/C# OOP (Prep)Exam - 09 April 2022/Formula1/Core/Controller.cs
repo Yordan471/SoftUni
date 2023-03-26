@@ -26,7 +26,25 @@ namespace Formula1.Core
 
         public string AddCarToPilot(string pilotName, string carModel)
         {
-            throw new NotImplementedException();
+            if (!pilotRepository.Models.Any(p => p.FullName == pilotName) || 
+                pilotRepository.Models.Any(p => p.FullName == pilotName && p.Car != null))
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistOrHasCarErrorMessage, pilotName));
+            }
+
+            IFormulaOneCar formulaCar = formulaOneCarRepository.Models
+                .FirstOrDefault(c => c.Model == carModel);
+
+            if (formulaCar == null)
+            {
+                throw new NullReferenceException(string.Format(ExceptionMessages.CarDoesNotExistErrorMessage, carModel));
+            }
+
+            IPilot pilot = pilotRepository.FindByName(pilotName);
+            pilot.AddCar(formulaCar);
+            formulaOneCarRepository.Remove(formulaCar);
+
+            return string.Format(OutputMessages.SuccessfullyPilotToCar, pilotName, formulaCar.GetType().Name, carModel);
         }
 
         public string AddPilotToRace(string raceName, string pilotFullName)
