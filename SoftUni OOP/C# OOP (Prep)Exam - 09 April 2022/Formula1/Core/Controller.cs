@@ -131,7 +131,14 @@ namespace Formula1.Core
 
         public string RaceReport()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new();
+
+            foreach (var race in raceRepository.Models.Where(r => r.TookPlace == true))
+            {
+                sb.AppendLine($"{race.RaceInfo()}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         public string StartRace(string raceName)
