@@ -116,7 +116,9 @@ namespace NavalVessels.Core
 
         public string VesselReport(string vesselName)
         {
-            throw new NotImplementedException();
+            IVessel vessel = vessels.FindByName(vesselName);
+
+            return vessel.ToString();
         }
     }
 }
