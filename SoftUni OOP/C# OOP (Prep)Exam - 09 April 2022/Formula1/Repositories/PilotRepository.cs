@@ -29,25 +29,27 @@ namespace Formula1.Repositories
         {
             IPilot pilot = pilots.FirstOrDefault(p => p.FullName == name);
 
-            if (pilot == null)
-            {
-                return null;
-            }
-
             return pilot;
+            //if (pilot == null)
+            //{
+            //    return null;
+            //}
+
+            //return pilot;
         }
 
         public bool Remove(IPilot model)
         {
-            IPilot removePilot = pilots.FirstOrDefault(p => p.Equals(model));
+           // IPilot removePilot = pilots.FirstOrDefault(p => p.Equals(model));
 
-            if (removePilot != null)
-            {
-                pilots.Remove(removePilot);
-                return true;
-            }
+            return pilots.Remove(model);
+            //if (removePilot != null)
+            //{
+            //    pilots.Remove(removePilot);
+            //    return true;
+            //}
 
-            return false;
+            //return false;
         }
     }
 }

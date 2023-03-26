@@ -15,7 +15,7 @@ namespace Formula1.Models.Models
 
         private string raceName;
         private int numberOfLaps;
-        ICollection<IPilot> pilots;
+        private ICollection<IPilot> pilots;
 
         public Race(string raceName, int numberOfLaps)
         {

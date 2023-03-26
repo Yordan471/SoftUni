@@ -28,7 +28,12 @@ namespace Formula1.Core
         {
             IPilot pilot = pilotRepository.Models.FirstOrDefault(p => p.FullName == pilotName);
 
-            if (pilot == null || (pilot.FullName == pilotName && pilot.Car != null))
+            if (pilot == null)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistOrHasCarErrorMessage, pilotName));
+            }
+
+            if (pilot.Car != null)
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistOrHasCarErrorMessage, pilotName));
             }

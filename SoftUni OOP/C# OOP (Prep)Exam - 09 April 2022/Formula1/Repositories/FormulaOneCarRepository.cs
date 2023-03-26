@@ -30,25 +30,27 @@ namespace Formula1.Repositories
         {
             IFormulaOneCar car = cars.FirstOrDefault(c => c.Model == name);
 
-            if (car == null)
-            {
-                return null;
-            }
-
             return car;
+            //if (car == null)
+            //{
+            //    return null;
+            //}
+
+            //return car;
         }
 
         public bool Remove(IFormulaOneCar model)
         {
             IFormulaOneCar removeCar = cars.FirstOrDefault(c => c.Equals(model));
 
-            if (removeCar != null)
-            {
-                cars.Remove(removeCar);
-                return true;
-            }
+            return cars.Remove(removeCar);
+            //if (removeCar != null)
+            //{
+            //    cars.Remove(removeCar);
+            //    return true;
+            //}
 
-            return false;
+            //return false;
         }
     }
 }

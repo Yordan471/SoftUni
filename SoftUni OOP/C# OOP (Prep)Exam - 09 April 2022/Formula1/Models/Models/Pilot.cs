@@ -3,6 +3,7 @@ using Formula1.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace Formula1.Models.Models
         private const int LessThen5Symbols = 5;
 
         private string fullName;
+        private IFormulaOneCar car;
 
         public Pilot(string fullName)
         {
@@ -33,7 +35,19 @@ namespace Formula1.Models.Models
             }
         }
 
-        public IFormulaOneCar Car { get; private set; }
+        public IFormulaOneCar Car
+        {
+            get => car;
+            private set
+            {
+                if (value == null)
+                {
+                    throw new NullReferenceException(ExceptionMessages.InvalidCarForPilot);
+                }
+
+                car = value;
+            }
+        }
 
         public int NumberOfWins { get; private set; }
 
@@ -42,10 +56,10 @@ namespace Formula1.Models.Models
 
         public void AddCar(IFormulaOneCar car)
         {
-            if (car == null)
-            {
-                throw new NullReferenceException(ExceptionMessages.InvalidCarForPilot);
-            }
+            //if (car == null)
+            //{
+            //    throw new NullReferenceException(ExceptionMessages.InvalidCarForPilot);
+            //}
 
             Car = car;
             CanRace = true;

@@ -48,7 +48,7 @@ namespace Formula1.Models.Models
             {
                 if (value < LowerBoundaryHorsepower && value > HigherBoundaryHorsepower)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidF1HorsePower, value.ToString());
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidF1HorsePower, value));
                 }
 
                 horsepower = value;
@@ -62,7 +62,7 @@ namespace Formula1.Models.Models
             {
                 if (value < LowerBoundaryEngineDisplacement && value > HigherBoundaryEngineDisplacement)
                 {
-                    throw new ArgumentException(ExceptionMessages.InvalidF1EngineDisplacement, value.ToString());
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidF1EngineDisplacement, value));
                 }
 
                 engineDisplacement = value;

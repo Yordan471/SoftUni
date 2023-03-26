@@ -40,15 +40,16 @@ namespace Formula1.Repositories
 
         public bool Remove(IRace model)
         {
-            IRace removeRace = races.FirstOrDefault(r => r.Equals(model));
+            //IRace removeRace = races.FirstOrDefault(r => r.Equals(model));
 
-            if (removeRace != null)
-            {
-                races.Remove(removeRace);
-                return true;
-            }
+            return races.Remove(model);
+            //if (removeRace != null)
+            //{
+            //    races.Remove(removeRace);
+            //    return true;
+            //}
 
-            return false;
+            //return false;
         }
     }
 }
