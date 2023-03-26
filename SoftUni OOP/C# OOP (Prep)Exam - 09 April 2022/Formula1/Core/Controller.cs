@@ -126,7 +126,15 @@ namespace Formula1.Core
 
         public string PilotReport()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new();
+
+            foreach (var pilot in pilotRepository.Models
+                .OrderByDescending(p => p.NumberOfWins))
+            {
+                sb.AppendLine($"{pilot.ToString()}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         public string RaceReport()
