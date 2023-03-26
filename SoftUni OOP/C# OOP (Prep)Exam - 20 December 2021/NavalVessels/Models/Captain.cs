@@ -1,4 +1,5 @@
 ﻿using NavalVessels.Models.Contracts;
+using NavalVessels.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +10,61 @@ namespace NavalVessels.Models
 {
     public class Captain : ICaptain
     {
-        public string FullName => throw new NotImplementedException();
+        private string fullName;
+        private int combatExperience;
+        ICollection<IVessel> vessels;
+        public string FullName
+        {
+            get => fullName;
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException(string.Format(ExceptionMessages.InvalidCaptainName));
+                }
 
-        public int CombatExperience => throw new NotImplementedException();
+                fullName = value;
+            }
+        }
 
-        public ICollection<IVessel> Vessels => throw new NotImplementedException();
+        public int CombatExperience
+        {
+            get => combatExperience;
+            private set => combatExperience = value;
+        }
+
+        public ICollection<IVessel> Vessels { get => vessels; private set => vessels = valuel }
 
         public void AddVessel(IVessel vessel)
         {
-            throw new NotImplementedException();
+            if (vessels == null)
+            {
+                throw new NullReferenceException(ExceptionMessages.InvalidVesselForCaptain);
+            }
+
+            vessels.Add(vessel);
         }
 
         public void IncreaseCombatExperience()
         {
-            throw new NotImplementedException();
+            CombatExperience += 10;
         }
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new();
+
+            sb.AppendLine($"{FullName} has {CombatExperience} combat experience and commands {Vessels.Count} vessels.");
+
+            if (Vessels.Count > 0)
+            {
+                foreach (var vessel in Vessels)
+                {
+                    sb.AppendLine($"{vessel.ToString()}");
+                }
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
