@@ -57,7 +57,9 @@ namespace NavalVessels.Core
 
         public string CaptainReport(string captainFullName)
         {
-            throw new NotImplementedException();
+            ICaptain captain = captains.FirstOrDefault(c => c.FullName == captainFullName);
+
+            return captain.Report();
         }
 
         public string HireCaptain(string fullName)
