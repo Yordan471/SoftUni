@@ -26,7 +26,7 @@ namespace Formula1.Core
 
         public string AddCarToPilot(string pilotName, string carModel)
         {
-            if (!pilotRepository.Models.Any(p => p.FullName == pilotName) || 
+            if (!pilotRepository.Models.Any(p => p.FullName == pilotName) ||
                 pilotRepository.Models.Any(p => p.FullName == pilotName && p.Car != null))
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistOrHasCarErrorMessage, pilotName));
@@ -49,7 +49,23 @@ namespace Formula1.Core
 
         public string AddPilotToRace(string raceName, string pilotFullName)
         {
-            throw new NotImplementedException();
+            IRace race = raceRepository.FindByName(raceName);
+
+            if (race == null)
+            {
+                throw new NullReferenceException(string.Format(ExceptionMessages.RaceDoesNotExistErrorMessage, raceName));
+            }
+
+            IPilot pilot = pilotRepository.FindByName(pilotFullName);
+
+            if (pilot == null || pilot.CanRace == false || race.Pilots.Any(p => p.Equals(pilot)))
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistErrorMessage, pilotFullName));
+            }
+
+            race.AddPilot(pilot);
+
+            return string.Format(OutputMessages.SuccessfullyAddPilotToRace, pilotFullName, raceName);
         }
 
         public string CreateCar(string type, string model, int horsepower, double engineDisplacement)
