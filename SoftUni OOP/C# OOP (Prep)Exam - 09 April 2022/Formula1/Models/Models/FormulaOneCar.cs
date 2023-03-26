@@ -64,12 +64,14 @@ namespace Formula1.Models.Models
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidF1EngineDisplacement, value.ToString());
                 }
+
+                engineDisplacement = value;
             }
         }
 
         public double RaceScoreCalculator(int laps)
         {
-            return (EngineDisplacement / Horsepower) * laps;
+            return EngineDisplacement / Horsepower * laps;
         }
     }
 }

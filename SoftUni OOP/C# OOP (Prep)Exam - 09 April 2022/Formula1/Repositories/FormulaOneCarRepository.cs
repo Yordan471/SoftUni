@@ -12,7 +12,7 @@ namespace Formula1.Repositories
 {
     public class FormulaOneCarRepository : IRepository<IFormulaOneCar>
     {
-        private readonly ICollection<IFormulaOneCar> cars;
+        private ICollection<IFormulaOneCar> cars;
 
         public FormulaOneCarRepository()
         {

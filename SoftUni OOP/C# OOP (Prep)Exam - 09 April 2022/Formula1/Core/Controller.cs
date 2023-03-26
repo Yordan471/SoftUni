@@ -26,8 +26,9 @@ namespace Formula1.Core
 
         public string AddCarToPilot(string pilotName, string carModel)
         {
-            if (!pilotRepository.Models.Any(p => p.FullName == pilotName) ||
-                pilotRepository.Models.Any(p => p.FullName == pilotName && p.Car != null))
+            IPilot pilot = pilotRepository.Models.FirstOrDefault(p => p.FullName == pilotName);
+
+            if (pilot == null || (pilot.FullName == pilotName && pilot.Car != null))
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistOrHasCarErrorMessage, pilotName));
             }
@@ -40,7 +41,7 @@ namespace Formula1.Core
                 throw new NullReferenceException(string.Format(ExceptionMessages.CarDoesNotExistErrorMessage, carModel));
             }
 
-            IPilot pilot = pilotRepository.FindByName(pilotName);
+            pilot = pilotRepository.FindByName(pilotName);
             pilot.AddCar(formulaCar);
             formulaOneCarRepository.Remove(formulaCar);
 
@@ -102,6 +103,7 @@ namespace Formula1.Core
 
             if (pilot == null)
             {
+                pilot = new Pilot(fullName);
                 pilotRepository.Add(pilot);
                 return string.Format(OutputMessages.SuccessfullyCreatePilot, fullName);
             }

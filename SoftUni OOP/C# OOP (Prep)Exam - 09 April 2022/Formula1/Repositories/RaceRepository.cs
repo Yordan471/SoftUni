@@ -12,7 +12,7 @@ namespace Formula1.Repositories
 {
     public class RaceRepository : IRepository<IRace>
     {
-        private readonly ICollection<IRace> races;
+        private ICollection<IRace> races;
 
         public RaceRepository()
         {

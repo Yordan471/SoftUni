@@ -11,7 +11,7 @@ namespace Formula1.Repositories
 {
     public class PilotRepository : IRepository<IPilot>
     {
-        private readonly ICollection<IPilot> pilots;
+        private ICollection<IPilot> pilots;
 
         public PilotRepository()
         {
