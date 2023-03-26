@@ -77,7 +77,17 @@ namespace Formula1.Core
 
         public string CreateRace(string raceName, int numberOfLaps)
         {
-            throw new NotImplementedException();
+            IRace race = raceRepository.FindByName(raceName);
+
+            if (race != null)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.RaceExistErrorMessage, raceName));
+            }
+
+            race = new Race(raceName, numberOfLaps);
+            raceRepository.Add(race);
+
+            return string.Format(OutputMessages.SuccessfullyCreateRace, raceName);
         }
 
         public string PilotReport()
