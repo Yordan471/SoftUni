@@ -13,9 +13,9 @@ namespace NavalVessels.Models
     {
         private string name;
         private ICaptain captain;
-        private double armorThinkness;
-        private double mainWeaponCaliber;
-        private double speed;
+        //private double armorThinkness;
+        //private double mainWeaponCaliber;
+        //private double speed;
         private ICollection<string> targets;
 
         public Vessel(string name, double mainWeaponCalibar, double speed, double armorThickness)
@@ -23,7 +23,7 @@ namespace NavalVessels.Models
             Name = name;
             MainWeaponCaliber = mainWeaponCalibar;
             Speed = speed;
-            this.armorThinkness = armorThickness;
+            ArmorThickness = armorThickness;
             targets = new List<string>();
         }
 
@@ -34,7 +34,7 @@ namespace NavalVessels.Models
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException(string.Format(ExceptionMessages.InvalidVesselName));
+                    throw new ArgumentNullException(nameof(Name),(ExceptionMessages.InvalidVesselName));
                 }
 
                 name = value;
@@ -54,20 +54,14 @@ namespace NavalVessels.Models
                 captain = value;
             }
         }
-        public double ArmorThickness
-        {
-            get => armorThinkness;
-            set => armorThinkness = value;
-        }
-
-        public double MainWeaponCaliber
-        {
-            get => mainWeaponCaliber;
-            protected set => mainWeaponCaliber = value;
-        }
+        public double ArmorThickness { get; set; }
 
 
-        public double Speed { get => speed; protected set => speed = value; }
+        public double MainWeaponCaliber { get; protected set; }
+        
+
+
+        public double Speed { get; protected set; }
 
         public ICollection<string> Targets { get => targets; private set => targets = value; }
 
@@ -78,22 +72,23 @@ namespace NavalVessels.Models
                 throw new NullReferenceException(string.Format(ExceptionMessages.InvalidTarget));
             }
 
-            double armorLeft = target.ArmorThickness -= this.MainWeaponCaliber;
+            target.ArmorThickness -= this.MainWeaponCaliber;
 
-            if (armorLeft < 0)
+            if (target.ArmorThickness < 0)
             {
                 target.ArmorThickness = 0;
             }
 
             this.targets.Add(target.Name);
+
+            this.Captain.IncreaseCombatExperience();
+            target.Captain.IncreaseCombatExperience();
         }
 
-        public virtual void RepairVessel()
-        {
-            
-        }
+        public abstract void RepairVessel();
 
-        public virtual string ToStrint()
+
+        public override string ToString()
         {
             StringBuilder sb = new();
 
