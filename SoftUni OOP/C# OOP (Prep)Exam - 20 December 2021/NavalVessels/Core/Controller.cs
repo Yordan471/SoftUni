@@ -55,7 +55,29 @@ namespace NavalVessels.Core
 
         public string ProduceVessel(string name, string vesselType, double mainWeaponCaliber, double speed)
         {
-            throw new NotImplementedException();
+            IVessel vessel = vessels.FindByName(name);
+
+            if (vessel != null)
+            {
+                return string.Format(OutputMessages.VesselIsAlreadyManufactured, vesselType, name);
+            }
+
+            if (vesselType == nameof(Submarine))
+            {
+                vessel = new Submarine(name, mainWeaponCaliber, speed);
+            }
+            else if (vesselType == nameof(Battleship))
+            {
+                vessel = new Battleship(name, mainWeaponCaliber, speed);
+            }
+            else
+            {
+                return string.Format(OutputMessages.InvalidVesselType);
+            }
+
+            vessels.Add(vessel);
+
+            return string.Format(OutputMessages.SuccessfullyCreateVessel, vesselType, name, mainWeaponCaliber, speed);
         }
 
         public string ServiceVessel(string vesselName)
