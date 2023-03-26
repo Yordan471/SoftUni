@@ -1,6 +1,7 @@
 ﻿using Formula1.Core.Contracts;
 using Formula1.Models.Contracts;
 using Formula1.Repositories;
+using Formula1.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,15 @@ namespace Formula1.Core
 
         public string CreatePilot(string fullName)
         {
-            throw new NotImplementedException();
+            IPilot pilot = pilotRepository.FindByName(fullName);
+
+            if (pilot == null)
+            {
+                pilotRepository.Add(pilot);
+                return string.Format(OutputMessages.SuccessfullyCreatePilot, fullName);
+            }
+
+            throw new InvalidOperationException(string.Format(ExceptionMessages.PilotExistErrorMessage, fullName));
         }
 
         public string CreateRace(string raceName, int numberOfLaps)
