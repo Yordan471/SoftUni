@@ -13,6 +13,14 @@ namespace NavalVessels.Models
         private string fullName;
         private int combatExperience;
         ICollection<IVessel> vessels;
+
+        public Captain(string fullName)
+        {
+            FullName = fullName;
+
+            vessels = new List<IVessel>();
+        }
+
         public string FullName
         {
             get => fullName;
@@ -33,7 +41,7 @@ namespace NavalVessels.Models
             private set => combatExperience = value;
         }
 
-        public ICollection<IVessel> Vessels { get => vessels; private set => vessels = valuel }
+        public ICollection<IVessel> Vessels { get => vessels; private set => vessels = value; }
 
         public void AddVessel(IVessel vessel)
         {
