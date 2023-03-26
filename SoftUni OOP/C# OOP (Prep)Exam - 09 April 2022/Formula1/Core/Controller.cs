@@ -1,5 +1,6 @@
 ﻿using Formula1.Core.Contracts;
 using Formula1.Models.Contracts;
+using Formula1.Models.Models;
 using Formula1.Repositories;
 using Formula1.Utilities;
 using System;
@@ -35,7 +36,30 @@ namespace Formula1.Core
 
         public string CreateCar(string type, string model, int horsepower, double engineDisplacement)
         {
-            throw new NotImplementedException();
+            IFormulaOneCar car = formulaOneCarRepository.Models
+                .FirstOrDefault(m => m.Model == model);
+
+            if (car != null)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.CarExistErrorMessage, model));
+            }
+
+            if (type == nameof(Ferrari))
+            {
+                car = new Ferrari(model, horsepower, engineDisplacement);
+            }
+            else if (type == nameof(Williams))
+            {
+                car = new Williams(model, horsepower, engineDisplacement);
+            }
+            else
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.InvalidTypeCar, type));
+            }
+
+            formulaOneCarRepository.Add(car);
+
+            return string.Format(OutputMessages.SuccessfullyCreateCar, type, model);
         }
 
         public string CreatePilot(string fullName)
