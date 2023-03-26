@@ -46,7 +46,7 @@ namespace NavalVessels.Models
             get => captain;
             set
             {
-                if (captain == null)
+                if (value == null)
                 {
                     throw new NullReferenceException(string.Format(ExceptionMessages.InvalidCaptainToVessel));
                 }
@@ -93,10 +93,11 @@ namespace NavalVessels.Models
             StringBuilder sb = new();
 
             sb.AppendLine($"- {this.Name}");
-            sb.AppendLine($"*Type: {this.GetType().Name}");
-            sb.AppendLine($"*Armor thickness: {this.ArmorThickness}");
-            sb.AppendLine($"*Main weapon caliber: {this.MainWeaponCaliber}");
-            sb.AppendLine($"*Speed: {this.Speed} knots");
+            sb.AppendLine($" *Type: {this.GetType().Name}");
+            sb.AppendLine($" *Armor thickness: {this.ArmorThickness}");
+            sb.AppendLine($" *Main weapon caliber: {this.MainWeaponCaliber}");
+            sb.AppendLine($" *Speed: {this.Speed} knots");
+            sb.Append($" *Targets: ");
 
             if (this.Targets.Count > 0)
             {

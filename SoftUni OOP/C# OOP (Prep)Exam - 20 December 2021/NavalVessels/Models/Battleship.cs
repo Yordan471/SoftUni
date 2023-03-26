@@ -49,11 +49,11 @@ namespace NavalVessels.Models
 
             if (this.SonarMode == false)
             {
-                sonarMode = "OFF";
+                sonarMode += "OFF";
             }
             else if (this.SonarMode == true)
             {
-                sonarMode = "ON";
+                sonarMode += "ON";
             }
 
             return base.ToString() + Environment.NewLine + sonarMode;
