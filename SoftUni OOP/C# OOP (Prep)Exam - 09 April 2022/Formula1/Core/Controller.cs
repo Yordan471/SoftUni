@@ -136,7 +136,43 @@ namespace Formula1.Core
 
         public string StartRace(string raceName)
         {
-            throw new NotImplementedException();
+            IRace race = raceRepository.FindByName(raceName);
+
+            if (race == null)
+            {
+                throw new NullReferenceException(string.Format(ExceptionMessages.RaceDoesNotExistErrorMessage, raceName));
+            }
+
+            if (race.Pilots.Count() < 3)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.InvalidRaceParticipants, raceName));
+            }
+
+            if (race.TookPlace == true)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.RaceTookPlaceErrorMessage, raceName));
+            }
+          
+            StringBuilder sb = new();
+            IPilot[] firstThreePilots = new IPilot[3];
+            int countPilts = 0;
+
+            foreach (var pilot in race.Pilots
+                .OrderByDescending(p => p.Car.RaceScoreCalculator(race.NumberOfLaps))
+                .Take(3))               
+            {
+                firstThreePilots[countPilts] = pilot;
+                countPilts++;
+            }
+
+            race.TookPlace = true;
+            firstThreePilots[0].WinRace();
+
+            sb.AppendLine($"Pilot {firstThreePilots[0].FullName} wins the {race.RaceName} race.");
+            sb.AppendLine($"Pilot {firstThreePilots[1].FullName} is second in the {race.RaceName} race.");
+            sb.AppendLine($"Pilot {firstThreePilots[2].FullName} is third in the {race.RaceName} race.");
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
