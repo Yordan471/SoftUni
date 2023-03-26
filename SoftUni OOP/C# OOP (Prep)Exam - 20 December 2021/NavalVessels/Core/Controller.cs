@@ -25,7 +25,29 @@ namespace NavalVessels.Core
 
         public string AssignCaptain(string selectedCaptainName, string selectedVesselName)
         {
-            throw new NotImplementedException();
+            ICaptain captain = captains.FirstOrDefault(c => c.FullName == selectedCaptainName);
+
+            if (captain == null)
+            {
+                return string.Format(OutputMessages.CaptainNotFound, selectedCaptainName);
+            }
+
+            IVessel vessel = vessels.FindByName(selectedVesselName);
+
+            if (vessel == null)
+            {
+                return string.Format(OutputMessages.VesselNotFound, selectedVesselName);
+            }
+
+            if (vessel.Captain != null)
+            {
+                return string.Format(OutputMessages.VesselOccupied, selectedVesselName);
+            }
+
+            captain.AddVessel(vessel);
+            vessel.Captain = captain;
+
+            return string.Format(OutputMessages.SuccessfullyAssignCaptain, selectedCaptainName, selectedVesselName);              
         }
 
         public string AttackVessels(string attackingVesselName, string defendingVesselName)
