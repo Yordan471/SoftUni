@@ -2,6 +2,8 @@
 {
     using Core;
     using Core.Contracts;
+    using System;
+    using System.Text;
 
     public class StartUp
     {

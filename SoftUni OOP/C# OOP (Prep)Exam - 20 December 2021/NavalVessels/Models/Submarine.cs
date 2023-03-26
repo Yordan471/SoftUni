@@ -10,13 +10,14 @@ namespace NavalVessels.Models
     public class Submarine : Vessel, ISubmarine
     {
         private const double InitialSubmarineArmorThickness = 200;
+        private bool submergeMode = false;
 
         public Submarine(string name, double mainWeaponCalibar, double speed) 
             : base(name, mainWeaponCalibar, speed, InitialSubmarineArmorThickness)
         {
         }
 
-        public bool SubmergeMode { get; private set; }
+        public bool SubmergeMode { get => submergeMode; private set => submergeMode = value; }
 
         public void ToggleSubmergeMode()
         {
@@ -24,11 +25,13 @@ namespace NavalVessels.Models
             {
                 this.MainWeaponCaliber += 40;
                 this.Speed -= 4;
+                SubmergeMode = true;
             }
             else if (SubmergeMode == true)
             {
                 this.MainWeaponCaliber -= 40;
                 this.Speed += 4;
+                SubmergeMode = false;
             }
         }
 
@@ -53,7 +56,7 @@ namespace NavalVessels.Models
                 SubmergeMode += "ON";
             }
 
-            return base.ToString() + SubmergeMode;
+            return base.ToString() + Environment.NewLine + SubmergeMode;
         }
     }
 }

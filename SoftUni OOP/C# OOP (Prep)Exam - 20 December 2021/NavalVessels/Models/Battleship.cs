@@ -10,13 +10,14 @@ namespace NavalVessels.Models
     public class Battleship : Vessel, IBattleship
     {
         private const double InitialBattleshipArmorThickness = 300;
+        private bool sonarMode = false;
 
         public Battleship(string name, double mainWeaponCalibar, double speed) 
             : base(name, mainWeaponCalibar, speed, InitialBattleshipArmorThickness)
         {
         }
 
-        public bool SonarMode { get; private set; }
+        public bool SonarMode { get => sonarMode; private set => sonarMode = value; }
 
         public void ToggleSonarMode()
         {
@@ -24,11 +25,13 @@ namespace NavalVessels.Models
             {
                 this.MainWeaponCaliber += 40;
                 this.Speed -= 5;
+                SonarMode = true;
             }
             else if (SonarMode == true)
             {
                 this.MainWeaponCaliber -= 40;
                 this.Speed += 5;
+                SonarMode = false;
             }
         }
 

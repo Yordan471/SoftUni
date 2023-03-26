@@ -12,7 +12,7 @@ namespace NavalVessels.Models
     {
         private string fullName;
         private int combatExperience;
-        ICollection<IVessel> vessels;
+        private ICollection<IVessel> vessels;
 
         public Captain(string fullName)
         {
