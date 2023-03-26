@@ -63,11 +63,11 @@ namespace NavalVessels.Models
         public double MainWeaponCaliber
         {
             get => mainWeaponCaliber;
-            private set => mainWeaponCaliber = value;
+            protected set => mainWeaponCaliber = value;
         }
 
 
-        public double Speed { get => speed; private set => speed = value; }
+        public double Speed { get => speed; protected set => speed = value; }
 
         public ICollection<string> Targets { get => targets; private set => targets = value; }
 
@@ -88,12 +88,12 @@ namespace NavalVessels.Models
             this.targets.Add(target.Name);
         }
 
-        public void RepairVessel()
+        public virtual void RepairVessel()
         {
-            this.ArmorThickness = armorThinkness;
+            
         }
 
-        public string ToStrint()
+        public virtual string ToStrint()
         {
             StringBuilder sb = new();
 
