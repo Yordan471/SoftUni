@@ -111,7 +111,28 @@ namespace NavalVessels.Core
 
         public string ToggleSpecialMode(string vesselName)
         {
-            throw new NotImplementedException();
+            IVessel vessel = vessels.FindByName(vesselName);
+
+            if (vessel == null)
+            {
+                return string.Format(OutputMessages.VesselNotFound, vesselName);
+            }
+
+            if (vessel.GetType().Name == nameof(Battleship))
+            {
+                IBattleship battleship = (IBattleship)vessel;
+                battleship.ToggleSonarMode();
+
+                return string.Format(OutputMessages.ToggleBattleshipSonarMode, vessel.Name);
+            }
+
+           //if (vessel.GetType().Name == nameof(Submarine))
+           //{
+                ISubmarine submarine = (ISubmarine)vessel;
+                submarine.ToggleSubmergeMode();
+
+                return string.Format(OutputMessages.ToggleSubmarineSubmergeMode, vessel.Name);
+           // }
         }
 
         public string VesselReport(string vesselName)
