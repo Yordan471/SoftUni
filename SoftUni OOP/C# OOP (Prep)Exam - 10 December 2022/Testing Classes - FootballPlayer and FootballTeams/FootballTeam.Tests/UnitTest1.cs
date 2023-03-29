@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Numerics;
 
 namespace FootballTeam.Tests
 {
@@ -9,18 +10,20 @@ namespace FootballTeam.Tests
         private int footballTeamCapacity = 15;
 
         FootballTeam footballTeam;
+        FootballPlayer player;
 
         [SetUp]
         public void Setup()
         {
             footballTeam = new FootballTeam(footballTeamName, footballTeamCapacity);
+            player = new FootballPlayer("Pesho", 18, "Midfielder");
         }
 
         [Test]
         public void TestIf_ConstructorSetsProperties_Correctly()
         {
             string FBName = "Peshovci";
-            int FBCapacity = 18;
+            int FBCapacity = 15;
 
             footballTeam = new FootballTeam(FBName, FBCapacity);
             
@@ -40,6 +43,54 @@ namespace FootballTeam.Tests
             Assert.Throws<ArgumentException>(() =>
             footballTeam.Name = string.Empty, "Name cannot be null or empty!"
             );
+        }
+
+        [Test]
+        
+        public void Test_CapacityThrows_ArgumentException_WhenValueIsUnder15()
+        {
+            Assert.Throws<ArgumentException>(() =>
+             footballTeam.Capacity = 14, "Capacity min value = 15"
+             );
+        }
+
+        [Test]
+
+        public void Test_AddNewPlayer_AddsNewPlayer_Method()
+        {
+            footballTeam.Players.Add(player);
+            int playersCount = footballTeam.Players.Count;
+            Assert.That(playersCount, Is.EqualTo(footballTeam.Players.Count));
+        }
+
+        [Test]
+
+        public void Test_AddNewPlayer_ReturnsString_WhenCapacityIsFull()
+        {
+             
+            string result = string.Empty;
+            string expectedOutput = "No more positions available!";
+
+            for (int i = 0; i < 20; i++)
+            {
+                result = footballTeam.AddNewPlayer(player);
+            }
+
+            footballTeam.AddNewPlayer(player);
+            
+
+            Assert.That(expectedOutput, Is.EqualTo(result));
+        }
+
+        [Test]
+        public void Test_AddNewPlayer_ReturnsString_AfterAddingPlayer()
+        {
+            string expectedOutput = $"Added player {player.Name} in position {player.Position} with number {player.PlayerNumber}";
+            string actualOutput = string.Empty;
+
+            actualOutput = footballTeam.AddNewPlayer(player);
+
+            Assert.That(expectedOutput, Is.EqualTo(actualOutput));
         }
     }
 }
