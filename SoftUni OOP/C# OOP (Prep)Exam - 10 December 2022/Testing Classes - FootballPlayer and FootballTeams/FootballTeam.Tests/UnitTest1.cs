@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Numerics;
 
 namespace FootballTeam.Tests
@@ -26,7 +27,7 @@ namespace FootballTeam.Tests
             int FBCapacity = 15;
 
             footballTeam = new FootballTeam(FBName, FBCapacity);
-            
+
             Assert.That(FBName, Is.EqualTo(footballTeam.Name));
             Assert.That(FBCapacity, Is.EqualTo(footballTeam.Capacity));
             Assert.That(footballTeam.Players != null, Is.True);
@@ -37,7 +38,7 @@ namespace FootballTeam.Tests
         {
             footballTeam.Name = " ";
             Assert.Throws<ArgumentException>(() =>
-            footballTeam.Name = null , "Name cannot be null or empty!"
+            footballTeam.Name = null, "Name cannot be null or empty!"
             );
 
             Assert.Throws<ArgumentException>(() =>
@@ -46,7 +47,7 @@ namespace FootballTeam.Tests
         }
 
         [Test]
-        
+
         public void Test_CapacityThrows_ArgumentException_WhenValueIsUnder15()
         {
             Assert.Throws<ArgumentException>(() =>
@@ -67,7 +68,7 @@ namespace FootballTeam.Tests
 
         public void Test_AddNewPlayer_ReturnsString_WhenCapacityIsFull()
         {
-             
+
             string result = string.Empty;
             string expectedOutput = "No more positions available!";
 
@@ -77,7 +78,7 @@ namespace FootballTeam.Tests
             }
 
             footballTeam.AddNewPlayer(player);
-            
+
 
             Assert.That(expectedOutput, Is.EqualTo(result));
         }
@@ -91,6 +92,19 @@ namespace FootballTeam.Tests
             actualOutput = footballTeam.AddNewPlayer(player);
 
             Assert.That(expectedOutput, Is.EqualTo(actualOutput));
+        }
+
+        [TestCase("Pesho")]
+
+        public void Test_PickPlayer_ReturnsPlayerByName(string name)
+        {
+            footballTeam.AddNewPlayer(player);
+            FootballPlayer expectedPlayer = player;
+
+            FootballPlayer actualPickedPlayer = footballTeam.Players
+                .FirstOrDefault(p => p.Name == name);
+
+            Assert.AreEqual(expectedPlayer, actualPickedPlayer);
         }
     }
 }
