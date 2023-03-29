@@ -116,8 +116,19 @@ namespace FootballTeam.Tests
             footballTeam.AddNewPlayer(player);
             string actualResult = footballTeam.PlayerScore(playerNumber);
 
-
             Assert.That(expectedResult, Is.EqualTo(actualResult));
+        }
+
+        [TestCase("Pesho")]
+
+        public void Test_PickPlayer(string name)
+        {
+            footballTeam.AddNewPlayer(player);
+
+            FootballPlayer expectedPlayer = player;
+            FootballPlayer actualPickedPlayer = footballTeam.PickPlayer(name);
+
+            Assert.AreEqual(expectedPlayer, actualPickedPlayer);
         }
     }
 }
