@@ -106,5 +106,18 @@ namespace FootballTeam.Tests
 
             Assert.AreEqual(expectedPlayer, actualPickedPlayer);
         }
+
+        [TestCase(18)]
+
+        public void Test_PlayerScore_ReturnsStringCorrectly(int playerNumber)
+        {
+            string expectedResult = $"{player.Name} scored and now has 1 for this season!";
+
+            footballTeam.AddNewPlayer(player);
+            string actualResult = footballTeam.PlayerScore(playerNumber);
+
+
+            Assert.That(expectedResult, Is.EqualTo(actualResult));
+        }
     }
 }
