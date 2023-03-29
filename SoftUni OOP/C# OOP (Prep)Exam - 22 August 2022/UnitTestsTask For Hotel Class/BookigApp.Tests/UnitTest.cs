@@ -32,6 +32,17 @@ namespace BookigApp.Tests
             Assert.That(expectedCategory, Is.EqualTo(expectedCategory));
             Assert.True(hotel.Rooms != null);
             Assert.True(hotel.Bookings != null);
-        }  
+        }
+
+        [Test]
+
+        public void Test_IfFullNameProperty_ThrowsArgumentNullException()
+        {
+            //hotel = new Hotel(null, 4);
+
+            Assert.Throws<ArgumentNullException>(() =>
+            hotel = new Hotel(null, 4), "FullName Can't be null or empty"
+            );
+        }
     }
 }
