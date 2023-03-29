@@ -43,6 +43,10 @@ namespace BookigApp.Tests
             Assert.Throws<ArgumentNullException>(() =>
             hotel = new Hotel(null, 4), "FullName Can't be null or empty"
             );
+
+            Assert.Throws<ArgumentNullException>(() =>
+            hotel = new Hotel(string.Empty, 4), "FullName Can't be null or empty"
+            );
         }
     }
 }
