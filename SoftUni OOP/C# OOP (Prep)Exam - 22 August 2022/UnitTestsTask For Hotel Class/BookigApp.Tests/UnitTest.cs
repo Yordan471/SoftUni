@@ -48,5 +48,15 @@ namespace BookigApp.Tests
             hotel = new Hotel(string.Empty, 4), "FullName Can't be null or empty"
             );
         }
+
+        [TestCase(0)]
+        [TestCase(6)]
+
+        public void Test_IfCategory_Throws_ArgumentException_WhenIsUnderOne_Or_AboveFive(int category)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            hotel = new Hotel("Peshovec", category), "Category can't be bellow 1 and above 5"
+            );
+        }
     }
 }
