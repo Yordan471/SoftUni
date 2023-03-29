@@ -1,6 +1,7 @@
 using FrontDeskApp;
 using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace BookigApp.Tests
 {
@@ -57,6 +58,20 @@ namespace BookigApp.Tests
             Assert.Throws<ArgumentException>(() =>
             hotel = new Hotel("Peshovec", category), "Category can't be bellow 1 and above 5"
             );
+        }
+
+        [Test]
+
+        public void Test_AddRoomMethod_IfAddsRoom()
+        {
+            Room room = new Room(3, 20);
+
+            hotel.AddRoom(room);
+
+            Room expectedRoom = room;
+            Room ActualRoom = hotel.Rooms.First();
+
+            Assert.AreEqual(expectedRoom, ActualRoom);
         }
     }
 }
