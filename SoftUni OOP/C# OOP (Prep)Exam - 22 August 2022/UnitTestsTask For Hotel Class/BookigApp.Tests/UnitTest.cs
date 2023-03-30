@@ -113,14 +113,17 @@ namespace BookigApp.Tests
             );
         }
 
-        //[TestCase(2, 2, 2, 5)]
+        [TestCase(2, 2, 2, 100)]
 
-        //public void Test_IfBookRoomMethod_AddsRoomTo(int adults, int children, int residenceDuration, double budget)
-        //{
-        //    hotel.BookRoom(adults, children, residenceDuration, budget);
-        //    Room room = 
-        //    Booking expectedBooking = new Booking(hotel.Bookings.Count + 1, )
-        //    Booking actualBooking = hotel.Bookings.FirstOrDefault();
-        //}
+        public void Test_IfBookRoomMethod_NotEnoughBeds(int adults, int children, int residenceDuration, double budget)
+        {
+            Room room = new Room(3, 50);
+            hotel.AddRoom(room);
+
+            hotel.BookRoom(adults, children, residenceDuration, budget);
+            double expectedturnover = 0;
+
+            Assert.AreEqual(expectedturnover, hotel.Turnover);
+        }
     }
 }
