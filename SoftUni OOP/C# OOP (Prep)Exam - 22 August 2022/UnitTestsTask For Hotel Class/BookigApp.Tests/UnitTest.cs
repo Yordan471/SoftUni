@@ -83,6 +83,7 @@ namespace BookigApp.Tests
             Room ActualRoom = hotel.Rooms.First();
 
             Assert.AreEqual(expectedRoom, ActualRoom);
+            Assert.That(hotel.Rooms.Count, Is.EqualTo(1));  
         }
 
         [TestCase(0, 2, 3, 4)]
@@ -135,7 +136,10 @@ namespace BookigApp.Tests
 
             hotel.BookRoom(adults, children, residenceDuration, budget);
             double expectedturnover = 0;
-
+            int expecteBookingCount = 0;
+            int expectedRoomsCount = 1;
+            Assert.That(expecteBookingCount, Is.EqualTo(hotel.Bookings.Count));
+            Assert.That(expectedRoomsCount, Is.EqualTo(hotel.Rooms.Count));
             Assert.AreEqual(expectedturnover, hotel.Turnover);
         }
 
