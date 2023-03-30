@@ -38,6 +38,15 @@ namespace PlanetWars.Tests
                 planet = new Planet(null, 20), "Invalid planet Name"
                 );
             }
+
+            [Test]
+
+            public void Test_BudgetValue_LessThenZero()
+            {
+                Assert.Throws<ArgumentException>(() =>
+                planet = new Planet("Zdravko", -1), "Budget cannot drop below Zero!"
+                );
+            }
         }
 
         [TestFixture]
