@@ -67,6 +67,16 @@ namespace PlanetWars.Tests
 
                 Assert.That(expectedBudget, Is.EqualTo(planet.Budget));
             }
+
+            [TestCase(20)]
+
+            public void Test_SpendFundsThrows_InvalidOperationException(double amount)
+            {
+                planet = new Planet("Crash", 0);
+                Assert.Throws<InvalidOperationException>(() =>
+                planet.SpendFunds(amount), $"Not enough funds to finalize the deal."
+                );
+            }
         }
 
         [TestFixture]
