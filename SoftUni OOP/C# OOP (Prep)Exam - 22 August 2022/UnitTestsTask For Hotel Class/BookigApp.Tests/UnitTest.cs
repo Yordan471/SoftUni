@@ -152,6 +152,8 @@ namespace BookigApp.Tests
             hotel.BookRoom(adults, children, residenceDuration, budget);
             double expectedturnover = 40;
 
+            Assert.That(1, Is.EqualTo(hotel.Bookings.Count));
+            Assert.That(1, Is.EqualTo(hotel.Rooms.Count));
             Assert.AreEqual(expectedturnover, hotel.Turnover);
         }
     }
