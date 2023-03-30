@@ -88,6 +88,18 @@ namespace PlanetWars.Tests
 
                 Assert.That(expectedBudget, Is.EqualTo(planet.Budget));
             }
+
+            [Test]
+
+            public void Test_AddWeapon_Throws_InvalidOperationException_WhenWeaponIsNull()
+            {
+                Weapon weapon = new Weapon("Peshkovec", 20, 20);
+
+                planet.AddWeapon(weapon);
+                Assert.Throws<InvalidOperationException>(() =>
+                planet.AddWeapon(weapon), $"There is already a {weapon.Name} weapon."
+                );
+            }
         }
 
         [TestFixture]
