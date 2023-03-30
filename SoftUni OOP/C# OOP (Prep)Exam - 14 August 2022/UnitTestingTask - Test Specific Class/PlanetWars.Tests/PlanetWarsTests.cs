@@ -77,6 +77,17 @@ namespace PlanetWars.Tests
                 planet.SpendFunds(amount), $"Not enough funds to finalize the deal."
                 );
             }
+
+            [TestCase(20)]
+
+            public void Test_SpendFundsThrows_WorksCorrectly(double amount)
+            {
+                planet = new Planet("Crash", 40);
+                planet.SpendFunds(amount);
+                double expectedBudget = 40 - 20;
+
+                Assert.That(expectedBudget, Is.EqualTo(planet.Budget));
+            }
         }
 
         [TestFixture]
