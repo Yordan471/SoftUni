@@ -25,6 +25,19 @@ namespace PlanetWars.Tests
                 Assert.That(505.40, Is.EqualTo(planet.Budget));
                 Assert.True(planet.Weapons != null);
             }
+
+            [Test]
+
+            public void Test_NamePropery_ThrowArgumentException()
+            {
+                Assert.Throws<ArgumentException>(() =>
+                planet = new Planet(string.Empty, 20), "Invalid planet Name"
+                );
+
+                Assert.Throws<ArgumentException>(() => 
+                planet = new Planet(null, 20), "Invalid planet Name"
+                );
+            }
         }
 
         [TestFixture]
