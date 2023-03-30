@@ -11,7 +11,7 @@ namespace PlanetWars.Tests
             Planet planet;
 
             [SetUp]
-            
+
             public void SetUp()
             {
                 planet = new Planet("Mercury", 505.40);
@@ -34,7 +34,7 @@ namespace PlanetWars.Tests
                 planet = new Planet(string.Empty, 20), "Invalid planet Name"
                 );
 
-                Assert.Throws<ArgumentException>(() => 
+                Assert.Throws<ArgumentException>(() =>
                 planet = new Planet(null, 20), "Invalid planet Name"
                 );
             }
@@ -91,7 +91,7 @@ namespace PlanetWars.Tests
 
             [Test]
 
-            public void Test_AddWeapon_Throws_InvalidOperationException_WhenWeaponIsNull()
+            public void Test_AddWeapon_Throws_InvalidOperationException_WhenWeaponIsNotFound()
             {
                 Weapon weapon = new Weapon("Peshkovec", 20, 20);
 
@@ -100,13 +100,23 @@ namespace PlanetWars.Tests
                 planet.AddWeapon(weapon), $"There is already a {weapon.Name} weapon."
                 );
             }
-        }
 
-        [TestFixture]
+            [Test]
 
-        public class WeaponTests
-        {
+            public void Test_AddWeapon_WorksCorrectly()
+            {
+                Weapon weapon = new Weapon("Peshkovec", 20, 20);
+                planet.AddWeapon(weapon);
 
+                Assert.That(1, Is.EqualTo(planet.Weapons.Count));
+            }
+
+            [TestFixture]
+
+            public class WeaponTests
+            {
+
+            }
         }
     }
 }
