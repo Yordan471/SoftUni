@@ -125,5 +125,19 @@ namespace BookigApp.Tests
 
             Assert.AreEqual(expectedturnover, hotel.Turnover);
         }
+
+        [TestCase(2, 2, 2, 10)]
+        
+        public void Test_IfBookRoomMethod_NotEnoughBudget(int adults, int children, int residenceDuration, double budget)
+        {
+            Room room = new Room(3, 50);
+            hotel.AddRoom(room);
+
+            hotel.BookRoom(adults, children, residenceDuration, budget);
+            double expectedturnover = 0;
+
+            Assert.AreEqual(expectedturnover, hotel.Turnover);
+        }
+
     }
 }
