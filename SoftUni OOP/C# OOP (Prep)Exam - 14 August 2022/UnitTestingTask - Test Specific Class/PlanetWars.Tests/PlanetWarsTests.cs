@@ -47,6 +47,15 @@ namespace PlanetWars.Tests
                 planet = new Planet("Zdravko", -1), "Budget cannot drop below Zero!"
                 );
             }
+
+            [Test]
+
+            public void Test_MillitaryWeaponsRatio_GetsWeaponsSum()
+            {
+                double actualMilPowRat = planet.MilitaryPowerRatio;
+
+                Assert.That(0, Is.EqualTo(actualMilPowRat));
+            }
         }
 
         [TestFixture]
