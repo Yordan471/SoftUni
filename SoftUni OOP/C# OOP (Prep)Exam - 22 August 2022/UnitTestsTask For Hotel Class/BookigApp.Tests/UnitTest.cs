@@ -2,6 +2,7 @@ using FrontDeskApp;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace BookigApp.Tests
 {
@@ -33,6 +34,16 @@ namespace BookigApp.Tests
             Assert.That(expectedCategory, Is.EqualTo(expectedCategory));
             Assert.True(hotel.Rooms != null);
             Assert.True(hotel.Bookings != null);
+        }
+
+        [Test]
+
+        public void Test_TurnoverIsZero()
+        {
+            double expectedTurnover = 0;
+            double actualTurnover = hotel.Turnover;
+
+            Assert.That(expectedTurnover, Is.EqualTo(actualTurnover));
         }
 
         [Test]
@@ -101,5 +112,15 @@ namespace BookigApp.Tests
             hotel.BookRoom(adults, children, residenceDuration, budget), "Adults can't be less or Equal to 0"
             );
         }
+
+        //[TestCase(2, 2, 2, 5)]
+
+        //public void Test_IfBookRoomMethod_AddsRoomTo(int adults, int children, int residenceDuration, double budget)
+        //{
+        //    hotel.BookRoom(adults, children, residenceDuration, budget);
+        //    Room room = 
+        //    Booking expectedBooking = new Booking(hotel.Bookings.Count + 1, )
+        //    Booking actualBooking = hotel.Bookings.FirstOrDefault();
+        //}
     }
 }
