@@ -56,6 +56,17 @@ namespace PlanetWars.Tests
 
                 Assert.That(0, Is.EqualTo(actualMilPowRat));
             }
+
+            [TestCase(20)]
+
+            public void Test_ProfitMethod_AddsAmountToBudget(double amount)
+            {
+                planet = new Planet("Crash", 0);
+                planet.Profit(amount);
+                double expectedBudget = 20;
+
+                Assert.That(expectedBudget, Is.EqualTo(planet.Budget));
+            }
         }
 
         [TestFixture]
