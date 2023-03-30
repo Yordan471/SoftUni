@@ -73,5 +73,14 @@ namespace BookigApp.Tests
 
             Assert.AreEqual(expectedRoom, ActualRoom);
         }
+
+        [TestCase(0, 2, 3, 4)]
+
+        public void Test_BookRoomMethod_IfAdultsLessOrEqualToZero_ThrowsArgumentException(int adults, int children, int residenceDuration, double budget)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            hotel.BookRoom(adults, children, residenceDuration, budget), "Adults can't be less or Equal to 0"
+            );
+        }
     }
 }
