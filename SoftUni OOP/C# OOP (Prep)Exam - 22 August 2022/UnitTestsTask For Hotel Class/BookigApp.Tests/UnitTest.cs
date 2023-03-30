@@ -86,7 +86,16 @@ namespace BookigApp.Tests
 
         [TestCase(2, -1, 3, 4)]
 
-        public void Test_BookRoomMethod_IfChildrenLessThenZero_ThrowsArgumentException(int adults, int children, int residenceDuration, double budget)
+        public void Test_BookRoomMethod_IfChildrenAreLessThenZero_ThrowsArgumentException(int adults, int children, int residenceDuration, double budget)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            hotel.BookRoom(adults, children, residenceDuration, budget), "Adults can't be less or Equal to 0"
+            );
+        }
+
+        [TestCase(2, 1, 0, 2)]
+        [TestCase(2, 1, -1, 2)]
+        public void Test_BookRoomMethod_IfResidenceDurationIsLessThenOne_ThrowsArgumentException(int adults, int children, int residenceDuration, double budget)
         {
             Assert.Throws<ArgumentException>(() =>
             hotel.BookRoom(adults, children, residenceDuration, budget), "Adults can't be less or Equal to 0"
