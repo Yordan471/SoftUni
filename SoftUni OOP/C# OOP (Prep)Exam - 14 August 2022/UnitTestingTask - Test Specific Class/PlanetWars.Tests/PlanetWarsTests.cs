@@ -23,6 +23,7 @@ namespace PlanetWars.Tests
             {
                 Assert.That("Mercury", Is.EqualTo(planet.Name));
                 Assert.That(505.40, Is.EqualTo(planet.Budget));
+                Assert.True(planet.Weapons != null);
             }
         }
 
