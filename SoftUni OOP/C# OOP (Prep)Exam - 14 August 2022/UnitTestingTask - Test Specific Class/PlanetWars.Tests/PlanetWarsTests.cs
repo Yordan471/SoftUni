@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace PlanetWars.Tests
 {
@@ -134,6 +135,19 @@ namespace PlanetWars.Tests
                 planet.UpgradeWeapon(weapon.Name), $"{weapon.Name} does not exist in the weapon repository of {planet.Name}"
                 );
                 
+            }
+
+            [Test]
+
+            public void Test_UpgradeWeapon_WorksCorrectly()
+            {
+                planet.AddWeapon(weapon);
+                int weaponDestructionLevelIncreased = weapon.DestructionLevel + 1;
+
+                planet.UpgradeWeapon(weapon.Name);
+                int actualWeaponDestuctionLevel = weapon.DestructionLevel;
+
+                Assert.That(weaponDestructionLevelIncreased, Is.EqualTo(actualWeaponDestuctionLevel));
             }
 
             [TestFixture]
