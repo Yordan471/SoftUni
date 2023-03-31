@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PlanetWars.Tests
 {
@@ -164,6 +165,23 @@ namespace PlanetWars.Tests
                 Assert.Throws<InvalidOperationException>(() =>
                 planet.DestructOpponent(opponentPlanet), $"{opponentPlanet.Name} is too strong to declare war to!"
                 );
+            }
+
+            [Test]
+
+            public void Test_DestructOpponent_WorksCorrectly_OpponendIsDestroyed()
+            {
+                Planet opponent = new Planet("Gesha", 100);
+                string expectedResult = $"{opponent.Name} is destructed!";
+
+                Weapon opponentWeapon = new Weapon("Gesha's Weapon", 100, 90);
+                opponent.AddWeapon(opponentWeapon);
+
+                planet.AddWeapon(weapon);
+
+                string actualResult = planet.DestructOpponent(opponent);
+
+                Assert.That(expectedResult, Is.EqualTo(actualResult));
             }
 
             [TestFixture]
