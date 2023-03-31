@@ -9,12 +9,14 @@ namespace PlanetWars.Tests
         public class PlanetWarsTests
         {
             Planet planet;
+            Weapon weapon;
 
             [SetUp]
 
             public void SetUp()
             {
                 planet = new Planet("Mercury", 505.40);
+                weapon = new Weapon("Spas", 5000, 200);
             }
 
             [Test]
@@ -109,6 +111,19 @@ namespace PlanetWars.Tests
                 planet.AddWeapon(weapon);
 
                 Assert.That(1, Is.EqualTo(planet.Weapons.Count));
+            }
+
+            [Test]
+
+            public void Test_RemoveWeaponMethod_RemovesWeaponFromCollection()
+            {
+                planet.AddWeapon(weapon);
+
+                Assert.That(1, Is.EqualTo(planet.Weapons.Count));
+
+                planet.RemoveWeapon(weapon.Name);
+
+                Assert.That(0, Is.EqualTo(planet.Weapons.Count));
             }
 
             [TestFixture]
