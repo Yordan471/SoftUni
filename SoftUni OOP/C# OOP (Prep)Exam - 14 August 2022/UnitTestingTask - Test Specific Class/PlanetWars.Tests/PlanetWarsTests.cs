@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.ComponentModel;
 using System.Linq;
 
 namespace PlanetWars.Tests
@@ -148,6 +149,21 @@ namespace PlanetWars.Tests
                 int actualWeaponDestuctionLevel = weapon.DestructionLevel;
 
                 Assert.That(weaponDestructionLevelIncreased, Is.EqualTo(actualWeaponDestuctionLevel));
+            }
+
+            [Test]
+            
+            public void Test_DestructOpponent_ThrowsInvalidOperationException()
+            {
+                Planet opponentPlanet = new Planet("Gesha", 100);
+                Weapon opponentWeapon = new Weapon("Gesha's Weapon", 100, 201);
+                opponentPlanet.AddWeapon(opponentWeapon);
+
+                planet.AddWeapon(weapon);
+
+                Assert.Throws<InvalidOperationException>(() =>
+                planet.DestructOpponent(opponentPlanet), $"{opponentPlanet.Name} is too strong to declare war to!"
+                );
             }
 
             [TestFixture]
