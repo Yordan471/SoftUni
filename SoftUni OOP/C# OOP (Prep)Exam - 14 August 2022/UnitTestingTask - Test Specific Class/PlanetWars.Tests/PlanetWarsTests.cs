@@ -126,6 +126,16 @@ namespace PlanetWars.Tests
                 Assert.That(0, Is.EqualTo(planet.Weapons.Count));
             }
 
+            [Test]
+
+            public void Test_UpgradeWeapon_ThrowsInvalidOperationException()
+            {
+                Assert.Throws<InvalidOperationException>(() =>
+                planet.UpgradeWeapon(weapon.Name), $"{weapon.Name} does not exist in the weapon repository of {planet.Name}"
+                );
+                
+            }
+
             [TestFixture]
 
             public class WeaponTests
