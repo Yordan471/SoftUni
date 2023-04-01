@@ -126,7 +126,14 @@ namespace Gym.Core
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var gym in gyms)
+            {
+                sb.AppendLine($"{gym.GymInfo()}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         public string TrainAthletes(string gymName)
