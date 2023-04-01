@@ -32,7 +32,7 @@ namespace Gym.Models.Gyms
             get => name;
             private set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidGymName);
                 }
@@ -73,11 +73,13 @@ namespace Gym.Models.Gyms
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{this.Name} is a {this.GetType().Name}:");
+            sb.AppendLine($"{this.Name} is a {this.GetType().Name}:");            
+            sb.Append($"Athletes: ");
+
             Queue<string> athletesNames = new Queue<string>();
 
             if (athletes.Count > 0)
-            {
+            {             
                 foreach (var athlete in athletes)
                 {
                     athletesNames.Enqueue(athlete.FullName);
@@ -91,7 +93,7 @@ namespace Gym.Models.Gyms
             }
 
             sb.AppendLine($"Equipment total count: {equipments.Count}");
-            sb.AppendLine($"Equipment total weight: {EquipmentWeight} grams");
+            sb.AppendLine($"Equipment total weight: {EquipmentWeight:f2} grams");
 
             return sb.ToString().Trim();
         }

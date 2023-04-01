@@ -28,10 +28,11 @@ namespace Gym.Core
         public string AddAthlete(string gymName, string athleteType, string athleteName, string motivation, int numberOfMedals)
         {
             IAthlete athlete = null;
+            IGym gym = gyms.FirstOrDefault(g => g.Name == gymName);
 
             if (athleteType == nameof(Boxer))
             {
-                if(gymName.GetType().Name != nameof(BoxingGym))
+               if(gym.GetType().Name != nameof(BoxingGym))
                 {
                     return string.Format(OutputMessages.InappropriateGym);
                 }
@@ -40,8 +41,9 @@ namespace Gym.Core
             }
             else if(athleteType == nameof(Weightlifter))
             {
-                if (gymName.GetType().Name != nameof(WeightliftingGym))
+                if (gym.GetType().Name != nameof(WeightliftingGym))
                 {
+                    Console.WriteLine(gym);
                     return string.Format(OutputMessages.InappropriateGym);
                 }
 
@@ -52,7 +54,7 @@ namespace Gym.Core
                 throw new InvalidOperationException(string.Format(ExceptionMessages.InvalidAthleteType));
             }
 
-            IGym gym = gyms.FirstOrDefault(g => g.Name == gymName);
+            
             gym.AddAthlete(athlete);
 
             return string.Format(OutputMessages.EntityAddedToGym, athleteType, gymName);
@@ -62,11 +64,11 @@ namespace Gym.Core
         {
             IEquipment addEquipment = null;
 
-            if (equipmentType == nameof(BoxingGym))
+            if (equipmentType == nameof(BoxingGloves))
             {
                 addEquipment = new BoxingGloves();
             }
-            else if (equipmentType == nameof(WeightliftingGym))
+            else if (equipmentType == nameof(Kettlebell))
             {
                 addEquipment = new Kettlebell();
             }
@@ -142,7 +144,7 @@ namespace Gym.Core
 
             gym.Exercise();
 
-            return $"{gym.Athletes.Count}";
+            return $"Exercise athletes: {gym.Athletes.Count}";
         }
     }
 }
