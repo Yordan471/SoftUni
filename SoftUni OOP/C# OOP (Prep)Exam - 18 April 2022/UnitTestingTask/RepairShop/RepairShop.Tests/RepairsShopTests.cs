@@ -9,11 +9,13 @@ namespace RepairShop.Tests
         public class RepairsShopTests
         {
             Garage garage;
+            Car car;
 
             [SetUp]
             public void Setup()
             {
                 garage = new Garage("Pesho", 4);
+                car = new Car("Ford", 4);
             }
 
             [Test]
@@ -39,6 +41,14 @@ namespace RepairShop.Tests
                 Assert.Throws<ArgumentException>(() =>
                 garage = new Garage("Peshaka", numberOfMechanics), "At least one mechanic must work in the garage."
                 );
+            }
+
+            [Test]
+            public void Test_CarsInGarage_GetsCarsCount()
+            {
+                garage.AddCar(car);
+
+                Assert.That(garage.CarsInGarage, Is.EqualTo(1));
             }
         }
     }
