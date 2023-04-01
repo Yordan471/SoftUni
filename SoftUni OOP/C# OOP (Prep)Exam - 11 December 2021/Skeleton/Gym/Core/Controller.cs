@@ -1,4 +1,6 @@
 ﻿using Gym.Core.Contracts;
+using Gym.Models.Equipment;
+using Gym.Models.Equipment.Contracts;
 using Gym.Models.Gyms;
 using Gym.Models.Gyms.Contracts;
 using Gym.Repositories;
@@ -27,7 +29,23 @@ namespace Gym.Core
 
         public string AddEquipment(string equipmentType)
         {
-            throw new NotImplementedException();
+            IEquipment addEquipment = null;
+
+            if (equipmentType == nameof(BoxingGym))
+            {
+                addEquipment = new BoxingGloves();
+            }
+            else if (equipmentType == nameof(WeightliftingGym))
+            {
+                addEquipment = new Kettlebell();
+            }
+            else
+            {
+                throw new InvalidOperationException(ExceptionMessages.InvalidEquipmentType);
+            }
+
+            equipment.Add(addEquipment);
+            return string.Format(OutputMessages.SuccessfullyAdded, equipmentType);
         }
 
         public string AddGym(string gymType, string gymName)
