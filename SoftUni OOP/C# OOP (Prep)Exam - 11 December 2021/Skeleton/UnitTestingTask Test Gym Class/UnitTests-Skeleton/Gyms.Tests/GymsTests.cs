@@ -120,5 +120,22 @@ namespace Gyms.Tests
 
             Assert.True(actualResult);
         }
+
+        [Test]
+        public void Test_ReportMethod_ReturnsStringOutputCorrectly()
+        {
+            Athlete athleteTwo = new Athlete("Pesho");
+            Athlete athletethree = new Athlete("Spas");
+            gym.AddAthlete(athlete);
+            gym.AddAthlete(athleteTwo);
+            gym.AddAthlete(athletethree);
+
+            athletethree.IsInjured = true;
+
+            string expectedResult = $"Active athletes at {gym.Name}: {athlete.FullName}, {athleteTwo.FullName}";
+            string actualResult = gym.Report();
+
+            Assert.That(expectedResult, Is.EqualTo(actualResult));
+        }
     }
 }
