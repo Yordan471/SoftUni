@@ -108,5 +108,17 @@ namespace Gyms.Tests
             Athlete expectedAthlete = athlete;
             Assert.That(ReferenceEquals(expectedAthlete, returnAthlete));
         }
+
+        [TestCase("Gesha")]
+        public void Test_InjureAthlete_SetsIsInjuredToTrue(string name)
+        {
+            gym.AddAthlete(athlete);
+
+            Athlete returnAthlete = gym.InjureAthlete(name);
+
+            bool actualResult = returnAthlete.IsInjured;
+
+            Assert.True(actualResult);
+        }
     }
 }
