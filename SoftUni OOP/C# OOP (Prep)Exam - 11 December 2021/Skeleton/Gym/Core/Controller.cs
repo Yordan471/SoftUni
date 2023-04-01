@@ -129,7 +129,11 @@ namespace Gym.Core
 
         public string TrainAthletes(string gymName)
         {
-            throw new NotImplementedException();
+            IGym gym = gyms.FirstOrDefault(g => g.Name == gymName);
+
+            gym.Exercise();
+
+            return $"{gym.Athletes.Count}";
         }
     }
 }
