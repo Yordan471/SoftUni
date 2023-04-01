@@ -31,5 +31,15 @@ namespace Gyms.Tests
             gym = new Gym(name, 200) , "Invalid gym name."
             );
         }
+
+        [Test]
+        public void Test_CapacityThrows_ArgumentException_WhenIsBellowZero()
+        {
+            int negativeCapacity = -2;
+
+            Assert.Throws<ArgumentException>(() =>
+            gym = new Gym("Berkovica", negativeCapacity), "Invalid gym capacity."
+            );
+        }
     }
 }
