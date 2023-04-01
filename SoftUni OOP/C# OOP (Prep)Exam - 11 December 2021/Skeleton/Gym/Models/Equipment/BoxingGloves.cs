@@ -6,8 +6,8 @@ namespace Gym.Models.Equipment
 {
     public class BoxingGloves : Equipment
     {
-        private const double BoxingGlovesWeight = 10000;
-        private const decimal BoxingGlovesPRICE = 80;
+        private const double BoxingGlovesWeight = 227;
+        private const decimal BoxingGlovesPRICE = 120;
 
         public BoxingGloves() : base(BoxingGlovesWeight, BoxingGlovesPRICE)
         {
