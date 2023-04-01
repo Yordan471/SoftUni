@@ -13,6 +13,14 @@ namespace Gym.Models.Athletes
         private int stamina;
         private int numberOfMedals;
 
+        public Athlete(string fullname, string motivation, int stamina, int numberOfMedals)
+        {
+            fullName = fullname;
+            Motivation = motivation;
+            Stamina = stamina;
+            NumberOfMedals = numberOfMedals;
+        }
+
         public string FullName
         {
             get => fullName;
