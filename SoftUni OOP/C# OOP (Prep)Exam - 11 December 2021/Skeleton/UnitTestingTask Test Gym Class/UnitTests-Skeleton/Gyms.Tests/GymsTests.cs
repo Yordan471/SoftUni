@@ -98,5 +98,15 @@ namespace Gyms.Tests
             gym.InjureAthlete(name), $"The athlete {name} doesn't exist."
             );
         }
+
+        [TestCase("Gesha")]
+        public void Test_InjureAthlete_ReturnsAthleteCorrectly(string name)
+        {
+            gym.AddAthlete(athlete);
+
+            Athlete returnAthlete = gym.InjureAthlete(name);
+            Athlete expectedAthlete = athlete;
+            Assert.That(ReferenceEquals(expectedAthlete, returnAthlete));
+        }
     }
 }
