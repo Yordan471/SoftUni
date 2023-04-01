@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 
 namespace RepairShop.Tests
 {
@@ -21,6 +22,14 @@ namespace RepairShop.Tests
                 Assert.That(4, Is.EqualTo(garage.MechanicsAvailable));
             }
 
+            [TestCase("")]
+            [TestCase(null)]
+            public void Test_NameThrows_ArgumentNullException_WhenValueIsNullOrEmpty(string name)
+            {
+                Assert.Throws<ArgumentNullException>(() =>
+                garage = new Garage(name, 4), "Invalid garage name."
+                );
+            }
         }
     }
 }
