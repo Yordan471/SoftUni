@@ -53,5 +53,17 @@ namespace Gyms.Tests
             gym.AddAthlete(athlete), "The gym is full."
             );
         }
+
+        [Test]
+        public void Test_AddAthlete_AddsAthleteProperly()
+        {
+            gym = new Gym("Berkovica", 1);
+
+            gym.AddAthlete(athlete);
+            int expectedCount = 1;
+            int actualCount = gym.Count;
+
+            Assert.That(expectedCount, Is.EqualTo(actualCount));
+        }
     }
 }
