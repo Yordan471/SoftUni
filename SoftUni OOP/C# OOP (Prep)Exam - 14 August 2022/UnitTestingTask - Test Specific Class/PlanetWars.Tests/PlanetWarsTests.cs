@@ -238,7 +238,6 @@ namespace PlanetWars.Tests
                 public void Test_IsNuclear_SetsToTrue_When_DestructionLevel_BiggerOrEualToTen()
                 {
                     weapon.DestructionLevel = 10;
-
                     Assert.True(weapon.IsNuclear);
 
                     weapon.DestructionLevel = 9;
