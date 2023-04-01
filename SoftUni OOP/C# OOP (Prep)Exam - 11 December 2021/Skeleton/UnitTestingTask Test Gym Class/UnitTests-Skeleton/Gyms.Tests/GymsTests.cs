@@ -65,5 +65,15 @@ namespace Gyms.Tests
 
             Assert.That(expectedCount, Is.EqualTo(actualCount));
         }
+
+        [TestCase("Peshaka")]
+        public void Test_RemoveAthleteThrows_InvalidOperationException_WhenAthleteIsNull(string name)
+        {
+            gym.AddAthlete(athlete);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            gym.RemoveAthlete(name), $"The athlete {name} doesn't exist."
+            );          
+        }
     }
 }
