@@ -95,7 +95,7 @@ namespace Gym.Models.Gyms
             sb.AppendLine($"Equipment total count: {equipments.Count}");
             sb.AppendLine($"Equipment total weight: {EquipmentWeight:f2} grams");
 
-            return sb.ToString().Trim();
+            return sb.ToString().TrimEnd();
         }
 
         public bool RemoveAthlete(IAthlete athlete)
