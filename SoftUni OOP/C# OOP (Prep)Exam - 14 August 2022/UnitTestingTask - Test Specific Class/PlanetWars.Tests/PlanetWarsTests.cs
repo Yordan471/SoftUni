@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
 namespace PlanetWars.Tests
@@ -209,6 +210,28 @@ namespace PlanetWars.Tests
                     Assert.That(expectedWeaponName, Is.EqualTo(expectedWeaponName));
                     Assert.That(expectedWeaponPrice, Is.EqualTo(expectedWeaponPrice));
                     Assert.That(expecteWeaponDestructionLevel, Is.EqualTo(expecteWeaponDestructionLevel));
+                }
+
+                [Test]
+                public void Test_PricePropertie_ThrowsArgumentException_WhenNegative()
+                {
+                    double weaponPrice = -10;
+
+                    Assert.Throws<ArgumentException>(() =>
+                    weapon = new Weapon("AK", weaponPrice, 200), "Price cannot be negative."
+                    );
+                }
+
+                [Test]
+                public void Test_IncreaseDestructionLevel_IncreaseByOne_WhenCalled()
+                {
+                    int expectedWeaponDestructionLevel = 151;
+                    
+                    weapon.IncreaseDestructionLevel();
+
+                    int actualWeaponDestructionLevel = weapon.DestructionLevel;
+
+                    Assert.That(expectedWeaponDestructionLevel, Is.EqualTo(actualWeaponDestructionLevel));
                 }
             }
         }
