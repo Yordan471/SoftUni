@@ -188,7 +188,28 @@ namespace PlanetWars.Tests
 
             public class WeaponTests
             {
+                private Weapon weapon;
 
+                [SetUp]
+                public void Setup()
+                {
+                    weapon = new Weapon("Peshkata", 100, 150);
+                }
+
+
+                [Test]
+                public void Test_WeaponConstructor_SettingPropertiesCorrectly()
+                {
+                    Weapon weapon = new Weapon("MK-16", 120, 200);
+
+                    string expectedWeaponName = "MK-16";
+                    double expectedWeaponPrice = 120;
+                    int expecteWeaponDestructionLevel = 200;
+
+                    Assert.That(expectedWeaponName, Is.EqualTo(expectedWeaponName));
+                    Assert.That(expectedWeaponPrice, Is.EqualTo(expectedWeaponPrice));
+                    Assert.That(expecteWeaponDestructionLevel, Is.EqualTo(expecteWeaponDestructionLevel));
+                }
             }
         }
     }
