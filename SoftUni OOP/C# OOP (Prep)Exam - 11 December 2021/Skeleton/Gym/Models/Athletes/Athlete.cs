@@ -52,7 +52,7 @@ namespace Gym.Models.Athletes
         public int Stamina 
         {
             get => stamina; 
-            private set => stamina = value;
+            protected set => stamina = value;
         }
 
         public int NumberOfMedals
