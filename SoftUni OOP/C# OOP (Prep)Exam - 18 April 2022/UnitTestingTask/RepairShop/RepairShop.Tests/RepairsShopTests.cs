@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Xml.Linq;
 
 namespace RepairShop.Tests
 {
@@ -28,6 +29,15 @@ namespace RepairShop.Tests
             {
                 Assert.Throws<ArgumentNullException>(() =>
                 garage = new Garage(name, 4), "Invalid garage name."
+                );
+            }
+
+            [TestCase(0)]
+            [TestCase(-1)]
+            public void Test_MechanicsAvailableThrows_ArgumentException_WhenValueIs_BelowOrEqualToZero(int numberOfMechanics)
+            {
+                Assert.Throws<ArgumentException>(() =>
+                garage = new Garage("Peshaka", numberOfMechanics), "At least one mechanic must work in the garage."
                 );
             }
         }
