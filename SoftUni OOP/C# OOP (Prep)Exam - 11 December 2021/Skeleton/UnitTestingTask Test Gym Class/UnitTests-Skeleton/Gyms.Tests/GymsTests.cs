@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Xml.Linq;
 
 namespace Gyms.Tests
 {
@@ -86,6 +87,16 @@ namespace Gyms.Tests
             int actualCount = gym.Count;
 
             Assert.That(expectedCount, Is.EqualTo(actualCount));
+        }
+
+        [TestCase("Berkovica")]
+        public void Test_InjureAthleteThrows_InvalidOperationException_WhenAthleteIsNull(string name)
+        {
+            gym.AddAthlete(athlete);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            gym.InjureAthlete(name), $"The athlete {name} doesn't exist."
+            );
         }
     }
 }
