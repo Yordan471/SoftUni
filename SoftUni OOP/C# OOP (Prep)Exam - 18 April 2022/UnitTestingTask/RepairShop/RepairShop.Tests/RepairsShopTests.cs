@@ -80,6 +80,19 @@ namespace RepairShop.Tests
                 garage.FixCar(carModel), $"The car {carModel} doesn't exist."
                 );
             }
+
+            [TestCase("Ford")]
+            public void Test_FixCar_SetsNumberOfIssuesToZero(string carModel)
+            {
+                garage.AddCar(car);
+
+                garage.FixCar(carModel);
+                int expectedIssues = 0;
+                Car fixedCar = car;
+
+                Assert.That(expectedIssues, Is.EqualTo(car.NumberOfIssues));
+                Assert.That(car, Is.EqualTo(fixedCar));
+            }
         }
     }
 }
