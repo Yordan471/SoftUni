@@ -7,6 +7,7 @@ using Gym.Repositories;
 using Gym.Utilities.Messages;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Gym.Core
@@ -76,7 +77,19 @@ namespace Gym.Core
 
         public string InsertEquipment(string gymName, string equipmentType)
         {
-            throw new NotImplementedException();
+            IEquipment equipmentToInsert = equipment.FindByType(equipmentType);
+
+            if (equipmentToInsert == null)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.InexistentEquipment, equipmentType));
+            }
+
+            IGym gym = gyms.FirstOrDefault(g => g.Name == gymName);
+
+            gym.AddEquipment(equipmentToInsert);
+            equipment.Remove(equipmentToInsert);
+
+            return string.Format(OutputMessages.EntityAddedToGym, equipmentType, gymName);
         }
 
         public string Report()
