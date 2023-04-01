@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace Gyms.Tests
 {
@@ -20,6 +21,15 @@ namespace Gyms.Tests
             
             Assert.That(expectedGymName, Is.EqualTo(gym.Name));
             Assert.That(expectedGymSize, Is.EqualTo(gym.Capacity));
+        }
+
+        [TestCase("")]
+        [TestCase(null)]
+        public void Test_NamePropertie_ThrowsArgumentNullException_WhenValueIsNullOrEmpty(string name)
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            gym = new Gym(name, 200) , "Invalid gym name."
+            );
         }
     }
 }
