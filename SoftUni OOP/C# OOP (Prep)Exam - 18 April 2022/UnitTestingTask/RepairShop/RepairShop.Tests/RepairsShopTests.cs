@@ -70,6 +70,16 @@ namespace RepairShop.Tests
 
                 Assert.That(1, Is.EqualTo(garage.CarsInGarage));
             }
+
+            [TestCase("Peuget")]
+            public void Test_FixCarThrows_InvalidOperationException_WhenThereIsNoCar_WithCarModel(string carModel)
+            {
+                garage.AddCar(car);
+
+                Assert.Throws<InvalidOperationException>(() =>
+                garage.FixCar(carModel), $"The car {carModel} doesn't exist."
+                );
+            }
         }
     }
 }
