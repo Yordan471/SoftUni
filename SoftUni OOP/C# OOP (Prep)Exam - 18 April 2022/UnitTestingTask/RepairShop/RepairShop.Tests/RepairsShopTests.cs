@@ -50,6 +50,17 @@ namespace RepairShop.Tests
 
                 Assert.That(garage.CarsInGarage, Is.EqualTo(1));
             }
+
+            [Test]
+            public void Test_AddCarThrows_InvalidOperationException_WhenCarsCount_Equals_AvailableMechanics()
+            {
+                garage = new Garage("Peuget", 1);
+                garage.AddCar(car);
+
+                Assert.Throws<InvalidOperationException>(() => 
+                garage.AddCar(car), "No mechanic available."
+                );
+            }
         }
     }
 }
