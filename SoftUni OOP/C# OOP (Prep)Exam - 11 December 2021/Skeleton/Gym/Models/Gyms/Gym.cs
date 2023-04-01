@@ -22,6 +22,9 @@ namespace Gym.Models.Gyms
         {
             Name = name;
             Capacity = capacity;
+
+            equipments = new List<IEquipment>();
+            athletes = new List<IAthlete>();
         }
 
         public string Name
