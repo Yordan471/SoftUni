@@ -9,11 +9,14 @@ namespace Gym.Models.Athletes
     public abstract class Athlete : IAthlete
     {
         private string fullName;
+        private string motivaton;
+        private int stamina;
+        private int numberOfMedals;
 
         public string FullName
         {
             get => fullName;
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -24,16 +27,40 @@ namespace Gym.Models.Athletes
             }
         }
 
-
-        public string Motivation => throw new NotImplementedException();
-
-        public int Stamina => throw new NotImplementedException();
-
-        public int NumberOfMedals => throw new NotImplementedException();
-
-        public void Exercise()
+        public string Motivation
         {
-            throw new NotImplementedException();
+            get => motivaton;
+            private set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException(ExceptionMessages.InvalidAthleteMotivation);
+                }
+
+                motivaton = value;
+            }
         }
+
+        public int Stamina 
+        {
+            get => stamina; 
+            private set => stamina = value;
+        }
+
+        public int NumberOfMedals
+        {
+            get => numberOfMedals;
+            private set
+            {
+                if(numberOfMedals < 0)
+                {
+                    throw new ArgumentException(ExceptionMessages.InvalidAthleteMedals);
+                }
+
+                numberOfMedals = value;
+            }
+        }
+
+        public abstract void Exercise();       
     }
 }
