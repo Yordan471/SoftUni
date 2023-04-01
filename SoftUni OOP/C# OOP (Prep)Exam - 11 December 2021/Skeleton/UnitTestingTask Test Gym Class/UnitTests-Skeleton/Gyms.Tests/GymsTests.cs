@@ -6,11 +6,13 @@ namespace Gyms.Tests
     public class GymsTests
     {
         Gym gym;
+        Athlete athlete;
 
         [SetUp]
         public void SetUp()
         {
             gym = new Gym("Berkovica", 200);
+            athlete = new Athlete("Gesha");
         }
 
         [Test]
@@ -39,6 +41,16 @@ namespace Gyms.Tests
 
             Assert.Throws<ArgumentException>(() =>
             gym = new Gym("Berkovica", negativeCapacity), "Invalid gym capacity."
+            );
+        }
+
+        [Test]
+        public void Test_AddAthleteThrows_InvalidOperationException_WhenThereIsNoMoreCapacity()
+        {
+            gym = new Gym("Berkovica", 0); 
+
+            Assert.Throws<InvalidOperationException>(() =>
+            gym.AddAthlete(athlete), "The gym is full."
             );
         }
     }
