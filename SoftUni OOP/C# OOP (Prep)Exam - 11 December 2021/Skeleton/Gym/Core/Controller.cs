@@ -102,7 +102,9 @@ namespace Gym.Core
 
         public string EquipmentWeight(string gymName)
         {
-            throw new NotImplementedException();
+            IGym gym = gyms.FirstOrDefault(g => g.Name == gymName);
+
+            return $"The total weight of the equipment in the gym {gymName} is {gym.EquipmentWeight:f2} grams.";
         }
 
         public string InsertEquipment(string gymName, string equipmentType)
