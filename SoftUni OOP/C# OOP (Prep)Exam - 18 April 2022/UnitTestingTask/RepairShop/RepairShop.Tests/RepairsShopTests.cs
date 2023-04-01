@@ -61,6 +61,15 @@ namespace RepairShop.Tests
                 garage.AddCar(car), "No mechanic available."
                 );
             }
+
+            [Test]
+            public void Test_AddCar_WorksCorrectly()
+            {
+                garage = new Garage("Peuget", 1);
+                garage.AddCar(car);
+
+                Assert.That(1, Is.EqualTo(garage.CarsInGarage));
+            }
         }
     }
 }
