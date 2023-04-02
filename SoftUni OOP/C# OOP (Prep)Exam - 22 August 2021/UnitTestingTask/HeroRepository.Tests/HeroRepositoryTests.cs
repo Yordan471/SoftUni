@@ -39,4 +39,17 @@ public class HeroRepositoryTests
         heroRep.Create(hero), $"Hero with name {hero.Name} already exists"
         );
     }
+
+    [Test]
+    public void Test_CreateMethod_AddsSaidHeroToRepo_And_ReturnsString()
+    {
+        heroRep.Create(hero);
+        Hero secondHero = new Hero("Geshaka", 40);
+
+        string expectedResult = $"Successfully added hero {secondHero.Name} with level {secondHero.Level}";
+        string actualResult = heroRep.Create(secondHero);
+
+        Assert.True(expectedResult.Equals(actualResult));
+        Assert.That(2, Is.EqualTo(heroRep.Heroes.Count));
+    }
 }
