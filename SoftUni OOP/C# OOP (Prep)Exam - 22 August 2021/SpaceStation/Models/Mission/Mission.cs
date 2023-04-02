@@ -19,6 +19,7 @@ namespace SpaceStation.Models.Mission
                     if (planet.Items.Count != 0)
                     {
                         astronaut.Bag.Items.Add(planet.Items.First());
+                        planet.Items.Remove(planet.Items.First());
                         astronaut.Breath();
                     }
                     else
