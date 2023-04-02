@@ -16,6 +16,14 @@ public class HeroRepositoryTests
     }
 
     [Test]
+    public void Test_HeroConstructor_SetsPropertiesCorrectly()
+    {
+        Assert.That("Peshaka", Is.EqualTo(hero.Name));
+        Assert.That(20, Is.EqualTo(hero.Level));
+    }
+
+
+    [Test]
     public void Test_HeroRepositoryConstructor_SetsPropertiesCorrectly()
     {
         Assert.NotNull(heroRep.Heroes);
