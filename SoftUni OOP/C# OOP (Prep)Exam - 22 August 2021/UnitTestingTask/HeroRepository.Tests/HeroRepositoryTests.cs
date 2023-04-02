@@ -64,4 +64,11 @@ public class HeroRepositoryTests
         );
     }
 
+    [Test]
+    public void Test_RemoveMethod_RemovesSaidHero_And_ReturnsTrue()
+    {
+        heroRep.Create(hero);
+        Assert.True(heroRep.Remove("Peshaka"));
+        Assert.That(0, Is.EqualTo(heroRep.Heroes.Count));
+    }
 }
