@@ -1,12 +1,15 @@
 ﻿using SpaceStation.Core.Contracts;
 using SpaceStation.Models.Astronauts;
 using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Mission;
+using SpaceStation.Models.Mission.Contracts;
 using SpaceStation.Models.Planets;
 using SpaceStation.Models.Planets.Contracts;
 using SpaceStation.Repositories;
 using SpaceStation.Utilities.Messages;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SpaceStation.Core
@@ -64,7 +67,20 @@ namespace SpaceStation.Core
 
         public string ExplorePlanet(string planetName)
         {
-            throw new NotImplementedException();
+            if (!astronauts.Models.Any(a => a.Oxygen > 60))
+            {
+                throw new InvalidOperationException(ExceptionMessages.InvalidAstronautCount);
+            }
+
+            IPlanet planet = planets.FindByName(planetName);
+
+            IMission mission = new Mission();
+
+            mission.Explore(planet, astronauts.Models.Where(a => a.Oxygen > 60) as ICollection<IAstronaut>);
+
+            int countDeadAstronauts = astronauts.Models.Count(a => a.CanBreath == false);
+
+            return string.Format(OutputMessages.PlanetExplored, planetName, countDeadAstronauts);
         }
 
         public string Report()

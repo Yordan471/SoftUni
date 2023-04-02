@@ -18,6 +18,8 @@ namespace SpaceStation.Models.Astronauts
         {
             Name = name;
             Oxygen = oxygen;
+
+            CanBreath = true;
         }
 
         public string Name
@@ -59,6 +61,7 @@ namespace SpaceStation.Models.Astronauts
             if (Oxygen < 0)
             {
                 Oxygen = 0;
+                CanBreath = false;
             }
         }
     }
