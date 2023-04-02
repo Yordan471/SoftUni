@@ -71,4 +71,12 @@ public class HeroRepositoryTests
         Assert.True(heroRep.Remove("Peshaka"));
         Assert.That(0, Is.EqualTo(heroRep.Heroes.Count));
     }
+
+    [Test]
+    public void Test_RemoveMethod_ReturnsFalse()
+    {
+        heroRep.Create(hero);
+        Assert.False(heroRep.Remove("Geshaka"));
+        Assert.That(1, Is.EqualTo(heroRep.Heroes.Count));
+    }
 }
