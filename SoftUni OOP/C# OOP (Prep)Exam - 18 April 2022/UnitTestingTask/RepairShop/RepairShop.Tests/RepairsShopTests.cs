@@ -121,6 +121,21 @@ namespace RepairShop.Tests
 
                 Assert.That(expectedCount, Is.EqualTo(actualCount));
             }
+
+            [Test]
+            public void Test_Report_TestIfReturnsCorrectString()
+            {
+                garage.AddCar(car);
+                Car secondCar = new Car("Peuget", 4);
+                //garage.FixCar("Ford");
+                garage.AddCar(secondCar);
+                //garage.FixCar("Peuget");
+
+                string expectedResult = $"There are {garage.CarsInGarage} which are not fixed: {car.CarModel}, {secondCar.CarModel}.";
+                string actualResult = garage.Report();
+
+                Assert.That(expectedResult, Is.EqualTo(actualResult));
+            }
         }
     }
 }
