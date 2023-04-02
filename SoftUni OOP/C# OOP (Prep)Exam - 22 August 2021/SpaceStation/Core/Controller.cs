@@ -74,7 +74,16 @@ namespace SpaceStation.Core
 
         public string RetireAstronaut(string astronautName)
         {
-            throw new NotImplementedException();
+            IAstronaut astronaut = astronauts.FindByName(astronautName);
+
+            if (astronaut == null)
+            {
+                throw new InvalidOperationException(string.Format(ExceptionMessages.InvalidRetiredAstronaut, astronautName));
+            }
+
+            astronauts.Remove(astronaut);
+
+            return string.Format(OutputMessages.AstronautRetired, astronautName);
         }
     }
 }
