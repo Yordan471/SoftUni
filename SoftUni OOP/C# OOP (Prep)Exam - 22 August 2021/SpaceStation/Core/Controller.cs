@@ -18,6 +18,7 @@ namespace SpaceStation.Core
     {
         private AstronautRepository astronauts;
         private PlanetRepository planets;
+        private int countExploredPlanets = 0;
 
         public Controller()
         {
@@ -77,6 +78,7 @@ namespace SpaceStation.Core
             IMission mission = new Mission();
 
             mission.Explore(planet, astronauts.Models.Where(a => a.Oxygen > 60) as ICollection<IAstronaut>);
+            countExploredPlanets++;
 
             int countDeadAstronauts = astronauts.Models.Count(a => a.CanBreath == false);
 
@@ -85,7 +87,27 @@ namespace SpaceStation.Core
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{countExploredPlanets} planets were explored!");
+            sb.AppendLine($"Astronauts info:");
+
+            foreach(var astronaut in astronauts.Models)
+            {
+                sb.AppendLine($"Name: {astronaut.Name}");
+                sb.AppendLine($"Oxygen: {astronaut.Oxygen}");
+
+                if (astronaut.Bag.Items.Count > 0)
+                {
+                    sb.AppendLine($"{string.Join(", ", astronaut.Bag.Items)}");
+                }
+                else
+                {
+                    sb.AppendLine($"none");
+                }              
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         public string RetireAstronaut(string astronautName)
