@@ -91,4 +91,16 @@ public class HeroRepositoryTests
 
         Assert.That(secondHero.Equals(ActualHero));
     }
+
+    [Test]
+    public void Test_GetHero_ReturnsHeroByNameOrNull()
+    {
+        heroRep.Create(hero);
+        Hero actualHero = heroRep.GetHero(hero.Name);
+        Assert.That(hero.Equals(actualHero));
+
+        heroRep.Remove(hero.Name);
+        Hero nullHero = heroRep.GetHero("Spas");
+        Assert.Null(nullHero);
+    }
 }
