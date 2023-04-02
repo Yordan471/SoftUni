@@ -52,4 +52,16 @@ public class HeroRepositoryTests
         Assert.True(expectedResult.Equals(actualResult));
         Assert.That(2, Is.EqualTo(heroRep.Heroes.Count));
     }
+
+    [TestCase("")]
+    [TestCase(" ")]
+    [TestCase("  ")]
+    [TestCase(null)]
+    public void Test_RemoveMethodThrows_IsNullOrWhiteSpace_WhenHeroName_IsNullOrWhiteSpace(string name)
+    {
+        Assert.Throws<ArgumentNullException>(() =>
+        heroRep.Remove(name), "Name cannot be null"
+        );
+    }
+
 }
