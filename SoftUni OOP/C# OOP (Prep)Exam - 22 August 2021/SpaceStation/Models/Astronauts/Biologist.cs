@@ -7,8 +7,9 @@ namespace SpaceStation.Models.Astronauts
     public class Biologist : Astronaut
     {
         private const double BiologistDecreaseOfOxygen = 5;
+        private const double InitialBiologistOxygen = 70;
 
-        public Biologist(string name, double oxygen) : base(name, oxygen)
+        public Biologist(string name) : base(name, InitialBiologistOxygen)
         {
         }
 
