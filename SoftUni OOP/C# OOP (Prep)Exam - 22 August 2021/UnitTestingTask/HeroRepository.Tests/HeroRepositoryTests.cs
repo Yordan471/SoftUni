@@ -79,4 +79,16 @@ public class HeroRepositoryTests
         Assert.False(heroRep.Remove("Geshaka"));
         Assert.That(1, Is.EqualTo(heroRep.Heroes.Count));
     }
+
+    [Test]
+    public void Test_GetHeroWithHighestLevel_WorksCorrectly()
+    {
+        heroRep.Create(hero);
+        Hero secondHero = new Hero("Geshaka", 40);
+
+        heroRep.Create(secondHero);
+        Hero ActualHero = heroRep.GetHeroWithHighestLevel();
+
+        Assert.That(secondHero.Equals(ActualHero));
+    }
 }
