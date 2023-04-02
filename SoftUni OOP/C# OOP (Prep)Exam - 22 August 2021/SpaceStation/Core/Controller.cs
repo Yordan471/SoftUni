@@ -89,22 +89,22 @@ namespace SpaceStation.Core
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{countExploredPlanets} planets were explored!");
-            sb.AppendLine($"Astronauts info:");
+            sb.Append($"{countExploredPlanets} planets were explored!{Environment.NewLine}");
+            sb.Append($"Astronauts info:{Environment.NewLine}");
 
             foreach(var astronaut in astronauts.Models)
             {
-                sb.AppendLine($"Name: {astronaut.Name}");
-                sb.AppendLine($"Oxygen: {astronaut.Oxygen}");
+                sb.Append($"Name: {astronaut.Name}{Environment.NewLine}");
+                sb.Append($"Oxygen: {astronaut.Oxygen}{Environment.NewLine}");
                 sb.Append($"Bag items: ");
 
                 if (astronaut.Bag.Items.Count > 0)
                 {
-                    sb.AppendLine($"{string.Join(", ", astronaut.Bag.Items)}");
+                    sb.Append($"{string.Join(", ", astronaut.Bag.Items)}{Environment.NewLine}");
                 }
                 else
                 {
-                    sb.AppendLine($"none");
+                    sb.Append($"none{Environment.NewLine}");
                 }              
             }
 
