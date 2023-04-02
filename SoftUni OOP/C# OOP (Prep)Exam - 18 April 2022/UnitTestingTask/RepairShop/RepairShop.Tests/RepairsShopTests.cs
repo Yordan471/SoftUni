@@ -93,6 +93,34 @@ namespace RepairShop.Tests
                 Assert.That(expectedIssues, Is.EqualTo(car.NumberOfIssues));
                 Assert.That(car, Is.EqualTo(fixedCar));
             }
+
+            [Test]
+            public void Test_RemoveFixedCarsThrows_InvalidOperationException_When_ThereAreNoBrokenCars()
+            {
+                garage.AddCar(car);
+                //garage.FixCar("Ford");
+
+                Assert.Throws<InvalidOperationException>(() => 
+                garage.RemoveFixedCar(), $"No fixed cars available."
+                );
+            }
+
+            [Test]
+            public void Test_RemoveFixedCars_RemovesCarsIsFixedCars()
+            {
+                garage.AddCar(car);
+                Car secondCar = new Car("Peuget", 4);
+                garage.FixCar("Ford");
+                garage.AddCar(secondCar);
+                garage.FixCar("Peuget");
+
+                garage.RemoveFixedCar();
+
+                int expectedCount = 0;
+                int actualCount = garage.CarsInGarage;
+
+                Assert.That(expectedCount, Is.EqualTo(actualCount));
+            }
         }
     }
 }
