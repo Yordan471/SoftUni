@@ -14,6 +14,12 @@ namespace SpaceStation.Models.Astronauts
         private string name;
         private double oxygen;
 
+        public Astronaut(string name, double oxygen)
+        {
+            Name = name;
+            Oxygen = oxygen;
+        }
+
         public string Name
         {
             get => name;
