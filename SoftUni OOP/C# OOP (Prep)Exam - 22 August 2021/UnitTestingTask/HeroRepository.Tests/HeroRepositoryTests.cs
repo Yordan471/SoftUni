@@ -29,4 +29,14 @@ public class HeroRepositoryTests
         );
     }
 
+    [Test]
+    public void Test_CreateMethod_ThrowsInvalidOperationException_WhenThereIsNoSuchHeroName()
+    {
+        heroRep.Create(hero);
+        Hero secondHero = new Hero("Peshaka", 40);
+
+        Assert.Throws<InvalidOperationException>(() =>
+        heroRep.Create(hero), $"Hero with name {hero.Name} already exists"
+        );
+    }
 }
