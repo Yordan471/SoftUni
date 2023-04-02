@@ -37,7 +37,7 @@ namespace SpaceStation.Models.Astronauts
         public double Oxygen
         {
             get => oxygen;
-            private set
+            protected set
             {
                 if (value < 0)
                 {
