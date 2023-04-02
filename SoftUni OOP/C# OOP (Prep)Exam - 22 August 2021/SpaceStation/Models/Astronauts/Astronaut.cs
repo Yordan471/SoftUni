@@ -1,8 +1,10 @@
 ﻿using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Bags;
 using SpaceStation.Models.Bags.Contracts;
 using SpaceStation.Utilities.Messages;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace SpaceStation.Models.Astronauts
@@ -20,6 +22,7 @@ namespace SpaceStation.Models.Astronauts
             Oxygen = oxygen;
 
             CanBreath = true;
+            Bag = new Backpack();
         }
 
         public string Name

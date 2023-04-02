@@ -76,8 +76,8 @@ namespace SpaceStation.Core
             IPlanet planet = planets.FindByName(planetName);
 
             IMission mission = new Mission();
-
-            mission.Explore(planet, astronauts.Models.Where(a => a.Oxygen > 60) as ICollection<IAstronaut>);
+            //ICollection<IAstronaut> suitableAstronauts = astronauts.Models.Where(a => a.Oxygen > 60).ToList();
+            mission.Explore(planet, astronauts.Models.Where(a => a.Oxygen > 60).ToList());
             countExploredPlanets++;
 
             int countDeadAstronauts = astronauts.Models.Count(a => a.CanBreath == false);
@@ -96,6 +96,7 @@ namespace SpaceStation.Core
             {
                 sb.AppendLine($"Name: {astronaut.Name}");
                 sb.AppendLine($"Oxygen: {astronaut.Oxygen}");
+                sb.Append($"Bag items: ");
 
                 if (astronaut.Bag.Items.Count > 0)
                 {

@@ -26,16 +26,16 @@ namespace SpaceStation.Repositories
 
         public IPlanet FindByName(string name)
         {
-            IPlanet astronaut = Models.FirstOrDefault(a => a.Name == name);
+            IPlanet planet = Models.FirstOrDefault(a => a.Name == name);
 
-            return astronaut;
+            return planet;
         }
 
         public bool Remove(IPlanet model)
         {
-            IPlanet astronaut = Models.FirstOrDefault(a => a.Equals(model));
+            IPlanet planet = Models.FirstOrDefault(a => a.Equals(model));
 
-            return models.Remove(model);
+            return models.Remove(planet);
         }
     }
 }
