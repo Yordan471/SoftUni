@@ -1,6 +1,8 @@
 ﻿using SpaceStation.Core.Contracts;
 using SpaceStation.Models.Astronauts;
 using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Planets;
+using SpaceStation.Models.Planets.Contracts;
 using SpaceStation.Repositories;
 using SpaceStation.Utilities.Messages;
 using System;
@@ -48,7 +50,14 @@ namespace SpaceStation.Core
 
         public string AddPlanet(string planetName, params string[] items)
         {
-            throw new NotImplementedException();
+            IPlanet planet = new Planet(planetName);
+            
+            foreach(var item in items)
+            {
+                planet.Items.Add(item);
+            }
+
+            return string.Format(OutputMessages.PlanetAdded, planetName);
         }
 
         public string ExplorePlanet(string planetName)
