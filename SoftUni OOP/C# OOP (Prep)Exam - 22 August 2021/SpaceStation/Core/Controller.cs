@@ -57,6 +57,8 @@ namespace SpaceStation.Core
                 planet.Items.Add(item);
             }
 
+            planets.Add(planet);
+
             return string.Format(OutputMessages.PlanetAdded, planetName);
         }
 
