@@ -34,5 +34,14 @@ namespace SmartphoneShop.Tests
             shop = new(setCapacity), "Invalid capacity."
             );
         }
+
+        [Test]
+        public void Test_CountReturns_PhonesCount()
+        {
+            int expectedCount = 0;
+            int actualCount = shop.Count;
+
+            Assert.That(expectedCount, Is.EqualTo(actualCount));
+        }
     }
 }
