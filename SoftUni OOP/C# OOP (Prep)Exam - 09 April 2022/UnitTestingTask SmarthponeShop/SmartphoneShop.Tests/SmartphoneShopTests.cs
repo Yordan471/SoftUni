@@ -76,7 +76,7 @@ namespace SmartphoneShop.Tests
         }
 
         [Test]
-        public  void Test_RemoveMethodThrows_InvalidOperationException_WhenSuchPhoneDoesntExist()
+        public void Test_RemoveMethodThrows_InvalidOperationException_WhenSuchPhoneDoesntExist()
         {
             Assert.Throws<InvalidOperationException>(() =>
             shop.Remove(phone.ModelName), $"The phone model {phone.ModelName} doesn't exist."
@@ -99,6 +99,16 @@ namespace SmartphoneShop.Tests
             Assert.Throws<InvalidOperationException>(() =>
             shop.TestPhone(phone.ModelName, 40), $"The phone model {phone.ModelName} doesn't exist."
             );
+        }
+
+        [Test]
+        public void Test_TestPhoneThrows_InvalidOperationException_WhenCurrBatteryCharge_Is_LessThenUsage()
+        {
+            shop.Add(phone);
+
+            Assert.Throws<InvalidOperationException>(() =>
+               shop.TestPhone(phone.ModelName, 101), $"The phone model {phone.ModelName} is low on batery."
+               );                         
         }
     }
 }
