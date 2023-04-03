@@ -107,8 +107,20 @@ namespace SmartphoneShop.Tests
             shop.Add(phone);
 
             Assert.Throws<InvalidOperationException>(() =>
-               shop.TestPhone(phone.ModelName, 101), $"The phone model {phone.ModelName} is low on batery."
-               );                         
+            shop.TestPhone(phone.ModelName, 101), $"The phone model {phone.ModelName} is low on batery."
+            );
+        }
+
+        [Test]
+        public void Test_TestPhoneMethod_LowersCurrentBatteryCharge_By_GivenBatteryUsage()
+        {
+            int batteryUsage = 99;
+            shop.Add(phone);
+
+            shop.TestPhone(phone.ModelName, batteryUsage);
+            int expectedResult = phone.MaximumBatteryCharge - batteryUsage;
+
+            Assert.That(expectedResult, Is.EqualTo(phone.CurrentBateryCharge));
         }
     }
 }
