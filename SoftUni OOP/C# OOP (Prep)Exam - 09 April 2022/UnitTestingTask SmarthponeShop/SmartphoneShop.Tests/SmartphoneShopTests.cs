@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace SmartphoneShop.Tests
 {
@@ -22,6 +23,16 @@ namespace SmartphoneShop.Tests
             int actualCapacity = shop.Capacity;
 
             Assert.That(expectedCapacity, Is.EqualTo(actualCapacity));
+        }
+
+        [Test]
+        public void Test_CapacityThrows_ArgumentException_WhenValueIsBellowZero()
+        {
+            int setCapacity = -1;
+
+            Assert.Throws<ArgumentException>(() =>
+            shop = new(setCapacity), "Invalid capacity."
+            );
         }
     }
 }
