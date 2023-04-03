@@ -53,5 +53,18 @@ namespace SmartphoneShop.Tests
             shop.Add(phone), $"The phone model {phone.ModelName} already exist."
             );
         }
+
+        [Test]
+        public void Test_AddMethodThrows_InvalidOperationException_WhenCapacityEqualsCount_And_WeTryToAddPhone()
+        {
+            shop = new(1);
+
+            shop.Add(phone);
+            Smartphone newPhone = new("Sony", 50);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            shop.Add(newPhone), "The shop is full."
+            );
+        }
     }
 }
