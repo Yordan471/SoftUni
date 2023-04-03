@@ -132,5 +132,18 @@ namespace SmartphoneShop.Tests
             shop.ChargePhone("Sony"), $"The phone model Sony doesn't exist."
             );
         }
+
+        [Test]
+        public void Test_ChargePhone_WorksCorrectly_CurrBatteryEqualsMaxBattery()
+        {
+            shop.Add(phone);
+            shop.TestPhone("Nokia", 60);
+
+            int expectedBatteryCharge = phone.MaximumBatteryCharge - 60;
+            Assert.That(expectedBatteryCharge, Is.EqualTo(phone.CurrentBateryCharge));
+
+            shop.ChargePhone("Nokia");
+            Assert.That(100, Is.EqualTo(phone.CurrentBateryCharge));
+        }
     }
 }
