@@ -43,5 +43,15 @@ namespace SmartphoneShop.Tests
 
             Assert.That(expectedCount, Is.EqualTo(actualCount));
         }
+
+        [Test]
+        public void Test_AddMethodThrows_InvalidOperationException_WhenThePhoneAlreadyExists()
+        {
+            shop.Add(phone);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            shop.Add(phone), $"The phone model {phone.ModelName} already exist."
+            );
+        }
     }
 }
