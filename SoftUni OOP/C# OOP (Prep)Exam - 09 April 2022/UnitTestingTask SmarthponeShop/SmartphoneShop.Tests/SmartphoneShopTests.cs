@@ -66,5 +66,13 @@ namespace SmartphoneShop.Tests
             shop.Add(newPhone), "The shop is full."
             );
         }
+
+        [Test]
+        public void Test_AddMethod_AddsPhone()
+        {
+            shop.Add(phone);
+
+            Assert.That(1, Is.EqualTo(shop.Count));
+        }
     }
 }
