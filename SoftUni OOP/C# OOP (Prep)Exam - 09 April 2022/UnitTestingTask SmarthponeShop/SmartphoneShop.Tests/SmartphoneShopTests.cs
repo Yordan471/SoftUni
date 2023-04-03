@@ -82,5 +82,14 @@ namespace SmartphoneShop.Tests
             shop.Remove(phone.ModelName), $"The phone model {phone.ModelName} doesn't exist."
             );
         }
+
+        [Test]
+        public void Test_RemoveMethod_RemovesGivenPhone()
+        {
+            shop.Add(phone);
+            shop.Remove(phone.ModelName);
+
+            Assert.That(0, Is.EqualTo(shop.Count));
+        }
     }
 }
