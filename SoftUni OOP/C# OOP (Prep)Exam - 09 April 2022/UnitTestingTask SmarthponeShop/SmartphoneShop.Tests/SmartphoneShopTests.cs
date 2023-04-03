@@ -122,5 +122,15 @@ namespace SmartphoneShop.Tests
 
             Assert.That(expectedResult, Is.EqualTo(phone.CurrentBateryCharge));
         }
+
+        [Test]
+        public void Test_ChargePhoneThrows_InvalidOperationException_WhenSuchPhoneDoesntExist()
+        {
+            shop.Add(phone);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            shop.ChargePhone("Sony"), $"The phone model Sony doesn't exist."
+            );
+        }
     }
 }
