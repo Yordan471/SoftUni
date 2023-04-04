@@ -74,7 +74,7 @@ namespace CarRacing.Models.Cars
         public int HorsePower
         {
             get => horsePower;
-            private set
+            protected set
             {
                 if (value < 0)
                 {
