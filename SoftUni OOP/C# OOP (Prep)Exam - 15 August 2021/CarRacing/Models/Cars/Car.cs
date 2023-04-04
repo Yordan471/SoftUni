@@ -8,7 +8,7 @@ using System.Text;
 
 namespace CarRacing.Models.Cars
 {
-    public class Car : ICar
+    public abstract class Car : ICar
     {
         private const int VINExactLenght = 17;
 
