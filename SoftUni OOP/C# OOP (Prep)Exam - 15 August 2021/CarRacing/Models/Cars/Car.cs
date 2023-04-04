@@ -3,6 +3,7 @@ using CarRacing.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Http;
 using System.Text;
 
 namespace CarRacing.Models.Cars
@@ -17,6 +18,16 @@ namespace CarRacing.Models.Cars
         private int horsePower;
         private double fuelAvailable;
         private double fuelConsumtpionPerRace;
+
+        public Car(string make, string model, string vin, int horsePower, double fuelAvailable, double fuelConsumptionPerRace)
+        {
+            Make = make;
+            Model = model;
+            VIN = vin;
+            HorsePower = horsePower;
+            FuelAvailable = fuelAvailable;
+            FuelConsumptionPerRace = fuelConsumptionPerRace;
+        }
 
         public string Make
         {
