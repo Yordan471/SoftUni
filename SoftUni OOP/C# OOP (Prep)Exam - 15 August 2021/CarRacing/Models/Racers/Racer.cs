@@ -18,6 +18,14 @@ namespace CarRacing.Models.Racers
         private int drivingExperience;
         private ICar car;
 
+        public Racer(string username, string racingBehaviour, int drivingExperience, ICar car)
+        {
+            Username = username;
+            RacingBehavior = racingBehaviour;
+            DrivingExperience = drivingExperience;
+            Car = car;
+        }
+
         public string Username
         {
             get => username;
@@ -76,12 +84,17 @@ namespace CarRacing.Models.Racers
 
         public bool IsAvailable()
         {
-            throw new NotImplementedException();
+            if (this.car.FuelAvailable > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public void Race()
+        public virtual void Race()
         {
-            Car.Drive();
+            Car.Drive();           
         }
     }
 }
