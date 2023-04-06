@@ -57,7 +57,7 @@ namespace CarRacing.Models.Racers
         public int DrivingExperience
         {
             get => drivingExperience;
-            private set
+            protected set
             {
                 if (value < DrivingExperienceZero && value > DrivingExperienceOneHundred)
                 {
