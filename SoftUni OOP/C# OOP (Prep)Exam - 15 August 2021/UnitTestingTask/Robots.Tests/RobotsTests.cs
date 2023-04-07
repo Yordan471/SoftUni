@@ -92,5 +92,17 @@
             robotManager.Work(robot.Name, "Drive", 200), $"{robot.Name} doesn't have enough battery!"
             );
         }
+
+        [Test]
+        public void Test_WorkMethod_WorksCorrectly()
+        {
+            robotManager.Add(robot);
+
+            robotManager.Work(robot.Name, "Drive", 50);
+
+            int expectedBattery = 100;
+
+            Assert.That(expectedBattery, Is.EqualTo(robot.Battery));
+        }
     }
 }
