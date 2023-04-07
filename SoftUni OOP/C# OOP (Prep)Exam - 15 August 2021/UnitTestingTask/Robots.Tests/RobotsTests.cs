@@ -28,5 +28,11 @@
             robotManager = new RobotManager(-1), "Invalid capacity!"
             );
         }
+
+        [Test]
+        public void Test_Count_GetsRobotsCount()
+        {
+            Assert.That(0, Is.EqualTo(robotManager.Count));
+        }
     }
 }
