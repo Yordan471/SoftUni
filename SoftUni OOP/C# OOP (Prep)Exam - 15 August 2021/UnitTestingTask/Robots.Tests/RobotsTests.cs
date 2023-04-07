@@ -2,6 +2,7 @@
 {
     using NUnit.Framework;
     using System;
+    using System.Xml.Linq;
 
     public class RobotsTests
     {
@@ -55,6 +56,14 @@
 
             Assert.Throws<InvalidOperationException>(() =>
             robotManager.Add(robot), "Not enough capacity!");
+        }
+
+        [Test]
+        public void Test_RemoveMethodThrows_InvalidOperationException_WhenRobotIsMissing()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            robotManager.Remove(robot.Name), $"Robot with the name {robot.Name} doesn't exist!"
+            );
         }
     }
 }
