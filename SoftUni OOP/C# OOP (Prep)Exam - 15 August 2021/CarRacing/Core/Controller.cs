@@ -1,6 +1,7 @@
 ﻿using CarRacing.Core.Contracts;
 using CarRacing.Models.Cars;
 using CarRacing.Models.Cars.Contracts;
+using CarRacing.Models.Maps;
 using CarRacing.Models.Maps.Contracts;
 using CarRacing.Models.Racers;
 using CarRacing.Models.Racers.Contracts;
@@ -77,7 +78,21 @@ namespace CarRacing.Core
 
         public string BeginRace(string racerOneUsername, string racerTwoUsername)
         {
-            throw new NotImplementedException();
+            IRacer firstRacer = racers.FindBy(racerOneUsername);
+
+            if (firstRacer == null)
+            {
+                throw new ArgumentException(ExceptionMessages.RacerCannotBeFound, racerOneUsername);
+            }
+
+            IRacer secondRacer = racers.FindBy(racerTwoUsername);
+
+            if (secondRacer == null)
+            {
+                throw new ArgumentException(ExceptionMessages.RacerCannotBeFound, racerTwoUsername);
+            }
+
+            return map.StartRace(firstRacer, secondRacer);
         }
 
         public string Report()
