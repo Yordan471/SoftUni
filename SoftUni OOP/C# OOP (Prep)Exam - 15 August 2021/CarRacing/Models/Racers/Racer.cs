@@ -23,7 +23,7 @@ namespace CarRacing.Models.Racers
             Username = username;
             RacingBehavior = racingBehaviour;
             DrivingExperience = drivingExperience;
-            Car = car;
+            this.car = car;
         }
 
         public string Username
@@ -68,19 +68,19 @@ namespace CarRacing.Models.Racers
             }
         }
 
-        public ICar Car
-        {
-            get => car;
-            private set
-            {
-                if (car == null)
-                {
-                    throw new ArgumentException(ExceptionMessages.InvalidRacerCar);
-                }
+        public ICar Car => car;
+        //{
+        //    get => car;
+        //    private set
+        //    {
+        //        if (car == null)
+        //        {
+        //            throw new ArgumentException(ExceptionMessages.InvalidRacerCar);
+        //        }
 
-                car = value;
-            }
-        }
+        //        car = value;
+        //    }
+        //}
 
         public bool IsAvailable()
         {

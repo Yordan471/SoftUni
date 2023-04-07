@@ -20,10 +20,11 @@ namespace CarRacing.Core
         private RacerRepository racers;
         private IMap map;
 
-        private Controller()
+        public Controller()
         {
             cars = new CarRepository();
             racers = new RacerRepository();
+            map = new Map();
         }
 
         public string AddCar(string type, string make, string model, string VIN, int horsePower)
@@ -90,7 +91,7 @@ namespace CarRacing.Core
 
             if (secondRacer == null)
             {
-                throw new ArgumentException(ExceptionMessages.RacerCannotBeFound, racerTwoUsername);
+                throw new ArgumentException(string.Format(ExceptionMessages.RacerCannotBeFound, racerTwoUsername));
             }
 
             return map.StartRace(firstRacer, secondRacer);
