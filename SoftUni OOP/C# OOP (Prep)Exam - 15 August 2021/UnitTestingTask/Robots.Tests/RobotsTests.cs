@@ -45,5 +45,16 @@
             robotManager.Add(robot), $"There is already a robot with name {robot.Name}!"
             );
         }
+
+        [Test]
+        public void Test_AddMethodThrows_InvalidOperationException_WhenCapacityIsReached()
+        {
+            robotManager = new RobotManager(1);
+            Robot newRobot = new Robot("Peshaka", 20);
+            robotManager.Add(newRobot);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            robotManager.Add(robot), "Not enough capacity!");
+        }
     }
 }
