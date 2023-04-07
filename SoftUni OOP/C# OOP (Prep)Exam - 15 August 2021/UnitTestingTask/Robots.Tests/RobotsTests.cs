@@ -112,5 +112,19 @@
             robotManager.Charge(robot.Name), $"Robot with the name {robot.Name} doesn't exist!"
             );
         }
+
+        [Test]
+        public void Test_ChargeMethod_WorksCorrectly()
+        {
+            robotManager.Add(robot);
+
+            robotManager.Work(robot.Name, "Drive", 50);
+
+            Assert.That(100, Is.EqualTo(robot.Battery));
+
+            robotManager.Charge(robot.Name);
+
+            Assert.That(150, Is.EqualTo(robot.MaximumBattery));
+        }
     }
 }
