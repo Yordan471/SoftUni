@@ -65,5 +65,14 @@
             robotManager.Remove(robot.Name), $"Robot with the name {robot.Name} doesn't exist!"
             );
         }
+
+        [Test]
+        public void Test_RemoveMethod_RemovesRobotCorrectly()
+        {
+            robotManager.Add(robot);
+            robotManager.Remove(robot.Name);
+
+            Assert.That(0, Is.EqualTo(robotManager.Count));           
+        }
     }
 }
