@@ -20,5 +20,13 @@
 
             Assert.That(expectedCapacity, Is.EqualTo(robotManager.Capacity));
         }
+
+        [Test]
+        public void Test_CapacityThrows_ArgumentException_WhenValueIsBellowZero()
+        {
+            Assert.Throws<ArgumentException>(() =>
+            robotManager = new RobotManager(-1), "Invalid capacity!"
+            );
+        }
     }
 }
