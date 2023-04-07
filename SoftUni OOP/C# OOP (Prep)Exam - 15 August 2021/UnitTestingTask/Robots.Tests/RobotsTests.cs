@@ -82,5 +82,15 @@
             robotManager.Work(robot.Name, "Drive", 20), $"Robot with the name {robot.Name} doesn't exist!"
             );
         }
+
+        [Test]
+        public void Test_WorkMethodThrows_InvalidOperationException_WhenBatteryUsage_IsBiggerThen_BatteryCapacity()
+        {
+            robotManager.Add(robot);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            robotManager.Work(robot.Name, "Drive", 200), $"{robot.Name} doesn't have enough battery!"
+            );
+        }
     }
 }
