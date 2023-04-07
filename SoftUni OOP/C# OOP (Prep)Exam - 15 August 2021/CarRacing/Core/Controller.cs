@@ -9,6 +9,7 @@ using CarRacing.Repositories;
 using CarRacing.Utilities.Messages;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CarRacing.Core
@@ -97,7 +98,20 @@ namespace CarRacing.Core
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var racer in racers.Models
+            .OrderByDescending(r => r.DrivingExperience)
+            .ThenBy(r => r.Username))
+            {
+                sb.AppendLine($"{racer.GetType().Name}: {racer.Username}");
+                sb.AppendLine($"--Driving behavior: {racer.RacingBehavior}");
+                sb.AppendLine($"--Driving experience: {racer.DrivingExperience}");
+                sb.AppendLine($"--Car: {racer.Car.Make} {racer.Car.Model} ({racer.Car.VIN})");
+                sb.AppendLine();
+            }
+            
+            return sb.ToString().TrimEnd();
         }
     }
 }
