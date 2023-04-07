@@ -74,5 +74,13 @@
 
             Assert.That(0, Is.EqualTo(robotManager.Count));           
         }
+
+        [Test]
+        public void Test_WorkMethodThrows_InvalidOperationException_WhenThereIsNoSuchRobot()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            robotManager.Work(robot.Name, "Drive", 20), $"Robot with the name {robot.Name} doesn't exist!"
+            );
+        }
     }
 }
