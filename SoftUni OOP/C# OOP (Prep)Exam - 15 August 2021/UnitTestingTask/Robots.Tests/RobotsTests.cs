@@ -104,5 +104,13 @@
 
             Assert.That(expectedBattery, Is.EqualTo(robot.Battery));
         }
+
+        [Test]
+        public void Test_ChargeMethodThrows_InvalidOperationException_WhenRobotDoesntExist()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            robotManager.Charge(robot.Name), $"Robot with the name {robot.Name} doesn't exist!"
+            );
+        }
     }
 }
