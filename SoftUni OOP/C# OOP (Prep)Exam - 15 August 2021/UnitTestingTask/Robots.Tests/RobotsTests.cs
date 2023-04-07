@@ -6,6 +6,7 @@
     public class RobotsTests
     {
         RobotManager robotManager;
+        Robot robot = new Robot("Geshaka", 150);
 
         [SetUp]
         public void SetUp()
@@ -33,6 +34,16 @@
         public void Test_Count_GetsRobotsCount()
         {
             Assert.That(0, Is.EqualTo(robotManager.Count));
+        }
+
+        [Test]
+        public void Test_AddMethodThrows_InvalidOperationException_WhenThereIsARobot_WithSaidName()
+        {
+            robotManager.Add(robot);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            robotManager.Add(robot), $"There is already a robot with name {robot.Name}!"
+            );
         }
     }
 }
