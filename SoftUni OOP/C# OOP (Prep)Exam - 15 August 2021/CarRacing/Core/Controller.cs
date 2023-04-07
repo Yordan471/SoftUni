@@ -2,6 +2,8 @@
 using CarRacing.Models.Cars;
 using CarRacing.Models.Cars.Contracts;
 using CarRacing.Models.Maps.Contracts;
+using CarRacing.Models.Racers;
+using CarRacing.Models.Racers.Contracts;
 using CarRacing.Repositories;
 using CarRacing.Utilities.Messages;
 using System;
@@ -46,7 +48,31 @@ namespace CarRacing.Core
 
         public string AddRacer(string type, string username, string carVIN)
         {
-            throw new NotImplementedException();
+            ICar car = cars.FindBy(carVIN);
+
+            if (car == null)
+            {
+                throw new ArgumentException(ExceptionMessages.CarCannotBeFound);
+            }
+
+            IRacer racer = null;
+
+            if (type == nameof(ProfessionalRacer))
+            {
+                racer = new ProfessionalRacer(username, car);
+            }
+            else if (type == nameof(StreetRacer))
+            {
+                racer = new StreetRacer(username, car);
+            }
+            else
+            {
+                throw new ArgumentException(ExceptionMessages.InvalidRacerType);
+            }
+
+            racers.Add(racer);
+
+            return String.Format(OutputMessages.SuccessfullyAddedRacer, username);
         }
 
         public string BeginRace(string racerOneUsername, string racerTwoUsername)
