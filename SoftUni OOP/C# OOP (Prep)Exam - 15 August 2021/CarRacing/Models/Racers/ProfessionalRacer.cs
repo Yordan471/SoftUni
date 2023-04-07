@@ -17,7 +17,11 @@ namespace CarRacing.Models.Racers
         public override void Race()
         {
             base.Race();
-            this.DrivingExperience += 10;
+
+            if (this.Car.FuelAvailable > 0)
+            {
+                this.DrivingExperience += 10;
+            }       
         }
     }
 }

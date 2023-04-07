@@ -10,42 +10,42 @@ namespace CarRacing.Models.Maps
     {
         public string StartRace(IRacer racerOne, IRacer racerTwo)
         {
-            if (racerOne == null && racerTwo == null)
+            if (!racerOne.IsAvailable() && !racerTwo.IsAvailable())
             {
                 return "Race cannot be completed because both racers are not available!";
             }
 
-            if (racerOne == null)
+            if (!racerOne.IsAvailable())
             {
                 return $"{racerTwo.Username} wins the race! {racerOne.Username} was not available to race!";
             }
 
-            if (racerTwo == null)
+            if (!racerTwo.IsAvailable())
             {
                 return $"{racerOne.Username} wins the race! {racerTwo.Username} was not available to race!";
             }
 
             racerOne.Race();
             racerTwo.Race();
-            double firstRacerWinChances = 0;
-            double secondRacerWinChances = 0;
+            decimal firstRacerWinChances = 0;
+            decimal secondRacerWinChances = 0;
 
             if (racerOne.RacingBehavior == "strict")
             {
-                firstRacerWinChances = racerOne.Car.HorsePower * racerOne.DrivingExperience * 1.2;
+                firstRacerWinChances = racerOne.Car.HorsePower * racerOne.DrivingExperience * 1.2M;
             }
             else
             {
-                firstRacerWinChances = racerOne.Car.HorsePower * racerOne.DrivingExperience * 1.1;
+                firstRacerWinChances = racerOne.Car.HorsePower * racerOne.DrivingExperience * 1.1M;
             }
 
             if (racerTwo.RacingBehavior == "strict")
             {
-                secondRacerWinChances = racerTwo.Car.HorsePower * racerTwo.DrivingExperience * 1.2;
+                secondRacerWinChances = racerTwo.Car.HorsePower * racerTwo.DrivingExperience * 1.2M;
             }
             else
             {
-                secondRacerWinChances = racerTwo.Car.HorsePower * racerTwo.DrivingExperience * 1.1;
+                secondRacerWinChances = racerTwo.Car.HorsePower * racerTwo.DrivingExperience * 1.1M;
             }
 
             if (secondRacerWinChances > firstRacerWinChances)

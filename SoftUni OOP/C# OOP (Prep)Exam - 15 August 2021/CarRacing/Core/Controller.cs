@@ -46,7 +46,7 @@ namespace CarRacing.Core
 
             cars.Add(car);
 
-            return string.Format(OutputMessages.SuccessfullyAddedCar, make, model, VIN);
+            return string.Format(string.Format(OutputMessages.SuccessfullyAddedCar, make, model, VIN));
         }
 
         public string AddRacer(string type, string username, string carVIN)
@@ -75,7 +75,7 @@ namespace CarRacing.Core
 
             racers.Add(racer);
 
-            return String.Format(OutputMessages.SuccessfullyAddedRacer, username);
+            return String.Format(string.Format(OutputMessages.SuccessfullyAddedRacer, username));
         }
 
         public string BeginRace(string racerOneUsername, string racerTwoUsername)
@@ -84,7 +84,7 @@ namespace CarRacing.Core
 
             if (firstRacer == null)
             {
-                throw new ArgumentException(ExceptionMessages.RacerCannotBeFound, racerOneUsername);
+                throw new ArgumentException(string.Format(ExceptionMessages.RacerCannotBeFound, racerOneUsername));
             }
 
             IRacer secondRacer = racers.FindBy(racerTwoUsername);
