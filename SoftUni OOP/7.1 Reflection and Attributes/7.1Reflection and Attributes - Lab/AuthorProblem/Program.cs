@@ -2,10 +2,10 @@
 
 namespace AuthorProblem
 {
-    //[Author("Victor")]
+    [Author("Victor")]
     public class StartUp
     {
-        //[Author("George")]
+        [Author("George")]
 
         public static void Main()
         {
