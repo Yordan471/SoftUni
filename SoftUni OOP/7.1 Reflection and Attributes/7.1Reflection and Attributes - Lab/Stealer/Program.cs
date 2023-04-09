@@ -11,8 +11,10 @@ namespace Stealer
             Spy spy = new Spy();
 
             //string outputInfo = spy.StealFieldInfo("Stealer.Hacker", "username", "password");
-            string outputInfoSecondMethod = spy.AnalyzeAccessModifiers("Stealer.Hacker");
-            Console.WriteLine(outputInfoSecondMethod);
+            //string outputInfoSecondMethod = spy.AnalyzeAccessModifiers("Stealer.Hacker");
+            string result = spy.RevealPrivateMethods("Stealer.Hacker");
+            string result2 = spy.CollectGettersAndSetters("Stealer.Hacker");
+            Console.WriteLine(result2);
         }
     }
 }

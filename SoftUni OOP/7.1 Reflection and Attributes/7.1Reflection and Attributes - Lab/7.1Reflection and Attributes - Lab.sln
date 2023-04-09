@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stealer", "Stealer\Stealer.csproj", "{C81B9B83-4BC6-44E1-BCF9-47B22D2E0995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stealer", "Stealer\Stealer.csproj", "{C81B9B83-4BC6-44E1-BCF9-47B22D2E0995}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "High-Quality Mistakes", "High-Quality Mistakes\High-Quality Mistakes.csproj", "{DAFD14F1-4D40-45A1-A9DE-620E70315A71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorProblem", "AuthorProblem\AuthorProblem.csproj", "{67A35658-39A8-4C06-9DD5-1D9027D361BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C81B9B83-4BC6-44E1-BCF9-47B22D2E0995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C81B9B83-4BC6-44E1-BCF9-47B22D2E0995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C81B9B83-4BC6-44E1-BCF9-47B22D2E0995}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAFD14F1-4D40-45A1-A9DE-620E70315A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAFD14F1-4D40-45A1-A9DE-620E70315A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAFD14F1-4D40-45A1-A9DE-620E70315A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAFD14F1-4D40-45A1-A9DE-620E70315A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A35658-39A8-4C06-9DD5-1D9027D361BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A35658-39A8-4C06-9DD5-1D9027D361BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A35658-39A8-4C06-9DD5-1D9027D361BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A35658-39A8-4C06-9DD5-1D9027D361BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
