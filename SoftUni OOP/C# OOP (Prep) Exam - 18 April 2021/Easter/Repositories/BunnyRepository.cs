@@ -11,6 +11,11 @@ namespace Easter.Repositories
     {
         private ICollection<IBunny> bunnies;
 
+        public BunnyRepository()
+        {
+            bunnies = new List<IBunny>();
+        }
+
         public IReadOnlyCollection<IBunny> Models => bunnies as IReadOnlyCollection<IBunny>;
 
         public void Add(IBunny model)
