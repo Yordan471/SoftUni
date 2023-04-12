@@ -7,7 +7,8 @@ namespace Easter.Models.Bunnies
     public class SleepyBunny : Bunny
     {
         private const int InitialEnergy = 50;
-        private const int WorkEnergyDecrease = 5;
+        private const int WorkDecreaseEnergy = 10;
+        private const int WorkEnergyDecreaseAdditional = 5;
 
         public SleepyBunny(string name) : base(name, InitialEnergy)
         {
@@ -15,7 +16,7 @@ namespace Easter.Models.Bunnies
 
         public override void Work()
         {
-            this.Energy -= WorkEnergyDecrease;
+            this.Energy -= WorkDecreaseEnergy + WorkEnergyDecreaseAdditional;
         }
     }
 }

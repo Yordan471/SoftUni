@@ -57,6 +57,6 @@ namespace Easter.Models.Bunnies
             dyes.Add(dye);
         }
 
-        public abstract void Work();        
+        public abstract void Work();
     }
 }
