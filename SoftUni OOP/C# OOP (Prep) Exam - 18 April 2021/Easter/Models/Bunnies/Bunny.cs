@@ -36,7 +36,7 @@ namespace Easter.Models.Bunnies
         public int Energy
         {
             get => energy;
-            private set
+            protected set
             {
                 if (value < 0)
                 {
