@@ -58,7 +58,7 @@ namespace Easter.Core
                 throw new InvalidOperationException(ExceptionMessages.InexistentBunny);
             }
 
-            Models.Dyes.Contracts.Dye dye = new Models.Dyes.Dye(power);
+            Models.Dyes.Contracts.IDye dye = new Models.Dyes.Dye(power);
             bunny.AddDye(dye);
 
             return string.Format(OutputMessages.DyeAdded, power, bunnyName);
@@ -75,7 +75,7 @@ namespace Easter.Core
 
         public string ColorEgg(string eggName)
         {
-            ICollection<IBunny> suitableBunnies = bunnies.Models.Where(b => b.Energy >= 50).ToList();
+            ICollection<IBunny> suitableBunnies = bunnies.Models.OrderByDescending(b => b.Energy).Where(b => b.Energy >= 50).ToList();
 
             if (suitableBunnies.Count == 0)
             {
@@ -121,7 +121,7 @@ namespace Easter.Core
             {
                 sb.AppendLine($"Name: {bunny.Name}");
                 sb.AppendLine($"Energy: {bunny.Energy}");
-                sb.AppendLine($"Dyes: {bunny.Dyes.Count} not finished");
+                sb.AppendLine($"Dyes: {bunny.Dyes.Count(d => !d.IsFinished())} not finished");
             }
 
             return sb.ToString().TrimEnd();

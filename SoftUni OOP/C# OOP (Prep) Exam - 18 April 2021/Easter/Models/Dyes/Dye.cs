@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Easter.Models.Dyes
 {
-    public class Dye : Contracts.Dye
+    public class Dye : IDye
     {
         private const int UseDecreasePowerBy10 = 10;
 

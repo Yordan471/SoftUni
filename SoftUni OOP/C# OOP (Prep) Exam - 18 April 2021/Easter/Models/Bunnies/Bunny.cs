@@ -11,12 +11,14 @@ namespace Easter.Models.Bunnies
     {
         private string name;
         private int energy;
-        private ICollection<Dye> dyes;
+        private ICollection<IDye> dyes;
 
         public Bunny(string name, int energy)
         {
             Name = name;
             Energy = energy;
+
+            dyes = new List<IDye>();
         }
 
         public string Name
@@ -47,12 +49,12 @@ namespace Easter.Models.Bunnies
             }
         }
 
-        public ICollection<Dye> Dyes
+        public ICollection<IDye> Dyes
         {
             get => dyes; private set => dyes = value;
         }
 
-        public void AddDye(Dye dye)
+        public void AddDye(IDye dye)
         {
             dyes.Add(dye);
         }

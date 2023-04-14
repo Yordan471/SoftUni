@@ -18,7 +18,7 @@ namespace Easter.Models.Workshops
             {
                 while (!egg.IsDone() && bunny.Energy > 0 && bunny.Dyes.Any(d => !d.IsFinished()))
                 {
-                    Dyes.Contracts.Dye dye = bunny.Dyes.FirstOrDefault(d => !d.IsFinished());
+                    IDye dye = bunny.Dyes.FirstOrDefault(d => !d.IsFinished());
 
                     bunny.Work();
                     dye.Use();
