@@ -9,12 +9,13 @@
     public class PresentsTests
     {
         Present present;
-        Bag bag = new Bag();
+        Bag bag;
 
         [SetUp]
         public void SetUp()
         {
             present = new Present("Spas", 2.5);
+            bag = new Bag();
         }
 
         [Test]
