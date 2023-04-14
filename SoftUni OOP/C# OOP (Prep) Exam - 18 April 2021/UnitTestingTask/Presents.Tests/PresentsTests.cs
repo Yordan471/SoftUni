@@ -6,6 +6,7 @@
     public class PresentsTests
     {
         Present present;
+        Bag bag = new Bag();
 
         [SetUp]
         public void SetUp()
@@ -24,6 +25,12 @@
 
             Assert.That(expectedName, Is.EqualTo(actualName));
             Assert.That(expectedMagick, Is.EqualTo(actualMagick));
+        }
+
+        [Test]
+        public void Test_BagConstructorInitializes_PrivateFieldPresents()
+        {
+            Assert.NotNull(bag.GetPresents());
         }
     }
 }
