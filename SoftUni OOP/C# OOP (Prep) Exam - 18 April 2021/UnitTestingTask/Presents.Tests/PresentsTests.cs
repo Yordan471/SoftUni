@@ -93,7 +93,17 @@
 
             Present actualPresent = bag.GetPresentWithLeastMagic();
 
-            Assert.Equals(present, actualPresent);
+            Assert.AreEqual(present, actualPresent);
+        }
+
+        [Test]
+        public void Test_GetPresent_ReturnPresentByName()
+        {
+            bag.Create(present);
+
+            Present ActualPresent = bag.GetPresent(present.Name);
+
+            Assert.AreEqual(present, ActualPresent);
         }
     }
 }
