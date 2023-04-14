@@ -3,6 +3,8 @@ using Easter.Models.Bunnies;
 using Easter.Models.Bunnies.Contracts;
 using Easter.Models.Dyes;
 using Easter.Models.Dyes.Contracts;
+using Easter.Models.Eggs;
+using Easter.Models.Eggs.Contracts;
 using Easter.Repositories;
 using Easter.Utilities.Messages;
 using System;
@@ -61,7 +63,11 @@ namespace Easter.Core
 
         public string AddEgg(string eggName, int energyRequired)
         {
-            throw new NotImplementedException();
+            IEgg egg = new Egg(eggName, energyRequired);
+
+            eggs.Add(egg);
+
+            return string.Format(OutputMessages.EggAdded, eggName);
         }
 
         public string ColorEgg(string eggName)
