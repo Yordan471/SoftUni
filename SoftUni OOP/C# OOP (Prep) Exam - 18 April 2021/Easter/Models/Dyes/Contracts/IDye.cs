@@ -1,6 +1,6 @@
 ﻿namespace Easter.Models.Dyes.Contracts
 {
-    public interface IDye
+    public interface Dye
     {
         int Power { get; }
 

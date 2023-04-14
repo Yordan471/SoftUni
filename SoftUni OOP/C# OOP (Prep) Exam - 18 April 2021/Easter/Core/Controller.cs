@@ -1,13 +1,15 @@
 ﻿using Easter.Core.Contracts;
 using Easter.Models.Bunnies;
 using Easter.Models.Bunnies.Contracts;
+using Easter.Models.Dyes;
+using Easter.Models.Dyes.Contracts;
 using Easter.Repositories;
 using Easter.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Easter.IO
+namespace Easter.Core
 {
     public class Controller : IController
     {
@@ -44,7 +46,17 @@ namespace Easter.IO
 
         public string AddDyeToBunny(string bunnyName, int power)
         {
-            throw new NotImplementedException();
+            IBunny bunny = bunnies.FindByName(bunnyName);
+
+            if (bunny == null)
+            {
+                throw new InvalidOperationException(ExceptionMessages.InexistentBunny);
+            }
+
+            Models.Dyes.Contracts.Dye dye = new Models.Dyes.Dye(power);
+            bunny.AddDye(dye);
+
+            return string.Format(OutputMessages.DyeAdded, power, bunnyName);
         }
 
         public string AddEgg(string eggName, int energyRequired)

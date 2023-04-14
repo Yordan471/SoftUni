@@ -10,10 +10,10 @@
 
         int Energy { get; }
 
-        ICollection<IDye> Dyes { get; }
+        ICollection<Dye> Dyes { get; }
 
         abstract void Work();
 
-        void AddDye(IDye dye);
+        void AddDye(Dye dye);
     }
 }
