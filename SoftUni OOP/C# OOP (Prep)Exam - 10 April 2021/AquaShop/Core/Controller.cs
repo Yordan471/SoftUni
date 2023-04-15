@@ -2,6 +2,8 @@
 using AquaShop.Models.Aquariums;
 using AquaShop.Models.Aquariums.Contracts;
 using AquaShop.Models.Decorations.Contracts;
+using AquaShop.Models.Fish;
+using AquaShop.Models.Fish.Contracts;
 using AquaShop.Repositories;
 using AquaShop.Utilities.Messages;
 using System;
@@ -52,7 +54,41 @@ namespace AquaShop.Core
 
         public string AddFish(string aquariumName, string fishType, string fishName, string fishSpecies, decimal price)
         {
-            throw new NotImplementedException();
+            IFish fish = null;
+
+            if (fishType == nameof(FreshwaterFish))
+            {
+                fish = new FreshwaterFish(fishName, fishSpecies, price);
+            }
+            else if (fishType == nameof(SaltwaterFish))
+            {
+                fish = new SaltwaterFish(fishName, fishSpecies, price);
+            }
+            else
+            {
+                throw new InvalidOperationException(ExceptionMessages.InvalidFishType);
+            }
+
+            IAquarium aquarium = aquariums
+                .FirstOrDefault(a => a.GetType().Name == aquariumName);
+            string aquariumType = aquarium.GetType().Name;
+
+            if (fishType == nameof(FreshwaterFish) && aquariumType == nameof(FreshwaterAquarium))
+            {
+                aquarium.AddFish(fish);
+
+                return string.Format(OutputMessages.EntityAddedToAquarium, fishType, aquariumName);
+            }
+            else if (fishType == nameof(SaltwaterFish) && aquariumType == nameof(SaltwaterAquarium))
+            {
+                aquarium.AddFish(fish);
+
+                return string.Format(OutputMessages.EntityAddedToAquarium, fishType, aquariumName);
+            }
+            else
+            {
+                return string.Format(OutputMessages.UnsuitableWater);
+            }
         }
 
         public string CalculateValue(string aquariumName)
