@@ -84,11 +84,11 @@ namespace AquaShop.Core
             }
             else
             {
-                throw new InvalidOperationException(ExceptionMessages.InvalidFishType);
+                throw new InvalidOperationException(string.Format(ExceptionMessages.InvalidFishType));
             }
 
             IAquarium aquarium = aquariums
-                .FirstOrDefault(a => a.GetType().Name == aquariumName);
+                .FirstOrDefault(a => a.Name == aquariumName);
             string aquariumType = aquarium.GetType().Name;
 
             if (fishType == nameof(FreshwaterFish) && aquariumType == nameof(FreshwaterAquarium))
@@ -150,7 +150,7 @@ namespace AquaShop.Core
 
             foreach (var aquarium in aquariums)
             {
-                sb.AppendLine(aquarium.ToString());
+                sb.AppendLine(aquarium.GetInfo());
             }
 
             return sb.ToString().TrimEnd();
