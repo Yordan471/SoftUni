@@ -7,8 +7,17 @@ namespace AquaShop.Models.Decorations
 {
     public abstract class Decoration : IDecoration
     {
-        public int Comfort => throw new NotImplementedException();
+        private int comfort;
+        private decimal price;
 
-        public decimal Price => throw new NotImplementedException();
+        public Decoration(int comfort, decimal price)
+        {
+            Comfort = comfort;
+            Price = price;
+        }
+
+        public int Comfort { get => comfort; private set => comfort = value; }
+
+        public decimal Price { get => Price; private set => Price = value; }
     }
 }
