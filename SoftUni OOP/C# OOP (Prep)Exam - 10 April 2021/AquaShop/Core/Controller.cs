@@ -98,7 +98,10 @@ namespace AquaShop.Core
 
         public string FeedFish(string aquariumName)
         {
-            throw new NotImplementedException();
+            aquariums.FirstOrDefault(a => a.Name == aquariumName).Feed();
+            int fishCount = aquariums.FirstOrDefault(a => a.Name == aquariumName).Fish.Count();
+
+            return string.Format(OutputMessages.FishFed, fishCount);
         }
 
         public string InsertDecoration(string aquariumName, string decorationType)
