@@ -1,6 +1,7 @@
 ﻿using AquaShop.Core.Contracts;
 using AquaShop.Models.Aquariums;
 using AquaShop.Models.Aquariums.Contracts;
+using AquaShop.Models.Decorations;
 using AquaShop.Models.Decorations.Contracts;
 using AquaShop.Models.Fish;
 using AquaShop.Models.Fish.Contracts;
@@ -49,7 +50,24 @@ namespace AquaShop.Core
 
         public string AddDecoration(string decorationType)
         {
-            throw new NotImplementedException();
+            IDecoration decoration = null;
+
+            if (decorationType == nameof(Ornament))
+            {
+                decoration = new Ornament();
+            }
+            else if(decorationType == nameof(Plant))
+            {
+                decoration = new Plant();
+            }
+            else
+            {
+                throw new InvalidOperationException(ExceptionMessages.InvalidDecorationType);
+            }
+
+            decorations.Add(decoration);
+
+            return string.Format(OutputMessages.SuccessfullyAdded, decorationType);
         }
 
         public string AddFish(string aquariumName, string fishType, string fishName, string fishSpecies, decimal price)
