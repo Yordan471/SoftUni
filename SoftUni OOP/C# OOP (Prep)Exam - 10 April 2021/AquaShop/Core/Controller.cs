@@ -146,7 +146,14 @@ namespace AquaShop.Core
 
         public string Report()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var aquarium in aquariums)
+            {
+                sb.AppendLine(aquarium.ToString());
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
