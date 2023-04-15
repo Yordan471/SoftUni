@@ -56,7 +56,7 @@ namespace AquaShop.Models.Aquariums
 
         public void AddDecoration(IDecoration decoration)
         {
-            throw new NotImplementedException();
+            Decorations.Add(decoration);
         }
 
         public void AddFish(IFish fish)
