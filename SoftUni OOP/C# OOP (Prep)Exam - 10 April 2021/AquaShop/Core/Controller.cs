@@ -111,7 +111,10 @@ namespace AquaShop.Core
 
         public string CalculateValue(string aquariumName)
         {
-            throw new NotImplementedException();
+            IAquarium aquarium = aquariums.FirstOrDefault(a => a.Name == aquariumName);
+            decimal value = aquarium.Fish.Sum(f => f.Price) + aquarium.Decorations.Sum(d => d.Price);
+
+            return string.Format(OutputMessages.AquariumValue, aquariumName, value);
         }
 
         public string FeedFish(string aquariumName)
