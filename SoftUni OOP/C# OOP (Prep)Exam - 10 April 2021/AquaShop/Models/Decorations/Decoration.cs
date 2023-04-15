@@ -18,6 +18,6 @@ namespace AquaShop.Models.Decorations
 
         public int Comfort { get => comfort; private set => comfort = value; }
 
-        public decimal Price { get => Price; private set => Price = value; }
+        public decimal Price { get => price; private set => price = value; }
     }
 }

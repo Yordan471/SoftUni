@@ -15,8 +15,6 @@ namespace AquaShop.Models.Aquariums
         private string name;
         private int capacity;
         private int comfort;
-        private ICollection<IDecoration> decorations;
-        private ICollection<IFish> fishes;
 
         public Aquarium(string name, int capacity)
         {
@@ -43,8 +41,15 @@ namespace AquaShop.Models.Aquariums
 
         public int Capacity { get => capacity; private set => capacity = value; }
 
-        public int Comfort => CalculateCpmfort();
-
+        public int Comfort
+        {
+            get => comfort;
+            private set
+            {
+                comfort = CalculateCpmfort();
+            }
+        }
+                      
         public ICollection<IDecoration> Decorations { get; private set; }
 
         public ICollection<IFish> Fish { get; private set; }
