@@ -1,11 +1,13 @@
 ﻿using AquaShop.Core.Contracts;
 using AquaShop.Models.Aquariums;
 using AquaShop.Models.Aquariums.Contracts;
+using AquaShop.Models.Decorations.Contracts;
 using AquaShop.Repositories;
 using AquaShop.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Linq;
 using System.Text;
 
 namespace AquaShop.Core
@@ -65,7 +67,21 @@ namespace AquaShop.Core
 
         public string InsertDecoration(string aquariumName, string decorationType)
         {
-            throw new NotImplementedException();
+            IDecoration decoration = decorations.Models
+                .FirstOrDefault(d => d.GetType().Name == decorationType);
+
+            if (decoration == null)
+            {
+                throw new InvalidOperationException(ExceptionMessages.InvalidDecorationType);
+            }
+
+            aquariums
+                .FirstOrDefault(a => a.Name == aquariumName)
+                .AddDecoration(decoration);
+
+            decorations.Remove(decoration);
+
+            return string.Format(OutputMessages.EntityAddedToAquarium, decorationType, aquariumName);
         }
 
         public string Report()
