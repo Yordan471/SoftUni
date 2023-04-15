@@ -47,7 +47,7 @@ namespace AquaShop.Models.Fish
             }
         }
 
-        public int Size { get; private set; }
+        public int Size { get; protected set; }
 
         public decimal Price
         {
