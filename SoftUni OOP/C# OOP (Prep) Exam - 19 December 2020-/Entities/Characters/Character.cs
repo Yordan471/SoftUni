@@ -6,9 +6,23 @@ namespace WarCroft.Entities.Characters.Contracts
 {
     public abstract class Character
     {
-		// TODO: Implement the rest of the class.
+		private string name;
 
-		public bool IsAlive { get; set; } = true;
+        public string Name
+		{
+			get => name;
+			private set
+			{
+				if (string.IsNullOrWhiteSpace(value))
+				{
+					throw new ArgumentException(ExceptionMessages.CharacterNameInvalid);
+                }
+
+				name = value;
+			}
+		}
+
+        public bool IsAlive { get; set; } = true;
 
 		protected void EnsureAlive()
 		{
