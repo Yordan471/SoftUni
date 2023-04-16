@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using WarCroft.Constants;
 using WarCroft.Entities.Characters;
 using WarCroft.Entities.Characters.Contracts;
@@ -114,7 +115,16 @@ namespace WarCroft.Core
 
 		public string GetStats()
 		{
-			throw new NotImplementedException();
+			StringBuilder sb = new StringBuilder();
+
+			foreach (var character in characters
+				.OrderByDescending(c => c.IsAlive)
+				.ThenByDescending(c => c.Health))
+			{
+				sb.AppendLine($"{character.Name} - HP: {character.Health}/{character.BaseHealth}, AP: {character.Armor}/{character.BaseArmor}, Status: {character.IsAlive}");
+            }
+
+			return sb.ToString().TrimEnd();
 		}
 
 		public string Attack(string[] args)
