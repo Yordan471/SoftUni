@@ -16,7 +16,7 @@ namespace WarCroft.Core
 		private ICollection<Character> characters;
 		private ICollection<Item> items;
 
-        public string OutputMessages { get; private set; }
+        //public string OutputMessages { get; private set; }
 
         public WarController()
 		{
@@ -116,12 +116,22 @@ namespace WarCroft.Core
 		public string GetStats()
 		{
 			StringBuilder sb = new StringBuilder();
+			string state = string.Empty;
 
 			foreach (var character in characters
 				.OrderByDescending(c => c.IsAlive)
 				.ThenByDescending(c => c.Health))
 			{
-				sb.AppendLine($"{character.Name} - HP: {character.Health}/{character.BaseHealth}, AP: {character.Armor}/{character.BaseArmor}, Status: {character.IsAlive}");
+				if (character.IsAlive)
+				{
+					state = "Alive"; 
+				}
+				else
+				{
+					state = "Dead";
+				}
+
+				sb.AppendLine($"{character.Name} - HP: {character.Health}/{character.BaseHealth}, AP: {character.Armor}/{character.BaseArmor}, Status: {state}");
             }
 
 			return sb.ToString().TrimEnd();

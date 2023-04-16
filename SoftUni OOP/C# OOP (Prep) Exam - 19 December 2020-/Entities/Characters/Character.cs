@@ -20,7 +20,9 @@ namespace WarCroft.Entities.Characters.Contracts
 		{
 			Name = name;
 			Health = health;
+			BaseHealth = health;
 			Armor = armor;
+			BaseArmor = armor;
 			AbilityPoints = abilityPoints;
 			Bag = bag;
 		}
@@ -130,8 +132,10 @@ namespace WarCroft.Entities.Characters.Contracts
 		    
 		    	this.Armor = 0;
 		    }
-		    
-		    this.Armor -= hitPoints;			
+		    else
+			{
+                this.Armor -= hitPoints;
+            }		    			
 		}
 
 		public void UseItem(Item item)
