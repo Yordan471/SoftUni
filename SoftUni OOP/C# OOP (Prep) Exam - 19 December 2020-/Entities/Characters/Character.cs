@@ -135,7 +135,7 @@ namespace WarCroft.Entities.Characters.Contracts
 			
 		}
 
-		protected void UseItem(Item item)
+		public void UseItem(Item item)
 		{			
 	     	item.AffectCharacter(this);			
 		}

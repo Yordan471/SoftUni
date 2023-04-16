@@ -95,7 +95,21 @@ namespace WarCroft.Core
 
 		public string UseItem(string[] args)
 		{
-			throw new NotImplementedException();
+			string characterName = args[0];
+			string itemName = args[1];
+
+			Character character = characters.FirstOrDefault(c => c.Name == characterName);
+
+			if (character == null)
+			{
+				throw new ArgumentException(ExceptionMessages.CharacterNotInParty, characterName);
+            }
+
+			Item item = character.Bag.GetItem(itemName);
+
+			character.UseItem(item);
+
+			return string.Format(SuccessMessages.UsedItem, characterName, itemName);
 		}
 
 		public string GetStats()
