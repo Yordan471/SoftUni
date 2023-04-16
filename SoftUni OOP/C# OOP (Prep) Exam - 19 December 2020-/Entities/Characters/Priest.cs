@@ -8,13 +8,21 @@ namespace WarCroft.Entities.Characters
 {
     public class Priest : Character, IHealer
     {
-        public Priest(string name, double health, double armor, double abilityPoints, Bag bag) : base(name, health, armor, abilityPoints, bag)
+        private const double PriestBaseHealth = 50;
+        private const double PriestBaseArmor = 25;
+        private const double PriestAbilityPoints = 40;
+        private static Backpack bag;
+
+        public Priest(string name) : base(name, PriestBaseHealth, PriestBaseArmor, PriestAbilityPoints, bag = new Backpack())
         {
         }
 
         public void Heal(Character character)
         {
-            throw new NotImplementedException();
+            this.EnsureAlive();
+            character.EnsureAlive();
+
+            character.Health += this.AbilityPoints;
         }
     }
 }

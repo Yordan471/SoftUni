@@ -106,7 +106,7 @@ namespace WarCroft.Entities.Characters.Contracts
 
         public bool IsAlive { get; set; } = true;
 
-		protected void EnsureAlive()
+		public void EnsureAlive()
 		{
 			if (!this.IsAlive)
 			{
