@@ -129,8 +129,30 @@ namespace WarCroft.Core
 
 		public string Attack(string[] args)
 		{
-			throw new NotImplementedException();
-		}
+			string attackerName = args[0];
+			string receiverName = args[1];
+
+			Warrior attackerCharacter = characters.FirstOrDefault(c => c.Name == attackerName) as Warrior;
+			Character receiverCharacter = characters.FirstOrDefault(c => c.Name == receiverName);
+
+            if (attackerCharacter == null)
+			{
+				throw new ArgumentException(ExceptionMessages.CharacterNotInParty, attackerName);
+            }
+			else if (receiverCharacter == null)
+			{
+                throw new ArgumentException(ExceptionMessages.CharacterNotInParty, receiverName);
+            }
+
+			if (attackerCharacter.IsAlive == false)
+			{
+				throw new ArgumentException(ExceptionMessages.AttackFail, attackerName);
+            }
+
+			attackerCharacter.Attack(receiverCharacter);
+
+			return $"{attackerName} attacks {receiverName} for {attackerCharacter.AbilityPoints} hit points! {receiverName} has {receiverCharacter.Health}/{receiverCharacter.BaseHealth} HP and {receiverCharacter.Armor}/{receiverCharacter.BaseArmor} AP left!";
+        }
 
 		public string Heal(string[] args)
 		{

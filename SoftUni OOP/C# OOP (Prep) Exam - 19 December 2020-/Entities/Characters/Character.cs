@@ -131,8 +131,7 @@ namespace WarCroft.Entities.Characters.Contracts
 		    	this.Armor = 0;
 		    }
 		    
-		    this.Armor -= hitPoints;
-			
+		    this.Armor -= hitPoints;			
 		}
 
 		public void UseItem(Item item)
