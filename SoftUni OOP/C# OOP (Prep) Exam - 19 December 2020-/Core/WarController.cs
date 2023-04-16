@@ -1,11 +1,20 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using WarCroft.Entities.Characters.Contracts;
+using WarCroft.Entities.Items;
 
 namespace WarCroft.Core
 {
 	public class WarController
 	{
+		private ICollection<Character> characters;
+		private ICollection<Item> items;
+
 		public WarController()
 		{
+			characters = new List<Character>();
+			items = new List<Item>();
 		}
 
 		public string JoinParty(string[] args)
