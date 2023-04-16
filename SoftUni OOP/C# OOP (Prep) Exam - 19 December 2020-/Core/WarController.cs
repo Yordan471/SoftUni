@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using WarCroft.Constants;
 using WarCroft.Entities.Characters;
 using WarCroft.Entities.Characters.Contracts;
@@ -49,31 +50,47 @@ namespace WarCroft.Core
 
 		public string AddItemToPool(string[] args)
 		{
-			throw new NotImplementedException();
-		}
+            string itemName = args[0];
+
+            Item item = null;
+
+            if (itemName == nameof(HealthPotion))
+            {
+                item = new HealthPotion();
+            }
+            else if (itemName == nameof(FirePotion))
+            {
+                item = new FirePotion();
+            }
+            else
+            {
+                throw new ArgumentException(ExceptionMessages.InvalidItem, itemName);
+            }
+
+            items.Add(item);
+
+            return string.Format(SuccessMessages.AddItemToPool, itemName);
+        }
 
 		public string PickUpItem(string[] args)
 		{
-			string itemName = args[0];
+			string characterName = args[0];
 
-			Item item = null;
+			Character character = characters.FirstOrDefault(c => c.Name == characterName);
 
-			if (itemName == nameof(HealthPotion))
+			if (character == null)
 			{
-				item = new HealthPotion();
-			}
-			else if (itemName == nameof(FirePotion))
-			{
-				item = new FirePotion();
-			}
-			else
-			{
-				throw new ArgumentException(ExceptionMessages.InvalidItem, itemName);
+				throw new ArgumentException(ExceptionMessages.CharacterNotInParty, characterName);
             }
 
-			items.Add(item);
+			if (items.Count == 0)
+			{
+				throw new InvalidOperationException(ExceptionMessages.ItemPoolEmpty);
+            }
 
-			return string.Format(SuccessMessages.AddItemToPool, itemName);
+			character.Bag.AddItem(items.Last());
+
+			return string.Format(SuccessMessages.PickUpItem, characterName, items.Last().GetType().Name);
         }
 
 		public string UseItem(string[] args)
