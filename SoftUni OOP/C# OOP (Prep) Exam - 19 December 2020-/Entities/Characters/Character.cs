@@ -16,6 +16,15 @@ namespace WarCroft.Entities.Characters.Contracts
 		private double abilityPoints;
 		private Bag bag;
 
+		public Character(string name, double health, double armor, double abilityPoints, Bag bag)
+		{
+			Name = name;
+			Health = health;
+			Armor = armor;
+			AbilityPoints = abilityPoints;
+			Bag = bag;
+		}
+
         public string Name
 		{
 			get => name;
@@ -105,25 +114,25 @@ namespace WarCroft.Entities.Characters.Contracts
 			}
 		}
 
-		protected void TakeDamage(double hitPoints)
+		public void TakeDamage(double hitPoints)
 		{
-			if (this.IsAlive == true)
-			{
-				if (this.Armor - hitPoints < 0)
-				{
-					this.Health += this.Armor - hitPoints;
+			this.EnsureAlive();
 
-					if (this.Health <= 0)
-					{
-						this.Health = 0;
-						this.IsAlive = false;
-					}
-
-					this.Armor = 0;
-				}
-
-				this.Armor -= hitPoints;
-			}
+		    if (this.Armor - hitPoints < 0)
+		    {
+		    	this.Health += this.Armor - hitPoints;
+		    
+		    	if (this.Health <= 0)
+		    	{
+		    		this.Health = 0;
+		    		this.IsAlive = false;
+		    	}
+		    
+		    	this.Armor = 0;
+		    }
+		    
+		    this.Armor -= hitPoints;
+			
 		}
 
 		protected void UseItem(Item item)
