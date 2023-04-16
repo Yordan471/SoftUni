@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using WarCroft.Constants;
+using WarCroft.Entities.Inventory;
 using WarCroft.Entities.Items;
 
 namespace WarCroft.Entities.Characters.Contracts
@@ -60,9 +61,7 @@ namespace WarCroft.Entities.Characters.Contracts
 		{
 			get => baseArmor;
 			private set
-			{
-				
-
+			{				
 				baseArmor = value;
 			}
         }
@@ -105,5 +104,31 @@ namespace WarCroft.Entities.Characters.Contracts
 				throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
 			}
 		}
-	}
+
+		protected void TakeDamage(double hitPoints)
+		{
+			if (this.IsAlive == true)
+			{
+				if (this.Armor - hitPoints < 0)
+				{
+					this.Health += this.Armor - hitPoints;
+
+					if (this.Health <= 0)
+					{
+						this.Health = 0;
+						this.IsAlive = false;
+					}
+
+					this.Armor = 0;
+				}
+
+				this.Armor -= hitPoints;
+			}
+		}
+
+		protected void UseItem(Item item)
+		{			
+	     	item.AffectCharacter(this);			
+		}
+    }
 }
