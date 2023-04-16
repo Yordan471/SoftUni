@@ -141,8 +141,7 @@
         {
             Assert.Throws<ArgumentException>(() =>
             aquarium = new Aquarium("spasoka", -1), "Invalid aquarium capacity!"
-            );
-            
+            );          
         }
     }
 }
