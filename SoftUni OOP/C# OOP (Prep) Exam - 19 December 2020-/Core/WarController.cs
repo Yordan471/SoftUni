@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using WarCroft.Constants;
 using WarCroft.Entities.Characters;
 using WarCroft.Entities.Characters.Contracts;
+using WarCroft.Entities.Inventory;
 using WarCroft.Entities.Items;
 
 namespace WarCroft.Core
@@ -53,8 +54,27 @@ namespace WarCroft.Core
 
 		public string PickUpItem(string[] args)
 		{
-			throw new NotImplementedException();
-		}
+			string itemName = args[0];
+
+			Item item = null;
+
+			if (itemName == nameof(HealthPotion))
+			{
+				item = new HealthPotion();
+			}
+			else if (itemName == nameof(FirePotion))
+			{
+				item = new FirePotion();
+			}
+			else
+			{
+				throw new ArgumentException(ExceptionMessages.InvalidItem, itemName);
+            }
+
+			items.Add(item);
+
+			return string.Format(SuccessMessages.AddItemToPool, itemName);
+        }
 
 		public string UseItem(string[] args)
 		{
