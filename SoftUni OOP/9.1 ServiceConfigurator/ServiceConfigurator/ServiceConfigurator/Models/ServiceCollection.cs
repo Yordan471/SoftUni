@@ -25,7 +25,7 @@ namespace ServiceConfigurator.Models
 
         public Contracts.IServiceProvider BuildServiceProvider()
         {
-            throw new NotImplementedException();
+            return new ServiceProvider(this);
         }
 
         public Type GetMapping(Type interfaceType)

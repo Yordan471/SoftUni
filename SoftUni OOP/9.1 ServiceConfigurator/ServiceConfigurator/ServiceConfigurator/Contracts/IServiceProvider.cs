@@ -8,7 +8,7 @@ namespace ServiceConfigurator.Contracts
 {
     public interface IServiceProvider
     {
-        object GetService<T>();
+        T GetService<T>();
 
     }
 }

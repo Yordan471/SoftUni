@@ -17,9 +17,9 @@ namespace ServiceConfigurator.Models
             this.serviceCollection = serviceCollection;
         }
 
-        public object GetService<T>()
+        public T GetService<T>()
         {
-            return GetService(typeof(T));
+            return (T)GetService(typeof(T));
         }
 
         public object GetService(Type type)
