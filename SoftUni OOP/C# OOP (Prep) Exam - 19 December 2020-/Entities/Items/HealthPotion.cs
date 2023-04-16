@@ -18,7 +18,7 @@ namespace WarCroft.Entities.Items
         {
             base.AffectCharacter(character);
 
-            character.
+            character.Health += IncreaseHealthByTwenty;
         }
     }
 }

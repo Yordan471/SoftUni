@@ -41,7 +41,7 @@ namespace WarCroft.Entities.Characters.Contracts
 		public double Health
 		{
 			get => health;
-			private set
+		    set
 			{
 				if (value > BaseHealth)
 				{
