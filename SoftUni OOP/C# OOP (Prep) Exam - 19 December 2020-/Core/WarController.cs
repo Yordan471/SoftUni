@@ -65,7 +65,7 @@ namespace WarCroft.Core
             }
             else
             {
-                throw new ArgumentException(ExceptionMessages.InvalidItem, itemName);
+                throw new ArgumentException(string.Format(ExceptionMessages.InvalidItem, itemName));
             }
 
             items.Add(item);
@@ -81,7 +81,7 @@ namespace WarCroft.Core
 
 			if (character == null)
 			{
-				throw new ArgumentException(ExceptionMessages.CharacterNotInParty, characterName);
+				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, characterName));
             }
 
 			if (items.Count == 0)
@@ -103,7 +103,7 @@ namespace WarCroft.Core
 
 			if (character == null)
 			{
-				throw new ArgumentException(ExceptionMessages.CharacterNotInParty, characterName);
+				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, characterName));
             }
 
 			Item item = character.Bag.GetItem(itemName);
@@ -137,16 +137,16 @@ namespace WarCroft.Core
 
             if (attackerCharacter == null)
 			{
-				throw new ArgumentException(ExceptionMessages.CharacterNotInParty, attackerName);
+				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, attackerName));
             }
 			else if (receiverCharacter == null)
 			{
-                throw new ArgumentException(ExceptionMessages.CharacterNotInParty, receiverName);
+                throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, receiverName));
             }
 
 			if (attackerCharacter.IsAlive == false)
 			{
-				throw new ArgumentException(ExceptionMessages.AttackFail, attackerName);
+				throw new ArgumentException(string.Format(ExceptionMessages.AttackFail, attackerName));
             }
 
 			attackerCharacter.Attack(receiverCharacter);
@@ -156,7 +156,30 @@ namespace WarCroft.Core
 
 		public string Heal(string[] args)
 		{
-			throw new NotImplementedException();
-		}
+			string healerName = args[0];
+			string healingReceiverName = args[1];
+
+			Priest healerCharacter = characters.FirstOrDefault(c => c.Name == healerName) as Priest;
+			Character healingReceiverCharacter = characters.FirstOrDefault(c => c.Name == healingReceiverName);
+
+			if (healerCharacter == null)
+			{
+				throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, healerName));
+            }
+			
+			if (healingReceiverCharacter == null)
+			{
+                throw new ArgumentException(string.Format(ExceptionMessages.CharacterNotInParty, healingReceiverName));
+            }
+
+			if (healerCharacter.IsAlive == false)
+			{
+				throw new ArgumentException(string.Format(ExceptionMessages.HealerCannotHeal, healerName));
+            }
+
+			healerCharacter.Heal(healingReceiverCharacter);
+
+			return $"{healerCharacter.Name} heals {healingReceiverCharacter.Name} for {healerCharacter.AbilityPoints}! {healingReceiverCharacter.Name} has {healingReceiverCharacter.Health} health now!";
+        }
 	}
 }
