@@ -104,5 +104,23 @@ namespace FestivalManager.Tests
             stage.AddSongToPerformer(song.Name, performer.FullName), "There is no song with this name."
             );
         }
+
+		[Test]
+		public void Test_ValidateNullValue_ArgumentNullException_WhenVariableIsNullForSong()
+		{
+			song = null;
+
+			Assert.Throws<ArgumentNullException>(() => stage.AddSong(song) );
+		}
+
+		[Test]
+		public void Test_ValidateNullValue_ArgumentNullException_WhenVariableIsNullForPerformer()
+		{
+			stage.AddSong(song);
+			performer = null;
+
+			Assert.Throws<ArgumentNullException>(() =>
+			stage.AddPerformer(performer));
+		}
     }
 }
