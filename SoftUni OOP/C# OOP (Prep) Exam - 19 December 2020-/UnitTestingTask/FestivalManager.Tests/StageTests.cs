@@ -21,7 +21,7 @@ namespace FestivalManager.Tests
 		{
 			stage = new Stage();
 			performer = new Performer("Geshaka", "Ivanov", 19);
-			song = new Song("Geraka", new TimeSpan(0, 0, 10));
+			song = new Song("Geraka", new TimeSpan(0, 1, 10));
 		}
 
 		[Test]
@@ -59,9 +59,28 @@ namespace FestivalManager.Tests
 		}
 
 		[Test]
-		public void Test_AddSong_AddsGivenSong()
+		public void Test_AddSongToPerformer_AddsGivenSongToGivenPerformer()
 		{
 			stage.AddSong(song);
-		}
+			stage.AddPerformer(performer);
+
+			string actualString = stage.AddSongToPerformer(song.Name, performer.FullName);
+			string expectedString = $"{song} will be performed by {performer.FullName}";
+
+			Assert.That(expectedString, Is.EqualTo(actualString));
+        }
+
+		[Test]
+		public void Test_Play_ReturnsStringCorrectly()
+		{
+            stage.AddSong(song);
+            stage.AddPerformer(performer);
+			stage.AddSongToPerformer(song.Name, performer.FullName);
+
+			string expectedString = $"{stage.Performers.Count} performers played 1 songs";
+            string actualString = stage.Play();
+
+			Assert.That(actualString, Is.EqualTo(expectedString));
+        }
     }
 }
