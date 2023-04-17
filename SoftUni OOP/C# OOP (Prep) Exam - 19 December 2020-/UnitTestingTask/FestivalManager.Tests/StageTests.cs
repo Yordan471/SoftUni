@@ -82,5 +82,16 @@ namespace FestivalManager.Tests
 
 			Assert.That(actualString, Is.EqualTo(expectedString));
         }
+
+		[Test]
+		public void Test_GetPerformer_ThrowsArgumentException_WhenPerformerIsNull()
+		{
+			//performer = null;
+			stage.AddSong(song);
+
+			Assert.Throws<ArgumentException>(() =>
+			stage.AddSongToPerformer(song.Name, performer.FullName), "There is no performer with this name."
+			);
+        }
     }
 }
