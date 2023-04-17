@@ -84,7 +84,7 @@ namespace FestivalManager.Tests
         }
 
 		[Test]
-		public void Test_GetPerformer_ThrowsArgumentException_WhenPerformerIsNull()
+		public void Test_GetPerformer_ThrowsArgumentException_WhenPerformerDoesntExist()
 		{
 			//performer = null;
 			stage.AddSong(song);
@@ -92,6 +92,17 @@ namespace FestivalManager.Tests
 			Assert.Throws<ArgumentException>(() =>
 			stage.AddSongToPerformer(song.Name, performer.FullName), "There is no performer with this name."
 			);
+        }
+
+        [Test]
+        public void Test_GetSong_ThrowsArgumentException_WhenSongDoesntExist()
+        {
+            //performer = null;
+            stage.AddPerformer(performer);
+
+            Assert.Throws<ArgumentException>(() =>
+            stage.AddSongToPerformer(song.Name, performer.FullName), "There is no song with this name."
+            );
         }
     }
 }
