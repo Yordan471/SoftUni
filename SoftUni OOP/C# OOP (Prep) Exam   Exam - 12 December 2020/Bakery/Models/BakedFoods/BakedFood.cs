@@ -14,6 +14,13 @@ namespace Bakery.Models.BakedFoods
         private int portion;
         private decimal price;
 
+        public BakedFood(string name, int portion, decimal price)
+        {
+            Name = name;
+            Portion = portion;
+            Price = price;
+        }
+
         public string Name
         {
             get => name;
@@ -54,6 +61,15 @@ namespace Bakery.Models.BakedFoods
 
                 price = value;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{this.Name}: {this.Portion}g - {this.Price:f2}");
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
