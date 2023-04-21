@@ -16,6 +16,14 @@ namespace Bakery.Models.Drinks
         private decimal price;
         private string brand;
 
+        public Drink(string name, int portion, decimal price, string brand)
+        {
+            Name = name;
+            Portion = portion;
+            Price = price;
+            Brand = brand;
+        }
+
         public string Name
         {
             get => name;
@@ -70,6 +78,15 @@ namespace Bakery.Models.Drinks
 
                 brand = value;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{this.Name} {this.Brand} - {this.Portion}ml - {this.Price:f2}lv");
+
+            return sb.ToString().Trim();
         }
     }
 }
