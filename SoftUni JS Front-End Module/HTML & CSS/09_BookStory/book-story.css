@@ -13,3 +13,11 @@ p {
 h1 {
     text-align: center;
 }
+
+q::before {
+    content: open-queto;
+}
+
+q::after {
+    content: close-queto;
+}
