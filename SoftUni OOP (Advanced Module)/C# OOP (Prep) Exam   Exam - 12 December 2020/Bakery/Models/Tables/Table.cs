@@ -1,6 +1,7 @@
 ﻿using Bakery.Models.BakedFoods.Contracts;
 using Bakery.Models.Drinks.Contracts;
 using Bakery.Models.Tables.Contracts;
+using Bakery.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +10,25 @@ namespace Bakery.Models.Tables
 {
     public abstract class Table : ITable
     {
+        private const int ValueLessThenZero = 0;
+
+        private int capacity;
+
         public int TableNumber { get; private set; }
 
-        public int Capacity => throw new NotImplementedException();
+        public int Capacity
+        {
+            get => capacity;
+            private set
+            {
+                if (value < ValueLessThenZero)
+                {
+                    throw new ArgumentException(ExceptionMessages.InvalidTableCapacity);
+                }
+
+                capacity = value;
+            }
+        }
 
         public int NumberOfPeople => throw new NotImplementedException();
 
