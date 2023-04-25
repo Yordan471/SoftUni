@@ -46,11 +46,11 @@ namespace Bakery.Models.Tables
 
         }
 
-        public decimal PricePerPerson => throw new NotImplementedException();
+        public decimal PricePerPerson { get; private set; }
 
         public bool IsReserved => throw new NotImplementedException();
 
-        public decimal Price => throw new NotImplementedException();
+        public decimal Price => NumberOfPeople * Price;
 
         public void Clear()
         {
