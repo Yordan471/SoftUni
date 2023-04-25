@@ -14,6 +14,15 @@ namespace Bakery.Models.Tables
 
         private int capacity;
         private int numberOfPeople;
+        private ICollection<IDrink> DrinkOrders;
+        private ICollection<IBakedFood> FoodOrders;
+
+        public Table(int tableNumber, int capacity, decimal pricePerPerson)
+        {
+            TableNumber = tableNumber;
+            Capacity = capacity;
+            PricePerPerson = pricePerPerson;
+        }
 
         public int TableNumber { get; private set; }
 
@@ -48,13 +57,16 @@ namespace Bakery.Models.Tables
 
         public decimal PricePerPerson { get; private set; }
 
-        public bool IsReserved => throw new NotImplementedException();
+        public bool IsReserved { get; private set; }
 
         public decimal Price => NumberOfPeople * Price;
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            DrinkOrders.Clear();
+            FoodOrders.Clear();
+            NumberOfPeople = 0;
+            this.IsReserved = false;
         }
 
         public decimal GetBill()
