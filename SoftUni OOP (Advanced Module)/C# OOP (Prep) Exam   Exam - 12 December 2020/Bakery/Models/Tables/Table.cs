@@ -13,6 +13,7 @@ namespace Bakery.Models.Tables
         private const int ValueLessThenZero = 0;
 
         private int capacity;
+        private int numberOfPeople;
 
         public int TableNumber { get; private set; }
 
@@ -30,7 +31,20 @@ namespace Bakery.Models.Tables
             }
         }
 
-        public int NumberOfPeople => throw new NotImplementedException();
+        public int NumberOfPeople
+        {
+            get => numberOfPeople;
+            private set
+            {
+                if (value <= ValueLessThenZero)
+                {
+                    throw new ArgumentException(ExceptionMessages.InvalidNumberOfPeople);
+                }
+
+                numberOfPeople = value;
+            }
+
+        }
 
         public decimal PricePerPerson => throw new NotImplementedException();
 
