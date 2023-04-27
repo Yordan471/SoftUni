@@ -91,7 +91,8 @@ namespace Bakery.Models.Tables
 
         public void Reserve(int numberOfPeople)
         {
-            throw new NotImplementedException();
+            this.IsReserved = true;
+            this.NumberOfPeople = numberOfPeople;
         }
     }
 }
