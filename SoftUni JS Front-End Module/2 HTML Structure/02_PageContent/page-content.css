@@ -1,0 +1,17 @@
+h1 {
+    text-size-adjust: 28px;
+}
+
+p {
+    text-size-adjust: 28px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #CCCCCC;
+}
+
+section {
+    margin-left: 20px;
+}
