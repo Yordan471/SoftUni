@@ -1,9 +1,13 @@
-h1 {
+header h1 {
     text-size-adjust: 28px;
 }
 
+header p {
+    font-style: italic;
+}
+
 p {
-    text-size-adjust: 28px;
+    text-size-adjust: 24px;
 }
 
 body {
@@ -15,3 +19,4 @@ body {
 section {
     margin-left: 20px;
 }
+
