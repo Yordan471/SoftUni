@@ -1,0 +1,20 @@
+body {
+    background-color: #e4e978;
+    width: 700;
+}
+ 
+.comment-article {
+    font-style: italic;
+    color: #5c6e91;
+}
+
+article {
+    padding: 15px;
+    margin: 15px 10px;
+    background-color: #f2f4c0;
+    border: 1px solid #b2ad7d;
+}
+
+section article{
+    
+}
