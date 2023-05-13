@@ -13,4 +13,5 @@ th, td {
     width: 144px;
     height: 32px;
     border: 1px solid #ccc;
+    padding-left: 5px;
 }
