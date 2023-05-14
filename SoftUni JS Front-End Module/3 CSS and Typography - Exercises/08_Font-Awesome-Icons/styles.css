@@ -35,3 +35,15 @@ button {
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
+
+.shopping {
+    background-color: #83a94c;
+}
+
+.info {
+    background-color: #008ed0;
+}
+
+.delete {
+    background-color: #cc4036;
+}
