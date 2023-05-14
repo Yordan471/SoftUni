@@ -12,3 +12,37 @@ h5,
 h6 {
     font-family: Georgia, serif;
 }
+
+.square {
+    list-style: square;
+}
+
+.filled {
+    list-style: disc;
+}
+
+.circle {
+    list-style: circle;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+th {
+    background-color: rgb(194, 190, 190);
+    color: black;
+    text-align: left;
+}
+
+th, td {
+    width: 144px;
+    height: 32px; 
+    border: 2px solid rgb(194, 190, 190);
+}
+
+tr:nth-child(even) {
+    background-color: rgb(228, 224, 224);
+}
