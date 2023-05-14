@@ -17,3 +17,8 @@ li {
     line-height: 25px;
     margin-left: -15px;
 }
+
+a {
+    width: 1.14em;
+    padding-right: 0.28em;
+}
