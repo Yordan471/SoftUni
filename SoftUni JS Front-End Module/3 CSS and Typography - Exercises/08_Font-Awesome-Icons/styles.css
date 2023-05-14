@@ -4,3 +4,10 @@ body {
     font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
+nav {
+    width: 200px;
+    border: 1px solid #e3e3e3;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #f5f5f5;
+}
