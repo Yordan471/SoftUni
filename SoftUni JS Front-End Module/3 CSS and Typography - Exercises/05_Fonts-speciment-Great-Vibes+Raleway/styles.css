@@ -1,0 +1,20 @@
+
+body {
+    font-family: "Raleway", serif;
+}
+
+h1, h2 {
+    font-family: "Great Vibes", sans-serif;
+}
+
+.square {
+    list-style-type: square;
+}
+
+.filled {
+    list-style-type: disc;
+}
+
+.circle {
+    list-style-type: circle;
+}
