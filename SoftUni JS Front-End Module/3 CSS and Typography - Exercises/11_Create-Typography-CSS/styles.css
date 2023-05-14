@@ -46,3 +46,15 @@ th, td {
 tr:nth-child(even) {
     background-color: rgb(228, 224, 224);
 }
+
+blockquote {
+    border-left: 3px solid rgb(221, 221, 221);
+    padding-left: 30px;
+    padding-top: 5px;
+    font-style: italic;
+    line-height: 2.5;
+}
+
+.author {
+    text-align: right;
+}
