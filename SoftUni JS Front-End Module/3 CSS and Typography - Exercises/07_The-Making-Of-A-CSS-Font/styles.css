@@ -14,3 +14,12 @@ h1 {
     text-transform: uppercase;
     text-align: center;
 }
+
+h2 {
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -1px;
+    color: #dfbf84;
+    text-transform: uppercase;
+    text-align: center;
+}
