@@ -16,3 +16,15 @@ a {
 a:hover {
     color: #eee;
 }
+
+i {
+    padding-right: 5.40px;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
