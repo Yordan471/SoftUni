@@ -11,3 +11,9 @@ nav {
     line-height: 20px;
     background-color: #f5f5f5;
 }
+
+li {
+    list-style: none;
+    line-height: 25px;
+    margin-left: -15px;
+}
