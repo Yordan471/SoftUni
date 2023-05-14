@@ -19,6 +19,19 @@ li {
 }
 
 a {
+    text-decoration: none;
+    color: #c83025;
+}
+
+i {
     width: 1.14em;
     padding-right: 0.28em;
+}
+
+button {
+    padding: 4px 12px;
+    line-height: 20px;
+    color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
