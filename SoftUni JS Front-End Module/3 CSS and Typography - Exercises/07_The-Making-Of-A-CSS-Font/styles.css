@@ -6,5 +6,11 @@ body {
 }
 
 h1 {
-    font-family: 'Righteous';
+    font-family: 'Righteous', cursive;
+    font-size: 45px;
+    font-weight: normal;
+    line-height: 60px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
 }
