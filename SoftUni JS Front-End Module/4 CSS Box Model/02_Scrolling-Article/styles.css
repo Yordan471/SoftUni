@@ -5,3 +5,16 @@ article {
     padding: 10px;
     overflow: auto;
 }
+
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    text-indent: 30px;
+}
