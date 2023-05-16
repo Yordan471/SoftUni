@@ -16,3 +16,10 @@ article p {
     padding: 10px;
     text-indent: 30px;
 }
+
+article div {
+    margin-bottom: 30px;
+    border-top: 2px solid #fff;
+    position: relative;
+    top: 20px;
+}
