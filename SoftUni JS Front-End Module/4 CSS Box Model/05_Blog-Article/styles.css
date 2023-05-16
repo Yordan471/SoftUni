@@ -1,3 +1,10 @@
 body {
     background-color: #02475e;
 }
+
+article h2 {
+    font-size: 36px;
+    color: #fefecc;
+    margin: 12px;
+    text-align: center;
+}
