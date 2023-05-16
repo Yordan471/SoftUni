@@ -33,3 +33,10 @@ button {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+p {
+    font-family: Georgia, "Cambria", 'Times New Roman', Times, serif;
+    font-size: 18px;
+    line-height: 30px;
+    margin-top: 0;
+}
