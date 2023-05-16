@@ -23,3 +23,15 @@ article div {
     position: relative;
     top: 20px;
 }
+
+article span {
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
+    padding: 3px 5px;
+    margin: 0 auto;
+    background-color: #fff;
+    display: block;
+    position: relative;
+    top: -11px;
+}
