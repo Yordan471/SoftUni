@@ -2,3 +2,10 @@ main {
     width: 900px;
     height: 140px;
 }
+
+img {
+    border: 1px solid #d1d1d1;
+    float: left;
+    margin-right: 19px;
+    padding-right: 19px;
+}
