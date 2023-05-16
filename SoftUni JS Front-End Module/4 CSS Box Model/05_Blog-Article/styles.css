@@ -8,3 +8,11 @@ article h2 {
     margin: 12px;
     text-align: center;
 }
+
+article p {
+    color: #eee;
+    font-family: Arial, sans-serif;
+    line-height: 24px;
+    padding: 10px;
+    text-indent: 30px;
+}
