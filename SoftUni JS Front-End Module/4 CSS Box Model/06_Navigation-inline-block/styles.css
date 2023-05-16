@@ -1,0 +1,12 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+header h1 {
+    text-transform: uppercase;
+}
+
+nav ul li {
+    display: inline-block;
+    color: green;
+}
