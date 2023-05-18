@@ -4,9 +4,20 @@ html {
 
 header h1 {
     text-transform: uppercase;
+    display: inline-block;
+}
+
+nav {
+    display: inline-block;
 }
 
 nav ul li {
     display: inline-block;
-    color: green;
+    padding: 10px;
+     
+}
+
+a {
+    color: green;  
+    text-decoration: none;
 }
