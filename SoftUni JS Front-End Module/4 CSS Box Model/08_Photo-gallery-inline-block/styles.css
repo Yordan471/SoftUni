@@ -1,0 +1,10 @@
+body {
+    padding: 5rem;
+    background-color: #eee;
+}
+
+.gallery {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
