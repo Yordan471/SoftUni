@@ -3,3 +3,21 @@ body {
     background-color: rgb(181, 216, 255);
     padding: 5px 10px;
 }
+
+header h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+aside ul {
+    list-style: none;
+    margin: 0px;
+    padding: 5px;
+}
+
+a {
+    display: block;
+    padding: 5px 0px;
+    color: rgb(86, 40, 129);
+    text-decoration: none;
+}
