@@ -1,4 +1,20 @@
 body {
+    
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "aside main"
+    "footer footer";
+    grid-template-columns: 100px auto;
+    gap: 10px
+}
+
+header {grid-area: header;}
+main {grid-area: main;}
+aside {grid-area: aside;}
+footer {grid-area: footer;}
+
+body header, main, aside, footer {
     border-radius: 3px;
     background-color: rgb(181, 216, 255);
     padding: 5px 10px;
@@ -21,3 +37,4 @@ a {
     color: rgb(86, 40, 129);
     text-decoration: none;
 }
+
