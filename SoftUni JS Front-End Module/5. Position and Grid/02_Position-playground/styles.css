@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+margin: 0;
+}
+
+section {
+    position: relative;
+    height: 50vw;
+    width: 50vw; 
+}
+
+img {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.first{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.second {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,121,9,1) 35%, rgba(0,212,255,1) 100%);
+}
+
