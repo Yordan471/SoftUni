@@ -1,0 +1,27 @@
+body {
+    margin: 60px;
+    background-color: rgb(238, 238, 238);
+}
+
+header p, nav li{
+    display: inline-block;
+}
+
+header p {
+    
+    font-size: 30px;
+    font-weight: bolder;
+    line-height: 0;
+}
+
+header nav {
+    margin: 0;
+    
+    float: right;
+}
+
+header nav li {
+    padding: 8px;
+    color: green;
+}
+
