@@ -35,17 +35,17 @@ header nav li {
 
 /*Section*/
 
-.first__pic {
+
+.first__image {
     float: right;
     border: 2px solid black;
     padding: 6px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px gray;
-}
-
-.first__image {
-    height: 100%;
-    width: 100%;
+    display: block;
+    margin: 15px;
+    /* height: 100%;
+    width: 100%; */
 }
 
 /* Heading level 2 */
@@ -83,4 +83,9 @@ blockquote span {
     border: 2px solid black;
     padding: 6px;
     margin-right: 15px;
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
+    font-size: 1.2;
 }
