@@ -25,3 +25,18 @@ header nav li {
     color: green;
 }
 
+/*Section*/
+
+.first__pic {
+    float: right;
+    border: 2px solid black;
+    padding: 4px;
+}
+
+.first__image {
+    
+    height: 100%;
+    width: 100%;
+}
+
+
