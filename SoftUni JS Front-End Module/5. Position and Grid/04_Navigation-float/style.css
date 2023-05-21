@@ -48,6 +48,8 @@ header nav li {
     width: 100%;
 }
 
+/* Heading level 2 */
+
 h2 {
     margin-top: 50px;
 }
@@ -60,4 +62,25 @@ blockquote {
     width: 45%;
     font-family: Georgia, serif;
     text-align: top;
+}
+
+blockquote p {
+    margin: 0;
+    padding-left: 25px;
+}
+
+blockquote span {
+    display: block;
+    text-align: right;
+    margin: 15px;
+}
+
+/* Next Heading level 2 */
+
+.second__img {
+    display: block;
+    float: left;
+    border: 2px solid black;
+    padding: 6px;
+    margin-right: 15px;
 }
