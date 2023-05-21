@@ -1,0 +1,23 @@
+/* body {
+    margin: 0;
+    background-color: rgb(238, 238, 238); */
+/* } */
+
+.card {
+    margin: auto;
+    width: 50%;
+    /* position: relative; */
+    
+    border: 2px solid gray;
+}
+
+.container__content {
+    padding: 12px;
+}
+
+img {
+    /* position: absolute; */
+    width: 100%; 
+}
+
+button {}
