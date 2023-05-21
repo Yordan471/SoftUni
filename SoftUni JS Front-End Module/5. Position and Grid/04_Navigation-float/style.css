@@ -24,8 +24,7 @@ header p {
 }
 
 header nav {
-    margin: 0;
-    
+    margin: 0;  
     float: right;
 }
 
@@ -53,3 +52,12 @@ h2 {
     margin-top: 50px;
 }
 
+blockquote {
+    margin: 5px;
+    padding: 0;
+    border-left: 2px solid rgb(173, 171, 171);
+    float: right;
+    width: 45%;
+    font-family: Georgia, serif;
+    text-align: top;
+}
