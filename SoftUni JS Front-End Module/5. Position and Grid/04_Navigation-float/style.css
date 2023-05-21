@@ -1,14 +1,23 @@
 body {
     margin: 60px;
     background-color: rgb(238, 238, 238);
+    font-family: Helvetica, sans-serif; 
+    letter-spacing: 0.3px;  
+}
+
+p {
+    color: rgb(54, 53, 53);
 }
 
 header p, nav li{
     display: inline-block;
 }
 
+header h1 {
+    margin-top: 0px;
+}
+
 header p {
-    
     font-size: 30px;
     font-weight: bolder;
     line-height: 0;
@@ -30,13 +39,17 @@ header nav li {
 .first__pic {
     float: right;
     border: 2px solid black;
-    padding: 4px;
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px gray;
 }
 
 .first__image {
-    
     height: 100%;
     width: 100%;
 }
 
+h2 {
+    margin-top: 50px;
+}
 
