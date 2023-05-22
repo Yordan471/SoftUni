@@ -34,7 +34,10 @@ header nav li {
 }
 
 /*Section*/
-
+main {
+    display: inline-block;
+    width: 70%;
+}
 
 .first__image {
     float: right;
@@ -89,4 +92,25 @@ blockquote span {
 h1, h2 {
     font-family: Georgia, serif;
     font-size: 1.2;
+}
+
+aside {
+    /* display: inline-block; */
+    float: right;
+    width: 30;
+}
+
+aside ul {
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+aside ul li {
+    display: list-item;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: green;
 }
