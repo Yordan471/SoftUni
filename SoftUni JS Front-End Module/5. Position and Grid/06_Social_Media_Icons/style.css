@@ -17,7 +17,23 @@ a {
     background-color: rgb(236, 234, 234);
 }
 
-i {
+.fb:hover {
+    color: rgb(50, 50, 242);
+}
 
+.tw:hover {
+    color:rgb(32, 147, 236)
+}
+
+.google:hover {
+    color: rgb(246, 59, 59);
+}
+
+.in:hover {
+    color: rgb(32, 147, 236)
+}
+
+.instagram:hover {
+    color: rgb(32, 147, 236)
 }
 
