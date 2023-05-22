@@ -3,3 +3,9 @@ main {
     height: 600px;
     margin: 60px;
 }
+
+.new {
+    position: relative;
+    top: -200px;
+    right: 150px;
+}
