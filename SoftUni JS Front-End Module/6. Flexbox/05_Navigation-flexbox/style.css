@@ -1,0 +1,27 @@
+body {
+    margin: 50px;
+    background-color: antiquewhite;
+}
+
+header {
+    border-bottom: rgb(0, 0, 0);
+    border-bottom: solid;
+    border-width: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul {
+    display: flex;
+}
+
+header ul li a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+}
+
+header ul li {
+    padding: 10px;
+    list-style: none;
+}
+
