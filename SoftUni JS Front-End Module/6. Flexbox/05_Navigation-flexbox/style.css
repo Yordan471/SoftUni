@@ -4,9 +4,7 @@ body {
 }
 
 header {
-    border-bottom: rgb(0, 0, 0);
-    border-bottom: solid;
-    border-width: 2px;
+    border-bottom: 2px solid rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
 }
