@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(177, 187, 187);
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+}
+
+header, main, aside, footer {
+    margin: 5px;
+    border: 5px solid wheat;
+    border-radius: 5px;
+    background-color: rgb(154, 253, 253);
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+     grid-area: main;
+     
+}
+
+aside {
+   grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
