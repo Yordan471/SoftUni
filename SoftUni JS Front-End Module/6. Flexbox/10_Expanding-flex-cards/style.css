@@ -3,3 +3,19 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container :nth-child(2) {
+   width: 20%;
+}
+
+.container :nth-child(1), 
+.container :nth-child(3), 
+.container :nth-child(4) {
+    flex-basis:auto;
+    
+}
