@@ -19,8 +19,7 @@ header {
 }
 
 main {
-     grid-area: main;
-     
+     grid-area: main;    
 }
 
 aside {
@@ -29,4 +28,20 @@ aside {
 
 footer {
     grid-area: footer;
+}
+
+@Media (max-width: 500px) {
+    body {
+        display: grid;
+        grid-template-areas: 
+        "header header"
+        "aside aside"
+        "main main"
+        "footer footer";
+    }
+
+    h1 {
+        display: block;
+        margin-bottom: tpx;
+    }
 }
