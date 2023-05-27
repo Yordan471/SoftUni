@@ -10,7 +10,8 @@ body {
 }
 
 .container :nth-child(2) {
-   width: 20%;
+    
+    width: 20%;
 }
 
 .container :nth-child(1), 
