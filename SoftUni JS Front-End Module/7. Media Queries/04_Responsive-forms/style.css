@@ -1,20 +1,30 @@
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
 body {
+    position: relative;
     background-color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
 }
 
 header h1 {
+    background-color: rgb(218, 236, 236);
     display: block;
-    font-size: 14px;
+    position: absolute;
+    font-size: 12px;
     font-weight: 200;
     line-height: 2;   
     border: 2px solid black;
     border-radius: 3px;
-    width: 120px;
+    width: 110px;
     padding-left: 10px;
+    bottom: -34%;
+    z-index: 10;
 }
 
 .container {
+    background-color:rgb(239, 248, 248);
+    position: absolute;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -28,15 +38,30 @@ header h1 {
 }
 
 .container label {
+    margin-top: 10px;
     font-size: 14px;
     font-weight: 600;
 }
 
 .container .psw {
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 .container button {
     margin-top: 20px;
     width: 60px;
+}
+
+i {
+    position: absolute;
+}
+
+.fa-key {
+    top: 56%;
+    margin-left: 10px;
+}
+
+.fa-user {
+    top: 29%;
+    margin-left: 10px;
 }
