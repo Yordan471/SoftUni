@@ -85,18 +85,36 @@ i {
     flex-wrap: wrap;
 }
 
-.second__section h2 {
-    display: block;
+.our_team {
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.our_team h2{
+   text-align: center;
+   padding-bottom: 10px;
 }
 
 .second__section div {
+ display: flex;
+ flex-direction: column;
+ 
     width: 33%;
-    display: inline-block;
+}
+
+.second__section div p{
+   text-align: center;
+   line-height: 1.2;
 }
 
 img {
+    align-self: center;
     width: 20%;
     height: 30%;
     border-radius: 100%;
 }
 
+.text {
+    padding-top: 20px;
+    font-style: italic;
+}
