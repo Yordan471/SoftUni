@@ -1,0 +1,42 @@
+body {
+    font-size: 12px;
+}
+
+@Media (min-width: 500px) {
+   body {
+    font-size: 14px;
+   }
+  
+   .first__image {
+    float:right ;
+}
+
+.second__image {
+    float: left;
+}
+}
+
+@Media (min-width: 600px) {
+    body {
+        font-size: 16px; 
+    }
+}
+
+@Media (min-width: 800px) {
+    body {
+        font-size: 18px;
+    }
+
+}
+
+@Media (min-Width: 1300) {
+    body {
+        font-size: 21px;
+    }
+}
+
+@Media (min-width: 1800) {
+  body {
+    font-size: 23px;
+  }
+}
