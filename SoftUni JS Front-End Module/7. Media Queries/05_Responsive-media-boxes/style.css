@@ -1,7 +1,11 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
 body {
     background-color: rgb(238, 238, 238);
     display: flex;
-    font-family: Helvetica, sans-serif;
+
 }
 
 .card { 
@@ -11,6 +15,8 @@ body {
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
     flex-grow: 0;
+    max-width: 430px;
+    min-width: 430px;
 }
 
 section img {
