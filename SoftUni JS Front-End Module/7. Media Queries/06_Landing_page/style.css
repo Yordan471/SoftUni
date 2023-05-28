@@ -47,7 +47,6 @@ header nav ul li a {
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
-    
 }
 
 .container__first__sec__info {
@@ -77,5 +76,27 @@ i {
 .container__first__sec__info button a {
     text-decoration: none;
     color: black;
+}
+
+/* Third Section */ 
+
+.second__section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.second__section h2 {
+    display: block;
+}
+
+.second__section div {
+    width: 33%;
+    display: inline-block;
+}
+
+img {
+    width: 20%;
+    height: 30%;
+    border-radius: 100%;
 }
 
