@@ -1,1 +1,81 @@
 @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
+body {
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: azure;
+    flex-direction: column;
+    margin-left: 100px; 
+    margin-right: 100px;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.header__container h1 {
+    color: rgb(168, 7, 168);
+    font-weight: 600;
+}
+
+.header__container p {
+    font-size: 5px;
+    line-height: 1.5;
+}
+
+header nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Main */
+
+/* First Section */
+
+.first__section {
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    
+}
+
+.container__first__sec__info {
+    display: inline-block;
+    width: 50%;
+}
+
+i {
+    margin-left: 40px ;
+}
+
+.container__first__sec__info h2 {
+   font-weight: 600;
+}
+
+.container__first__sec__info p {
+    margin: 10px 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.container__first__sec__info button {
+    background-color: rgb(244, 244, 244);
+    border-radius: 3px;
+}
+
+.container__first__sec__info button a {
+    text-decoration: none;
+    color: black;
+}
+
