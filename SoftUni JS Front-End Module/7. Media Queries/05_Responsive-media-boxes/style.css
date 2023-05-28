@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    font-family: Helvetica, sans-serif;
+}
+
+.card { 
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    flex-grow: 0;
+}
+
+section img {
+    height: 250px;
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    font-family: Georgia, serif;
+    font-size: 1.2;
+    margin: 20px;
+}
+
+.title h1 {
+    margin: 0;
+}
+
+.title p {
+    line-height: 1.5;
+}
+
+button {
+    display: inline;
+    width: 80px;
+    line-height: 1.5;
+    background-color: rgb(0, 153, 0);
+    align-self: flex-end;
+}
