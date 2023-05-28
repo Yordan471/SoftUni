@@ -5,15 +5,15 @@ body {
 @Media (min-width: 500px) {
    body {
     font-size: 14px;
-   }
+ }
   
    .first__image {
     float:right ;
-}
+ }
 
 .second__image {
     float: left;
-}
+ }
 }
 
 @Media (min-width: 600px) {
