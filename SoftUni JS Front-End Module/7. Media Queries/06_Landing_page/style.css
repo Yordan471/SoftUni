@@ -5,13 +5,14 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: azure;
     flex-direction: column;
-    margin-left: 100px; 
-    margin-right: 100px;
+    /* margin-left: 100px; 
+    margin-right: 100px; */
 }
 
 /* Header */
 
 header {
+    margin: 0px 100px;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -36,6 +37,7 @@ header nav ul {
 header nav ul li a {
     text-decoration: none;
     color: black;
+    font-size: 10px;
 }
 
 /* Main */
@@ -43,7 +45,9 @@ header nav ul li a {
 /* First Section */
 
 .first__section {
-    margin: 50px;
+    /* margin-left: 100px; 
+    margin-right: 100px; */
+    margin: 50px 150px;
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
@@ -78,9 +82,11 @@ i {
     color: black;
 }
 
-/* Third Section */ 
+/* Second Section */ 
 
 .second__section {
+    margin-left: 100px; 
+    margin-right: 100px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -98,8 +104,7 @@ i {
 .second__section div {
  display: flex;
  flex-direction: column;
- 
-    width: 33%;
+ width: 33%;
 }
 
 .second__section div p{
@@ -117,4 +122,39 @@ img {
 .text {
     padding-top: 20px;
     font-style: italic;
+}
+
+/* Third Section */
+
+.third__section {
+    display: flex;
+    background-color: rgb(84, 15, 149);
+    flex-direction: column;
+    height: 130px;
+}
+
+.third__section h2 {
+    /* margin-top: 10px; */
+    color: aliceblue;
+    font-size: 20px;
+    align-self: center;
+    border-bottom: 2px solid black;
+    padding: 15px;
+}
+
+.third__section input, .third__section button {
+   display: inline;
+}
+
+.third__section__input {
+    align-self: center;
+}
+
+.third__section input {
+    margin-top: 20px;
+} 
+
+.third__section button {
+    font-size: 10px;
+    line-height: 1.6;
 }
