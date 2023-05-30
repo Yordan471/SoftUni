@@ -2,7 +2,7 @@ section {
     font-family: Helvetica, sans-serif;
     display: flex;
     background-color: rgb(248, 248, 248);
-    width: 700px;
+    width: 650px;
     padding: 50px 30px;
     justify-content: space-between;
 }
@@ -18,14 +18,44 @@ section .info .small__text {
 section .info .long__text {
     font-size: 12px;
     line-height: 1.8;
+    color: rgb(173, 173, 173);
 }
 
 section .info h1 {
     margin-top: 10px;
     font-weight: 100;
+    font-size: 18px;
 }
 
 .picture img{
     width: 200px;
 }
 
+section .info button {
+    padding: 0 14px;
+}
+
+section .info button a {
+    font-size: 10px;
+    text-decoration: none;
+    line-height: 2.5;
+}
+
+.sales {
+    background-color: rgb(104, 104, 230);
+    border: 2px solid rgb(104, 104, 230);
+    border-radius: 2px;
+}
+
+.sales a {
+    color: white;
+}
+
+.learn {
+   border: 1.5px solid black;
+}
+
+.learn a {
+    color: rgb(72, 71, 71);
+    font-weight: 600;
+}
