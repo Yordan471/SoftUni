@@ -1,0 +1,30 @@
+@Media screen and (max-width: 600px) {
+    header {
+        margin: 20px;
+    }
+
+    header .container .navbar .navbar-brand {
+        position: absolute;
+        left: 220px;
+    }
+
+    header .container-fluid img {
+        right: 140px;
+    }
+
+    header .container-fluid .container {
+        text-align: center;
+    }
+
+    header .container-fluid .container .hero-btns {
+       
+    }
+
+    header .container-fluid .container .hero-btns a{
+        display: block;
+        width: 300px;
+        margin: auto;
+    }
+}
+
+
