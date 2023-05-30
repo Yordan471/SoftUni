@@ -25,6 +25,32 @@
         width: 300px;
         margin: auto;
     }
+
+    /* First Section */
+    #about-us > div > div.container > div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about-us > div > div.container > div > div.col-12.col-sm-12.col-lg-4.service-txt > h2 {
+       text-align: center;
+    }
+
+    #about-us > div > div.container > div > div.col-12.col-sm-12.col-lg-4.service-txt > div > a {
+        display: block;
+        margin: auto;
+        width: 300px;
+        text-align: center;
+    }
+    
+    #about-us > div > div.container > div > div:nth-child(2)
+       {
+        width: 400px;
+    }
+
+    #about-us > div > div.container > div > div:nth-child(3) > div {      
+        width: 400px;
+    }
 }
 
 
