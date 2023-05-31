@@ -3,9 +3,18 @@
         margin: 20px;
     }
 
+    .hero img {
+        display: none;
+    }
+
     header .container .navbar .navbar-brand {
         position: absolute;
         left: 220px;
+    }
+
+    #home > section.container-fluid.hero > article > h1
+    {
+        margin-top: 80px;
     }
 
     header .container-fluid img {
@@ -16,14 +25,18 @@
         text-align: center;
     }
 
-    header .container-fluid .container .hero-btns {
-       
-    }
-
     header .container-fluid .container .hero-btns a{
         display: block;
         width: 300px;
         margin: auto;
+    }
+
+    #home > section.container-fluid.hero > article > article {
+        margin-bottom: 100px;
+    }
+
+    #about-us > div > div.container > div > div.col-12.col-sm-12.col-lg-4.service-txt > div {
+        margin-bottom: 50px;
     }
 
     /* First Section */
@@ -43,13 +56,12 @@
         text-align: center;
     }
     
-    #about-us > div > div.container > div > div:nth-child(2)
-       {
-        width: 400px;
+    #about-us .service-box {
+        margin-bottom: 32px;
     }
 
-    #about-us > div > div.container > div > div:nth-child(3) > div {      
-        width: 400px;
+    #about-us .side2-img img {
+        top: 2000px
     }
 }
 
