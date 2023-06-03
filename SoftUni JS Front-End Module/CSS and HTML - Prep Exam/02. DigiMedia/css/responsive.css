@@ -63,6 +63,44 @@
     #about-us .side2-img img {
         top: 2000px
     }
+
+    /* Second Section */
+
+    body > section.about > div > div > div:nth-child(2) {
+        text-align: center;
+    }
+
+    body > section.about {
+        margin-bottom: 100px;
+    }
+
+    /* Third Section */
+
+    #contact-us > div > div:nth-child(1) > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #contact-us > div > div:nth-child(3) > div:nth-child(2) > div > a {
+        display: none;
+    }
+    
+    #message {
+        height: 240px;
+    }
+
+    /* Footer */ 
+
+    footer .contact-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    body > footer > div > div > div > h6 {
+        padding-bottom: 5px;
+    }
 }
 
 
