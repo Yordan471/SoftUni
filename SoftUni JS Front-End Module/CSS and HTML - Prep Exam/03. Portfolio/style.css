@@ -1,1 +1,65 @@
 @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,600;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap');
+
+
+:root {
+   --clr-grey-light: #efefef;
+   --clr-black-span: #222222;
+   --clr-dark-grey-icons: #909090; 
+}
+
+/* Utilizing */
+.section {
+    background-color: var(--clr-grey-light);
+    font-family: 'Raleway';
+}
+
+span {
+    font-size: 54px;
+    font-weight: 800;   
+}
+
+h2 {
+    font-size: 54px;
+    padding-bottom: 40px;
+}
+
+p {
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    line-height: 1.8;
+    padding-bottom: 40px;
+}
+
+* {
+    margin: 40px 40px;
+}
+
+/* Header */
+
+header {
+    display: none;
+}
+
+/* First Section */
+
+.section.first__section {
+    display: flex;
+    /* position: relative; */
+    justify-content: space-between;
+    padding: 0 140px;
+    padding-top: 200px ;
+}
+
+.section.first__section .info{
+/* width: 40%; */
+}
+
+.divider.vertical {
+    width: 1.2px;
+    background-color: black;
+    height: 100px;
+}
