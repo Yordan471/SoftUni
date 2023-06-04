@@ -9,57 +9,26 @@
    --clr-dark-grey-icons: #909090; 
 }
 
+
+
+body {
+    padding: 2rem;
+    font-family: 'Raleway', sans-serif;
+}
+
 /* Utilizing */
+
 .section {
     background-color: var(--clr-grey-light);
-    font-family: 'Raleway';
-}
-
-span {
-    font-size: 54px;
-    font-weight: 800;   
-}
-
-h2 {
-    font-size: 54px;
-    padding-bottom: 40px;
-}
-
-p {
-    font-style: italic;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0.8px;
-    line-height: 1.8;
-    padding-bottom: 40px;
-}
-
-* {
-    margin: 40px 40px;
+    padding: 5rem;
+    margin-bottom: 2rem;
 }
 
 /* Header */
 
-header {
-    display: none;
-}
 
 /* First Section */
 
-.section.first__section {
-    display: flex;
-    /* position: relative; */
-    justify-content: space-between;
-    padding: 0 140px;
-    padding-top: 200px ;
-}
 
-.section.first__section .info{
-/* width: 40%; */
-}
+/* Second Section */
 
-.divider.vertical {
-    width: 1.2px;
-    background-color: black;
-    height: 100px;
-}
