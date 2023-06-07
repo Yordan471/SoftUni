@@ -2,10 +2,14 @@
 
 section {
     display: flex;
-    height: 600px;
+    /* height: 800px; */
     padding: 0 200px;
     padding-top: 40px;
     padding-bottom: 80px;
+}
+
+section .info {
+   width: 50%;
 }
 
 section .info h2 {
@@ -28,6 +32,41 @@ section .info p {
 section .info .bigger__text {
     padding-bottom: 20px;
 }
+
+section .info .smaller__text {
+    padding-bottom: 40px;
+}
+
+section .info > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+section .info > div .inner__info h3 {
+    font-size: 28px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+section .info > div .inner__info p {
+   font-size: 22px;
+}
+
+section .info > div img {
+    width: 70px;
+    padding-right: 10px;
+}
+
+section > img {
+    padding-left: 40px;
+    width: 50%;
+}
+
+
+
+
 
 
 
