@@ -1,4 +1,8 @@
 @media screen and (max-width: 600px) {
+    body > section > article > article {
+       display: none;
+    }
+
     #about > article.w3-col.m6.w3-padding-large.w3-hide-small {
         display: none;
     }
