@@ -1,1 +1,22 @@
-/* TODO: Add the responsive styles here */
+@media screen and (max-width: 600px) {
+    #about > article.w3-col.m6.w3-padding-large.w3-hide-small {
+        display: none;
+    }
+
+    #about > article:nth-child(2) {
+        width: 100%;
+    }
+
+    #menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #menu > article:nth-child(1) {
+        width: 100%;
+    }
+
+    #menu > article:nth-child(2) {
+        width: 100%;
+    }
+}
