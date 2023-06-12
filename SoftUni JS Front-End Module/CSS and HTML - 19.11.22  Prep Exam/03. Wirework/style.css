@@ -91,3 +91,14 @@ header ul li a {
     text-decoration: none;
     color: #f5c7bc;
 }
+
+.second__section {
+    display: flex;
+}
+
+.second__section div {
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+}
+
