@@ -76,3 +76,18 @@ header ul li a {
     color: #f2c7bc;
     background-color: #e24e2a;
 }
+
+.image .text__first__section span {
+    text-decoration: underline;
+    color: white;
+}
+
+.upper__letters {
+    text-transform:uppercase;
+}
+
+.image .text__first__section .wirework {
+    font-weight: 600;
+    text-decoration: none;
+    color: #f5c7bc;
+}
