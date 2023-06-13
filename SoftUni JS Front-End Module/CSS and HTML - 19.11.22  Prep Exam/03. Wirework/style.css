@@ -151,9 +151,11 @@ header ul li a {
 }
 
 .third__section button {
+    border: none;
     padding: 15px 40px;
     background-color: #1b9772;
     font-size: 18px;
+    font-weight: 600;
     color: #f1f8f6;
     letter-spacing: 1px;
 }
