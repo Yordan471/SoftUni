@@ -134,3 +134,28 @@ header ul li a {
    background-color: #616662;
    margin: 20px 0;
 }
+
+.third__section {
+    text-align: center;
+    padding: 80px 100px;
+}
+
+.third__section h3 {
+    color: #555555;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.third__section p {
+    color: #a7adb8;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.third__section button {
+    padding: 15px 40px;
+    background-color: #1b9772;
+    font-size: 18px;
+    color: #f1f8f6;
+    letter-spacing: 1px;
+}
