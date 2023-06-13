@@ -174,3 +174,14 @@ header ul li a {
 .fourth__section div .white {
    margin-bottom: 40px;
 }
+
+footer {
+    background-color: #1b9772;
+    text-align: center;
+    padding: 100px;
+}
+
+footer p {
+   color:  #5bb499;
+   letter-spacing: 2.5px;
+}
