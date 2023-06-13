@@ -117,13 +117,11 @@ header ul li a {
     margin-bottom: 20px;
 }
 
-
-
-.second__section div .white {
+.white {
     color: white;
 }
 
-.second__section div .grey {
+.grey {
     color: #616662;
     line-height: 1.5;
 }
@@ -158,4 +156,21 @@ header ul li a {
     font-size: 18px;
     color: #f1f8f6;
     letter-spacing: 1px;
+}
+
+.fourth__section {
+    background-color: #383838;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 120px 40px;
+}
+
+.fourth__section div {
+    text-align: center;
+    width: 18%;
+}
+
+.fourth__section div .white {
+   margin-bottom: 40px;
 }
