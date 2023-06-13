@@ -27,7 +27,7 @@ header h1 {
    font-weight: 600;
 }
 
-.divider {
+.vertical {
     background-color: rgb(223, 217, 217);
     width: 1px;
     height: 20px;
@@ -55,7 +55,7 @@ header ul li a {
 }
 
 .image {
-    height: calc(100vh - 64px);
+    height: calc(100vh);
 }
 
 .div__img {
@@ -69,6 +69,7 @@ header ul li a {
 }
 
 .image .text__first__section {
+    height: 30%;
     padding: 60px 150px;
     line-height: 2;
     font-size: 1.5rem;
@@ -94,11 +95,42 @@ header ul li a {
 
 .second__section {
     display: flex;
+    justify-content: space-evenly;
+    background-color: #383838;
+    padding-top: 80px;
+    padding-bottom: 120px;
 }
 
-.second__section div {
+.second__section > div {
     text-align: center;
     flex-direction: column;
     display: flex;
+    align-items: center;
+    width: 18%;
 }
 
+.second__section i {
+    font-size: 50px;
+    color: white;
+    padding: 20px;
+    background-color: #e24e2a;
+    margin-bottom: 20px;
+}
+
+
+
+.second__section div .white {
+    color: white;
+}
+
+.second__section div .grey {
+    color: #616662;
+    line-height: 1.5;
+}
+
+.second__section .horizontal {
+   width: 300px;
+   height: 1px;
+   background-color: #616662;
+   margin: 20px 0;
+}
