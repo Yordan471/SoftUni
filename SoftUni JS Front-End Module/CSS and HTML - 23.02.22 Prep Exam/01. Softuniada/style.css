@@ -1,1 +1,29 @@
 @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+
+
+
+section .day {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffa200;
+    gap: 10px;
+}
+
+section .day i {
+    font-size: 18px;
+}
+
+section .day p {
+   font-family: 'Montserrat', sans-serif;
+   font-size: 12px;
+   font-weight: 600;
+}
+
+section .day p,
+section .day i {
+    color: white;
+}
