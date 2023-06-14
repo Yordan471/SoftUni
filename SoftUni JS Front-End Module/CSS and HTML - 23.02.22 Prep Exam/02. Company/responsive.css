@@ -1,0 +1,43 @@
+@Media screen and (max-width: 600px) {
+
+    body > div > section.hero-head {
+        /* padding: 0 20px; */
+        
+    }
+
+    body > div > section.hero-head > div {
+        width: 100%;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    body > div > section.hero-head > header > nav {
+        display: none;
+    }
+
+    body > div > section.hero-head > div {
+        /* text-align: center; */
+    }
+
+    body > div > section.hero-head > div h1 {
+        font-size: 46px;
+        line-height: 1.8;
+        float: none;
+    }
+
+    .hero-head .wrapper .goal {
+        max-width: unset;
+        align-self: center;
+        line-height: 2;
+    }
+
+    /* body > div > section.hero-head > div > div {
+        font-size: 50px;
+        align-self: center;
+        float: none;
+        max-width: unset;
+    } */
+}
