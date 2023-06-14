@@ -2,13 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Montserrat:wght@100;200;300;400;500&display=swap');
 
 
+section {
+    width: 1024px;
+    margin: 20px;
+    box-shadow: -1px 5px 18px -4px rgba(0,0,0,0.46);
+-webkit-box-shadow: -1px 5px 18px -4px rgba(0,0,0,0.46);
+-moz-box-shadow: -1px 5px 18px -4px rgba(0,0,0,0.46);
+    border-radius: 5px;
+}
 
+/* .day selector */
 
 section .day {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     background-color: #ffa200;
     gap: 10px;
 }
@@ -26,4 +35,47 @@ section .day p {
 section .day p,
 section .day i {
     color: white;
+}
+
+/* .program first selector */
+
+section .program {
+    padding: 20px;
+}
+
+section .program .time {
+    font-size: 10px;
+    padding-bottom: 8px;
+    color: #a3aaba;
+}
+
+section .first {
+   border-bottom: 1px solid #e4e5ea;
+}
+
+section .first p {
+   padding-bottom: 30px;
+}
+
+section .program h2 {
+   font-family: 'Montserrat', sans-serif;
+   color: black;
+   font-size: 16px;
+   font-weight: 500;
+   padding-bottom: 20px;
+}
+
+section .program .info {
+    font-family: 'Lato', sans-serif;
+    color: #514b4b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+section .second {
+    height: 100px
+}
+
+section .second {
+    padding-bottom: 100px;
 }
