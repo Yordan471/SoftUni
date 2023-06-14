@@ -1,5 +1,9 @@
 @Media screen and (max-width: 600px) {
 
+    .main-head .logo {
+        width: 210px;
+    }
+
     body > div > section.hero-head {
         /* padding: 0 20px; */
         
@@ -32,6 +36,7 @@
         max-width: unset;
         align-self: center;
         line-height: 2;
+        font-size: 22px;
     }
 
     /* body > div > section.hero-head > div > div {
