@@ -39,10 +39,15 @@
         font-size: 22px;
     }
 
-    /* body > div > section.hero-head > div > div {
-        font-size: 50px;
-        align-self: center;
-        float: none;
-        max-width: unset;
-    } */
+    .content-wrap h3 {
+        text-align: center;
+    }
+
+    .module-text {
+        text-align: center;
+    }
+
+    .button {
+        margin: auto;
+    }
 }
