@@ -47,7 +47,18 @@
         text-align: center;
     }
 
-    .button {
-        margin: auto;
+    .bordered .wrapper {
+        width: auto;
+    }
+
+    body > div > section.content.bordered > div > section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-wrap.two-col .col {
+        display: flex;
+        flex-direction: column;
+        padding: 32px 16px;
     }
 }
