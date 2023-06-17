@@ -2,12 +2,13 @@
 
 html {
     font-family: 'Roboto', sans-serif;
-    margin: 50px;
+    margin: 20px 150px;
 }
 
 header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 header h1 {
@@ -51,4 +52,43 @@ header nav ul .sign a{
 
 header nav ul a {
     text-decoration: none;
+}
+
+/* First Section */
+
+.first__section {
+    display: flex;
+
+}
+
+.first__section .info h2 {
+    line-height: 1.2;
+    font-size: 4.2rem;
+    color: #2977c9;
+    margin-bottom: 15px;
+}
+
+.first__section img {
+    width: 50%;
+}
+
+section.section.first__section > div > div {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.first__section .info .input input{
+   padding: 15px 0;
+   padding-left: 10px;
+   font-size: large;
+   margin-bottom: 15px;
+}
+
+.first__section .info .input a {
+   font-size: 1.4rem;
+   text-decoration: none;
+   margin-bottom: 15px;
+   padding: 10px 0;
+   color: #746d66;
 }
