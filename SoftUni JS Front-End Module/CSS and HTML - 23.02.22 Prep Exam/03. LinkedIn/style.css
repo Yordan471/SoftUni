@@ -2,7 +2,8 @@
 
 html {
     font-family: 'Roboto', sans-serif;
-    margin: 20px 150px;
+    margin-top: 20px;
+    margin-left: 170px;
 }
 
 header {
@@ -42,6 +43,7 @@ header nav ul .sign {
     border: 2px solid #146cc5;
     border-radius: 40px;
     font-weight: 500;
+    margin-right: 200px;
 }
 
 header nav ul .sign a{
@@ -63,19 +65,19 @@ header nav ul a {
 
 .first__section .info h2 {
     line-height: 1.2;
-    font-size: 4.2rem;
+    font-size: 4.5rem;
     color: #2977c9;
     margin-bottom: 15px;
 }
 
 .first__section img {
-    width: 50%;
+    width: 56%;
 }
 
 section.section.first__section > div > div {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 65%;
 }
 
 .first__section .info .input input{
@@ -91,4 +93,14 @@ section.section.first__section > div > div {
    margin-bottom: 15px;
    padding: 10px 0;
    color: #746d66;
+}
+
+.first__section .info .input button {
+    text-align: center;
+    font-size: 1.7rem;
+    padding: 15px 0;
+    border-radius: 30px;
+    background-color: #2977c9;
+    border-color: #2977c9;
+    color: white;
 }
