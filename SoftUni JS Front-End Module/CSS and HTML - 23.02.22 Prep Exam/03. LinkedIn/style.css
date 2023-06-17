@@ -1,10 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+
+/* Utilities */
+
+.grey {
+    font-size: 32px;
+    padding: 25px 35px;
+    border-radius: 50px;
+    border-radius: 5px solid black;
+    align-self: center;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+
+/* HTML */
+
 html {
     font-family: 'Roboto', sans-serif;
     margin-top: 20px;
     /* margin-left: 170px; */
 }
+
+
+/* Header */
 
 header, section, footer {
     padding-left: 170px;
@@ -132,15 +151,13 @@ section.section.first__section > div > div {
 
 .second__sec__info {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 
 .second__section .second__sec__info {
     width: 60%;
     padding-left: 100px;
 }
-
 
 .second__section .second__sec__info nav ul{
     display: flex;
@@ -183,14 +200,14 @@ body > main > section.section.second__section > div.second__sec__info > nav > ul
     width: 40%;
 }
 
-.third__section button {
+/* .third__section button {
     font-size: 32px;
     padding: 25px 35px;
     border-radius: 50px;
     border-radius: 5px solid black;
     align-self: center;
     background-color: #f1ece5;
-}
+} */
 
 /* Fourth Section */
 
@@ -223,4 +240,36 @@ body > main > section.section.second__section > div.second__sec__info > nav > ul
 .fourth__section .info p {
     font-size: 3rem;
     line-height: 1.2;
+}
+
+/* Fourth Section */
+
+.fifth__section {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.fifth__section .first,
+.fifth__section .second {
+    width: 40%;
+}
+
+.fifth__section .first img,
+.fifth__section .second img {
+    width: 60%;
+    padding-bottom: 60px;
+}
+
+.fifth__section .first h2,
+.fifth__section .second h2 {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    padding-bottom: 60px;
+}
+
+
+.fifth__section .second {
+    padding-right: 160px;
 }
