@@ -113,9 +113,11 @@ section.section.first__section > div > div {
 
 .second__section {
     display: flex;
-    justify-content: space-between;
+    justify-content: around;
     background-color: #faf9f7;
-    padding: 200px;
+    /* padding: 200px; */
+    padding-top: 200px;
+    padding-bottom: 200px;
 }
 
 .second__section .h2__title {
@@ -136,7 +138,9 @@ section.section.first__section > div > div {
 
 .second__section .second__sec__info {
     width: 60%;
+    padding-left: 100px;
 }
+
 
 .second__section .second__sec__info nav ul{
     display: flex;
@@ -161,4 +165,29 @@ body > main > section.section.second__section > div.second__sec__info > nav > ul
    font-size: 35px;
    text-decoration: none;
    color: #5c5c5b;
+}
+
+/* Third Section */
+
+.third__section {
+    display: flex;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #f1ece5;
+}
+
+.third__section h2 {
+    font-size: 4rem;
+    line-height: 1.2;
+    color: #b24020;
+    width: 40%;
+}
+
+.third__section button {
+    font-size: 32px;
+    padding: 25px 35px;
+    border-radius: 50px;
+    border-radius: 5px solid black;
+    align-self: center;
+    background-color: #f1ece5;
 }
