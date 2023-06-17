@@ -191,3 +191,36 @@ body > main > section.section.second__section > div.second__sec__info > nav > ul
     align-self: center;
     background-color: #f1ece5;
 }
+
+/* Fourth Section */
+
+
+.fourth__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf9f7;
+    padding-top: 250px;
+    padding-bottom: 250px;
+}
+
+.fourth__section .info {
+    width: 47%;
+}
+
+.fourth__section img {
+    width: 40%;
+    padding-right: 160px;
+}
+
+.fourth__section .info h2 {
+    font-size: 3.5rem;
+    line-height: 1.3;
+    color: #2977c9;
+    padding-bottom: 20px;
+}
+
+.fourth__section .info p {
+    font-size: 3rem;
+    line-height: 1.2;
+}
