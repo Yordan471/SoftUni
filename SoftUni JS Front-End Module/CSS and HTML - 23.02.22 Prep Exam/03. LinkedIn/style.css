@@ -3,7 +3,11 @@
 html {
     font-family: 'Roboto', sans-serif;
     margin-top: 20px;
-    margin-left: 170px;
+    /* margin-left: 170px; */
+}
+
+header, section, footer {
+    padding-left: 170px;
 }
 
 header {
@@ -60,7 +64,7 @@ header nav ul a {
 
 .first__section {
     display: flex;
-
+    background-color: #ffffff;
 }
 
 .first__section .info h2 {
@@ -103,4 +107,58 @@ section.section.first__section > div > div {
     background-color: #2977c9;
     border-color: #2977c9;
     color: white;
+}
+
+/* Second Section */
+
+.second__section {
+    display: flex;
+    justify-content: space-between;
+    background-color: #faf9f7;
+    padding: 200px;
+}
+
+.second__section .h2__title {
+    width: 33%;
+}
+
+.second__section h2 {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    color: #191818;
+}
+
+.second__sec__info {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.second__section .second__sec__info {
+    width: 60%;
+}
+
+.second__section .second__sec__info nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.second__section .second__sec__info h3 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: #191818;
+}
+
+body > main > section.section.second__section > div.second__sec__info > nav > ul > li {
+    padding: 30px;
+    background-color: #e6e5e4;
+    border-radius: 50px;
+}
+
+
+body > main > section.section.second__section > div.second__sec__info > nav > ul > li a { 
+   font-size: 35px;
+   text-decoration: none;
+   color: #5c5c5b;
 }
