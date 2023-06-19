@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap');
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+
+
+header {
+    padding: 80px 220px;
+}
+
+header .header__navs {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .header__navs nav ul {
+    display: flex;
+    gap: 30px;
+}
+header .header__navs nav ul li a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #000000;
+}
+
+header .header__navs nav ul li .sign {
+    padding: 30px;
+    background-color: #ade2df;
+    font-size: 2.2rem;
+    border-radius: 15px;
+}
+
+
+/* First Section */
+
+
+.sixth_first {
+    background-color: #ade2df;
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.sixth_first h2 {
+    font-size: 5rem;
+    margin-bottom: 50px;
+}
+
+.sixth_first p {
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+}
+
+.sixth_first button {
+    display: inline-block;
+    padding: 30px;
+    color: white;
+    background-color: black;
+    border-radius: 15px;
+    font-size: 1.5rem;
+}
+
+.sixth_first .second__btn {
+    margin-left: 15px;
+}
+
+
+/* Second Section */
+
+
+.second__section {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    text-align: center;
+    padding: 120px 0px
+}
+
+.second__section div {
+    width: 27%;
+}
+
+.second__section h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+
+.second__section p {
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.second__section .second {
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+
+.second__section .first {
+    border-left: 1px solid #dbdbdb;
+}
+
+.second__section .third {
+    border-right: 1px solid #dbdbdb;
+}
+
+
+/* Third Section */ 
+
+
+.third__section {
+    display: flex;
+    justify-content: center;
+    background-color: #ade2df;
+}
+
+.third__section .img {
+    background-color: transparent;
+    border: 1px dashed black;
+}
+
+.third__section .text {
+    width: 40%;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.third__section .text h2 {
+    font-size: 3.5rem;
+   line-height: 1.4;
+   font-weight: 600;
+   padding-bottom: 20px;
+}
+
+.third__section .text h3 {
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+.third__section p {
+   font-size: 1.8rem;
+   line-height: 1.5;
+   padding-bottom: 30px;
+}
+
+body > main > section.section.third__section > div.text > p:nth-child(5)
+{
+    padding-bottom: 40px;
+}
+
+body > main > section.section.third__section > div.text > p:nth-child(6) {
+   text-decoration: underline;
+}
+
+.third__section .text i {
+    font-size: large;
+}
+
+
+/* Fourth Section */
+
+
+.fourth__section {
+    background-color: #f3f5fa;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.fourth__section button {
+    font-size: 1.5rem;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #ade2df;
+    margin: 50px;
+    border: transparent
+}
+
+.fourth__section h2 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+
+/* Fifth Section */
+
+
+.fifth__section {
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.fifth__section p {
+    text-align:left;
+}
+
+.div_info {
+    width: 60%;
+}
+
+.fifth__section .month {
+    font-size: 0.8rem;
+}
+
+.container {
+    height: 100px;
+    background-color:#f3f5fa;
+}
+
+.div_info .first,
+.div_info .third {
+    border: none;
+}
+
+.div_info div{
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.div_info h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.div_info .Sed {
+    padding-bottom: 20px;
+}
+
+.div_info h2 {
+    align-self: flex-start;
+}
+
+.div_info div button {
+   margin-top: 150px;
+   padding: 25px 25px;
+   background-color: #ade2df;
+   color: black;
+   border-radius: 10px;
+   border: transparent;
+   font-size: 1.3rem;
+}
+
+.horizontal {
+    height: 1px;
+    background-color: #cdcdcd;
+    align-self: center;
+    margin-bottom: 30px;
+}
+.second_second {
+    background-color: #ade2df;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.second_second h2
+ {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.second_second h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.second_second h3 {
+    padding-bottom: 70px;
+}
+
+.second_second p {
+    font-size: 1.4rem;
+    line-height: 2;
+}
+
+.second_second button {
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin-top: 270px;
+    font-size: 1.3rem;
+}
+
+
+/* Sixth Section */
+
+
+.sixth__section div {
+    width: 700px;
+    margin: auto;
+}
+
+
+/* Footer */
+
+footer {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 75px;
+}
+
+footer nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+
+

@@ -1,0 +1,46 @@
+@media screen and (max-width: 600px) {
+    body > div > div > div.home-hero {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    body > div > div > div.home-hero > div {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    body > div > div > div.home-hero > img {
+        width: 100%;
+    }
+
+    body > div > div > div.home-hero > div > button {
+        width: 35%;
+        align-self: center;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        font-size: 20px;
+    }
+
+    #features > div.home-heading-container {
+        width: 100%;
+        
+    }
+
+    #features {
+        height: auto;
+    }
+
+    #features > div.home-cards-container {
+        flex-direction: column;
+        
+
+    }
+    #features > div.home-cards-container div {
+        width: 100%;
+    }
+
+    body > div > div > div.home-stats {
+        display: flex;
+        flex-direction: column;
+    }
+}
