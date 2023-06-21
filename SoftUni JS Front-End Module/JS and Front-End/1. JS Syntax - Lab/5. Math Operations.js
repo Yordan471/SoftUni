@@ -24,5 +24,3 @@ function solve(firstNum, secondNum, operation) {
 
     console.log(output);
 }
-
-solve(5, 10, '-');
