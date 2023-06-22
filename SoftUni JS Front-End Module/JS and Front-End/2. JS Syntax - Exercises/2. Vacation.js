@@ -53,7 +53,7 @@ function solve(numOfPeople, type, day) {
 
     let actualPrice = price.toFixed(2);
 
-    console.log(`Total price of: ${actualPrice}`);
+    console.log(`Total price: ${actualPrice}`);
 }
 
 solve(30, 'Students', 'Sunday');
