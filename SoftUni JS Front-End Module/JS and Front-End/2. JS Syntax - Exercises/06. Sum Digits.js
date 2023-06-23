@@ -3,7 +3,6 @@ function solve(number) {
     const digits = String(number).split('').map(Number);
     sum = digits.reduce((partialSum, a) => partialSum + a, 0);
     
-
     console.log(sum);
 }
 
