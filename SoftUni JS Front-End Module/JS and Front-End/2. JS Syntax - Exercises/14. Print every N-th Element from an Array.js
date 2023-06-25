@@ -5,7 +5,7 @@ function solve(array, stepNumber) {
         outputArr.push(array[index]);
     }
     
-    return outputArr;
+    console.log(outputArr);
 }
 
 solve(['5', '20', '31', '4', '20'], 2);
