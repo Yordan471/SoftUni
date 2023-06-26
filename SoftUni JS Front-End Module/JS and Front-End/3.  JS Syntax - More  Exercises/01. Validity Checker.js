@@ -1,7 +1,16 @@
+function calculateDistance(x1, y1, x2, y2) {
+    return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
 function solve(x1, y1, x2, y2) {
-    let fNum = Math.sqrt(Math.pow(x2 -x1) + Math.pow(0 - 0));
-    let sNum = Math.sqrt(Math.pow(0 -0) + Math.pow(y2 - y1));
-    let tNum = Math.sqrt(Math.pow(x2 -x1) + Math.pow(y2 - y1));
+    const firstPointDistanceToCenter = calculateDistance(x1, y1, 0, 0);
+    const isFirstDistanceValid = Number.isInteger(firstPointDistanceToCenter);
+
+    const secondPointDistanceToCenter = calculateDistance(x2, y2, 0, 0);
+    const isSecondDistanceValid = Number.isInteger(secondPointDistanceToCenter);
+
+    const distanceBetweenPoints = calculateDistance(x1, y1, x2, y2);
+    const isThirdPointValid = Number.isInteger(distanceBetweenPoints);
 
     console.log(fNum);
     console.log(sNum);
