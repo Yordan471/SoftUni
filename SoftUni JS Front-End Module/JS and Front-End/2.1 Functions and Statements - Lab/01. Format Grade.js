@@ -2,7 +2,7 @@ function solve(grade) {
     grade = grade.toFixed(2);
 
     if (grade < 3.00) {
-        console.log(`Fail (${grade})`)
+        console.log(`Fail (2)`)
     }
     else if (grade >= 3.00 && grade < 3.50) {
         console.log(`Poor (${grade})`);
