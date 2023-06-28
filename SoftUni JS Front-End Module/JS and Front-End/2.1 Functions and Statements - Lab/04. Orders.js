@@ -9,7 +9,6 @@ function calculate(product, quantity) {
         snacks: 2.00,
     }
 
-    const num = products[product];
     const price = products[product] * quantity;
     console.log(price.toFixed(2));
 }
