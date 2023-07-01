@@ -9,6 +9,7 @@ function solve(number) {
     const dots = '.'.repeat(10 - firstDigit);
 
     console.log(`${number}% [${prcntgSymbol}${dots}]`);
+    console.log('Still loading...');
 }
 
 solve(30);
