@@ -8,10 +8,6 @@ function solve(firstName, lastName, age) {
     return person;
 }
 
-const person = solve('Peter', "Pan", '20');
-
-person.forEach(element => console.log(element));
-
     
 
 solve("Peter", "Pan", "20");
