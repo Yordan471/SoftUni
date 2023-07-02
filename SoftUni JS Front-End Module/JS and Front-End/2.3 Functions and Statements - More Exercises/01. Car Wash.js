@@ -18,7 +18,7 @@ while (operations.length > 0) {
     }
 }
 
-    console.log(`The car is ${value.toFixed(2)}.`);
+    console.log(`The car is ${value.toFixed(2)}% clean.`);
 }
 
 CarWash(["soap", "water", "mud", "mud", "water", "mud", "vacuum cleaner"]);
