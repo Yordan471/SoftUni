@@ -1,6 +1,6 @@
 function solve(firstName, lastName, hairColor) {
     let person = {
-        firstName: firstName,
+        name: firstName,
         lastName: lastName,
         hairColor: hairColor
     };
