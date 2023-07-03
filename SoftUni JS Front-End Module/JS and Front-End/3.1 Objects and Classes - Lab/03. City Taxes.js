@@ -1,16 +1,20 @@
-function solve(cityName, population, treasury) {
+function createRecord(name, population, treasury) {
     return {
-        cityName,
-        population,
-        treasury,
-    
+        name, population, treasury,
         taxRate: 10,
-    
-        collectTaxes: () => Math.floor(city.population * taxRate),
-        applyGrowth: (percentage) => city.population += Math.floor(city.population * percentage),
-        applyRecession: (percentage) => city.treasury -= Math.floor(city.treasury * percentage),
+        collectTaxes() {
+            this.treasury = this.population * this.taxRate;
+        } ,
+        applyGrowth(percentage) {
+            this.population += Math.floor(this.population * percentage / 100);
+        },
+        applyRecession(percentage) {
+            this.treasury -= Math.floor(this.treasury * percentage / 100);
+        },
     };
 }
 
 console.log(solve('Tortuga', 7000, 15000));
+
+
 
