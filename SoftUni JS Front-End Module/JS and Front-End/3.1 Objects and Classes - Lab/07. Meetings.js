@@ -13,7 +13,7 @@ function solve(array) {
 
         schedule[weekday] = name;
         
-        console.log(`Sheduled for ${weekday}`);         
+        console.log(`Scheduled for ${weekday}`);         
         }
 
         for (const key in schedule) {
