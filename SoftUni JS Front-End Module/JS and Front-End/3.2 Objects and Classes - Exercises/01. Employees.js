@@ -1,10 +1,12 @@
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-}
+
 
 function personelNumber(inputInfo) {
+    class Person {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+
   let people = [];
 
   for (let index = 0; index < inputInfo.length; index++) {
