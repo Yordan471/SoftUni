@@ -19,7 +19,7 @@ function solve(inputArray) {
     }
 
     for (const animal of gatherCats) {
-    animal.meow();
+        animal.meow();
     }
 }
 
