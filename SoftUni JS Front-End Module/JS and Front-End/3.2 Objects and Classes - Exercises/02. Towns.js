@@ -1,6 +1,5 @@
-
 function printTownInfo(inputInfo) {
-    class Town {
+  /*     class Town {
         constructor(town, latitude, longitude) {
             this.town = town;
             this.latitude = latitude;
@@ -26,7 +25,24 @@ function printTownInfo(inputInfo) {
         towns.push(townObject);
     }
 
-    towns.forEach((town) => console.log(town));
+    towns.forEach((town) => console.log(town)); */
+
+  const cities = inputInfo.map((city) => {
+    const [town, lat, long] = city.split(" | ");
+    return {
+      town,
+      latitude: Number(lat).toFixed(2),
+      longtitude: Number(long).toFixed(2),
+    };
+  });
+
+  cities.forEach((element) => {
+    console.log(element);
+  });
+  /* console.log(JSON.stringify(cities)); */
 }
 
-printTownInfo(['Sofia | 42.696552 | 23.32601', 'Beijing | 39.913818 | 116.363625']);
+printTownInfo([
+  "Sofia | 42.696552 | 23.32601",
+  "Beijing | 39.913818 | 116.363625",
+]);
