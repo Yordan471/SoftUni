@@ -1,5 +1,5 @@
 function personelNumber(inputInfo) {
-/*     class Person {
+  /*     class Person {
         constructor(name) {
           this.name = name;
         }
@@ -24,9 +24,14 @@ function personelNumber(inputInfo) {
     return acc;
   }, {});
 
-  Object.entries(employees).forEach(([name,number]) => {
+  Object.entries(employees).forEach(([name, number]) => {
     console.log(`${name} -- Personal Number: ${number}`);
   });
 }
 
-personelNumber(['Silas Butler', 'Adnaan Buckley', 'Juan Peterson', 'Brendan Villarreal'  ])
+personelNumber([
+  "Silas Butler",
+  "Adnaan Buckley",
+  "Juan Peterson",
+  "Brendan Villarreal",
+]);

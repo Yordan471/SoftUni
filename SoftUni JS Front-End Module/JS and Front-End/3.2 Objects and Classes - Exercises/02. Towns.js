@@ -32,7 +32,7 @@ function printTownInfo(inputInfo) {
     return {
       town,
       latitude: Number(lat).toFixed(2),
-      longtitude: Number(long).toFixed(2),
+      longitude: Number(long).toFixed(2),
     };
   });
 
