@@ -8,8 +8,6 @@ function solve(inputInfo) {
       let name = commandString.split("addMovie ")[1];
       moviesInfo.push({
         name,
-        date: null,
-        director: null,
       });
     } else if (commandString.includes("directedBy")) {
       let name = commandString.split(" directedBy ")[0];
@@ -29,7 +27,9 @@ function solve(inputInfo) {
     }
   }
 
-  console.log(JSON.stringify(moviesInfo));
+  moviesInfo
+    .filter((m) => m.name && m.director && m.date)
+    .forEach((m) => console.log(JSON.stringify(m)));
 }
 
 solve([
