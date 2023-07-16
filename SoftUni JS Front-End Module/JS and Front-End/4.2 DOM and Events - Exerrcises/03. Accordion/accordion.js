@@ -1,3 +1,7 @@
 function toggle() {
-    console.log('TODO:...');
+    const button = document.querySelector(".button");
+    const content = document.querySelector("#extra");
+
+    button.textContent = button.textContent === "More" ? "Less" : "More";
+    content.style.display = content.style.display === "block" ? "none" : "block";
 }
