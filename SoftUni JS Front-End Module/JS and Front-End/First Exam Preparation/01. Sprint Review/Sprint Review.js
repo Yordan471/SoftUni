@@ -1,5 +1,5 @@
 function sprintReview(input) {
-  const numberOfLines = input.shift();
+  const numberOfLines = Number(input.shift());
   const asigneesInfo = input.slice(0, numberOfLines);
   const commandsInfo = input.slice(numberOfLines);
 
