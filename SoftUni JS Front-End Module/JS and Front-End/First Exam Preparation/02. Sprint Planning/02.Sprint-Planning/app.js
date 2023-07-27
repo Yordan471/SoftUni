@@ -97,6 +97,7 @@ function solve() {
     );
 
     calcPoints.textContent = `Total points ${totalPoints} pts`;
+    Object.values(inputFormats).forEach((input) => input.value = '');
   }
 
   
