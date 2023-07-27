@@ -15,6 +15,17 @@ function solve() {
   };
 
   const section = document.querySelector("#tasks-section");
+  const icons = {
+    'Feature': '&#8865',
+    'Low Priority Bug': '&#9737',
+    'High Priority Bug': '&#9888',
+  };
+
+  const labelClasses = {
+    'Feature': 'feature',
+    'Low Priority Bug': 'low-priority',
+    'High Priority Bug': 'high-priority',
+  }
 
   const tasks = {};
 
@@ -39,10 +50,11 @@ function solve() {
     const article = createElement("article", null, ["task-card"], task.id);
     createElement(
       "div",
-      task.label,
-      ["task-card-label", task.label.toLowerCase()],
+      `${task.label} ${icons[task.label]}`,
+      ["task-card-label", labelClasses[task.label]],
       null,
-      article
+      article,
+      true,
     );
     createElement("h3", task.title, ["task-card-title"], null, article);
     createElement(
@@ -54,14 +66,22 @@ function solve() {
     );
     createElement("div", `Estimated at ${task.points} pts`, ["task-card-points"], null, article);
     createElement("div", `Assigned to ${task.asignee}`, ["task-card-assignee"], null, article);
-    
+    const tasksActions = createElement("div", null, ["task-card-actions"], null, article);
+    const button = createElement("button", "delete", null, null, tasksActions);
+
+   
+
     section.appendChild(article);
+
+
 }
 
-  function createElement(type, textContent, classes, id, parent) {
+  function createElement(type, textContent, classes, id, parent, innerHTML) {
     const element = document.createElement(type);
-
-    if (textContent) {
+    if (innerHTML && textContent) {
+        element.innerHTML = textContent;
+    }
+    else if (textContent) {
       element.textContent = textContent;
     }
 
