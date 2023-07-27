@@ -14,18 +14,20 @@ function solve() {
     deleteTaskBtn: document.querySelector("#delete-task-btn"),
   };
 
+  const calcPoints = document.querySelector("#total-sprint-points");
+
   const section = document.querySelector("#tasks-section");
   const icons = {
-    'Feature': '&#8865',
-    'Low Priority Bug': '&#9737',
-    'High Priority Bug': '&#9888',
+    Feature: "&#8865",
+    "Low Priority Bug": "&#9737",
+    "High Priority Bug": "&#9888",
   };
 
   const labelClasses = {
-    'Feature': 'feature',
-    'Low Priority Bug': 'low-priority',
-    'High Priority Bug': 'high-priority',
-  }
+    Feature: "feature",
+    "Low Priority Bug": "low-priority",
+    "High Priority Bug": "high-priority",
+  };
 
   const tasks = {};
 
@@ -54,7 +56,7 @@ function solve() {
       ["task-card-label", labelClasses[task.label]],
       null,
       article,
-      true,
+      true
     );
     createElement("h3", task.title, ["task-card-title"], null, article);
     createElement(
@@ -64,24 +66,46 @@ function solve() {
       null,
       article
     );
-    createElement("div", `Estimated at ${task.points} pts`, ["task-card-points"], null, article);
-    createElement("div", `Assigned to ${task.asignee}`, ["task-card-assignee"], null, article);
-    const tasksActions = createElement("div", null, ["task-card-actions"], null, article);
+    createElement(
+      "div",
+      `Estimated at ${task.points} pts`,
+      ["task-card-points"],
+      null,
+      article
+    );
+    createElement(
+      "div",
+      `Assigned to ${task.asignee}`,
+      ["task-card-assignee"],
+      null,
+      article
+    );
+    const tasksActions = createElement(
+      "div",
+      null,
+      ["task-card-actions"],
+      null,
+      article
+    );
     const button = createElement("button", "delete", null, null, tasksActions);
-
-   
 
     section.appendChild(article);
 
+    const totalPoints = Object.values(tasks).reduce(
+      (acc, curr) => acc + curr.points,
+      0
+    );
 
-}
+    calcPoints.textContent = `Total points ${totalPoints} pts`;
+  }
+
+  
 
   function createElement(type, textContent, classes, id, parent, innerHTML) {
     const element = document.createElement(type);
     if (innerHTML && textContent) {
-        element.innerHTML = textContent;
-    }
-    else if (textContent) {
+      element.innerHTML = textContent;
+    } else if (textContent) {
       element.textContent = textContent;
     }
 
