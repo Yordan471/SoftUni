@@ -15,6 +15,7 @@ function solve() {
   };
 
   const calcPoints = document.querySelector("#total-sprint-points");
+  const hiddenInput = document.querySelector("#task-id");
 
   const section = document.querySelector("#tasks-section");
   const icons = {
@@ -32,7 +33,7 @@ function solve() {
   const tasks = {};
 
   buttons.createTaskBtn.addEventListener("click", createTask);
-
+  
   function createTask(e) {
     if (Object.values(inputFormats).some((input) => input.value === "")) {
       return;
@@ -87,8 +88,8 @@ function solve() {
       null,
       article
     );
-    const button = createElement("button", "delete", null, null, tasksActions);
-
+    const button = createElement("button", "Delete", [], null, tasksActions);
+    button.addEventListener("click", loadDeleteConfirm);
     section.appendChild(article);
 
     const totalPoints = Object.values(tasks).reduce(
@@ -99,8 +100,6 @@ function solve() {
     calcPoints.textContent = `Total points ${totalPoints} pts`;
     Object.values(inputFormats).forEach((input) => input.value = '');
   }
-
-  
 
   function createElement(type, textContent, classes, id, parent, innerHTML) {
     const element = document.createElement(type);
@@ -123,5 +122,24 @@ function solve() {
     }
 
     return element;
+  }
+
+  function loadDeleteConfirm(e) {
+     const taskId = e.currentTarget.parentElement.parentElement.getAttribute("id");
+     
+     Object.keys(inputFormats).forEach((key) => {
+      inputKey = inputFormats[key];
+      inputKey.disabled = true;
+     })
+
+     inputFormats.title.value = tasks[taskId].title;
+     inputFormats.description.value = tasks[taskId].description;
+     inputFormats.label.value = tasks[taskId].label;
+     inputFormats.points.value = tasks[taskId].points;
+     inputFormats.asignee.value = tasks[taskId].asignee;
+     hiddenInput.value = taskId;
+
+     buttons.createTaskBtn.disabled = true;
+     buttons.deleteTaskBtn.disabled = false;
   }
 }
