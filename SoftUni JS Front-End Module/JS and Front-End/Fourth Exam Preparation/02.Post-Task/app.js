@@ -38,7 +38,8 @@ function solve() {
     const editBtn = createElement("button", "Edit", ["action-btn", "edit"], null, article);
     const postBtn = createElement("button", "Post", ["action-btn", "post"], null, article);
 
-    editBtn.addEventListener("click", editInfo) 
+    editBtn.addEventListener("click", editInfo); 
+    postBtn.addEventListener("click", postInfo);
 
     Object.values(inputFields).map((input) => {
         input.value = "";
@@ -54,6 +55,14 @@ function solve() {
     inputFields.content.value = children[2].textContent.split(" ")[1];
 
     article.parentElement.remove();
+  }
+
+  function postInfo(e) {
+    const article = e.currentTarget.parentElement;
+    e.currentTarget.remove();
+    article.lastChild.remove();
+    
+    document.querySelector("#published-list").appendChild(article.parentElement);
   }
 
   function createElement(type, textContent, classes, id, parent) {
