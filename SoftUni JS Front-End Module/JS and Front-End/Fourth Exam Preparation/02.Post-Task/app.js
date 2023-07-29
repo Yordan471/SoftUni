@@ -8,8 +8,6 @@ function solve() {
   };
 
   publishButton = document.querySelector("#publish-btn");
-  console.log(publishButton);
-  publishButton.disabled = false;
   publishButton.addEventListener("click", publishArticle);
   
   function publishArticle() {
@@ -51,8 +49,8 @@ function solve() {
     const children = article.children;
     
     inputFields.title.value = children[0].textContent;
-    inputFields.category.value = children[1].textContent.split(" ")[1];
-    inputFields.content.value = children[2].textContent.split(" ")[1];
+    inputFields.category.value = children[1].textContent.slice(10);
+    inputFields.content.value = children[2].textContent.slice(9);
 
     article.parentElement.remove();
   }
