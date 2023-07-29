@@ -76,7 +76,7 @@ function solve() {
     );
     createElement(
       "div",
-      `Assigned to ${task.asignee}`,
+      `Assigned to: ${task.asignee}`,
       ["task-card-assignee"],
       null,
       article
@@ -91,6 +91,8 @@ function solve() {
     const button = createElement("button", "Delete", [], null, tasksActions);
     button.addEventListener("click", loadDeleteConfirm);
     section.appendChild(article);
+
+    buttons.deleteTaskBtn.addEventListener("click", deleteTask);
 
     const totalPoints = Object.values(tasks).reduce(
       (acc, curr) => acc + curr.points,
@@ -141,5 +143,34 @@ function solve() {
 
      buttons.createTaskBtn.disabled = true;
      buttons.deleteTaskBtn.disabled = false;
+  }
+
+  function deleteTask() {
+    const taskId = hiddenInput.value;
+    const taskElement = document.querySelector(`#${taskId}`);
+    taskElement.remove();
+    delete tasks[taskId];
+
+    Object.keys(inputFormats).forEach((key) => {
+      inputKey = inputFormats[key];
+      inputKey.disabled = false;
+     })
+
+     inputFormats.title.value = "";
+     inputFormats.description.value = "";
+     inputFormats.label.value = "";
+     inputFormats.points.value = "";
+     inputFormats.asignee.value = "";
+     hiddenInput.value = "";
+
+     buttons.createTaskBtn.disabled = false;
+     buttons.deleteTaskBtn.disabled = true;
+
+     const totalPoints = Object.values(tasks).reduce(
+      (acc, curr) => acc + curr.points,
+      0
+    );
+
+    calcPoints.textContent = `Total points ${totalPoints} pts`;
   }
 }
