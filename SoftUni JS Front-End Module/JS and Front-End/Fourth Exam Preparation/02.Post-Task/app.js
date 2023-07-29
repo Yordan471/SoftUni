@@ -11,7 +11,7 @@ function solve() {
   console.log(publishButton);
   publishButton.disabled = false;
   publishButton.addEventListener("click", publishArticle);
-
+  
   function publishArticle() {
     if (Object.values(inputFields).some((input) => input.value === "")) {
         return;
@@ -35,12 +35,25 @@ function solve() {
       null,
       article
     );
-    createElement("button", "Edit", ["action-btn", "edit"], null, article);
-    createElement("button", "Post", ["action-btn", "post"], null, article);
+    const editBtn = createElement("button", "Edit", ["action-btn", "edit"], null, article);
+    const postBtn = createElement("button", "Post", ["action-btn", "post"], null, article);
+
+    editBtn.addEventListener("click", editInfo) 
 
     Object.values(inputFields).map((input) => {
         input.value = "";
     });
+  }
+
+  function editInfo(e) {
+    const article = e.currentTarget.parentElement;
+    const children = article.children;
+    
+    inputFields.title.value = children[0].textContent;
+    inputFields.category.value = children[1].textContent.split(" ")[1];
+    inputFields.content.value = children[2].textContent.split(" ")[1];
+
+    article.parentElement.remove();
   }
 
   function createElement(type, textContent, classes, id, parent) {
