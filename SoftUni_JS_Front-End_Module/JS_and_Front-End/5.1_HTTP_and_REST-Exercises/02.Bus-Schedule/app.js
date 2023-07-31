@@ -1,26 +1,38 @@
 function solve() {
-    const departBtn = document.querySelector("#depart");
-    const arriveBtn = document.querySelector("#arrive");
-    const infoBox = document.querySelector("#info .info");
+  const departBtn = document.querySelector("#depart");
+  const arriveBtn = document.querySelector("#arrive");
+  const infoBox = document.querySelector("#info .info");
 
-    function depart() {
-        fetch("http://localhost:3030/jsonstore/bus/schedule/depot")
-        .then((res) => res.json())
-        .then((busStop) => {
-            departBtn.disabled = true;
-            arriveBtn.disabled = false;
-            infoBox.textContent = `Next stop ${busStop.name}`
-        });
-    }
+  let busStopInfo = {
+    name: "",
+    next: "depot",
+  };
 
-    async function arrive() {
-        // TODO:
-    }
+  function depart() {
+    fetch(`http://localhost:3030/jsonstore/bus/schedule/${busStopInfo.next}`)
+      .then((res) => res.json())
+      .then((busStop) => {
+        busStopInfo = busStop;
+        departBtn.disabled = true;
+        arriveBtn.disabled = false;
+        infoBox.textContent = `Next stop ${busStopInfo.name}`;
+      }).catch(() => {
+        departBtn.disabled = false;
+        arriveBtn.disabled = false;
+        infoBox.textContent = `Error`;
+      })
+  }
 
-    return {
-        depart,
-        arrive
-    };
+  async function arrive() {
+    departBtn.disabled = false;
+    arriveBtn.disabled = true;
+    infoBox.textContent = `Arrive stop ${busStopInfo.name}`;
+  }
+
+  return {
+    depart,
+    arrive,
+  };
 }
 
 let result = solve();
