@@ -24,7 +24,7 @@ function solve() {
   }
 
   async function arrive() {
-    departBtn.disabled = false;
+    departBtn.disabled = true;
     arriveBtn.disabled = true;
     infoBox.textContent = `Arrive stop ${busStopInfo.name}`;
   }
