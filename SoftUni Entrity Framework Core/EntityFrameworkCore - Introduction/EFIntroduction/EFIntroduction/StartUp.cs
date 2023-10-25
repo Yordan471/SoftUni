@@ -41,7 +41,7 @@ namespace SoftUni
             int aboveSalary = 50000;
 
             var employeesSalaryOver50000 = employees
-                .Where(e => e.Salary >= aboveSalary)
+                .Where(e => e.Salary > aboveSalary)
                 .OrderBy(e => e.FirstName)
                 .Select(e => new
                 {
