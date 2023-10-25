@@ -98,7 +98,7 @@ namespace SoftUni
 
             foreach(var employee in employeesFromRAndD)
             {
-                sb.AppendLine($"{employee.FirstName} {employee.LastName} {employee.Name} - ${employee.Salary:F2}");
+                sb.AppendLine($"{employee.FirstName} {employee.LastName} from {employee.Name} - ${employee.Salary:F2}");
             }
 
             return sb.ToString().TrimEnd();
