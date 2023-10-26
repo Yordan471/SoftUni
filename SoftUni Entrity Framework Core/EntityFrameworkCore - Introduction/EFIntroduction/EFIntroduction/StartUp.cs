@@ -104,6 +104,10 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
-        
+        public static string AddNewAddressToEmployee(SoftUniContext context) 
+        {
+
+        }
+
     }
 }
