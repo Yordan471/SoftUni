@@ -10,7 +10,7 @@ namespace SoftUni.Models
     {
         public Project()
         {
-            Employees = new HashSet<Employee>();
+            EmployeesProjects = new HashSet<EmployeeProjects>();
         }
 
         [Key]
@@ -26,8 +26,8 @@ namespace SoftUni.Models
         [Column(TypeName = "smalldatetime")]
         public DateTime? EndDate { get; set; }
 
-        [ForeignKey("ProjectId")]
-        [InverseProperty(nameof(Employee.Projects))]
-        public virtual ICollection<Employee> Employees { get; set; }
+        //[ForeignKey("ProjectId")]
+        //[InverseProperty(nameof(Employee.EmployeesProjects))]
+        public virtual ICollection<EmployeeProjects> EmployeesProjects { get; set; }
     }
 }

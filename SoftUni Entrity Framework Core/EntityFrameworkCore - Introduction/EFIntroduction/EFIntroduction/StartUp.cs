@@ -120,9 +120,9 @@ namespace SoftUni
 
             string searchedName = "Nakov";
 
-            Employee findEmployee = (Employee)employees.Where(e => e.LastName == searchedName);
+            var findEmployee = employees.Where(e => e.LastName == searchedName);
 
-            findEmployee.Address = address;
+            //findEmployee.Address = address;
 
             context.SaveChanges();
 
