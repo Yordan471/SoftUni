@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using SoftUni.Data;
 using SoftUni.Models;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace SoftUni
@@ -17,7 +18,9 @@ namespace SoftUni
 
             //Console.WriteLine(GetEmployeesWithSalaryOver50000(context));
 
-            Console.WriteLine(GetEmployeesFromResearchAndDevelopment(context));
+            //Console.WriteLine(GetEmployeesFromResearchAndDevelopment(context));
+
+            Console.WriteLine(AddNewAddressToEmployee(context));
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)
@@ -106,8 +109,39 @@ namespace SoftUni
 
         public static string AddNewAddressToEmployee(SoftUniContext context) 
         {
+            var employees = context.Employees;
 
+            Address address = new Address()
+            {
+                AddressText = "Vitoshka 15",
+                TownId = 4
+            };
+
+
+            string searchedName = "Nakov";
+
+            Employee findEmployee = (Employee)employees.Where(e => e.LastName == searchedName);
+
+            findEmployee.Address = address;
+
+            context.SaveChanges();
+
+            var tenAddressesText = employees
+                .OrderByDescending(e => e.AddressId)
+                .Take(10)
+                .Select(e => new
+                {
+                    e.Address.AddressText
+                }).ToArray();
+
+            StringBuilder sb = new();
+
+            foreach (var employee in tenAddressesText) 
+            {
+                sb.AppendLine(employee.AddressText);
+            }
+
+            return sb.ToString().TrimEnd();
         }
-
     }
 }
