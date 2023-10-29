@@ -17,7 +17,7 @@ namespace SoftUni
 
             //Console.WriteLine(GetEmployeesFromResearchAndDevelopment(context));
 
-            //Console.WriteLine(AddNewAddressToEmployee(context));
+            Console.WriteLine(AddNewAddressToEmployee(context));
 
             //Console.WriteLine(GetEmployeesInPeriod(context));
         }
