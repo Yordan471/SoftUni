@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Query.Internal;
 using SoftUni.Data;
 using SoftUni.Models;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 
 namespace SoftUni
@@ -120,9 +121,9 @@ namespace SoftUni
 
             string searchedName = "Nakov";
 
-            var findEmployee = employees.Where(e => e.LastName == searchedName);
+            var findEmployee = employees.FirstOrDefault(e => e.LastName == searchedName);
 
-            //findEmployee.Address = address;
+            findEmployee!.Address = address;
 
             context.SaveChanges();
 
@@ -139,6 +140,51 @@ namespace SoftUni
             foreach (var employee in tenAddressesText) 
             {
                 sb.AppendLine(employee.AddressText);
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetEmployeesInPeriod(SoftUniContext context)
+        {
+            var employees = context.Employees;
+
+            var employeesInPeriod = employees
+                .Where(e => e.EmployeesProjects
+                .Any(ep => ep.Project.StartDate.Year >= 2001 &&
+                           ep.Project.StartDate.Year <= 2003))
+                .Take(10)
+                .Select(e => new
+                {
+                    e.FirstName,
+                    e.LastName,
+                    ManagerFirstName = e.Manager!.FirstName,
+                    ManagerLastName = e.Manager.LastName,
+                    Projects = e.EmployeesProjects
+                              .Select(ep => new
+                              {
+                                  ProjectName = ep.Project.Name,
+                                  StartDate = ep.Project.StartDate.ToString("M/d/yyyy h:mm:ss tt"),
+                                  EndDate = ep.Project.EndDate.HasValue ?
+                                            ep.Project.EndDate.Value.ToString("M/d/yyyy h:mm:ss tt") : "not finished"
+                              }
+                              ).ToArray()
+                }
+                ).ToArray();
+
+            StringBuilder sb = new();
+
+            foreach(var employee in employeesInPeriod)
+            {
+                sb.AppendLine($"{employee.FirstName} {employee.LastName} - Manager: {employee.ManagerFirstName} {employee.ManagerLastName}");
+
+                if (employee.Projects.Any())
+                {
+                    foreach(var project in employee.Projects)
+                    {
+                        sb.AppendLine($"--{project.ProjectName} - {project.StartDate} - {project.EndDate}");
+                    }                 
+                }
             }
 
             return sb.ToString().TrimEnd();
