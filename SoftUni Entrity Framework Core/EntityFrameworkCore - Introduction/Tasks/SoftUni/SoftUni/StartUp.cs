@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftUni.Data;
 using SoftUni.Models;
+using System.Globalization;
 using System.Text;
 
 namespace SoftUni
@@ -17,9 +18,9 @@ namespace SoftUni
 
             //Console.WriteLine(GetEmployeesFromResearchAndDevelopment(context));
 
-            Console.WriteLine(AddNewAddressToEmployee(context));
+            //Console.WriteLine(AddNewAddressToEmployee(context));
 
-            //Console.WriteLine(GetEmployeesInPeriod(context));
+            Console.WriteLine(GetEmployeesInPeriod(context));
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)
@@ -148,9 +149,9 @@ namespace SoftUni
             var employees = context.Employees;
 
             var employeesInPeriod = employees
-                .Where(e => e.EmployeesProjects
-                .Any(ep => ep.Project.StartDate.Year >= 2001 &&
-                           ep.Project.StartDate.Year <= 2003))
+                //.Where(e => e.EmployeesProjects
+                //.Any(ep => ep.Project.StartDate.Year >= 2001 &&
+                //           ep.Project.StartDate.Year <= 2003))
                 .Take(10)
                 .Select(e => new
                 {
@@ -159,14 +160,15 @@ namespace SoftUni
                     ManagerFirstName = e.Manager!.FirstName,
                     ManagerLastName = e.Manager.LastName,
                     Projects = e.EmployeesProjects
-                              .Select(ep => new
-                              {
-                                  ProjectName = ep.Project.Name,
-                                  StartDate = ep.Project.StartDate.ToString("M/d/yyyy h:mm:ss tt"),
-                                  EndDate = ep.Project.EndDate.HasValue ?
-                                            ep.Project.EndDate.Value.ToString("M/d/yyyy h:mm:ss tt") : "not finished"
-                              }
-                              ).ToArray()
+                               .Where(ep => ep.Project.StartDate.Year >= 2001 && ep.Project.StartDate.Year <= 2003)
+                               .Select(ep => new
+                               {
+                                   ProjectName = ep.Project.Name,
+                                   StartDate = ep.Project.StartDate.ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
+                                   EndDate = ep.Project.EndDate.HasValue ?
+                                             ep.Project.EndDate.Value.ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture) : "not finished"
+                               }
+                               ).ToArray()
                 }
                 ).ToArray();
 
@@ -186,6 +188,10 @@ namespace SoftUni
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        private class Culture
+        {
         }
     }
 }
