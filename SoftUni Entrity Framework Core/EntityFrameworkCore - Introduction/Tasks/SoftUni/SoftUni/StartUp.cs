@@ -226,7 +226,7 @@ namespace SoftUni
                 .Where(e => e.EmployeeId == 147)                
                 .FirstOrDefault();
 
-            var emp = context.Employees.Where(e => e.EmployeeId == 147).Select(e => e.EmployeesProjects.Select(ep => ep.Project)).ToArray();
+            //var emp = context.Employees.Where(e => e.EmployeeId == 147).Select(e => e.EmployeesProjects.Select(ep => ep.Project)).ToArray();
 
             StringBuilder sb = new();
 
@@ -239,5 +239,7 @@ namespace SoftUni
 
             return sb.ToString().TrimEnd();
         }
+
+
     }
 }
