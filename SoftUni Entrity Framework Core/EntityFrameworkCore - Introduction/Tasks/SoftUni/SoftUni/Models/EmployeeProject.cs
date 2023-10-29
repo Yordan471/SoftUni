@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftUni.Models
 {
-    public class EmployeeProjects
+    public class EmployeeProject
     {
         public int EmployeeId { get; set; }
 
@@ -14,6 +14,6 @@ namespace SoftUni.Models
 
         public int ProjectId { get; set; }
 
-        public virtual Project Project { get; set; }
+        public virtual Project Project { get; set; }     
     }
 }

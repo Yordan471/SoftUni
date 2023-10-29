@@ -1,15 +1,11 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+﻿using Microsoft.EntityFrameworkCore;
 using SoftUni.Data;
 using SoftUni.Models;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 
 namespace SoftUni
 {
-    public class StartUp
+    internal class StartUp
     {
         static void Main(string[] args)
         {
@@ -21,7 +17,9 @@ namespace SoftUni
 
             //Console.WriteLine(GetEmployeesFromResearchAndDevelopment(context));
 
-            Console.WriteLine(AddNewAddressToEmployee(context));
+            //Console.WriteLine(AddNewAddressToEmployee(context));
+
+            //Console.WriteLine(GetEmployeesInPeriod(context));
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)
@@ -100,7 +98,7 @@ namespace SoftUni
 
             StringBuilder sb = new();
 
-            foreach(var employee in employeesFromRAndD)
+            foreach (var employee in employeesFromRAndD)
             {
                 sb.AppendLine($"{employee.FirstName} {employee.LastName} from {employee.Name} - ${employee.Salary:F2}");
             }
@@ -108,7 +106,7 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
-        public static string AddNewAddressToEmployee(SoftUniContext context) 
+        public static string AddNewAddressToEmployee(SoftUniContext context)
         {
             var employees = context.Employees;
 
@@ -137,7 +135,7 @@ namespace SoftUni
 
             StringBuilder sb = new();
 
-            foreach (var employee in tenAddressesText) 
+            foreach (var employee in tenAddressesText)
             {
                 sb.AppendLine(employee.AddressText);
             }
@@ -174,16 +172,16 @@ namespace SoftUni
 
             StringBuilder sb = new();
 
-            foreach(var employee in employeesInPeriod)
+            foreach (var employee in employeesInPeriod)
             {
                 sb.AppendLine($"{employee.FirstName} {employee.LastName} - Manager: {employee.ManagerFirstName} {employee.ManagerLastName}");
 
                 if (employee.Projects.Any())
                 {
-                    foreach(var project in employee.Projects)
+                    foreach (var project in employee.Projects)
                     {
                         sb.AppendLine($"--{project.ProjectName} - {project.StartDate} - {project.EndDate}");
-                    }                 
+                    }
                 }
             }
 
