@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SoftUni
 {
-    internal class StartUp
+    public class StartUp
     {
         static void Main(string[] args)
         {
@@ -149,9 +149,6 @@ namespace SoftUni
             var employees = context.Employees;
 
             var employeesInPeriod = employees
-                //.Where(e => e.EmployeesProjects
-                //.Any(ep => ep.Project.StartDate.Year >= 2001 &&
-                //           ep.Project.StartDate.Year <= 2003))
                 .Take(10)
                 .Select(e => new
                 {
@@ -188,10 +185,6 @@ namespace SoftUni
             }
 
             return sb.ToString().TrimEnd();
-        }
-
-        private class Culture
-        {
         }
     }
 }
