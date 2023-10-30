@@ -240,6 +240,9 @@ namespace SoftUni
             return sb.ToString().TrimEnd();
         }
 
+        public static string GetDepartmentsWithMoreThan5Employees(SoftUniContext context)
+        {
 
+        }
     }
 }
