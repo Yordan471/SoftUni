@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using SoftUni.Data;
 using SoftUni.Models;
 using System.Globalization;
@@ -26,7 +27,9 @@ namespace SoftUni
 
             //Console.WriteLine(GetEmployee147(context));
 
-            Console.WriteLine(GetDepartmentsWithMoreThan5Employees(context));
+            //Console.WriteLine(GetDepartmentsWithMoreThan5Employees(context));
+
+            Console.WriteLine(GetLatestProjects(context));
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)
@@ -255,7 +258,6 @@ namespace SoftUni
                     ManageerName = d.Manager.FirstName + d.Manager.LastName,
                     Employees = d.Department.Employees
                 })
-
                 .ToArray();
                  
                 
@@ -276,6 +278,31 @@ namespace SoftUni
                 }
 
                 Console.WriteLine(sb.ToString().TrimEnd());
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetLatestProjects(SoftUniContext context)
+        {
+            var projects = context.Projects
+                .OrderByDescending(p => p.StartDate)
+                .Take(10)
+                .OrderBy(p => p.Name)
+                .Select(p => new
+                {
+                    ProjectName = p.Name,
+                    ProjectDescription = p.Description,
+                    ProjectStartDate = p.StartDate
+                });
+
+            StringBuilder sb = new();
+
+            foreach (var project in projects)
+            {
+                sb.AppendLine($"{project.ProjectName}");
+                sb.AppendLine($"{project.ProjectDescription}");
+                sb.AppendLine($"{project.ProjectStartDate.ToString("M/d/yyyy h:mm:ss tt")}");
             }
 
             return sb.ToString().TrimEnd();
