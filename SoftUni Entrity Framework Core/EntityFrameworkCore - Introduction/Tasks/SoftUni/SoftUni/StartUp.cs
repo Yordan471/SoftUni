@@ -24,7 +24,9 @@ namespace SoftUni
 
             //Console.WriteLine(GetAddressesByTown(context));
 
-            Console.WriteLine(GetEmployee147(context));
+            //Console.WriteLine(GetEmployee147(context));
+
+            Console.WriteLine(GetDepartmentsWithMoreThan5Employees(context));
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)
@@ -242,7 +244,41 @@ namespace SoftUni
 
         public static string GetDepartmentsWithMoreThan5Employees(SoftUniContext context)
         {
+            var employees = context.Employees
+                .Include(e => e.Departments)
+                .Where(e => e.Department.Employees.Count() > 5)
+                .OrderBy(e => e.Department.Employees.Count())
+                .ThenBy(e => e.Department.Name)
+                .Select(d => new
+                {
+                    DepartmentName = d.Department.Name,
+                    ManageerName = d.Manager.FirstName + d.Manager.LastName,
+                    Employees = d.Department.Employees
+                })
 
+                .ToArray();
+                 
+                
+
+            StringBuilder sb = new();
+
+            foreach (var employee in employees)
+            {
+                sb.AppendLine($"{employee.DepartmentName} - {employee.ManageerName}");
+                string DepName = employee.DepartmentName;
+
+                foreach (var emp in employee.Employees
+                    
+                    .OrderBy(e => e.FirstName)
+                    .ThenBy(e => e.LastName))
+                {
+                    sb.AppendLine($"{emp.FirstName} {emp.LastName} - {emp.JobTitle}");
+                }
+
+                Console.WriteLine(sb.ToString().TrimEnd());
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
