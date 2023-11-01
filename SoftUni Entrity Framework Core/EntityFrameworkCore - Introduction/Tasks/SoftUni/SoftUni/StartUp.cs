@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.VisualBasic;
 using SoftUni.Data;
 using SoftUni.Models;
 using System.Globalization;
@@ -29,7 +30,9 @@ namespace SoftUni
 
             //Console.WriteLine(GetDepartmentsWithMoreThan5Employees(context));
 
-            Console.WriteLine(GetLatestProjects(context));
+            //Console.WriteLine(GetLatestProjects(context));
+
+            Console.WriteLine(IncreaseSalaries(context));
         }
 
         public static string GetEmployeesFullInformation(SoftUniContext context)
@@ -303,6 +306,37 @@ namespace SoftUni
                 sb.AppendLine($"{project.ProjectName}");
                 sb.AppendLine($"{project.ProjectDescription}");
                 sb.AppendLine($"{project.ProjectStartDate.ToString("M/d/yyyy h:mm:ss tt")}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string IncreaseSalaries(SoftUniContext context)
+        {
+            string[] departments = { "Engineering", "Tool Design", "Marketing", "Information Services" };
+
+            var salaries = context.Employees
+                .Include(e => e.Department)
+                .Where(e => e.Department.Name == "Engineering" || 
+                       e.Department.Name == "Tool Design" || e.Department.Name == "Marketing" ||
+                       e.Department.Name == "Information Services")
+                .Select(e => new 
+                {
+                    e.FirstName,
+                    e.LastName,
+                    Salary = e.Salary + e.Salary * 0.12M
+                })
+                .OrderBy(e => e.FirstName)
+                .ThenBy(e => e.LastName)
+                .ToArray();
+
+            context.SaveChanges();
+
+            StringBuilder sb = new();
+
+            foreach(var salary in salaries)
+            {
+                sb.AppendLine($"{salary.FirstName} {salary.LastName} - (${salary.Salary:F2})");
             }
 
             return sb.ToString().TrimEnd();
