@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_FootballBetting", "P02_FootballBetting\P02_FootballBetting.csproj", "{974BC403-61F1-4C31-A0A1-00BCD6AD736F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_FootballBetting.Data", "P02_FootballBetting.Data\P02_FootballBetting.Data.csproj", "{90275059-551A-4DB1-9BFB-0FE9A622AE8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_FootballBetting.Data.Models", "P02_FootballBetting.Data.Models\P02_FootballBetting.Data.Models.csproj", "{ED170A14-F23D-4354-A128-6B310E46147B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{974BC403-61F1-4C31-A0A1-00BCD6AD736F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{974BC403-61F1-4C31-A0A1-00BCD6AD736F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{974BC403-61F1-4C31-A0A1-00BCD6AD736F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90275059-551A-4DB1-9BFB-0FE9A622AE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90275059-551A-4DB1-9BFB-0FE9A622AE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90275059-551A-4DB1-9BFB-0FE9A622AE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90275059-551A-4DB1-9BFB-0FE9A622AE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED170A14-F23D-4354-A128-6B310E46147B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED170A14-F23D-4354-A128-6B310E46147B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED170A14-F23D-4354-A128-6B310E46147B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED170A14-F23D-4354-A128-6B310E46147B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
