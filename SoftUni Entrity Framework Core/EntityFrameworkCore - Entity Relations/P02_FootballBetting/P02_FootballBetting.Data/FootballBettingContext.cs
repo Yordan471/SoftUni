@@ -12,6 +12,8 @@ namespace P02_FootballBetting.Data
 
         public DbSet<Country> Countries { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectionString);
