@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using P01_StudentSystem.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,8 @@ namespace P01_StudentSystem.Data
         {
             optionsBuilder.UseSqlServer(ConnectionString);
         }
+
+
+        public DbSet<Student> Students { get; set; }
     }
 }
