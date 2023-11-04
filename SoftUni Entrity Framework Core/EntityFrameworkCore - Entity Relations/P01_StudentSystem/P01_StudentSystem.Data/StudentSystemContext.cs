@@ -10,14 +10,18 @@ namespace P01_StudentSystem.Data
 {
     public class StudentSystemContext : DbContext
     {
-        //public StudentSystemContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
 
-        private const string ConnectionString = "Server=DESKTOP-U0UT8KF\\SQLEXPRESS;Database=StudentSystem;Trusted_Connection=True;TrustServerCertificate=True";
+        
+        public StudentSystemContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionString);
-        }
+        private const string ConnectionString = 
+            "Server=DESKTOP-U0UT8KF\\SQLEXPRESS;Database=StudentSystem;Trusted_Connection=True;TrustServerCertificate=True";
+            
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(ConnectionString);
+        //}
 
 
         public DbSet<Student> Students { get; set; }
@@ -26,8 +30,15 @@ namespace P01_StudentSystem.Data
 
         public DbSet<Resource> Resources { get; set; }
 
+        public DbSet<StudentCourse> StudentsCourses { get; set; }
+
+        public DbSet<Homework> Homeworks { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<StudentCourse>()
+                .HasKey(sc => new { sc.StudentId, sc.CourseId });
+
             modelBuilder.Entity<Course>()
                 .HasKey(c => c.CourseId);
 
