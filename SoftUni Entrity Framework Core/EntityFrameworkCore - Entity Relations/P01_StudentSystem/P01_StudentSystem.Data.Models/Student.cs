@@ -12,6 +12,7 @@ namespace P01_StudentSystem.Data.Models
         [Key]
         public int StudentId { get; set; }
 
+        
         [MaxLength(100)]
         public string Name { get; set; }
 
@@ -21,5 +22,9 @@ namespace P01_StudentSystem.Data.Models
         public bool RegisteredOn { get; set; }
 
         public DateTime Birthday { get; set; }
+
+        public virtual ICollection<Course> Courses { get; set; }
+
+        public virtual ICollection<Homework> Homeworks { get; set; }
     }
 }
