@@ -18,6 +18,10 @@ namespace P02_FootballBetting.Data
         //not added as migration
         public DbSet<Color> Colors { get; set; }
 
+        public DbSet<Team> Teams { get; set; }
+
+        public DbSet<Game> Games { get; set; }
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
