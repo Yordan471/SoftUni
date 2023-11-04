@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace P01_StudentSystem.Data.Models
 {
-    internal class ResourceType
+    public enum ResourceType
     {
+        Video,
+        Presentation,
+        Document,
+        Other
     }
 }
