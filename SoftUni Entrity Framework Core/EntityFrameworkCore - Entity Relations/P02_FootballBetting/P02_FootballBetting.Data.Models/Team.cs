@@ -17,7 +17,7 @@ namespace P02_FootballBetting.Data.Models
         [StringLength(50)]
         public string Name { get; set; }
 
-        public string LogoURL { get; set; }
+        public string LogoUrl { get; set; }
 
         public string Initials { get; set; }
 

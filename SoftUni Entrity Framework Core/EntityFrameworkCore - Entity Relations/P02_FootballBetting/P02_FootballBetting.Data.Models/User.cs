@@ -9,7 +9,7 @@ namespace P02_FootballBetting.Data.Models
 
         [Required]
         [StringLength(50)]
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [StringLength(100)]
