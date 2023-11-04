@@ -15,5 +15,7 @@ namespace P02_FootballBetting.Data.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
+
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

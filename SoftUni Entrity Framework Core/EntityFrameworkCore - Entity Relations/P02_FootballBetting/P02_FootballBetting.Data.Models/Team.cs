@@ -38,5 +38,7 @@ namespace P02_FootballBetting.Data.Models
         public ICollection<Game> HomeGames { get; set; }
 
         public ICollection<Game> AwayGames { get; set; }
+
+        public ICollection<Player> Players { get; set; }
     }
 }
