@@ -15,10 +15,6 @@ namespace P02_FootballBetting.Data
         private const string ConnectionString = 
             "Server=DESKTOP-U0UT8KF\\SQLEXPRESS;Database=FootballBetting;Trusted_Connection=True;TrustServerCertificate=True";
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionString);
-        }
 
         public DbSet<Town> Towns { get; set; }
 

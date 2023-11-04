@@ -67,9 +67,9 @@ namespace P01_StudentSystem.Data
                .Property(s => s.PhoneNumber)
                .IsUnicode(false);
 
-            modelBuilder.Entity<Student>()
-               .Property(s => s.Birthday)
-               .IsRequired(false);
+            //modelBuilder.Entity<Student>()
+            //   .Property(s => s.Birthday)
+            //   .IsRequired(false);
 
             modelBuilder.Entity<Homework>()
                 .Property(h => h.Content)
