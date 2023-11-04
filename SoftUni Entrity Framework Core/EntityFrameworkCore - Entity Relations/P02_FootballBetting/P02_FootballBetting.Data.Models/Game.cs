@@ -30,5 +30,7 @@ namespace P02_FootballBetting.Data.Models
         public double DrawBetRate { get; set; }
 
         public string Result { get; set; }
+
+        public virtual ICollection<Bet> Bets { get; set; }
     }
 }
