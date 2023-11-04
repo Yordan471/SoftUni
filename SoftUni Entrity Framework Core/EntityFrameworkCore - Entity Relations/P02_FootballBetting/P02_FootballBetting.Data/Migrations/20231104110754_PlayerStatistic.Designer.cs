@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using P02_FootballBetting.Data;
 
@@ -11,9 +12,10 @@ using P02_FootballBetting.Data;
 namespace P02_FootballBetting.Data.Migrations
 {
     [DbContext(typeof(FootballBettingContext))]
-    partial class FootballBettingContextModelSnapshot : ModelSnapshot
+    [Migration("20231104110754_PlayerStatistic")]
+    partial class PlayerStatistic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

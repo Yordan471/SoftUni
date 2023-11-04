@@ -30,5 +30,7 @@ namespace P02_FootballBetting.Data.Models
         public virtual Position Position { get; set; }
 
         public bool IsInjured { get; set; }
+
+        public ICollection<PlayerStatistic> PlayersStatistics { get; set; }
     }
 }

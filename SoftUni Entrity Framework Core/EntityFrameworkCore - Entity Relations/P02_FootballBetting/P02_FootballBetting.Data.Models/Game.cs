@@ -32,5 +32,7 @@ namespace P02_FootballBetting.Data.Models
         public string Result { get; set; }
 
         public virtual ICollection<Bet> Bets { get; set; }
+
+        public virtual ICollection<PlayerStatistic> PlayersStatistics { get; set; }
     }
 }
