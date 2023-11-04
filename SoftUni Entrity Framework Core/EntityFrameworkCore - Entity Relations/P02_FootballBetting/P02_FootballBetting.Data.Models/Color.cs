@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace P02_FootballBetting.Data.Models
 {
-    internal class Colors
+    public class Color
     {
+        [Key]
+        public int ColorId { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Name { get; set; }
     }
 }

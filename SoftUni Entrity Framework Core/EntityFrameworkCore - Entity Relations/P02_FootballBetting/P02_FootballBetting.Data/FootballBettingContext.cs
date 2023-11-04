@@ -16,6 +16,8 @@ namespace P02_FootballBetting.Data
 
         public DbSet<Position> Positions { get; set; }
 
+        public DbSet<Color> Colors { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectionString);
