@@ -5,6 +5,13 @@ namespace P02_FootballBetting.Data
 {
     public class FootballBettingContext : DbContext
     {
+
+        public FootballBettingContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+
+        }
+
+
         private const string ConnectionString = 
             "Server=DESKTOP-U0UT8KF\\SQLEXPRESS;Database=FootballBetting;Trusted_Connection=True;TrustServerCertificate=True";
 
@@ -28,10 +35,10 @@ namespace P02_FootballBetting.Data
 
         public DbSet<PlayerStatistic> PlayersStatistics { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionString);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(ConnectionString);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
