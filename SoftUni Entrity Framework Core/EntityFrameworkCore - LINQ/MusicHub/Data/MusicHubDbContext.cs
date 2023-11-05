@@ -33,11 +33,12 @@
 
         public DbSet<Writer> Writers { get; set; }
 
-        public DbSet<SongPerformer> SongPerformers { get; set; }
+        public DbSet<SongPerformer> SongsPerformers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            builder.Entity<SongPerformer>()
+                .HasKey(sp => new { sp.SongId, sp.PerformerId });
         }
     }
 }
