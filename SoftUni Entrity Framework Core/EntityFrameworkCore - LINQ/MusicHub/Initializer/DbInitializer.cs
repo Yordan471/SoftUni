@@ -10,6 +10,7 @@
     using Microsoft.EntityFrameworkCore;
 
     using Data;
+    using MusicHub.Data.Models;
 
     public class DbInitializer
     {

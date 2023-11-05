@@ -26,6 +26,6 @@ namespace MusicHub.Data.Models
         [Required]
         public decimal NetWorth { get; set; }
 
-        public ICollection<Album> Albums { get; set; }
+        public ICollection<SongPerformer> PerformerSongs { get; set; }
     }
 }
