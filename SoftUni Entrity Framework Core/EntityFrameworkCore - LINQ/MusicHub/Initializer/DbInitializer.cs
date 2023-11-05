@@ -10,7 +10,6 @@
     using Microsoft.EntityFrameworkCore;
 
     using Data;
-    using Data.Models;
 
     public class DbInitializer
     {

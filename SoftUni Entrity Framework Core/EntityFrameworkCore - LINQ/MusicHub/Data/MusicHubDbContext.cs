@@ -1,6 +1,7 @@
 ﻿namespace MusicHub.Data
 {
     using Microsoft.EntityFrameworkCore;
+    using MusicHub.Data.Models;
 
     public class MusicHubDbContext : DbContext
     {
@@ -21,6 +22,8 @@
                     .UseSqlServer(Configuration.ConnectionString);
             }
         }
+
+        public DbSet<Song > Songs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
