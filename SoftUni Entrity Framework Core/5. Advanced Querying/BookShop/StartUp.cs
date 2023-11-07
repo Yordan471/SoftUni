@@ -3,6 +3,7 @@
     using BookShop.Models.Enums;
     using Data;
     using Initializer;
+    using System.Text;
 
     public class StartUp
     {
@@ -12,7 +13,8 @@
             DbInitializer.ResetDatabase(db);
 
             //Console.WriteLine(GetBooksByAgeRestriction(db, "miNor"));
-            Console.WriteLine(GetGoldenBooks(db));
+            //Console.WriteLine(GetGoldenBooks(db));
+            Console.WriteLine(GetBooksByPrice(db));
 
         }
 
@@ -43,6 +45,28 @@
                 .AsEnumerable();
 
             return string.Join(Environment.NewLine, books);
+        }
+
+        public static string GetBooksByPrice(BookShopContext context)
+        {
+            var books = context.Books
+                .Where(b => b.Price > 40)               
+                .Select(b => new
+                {
+                    BookTitle = b.Title,
+                    b.Price
+                })
+                .OrderByDescending(b => b.Price)
+                .AsEnumerable();
+
+            StringBuilder sb = new();
+
+            foreach (var book in books)
+            {
+                sb.AppendLine($"{book.BookTitle} - ${book.Price:F2}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
