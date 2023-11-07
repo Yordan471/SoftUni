@@ -1,8 +1,10 @@
 ﻿namespace BookShop
 {
+    using BookShop.Models;
     using BookShop.Models.Enums;
     using Data;
     using Initializer;
+    using Microsoft.EntityFrameworkCore.Storage;
     using System.Text;
 
     public class StartUp
@@ -14,7 +16,8 @@
 
             //Console.WriteLine(GetBooksByAgeRestriction(db, "miNor"));
             //Console.WriteLine(GetGoldenBooks(db));
-            Console.WriteLine(GetBooksByPrice(db));
+            //Console.WriteLine(GetBooksByPrice(db));
+            Console.WriteLine(GetBooksNotReleasedIn(db, 1998));
 
         }
 
@@ -67,6 +70,32 @@
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBooksNotReleasedIn(BookShopContext context, int year)
+        {
+            DateTime lessThenYear = new(year, 1, 1);
+            DateTime OverYear = new(year, 12, 31);
+            //DateTime dateTime = DateTime.Now;
+            //Console.WriteLine(dateTime.ToString("MM / dd / yyyy"));
+            //Console.WriteLine(dateTime);
+            //lessThenYear = lessThenYear.ToString("MM/dd/yyyy");
+            //var oneReleaseDate = context.Books.Where(b => b.BookId > 5).ToList();
+            //foreach (var item in context.Books)
+            //{
+            //    if (lessThenYear < item.ReleaseDate && OverYear > item.ReleaseDate)
+            //        Console.WriteLine("YES");
+            //    else
+            //        Console.WriteLine("NO");
+            //}
+
+            var books = context.Books
+                .Where(b => b.ReleaseDate < lessThenYear || b.ReleaseDate > OverYear)
+                .OrderBy(b => b.BookId)
+                .Select(b => b.Title)
+                .AsEnumerable();
+
+            return String.Join(Environment.NewLine, books);
         }
     }
 }
