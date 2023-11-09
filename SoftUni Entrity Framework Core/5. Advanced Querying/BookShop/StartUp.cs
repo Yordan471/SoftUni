@@ -24,7 +24,8 @@
             //Console.WriteLine(GetAuthorNamesEndingIn(db, "dy"));
             //Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
             //Console.WriteLine(GetBooksByAuthor(db, "po"));
-            Console.WriteLine(CountBooks(db, 40));
+            //Console.WriteLine(CountBooks(db, 40));
+            Console.WriteLine(CountCopiesByAuthor(db));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -59,7 +60,7 @@
         public static string GetBooksByPrice(BookShopContext context)
         {
             var books = context.Books
-                .Where(b => b.Price > 40)               
+                .Where(b => b.Price > 40)
                 .Select(b => new
                 {
                     BookTitle = b.Title,
@@ -82,7 +83,7 @@
         {
             DateTime lessThenYear = new(year, 1, 1);
             DateTime OverYear = new(year, 12, 31);
-            
+
             var books = context.Books
                 .Where(b => b.ReleaseDate < lessThenYear || b.ReleaseDate > OverYear)
                 .OrderBy(b => b.BookId)
@@ -110,7 +111,7 @@
         }
 
         public static string GetBooksReleasedBefore(BookShopContext context, string date)
-        { 
+        {
             string formatDate = "dd-MM-yyyy";
             DateTime.Now.ToString(formatDate);
             DateTime inputDateTime = DateTime.Parse(date);
@@ -140,8 +141,8 @@
         {
             var authors = context.Books
                 .Where(b => b.Author.FirstName.Substring(b.Author.FirstName.Length - input.Length) == input)
-                .Select(b => new 
-                { 
+                .Select(b => new
+                {
                     b.Author.FirstName,
                     b.Author.LastName
                 })
@@ -200,6 +201,28 @@
                 .Count();
 
             return countBooks;
+        }
+
+        public static string CountCopiesByAuthor(BookShopContext context)
+        {
+            var bookCopies = context.Books
+                .Select(b => new
+                {
+                    AuthorName = b.Author.FirstName + " " + b.Author.LastName,
+                    Copies = b.Author.Books.Sum(b => b.Copies)
+                })
+                .Distinct()
+                .OrderByDescending(b => b.Copies)
+                .AsEnumerable();
+
+            StringBuilder sb = new();
+
+            foreach (var bookCopy in bookCopies)
+            {
+                sb.AppendLine($"{bookCopy.AuthorName} - {bookCopy.Copies}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
