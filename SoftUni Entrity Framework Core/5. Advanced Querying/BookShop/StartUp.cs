@@ -22,8 +22,8 @@
             //Console.WriteLine(GetBooksByCategory(db, "horror mystery drama"));
             //Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
             //Console.WriteLine(GetAuthorNamesEndingIn(db, "dy"));
-            Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
-
+            //Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
+            Console.WriteLine(GetBooksByAuthor(db, "po"));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -167,6 +167,29 @@
                 .AsEnumerable();
 
             return string.Join(Environment.NewLine, booksTitles);
+        }
+
+        public static string GetBooksByAuthor(BookShopContext context, string input)
+        {
+            var books = context.Books
+                .Where(b => b.Author.LastName.ToLower().Substring(0, input.Length) == input.ToLower())
+                .Select(b => new
+                {
+                    b.Title,
+                    AuthorName = b.Author.FirstName + " " + b.Author.LastName,
+                    b.BookId
+                })
+                .OrderBy(b => b.BookId)
+                .AsEnumerable();
+
+            StringBuilder sb = new();
+
+            foreach (var book in books)
+            {
+                sb.AppendLine($"{book.Title} ({book.AuthorName})");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
