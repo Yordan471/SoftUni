@@ -19,7 +19,8 @@
             //Console.WriteLine(GetGoldenBooks(db));
             //Console.WriteLine(GetBooksByPrice(db));
             //Console.WriteLine(GetBooksNotReleasedIn(db, 1998));
-            Console.WriteLine(GetBooksByCategory(db, "horror mystery drama"));
+            //Console.WriteLine(GetBooksByCategory(db, "horror mystery drama"));
+            Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
 
         }
 
@@ -103,6 +104,33 @@
                 .AsEnumerable();
 
             return string.Join(Environment.NewLine, books);
+        }
+
+        public static string GetBooksReleasedBefore(BookShopContext context, string date)
+        { 
+            string formatDate = "dd-MM-yyyy";
+            DateTime.Now.ToString(formatDate);
+            DateTime inputDateTime = DateTime.Parse(date);
+
+            var books = context.Books
+                .Where(b => b.ReleaseDate < inputDateTime)
+                .Select(b => new
+                {
+                    b.Title,
+                    b.EditionType,
+                    b.Price,
+                    b.ReleaseDate
+                })
+                .AsEnumerable();
+
+            StringBuilder sb = new();
+
+            foreach (var book in books.OrderByDescending(b => b.ReleaseDate))
+            {
+                sb.AppendLine($"{book.Title} - {book.EditionType} - ${book.Price}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
