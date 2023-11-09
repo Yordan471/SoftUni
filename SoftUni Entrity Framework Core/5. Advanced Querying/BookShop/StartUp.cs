@@ -23,7 +23,8 @@
             //Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
             //Console.WriteLine(GetAuthorNamesEndingIn(db, "dy"));
             //Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
-            Console.WriteLine(GetBooksByAuthor(db, "po"));
+            //Console.WriteLine(GetBooksByAuthor(db, "po"));
+            Console.WriteLine(CountBooks(db, 40));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -190,6 +191,15 @@
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static int CountBooks(BookShopContext context, int lengthCheck)
+        {
+            var countBooks = context.Books
+                .Where(b => b.Title.Length > lengthCheck)
+                .Count();
+
+            return countBooks;
         }
     }
 }
