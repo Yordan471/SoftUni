@@ -25,7 +25,8 @@
             //Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
             //Console.WriteLine(GetBooksByAuthor(db, "po"));
             //Console.WriteLine(CountBooks(db, 40));
-            Console.WriteLine(CountCopiesByAuthor(db));
+            //Console.WriteLine(CountCopiesByAuthor(db));
+            Console.WriteLine(GetTotalProfitByCategory(db));
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -220,6 +221,28 @@
             foreach (var bookCopy in bookCopies)
             {
                 sb.AppendLine($"{bookCopy.AuthorName} - {bookCopy.Copies}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetTotalProfitByCategory(BookShopContext context)
+        {
+            var profitByCategory = context.Categories
+                .Select(c => new
+                {
+                    c.Name,
+                    Profit = c.CategoryBooks.Sum(cb => cb.Book.Price * cb.Book.Copies)
+                })
+                .OrderByDescending(c => c.Profit)
+                .ThenBy(c => c.Name)
+                .AsEnumerable();
+            
+            StringBuilder sb = new();
+
+            foreach (var profit in profitByCategory)
+            {
+                sb.AppendLine($"{profit.Name} - ${profit.Profit:F2}");
             }
 
             return sb.ToString().TrimEnd();
