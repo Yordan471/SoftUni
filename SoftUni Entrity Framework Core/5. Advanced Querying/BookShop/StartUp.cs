@@ -20,7 +20,9 @@
             //Console.WriteLine(GetBooksByPrice(db));
             //Console.WriteLine(GetBooksNotReleasedIn(db, 1998));
             //Console.WriteLine(GetBooksByCategory(db, "horror mystery drama"));
-            Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
+            //Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
+            //Console.WriteLine(GetAuthorNamesEndingIn(db, "dy"));
+            Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
 
         }
 
@@ -131,6 +133,40 @@
             }
 
             return sb.ToString().TrimEnd();
+        }
+
+        public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
+        {
+            var authors = context.Books
+                .Where(b => b.Author.FirstName.Substring(b.Author.FirstName.Length - input.Length) == input)
+                .Select(b => new 
+                { 
+                    b.Author.FirstName,
+                    b.Author.LastName
+                })
+                .Distinct()
+                .OrderBy(b => b.FirstName)
+                .ToList();
+
+            StringBuilder sb = new();
+
+            foreach (var author in authors)
+            {
+                sb.AppendLine($"{author.FirstName} {author.LastName}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetBookTitlesContaining(BookShopContext context, string input)
+        {
+            var booksTitles = context.Books
+                .Where(b => b.Title.ToLower().Contains(input.ToLower()))
+                .Select(b => b.Title)
+                .OrderBy(b => b)
+                .AsEnumerable();
+
+            return string.Join(Environment.NewLine, booksTitles);
         }
     }
 }
