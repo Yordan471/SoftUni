@@ -26,7 +26,9 @@
             //Console.WriteLine(GetBooksByAuthor(db, "po"));
             //Console.WriteLine(CountBooks(db, 40));
             //Console.WriteLine(CountCopiesByAuthor(db));
-            Console.WriteLine(GetTotalProfitByCategory(db));
+            //Console.WriteLine(GetTotalProfitByCategory(db));
+            Console.WriteLine(GetMostRecentBooks(db));
+
         }
 
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
@@ -237,12 +239,48 @@
                 .OrderByDescending(c => c.Profit)
                 .ThenBy(c => c.Name)
                 .AsEnumerable();
-            
+
             StringBuilder sb = new();
 
             foreach (var profit in profitByCategory)
             {
                 sb.AppendLine($"{profit.Name} - ${profit.Profit:F2}");
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public static string GetMostRecentBooks(BookShopContext context)
+        {
+            var mostRecentBooks = context.Categories
+            .Select(c => new
+            {
+                CategoryName = c.Name,
+                MostRecentBooks = c.CategoryBooks
+                                             .OrderByDescending(cb => cb.Book.ReleaseDate)
+                                             .Select(sb => new
+                                             {
+                                                 sb.Book.Title,
+                                                 sb.Book.ReleaseDate,
+                                             })
+                                             .Take(3)
+                                             .AsEnumerable()
+
+            })
+            .OrderBy(c => c.CategoryName)
+            .AsEnumerable();
+
+            StringBuilder sb = new();
+
+            foreach (var bookCategory in mostRecentBooks)
+            {
+                sb.AppendLine($"--{bookCategory.CategoryName}");
+
+                foreach (var bookName in bookCategory.MostRecentBooks)
+                {
+                    int year = bookName.ReleaseDate.Value.Year;
+                    sb.AppendLine($"{bookName.Title} - {year}");
+                }
             }
 
             return sb.ToString().TrimEnd();
