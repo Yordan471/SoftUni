@@ -6,6 +6,7 @@
     using Initializer;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Storage;
+    using System.Globalization;
     using System.Text;
 
     public class StartUp
@@ -21,7 +22,7 @@
             //Console.WriteLine(GetBooksNotReleasedIn(db, 1998));
             //Console.WriteLine(GetBooksByCategory(db, "horror mystery drama"));
             //Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
-            //Console.WriteLine(GetAuthorNamesEndingIn(db, "dy"));
+            Console.WriteLine(GetAuthorNamesEndingIn(db, "e"));
             //Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
             //Console.WriteLine(GetBooksByAuthor(db, "po"));
             //Console.WriteLine(CountBooks(db, 40));
@@ -126,11 +127,10 @@
         public static string GetBooksReleasedBefore(BookShopContext context, string date)
         {
             string formatDate = "dd-MM-yyyy";
-            DateTime.Now.ToString(formatDate);
-            DateTime inputDateTime = DateTime.Parse(date);
+            var parseInputDate = DateTime.ParseExact(date, formatDate, CultureInfo.InvariantCulture);
 
             var books = context.Books
-                .Where(b => b.ReleaseDate < inputDateTime)
+                .Where(b => b.ReleaseDate < parseInputDate)
                 .Select(b => new
                 {
                     b.Title,
@@ -144,7 +144,7 @@
 
             foreach (var book in books.OrderByDescending(b => b.ReleaseDate))
             {
-                sb.AppendLine($"{book.Title} - {book.EditionType} - ${book.Price}");
+                sb.AppendLine($"{book.Title} - {book.EditionType} - ${book.Price:F2}");
             }
 
             return sb.ToString().TrimEnd();
@@ -152,15 +152,17 @@
 
         public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
         {
-            var authors = context.Books
-                .Where(b => b.Author.FirstName.Substring(b.Author.FirstName.Length - input.Length) == input)
+            //
+
+            var authors = context.Authors
+                .Where(b => b.FirstName.EndsWith(input))             
                 .Select(b => new
                 {
-                    b.Author.FirstName,
-                    b.Author.LastName
+                    b.FirstName,
+                    b.LastName
                 })
-                .Distinct()
                 .OrderBy(b => b.FirstName)
+                .ThenBy(b => b.LastName)
                 .ToList();
 
             StringBuilder sb = new();
