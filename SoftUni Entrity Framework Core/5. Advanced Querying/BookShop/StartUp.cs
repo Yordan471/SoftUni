@@ -152,8 +152,6 @@
 
         public static string GetAuthorNamesEndingIn(BookShopContext context, string input)
         {
-            //
-
             var authors = context.Authors
                 .Where(b => b.FirstName.EndsWith(input))             
                 .Select(b => new
@@ -220,13 +218,13 @@
 
         public static string CountCopiesByAuthor(BookShopContext context)
         {
-            var bookCopies = context.Books
+            var bookCopies = context.Authors
                 .Select(b => new
                 {
-                    AuthorName = b.Author.FirstName + " " + b.Author.LastName,
-                    Copies = b.Author.Books.Sum(b => b.Copies)
+                    AuthorName = b.FirstName + " " + b.LastName,
+                    Copies = b.Books.Sum(b => b.Copies)
                 })
-                .Distinct()
+                
                 .OrderByDescending(b => b.Copies)
                 .AsEnumerable();
 
