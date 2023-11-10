@@ -22,13 +22,13 @@
             //Console.WriteLine(GetBooksNotReleasedIn(db, 1998));
             //Console.WriteLine(GetBooksByCategory(db, "horror mystery drama"));
             //Console.WriteLine(GetBooksReleasedBefore(db, "30-12-1989"));
-            Console.WriteLine(GetAuthorNamesEndingIn(db, "e"));
+            //Console.WriteLine(GetAuthorNamesEndingIn(db, "e"));
             //Console.WriteLine(GetBookTitlesContaining(db, "WOR"));
             //Console.WriteLine(GetBooksByAuthor(db, "po"));
             //Console.WriteLine(CountBooks(db, 40));
             //Console.WriteLine(CountCopiesByAuthor(db));
             //Console.WriteLine(GetTotalProfitByCategory(db));
-            //Console.WriteLine(GetMostRecentBooks(db));
+            Console.WriteLine(GetMostRecentBooks(db));
 
         }
 
@@ -254,7 +254,7 @@
 
             foreach (var profit in profitByCategory)
             {
-                sb.AppendLine($"{profit.Name} - ${profit.Profit:F2}");
+                sb.AppendLine($"{profit.Name} ${profit.Profit:F2}");
             }
 
             return sb.ToString().TrimEnd();
@@ -289,7 +289,7 @@
                 foreach (var bookName in bookCategory.MostRecentBooks)
                 {
                     int year = bookName.ReleaseDate.Value.Year;
-                    sb.AppendLine($"{bookName.Title} - {year}");
+                    sb.AppendLine($"{bookName.Title} ({year})");
                 }
             }
 
