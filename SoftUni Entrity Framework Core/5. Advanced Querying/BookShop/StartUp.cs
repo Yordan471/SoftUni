@@ -27,7 +27,7 @@
             //Console.WriteLine(CountBooks(db, 40));
             //Console.WriteLine(CountCopiesByAuthor(db));
             //Console.WriteLine(GetTotalProfitByCategory(db));
-            Console.WriteLine(GetMostRecentBooks(db));
+            //Console.WriteLine(GetMostRecentBooks(db));
 
         }
 
@@ -104,13 +104,23 @@
                 .ToArray();
 
             var books = context.Books
-                .Where(b => b.BookCategories
-                .Any(bc => inputInfo.Contains(bc.Category.Name)))
-                .Select(b => b.Title)
-                .OrderBy(b => b)
+                .Select(b => new 
+                {
+                    b.Title,
+                    b.BookCategories
+                })
+                .Where(b => b.BookCategories.Any(bc => inputInfo.Contains(bc.Category.Name.ToLower())))
+                .OrderBy(b => b.Title)
                 .AsEnumerable();
 
-            return string.Join(Environment.NewLine, books);
+            StringBuilder sb = new();
+
+            foreach (var book in books)
+            {
+                sb.AppendLine($"{book.Title}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string GetBooksReleasedBefore(BookShopContext context, string date)
