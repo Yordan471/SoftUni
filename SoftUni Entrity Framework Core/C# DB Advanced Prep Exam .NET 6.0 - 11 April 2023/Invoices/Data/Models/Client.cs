@@ -19,7 +19,7 @@ namespace Invoices.Data.Models
 
         public ICollection<Invoice> Invoices { get; set; }
 
-        public ICollection<Address> Addresses { get; set; }
+        public ICollection<Invoice> Addresses { get; set; }
 
         public ICollection<ProductClient> ProductsClients { get; set; }
     }

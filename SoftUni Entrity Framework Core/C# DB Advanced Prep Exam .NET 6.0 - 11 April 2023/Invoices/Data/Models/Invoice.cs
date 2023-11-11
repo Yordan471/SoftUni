@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Invoices.Data.Models.Enums;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Invoices.Data.Models
@@ -9,25 +11,17 @@ namespace Invoices.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(10)]
-        [MaxLength(20)]
-        public string StreetName { get; set; }
+        [Range(1000000000, 1.500000000)]
+        public int Number { get; set; }
 
         [Required]
-        public int StreetNumber { get; set; }
+        public DateTime IssueDate { get; set; }
 
         [Required]
-        public string PostCode { get; set; }
+        public decimal Amount { get; set; }
 
         [Required]
-        [MinLength(5)]
-        [MaxLength(15)]
-        public string City { get; set; }
-
-        [Required]
-        [MinLength(5)]
-        [MaxLength(15)]
-        public string Country { get; set; }
+        public CurrencyType MyProperty { get; set; }
 
         public int ClientId { get; set; }
 
