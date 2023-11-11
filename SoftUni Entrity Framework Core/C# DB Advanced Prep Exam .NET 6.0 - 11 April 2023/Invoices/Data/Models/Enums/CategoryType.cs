@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Invoices.Data.Models.Enums
 {
-    internal class CategoryType
+    public enum CategoryType
     {
+        ADR,
+        Filters,
+        Lights,
+        Others,
+        Tyres
     }
 }
