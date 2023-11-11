@@ -9,11 +9,12 @@ namespace Invoices.Data.Models
         public int ProductId { get; set; }
 
         [ForeignKey(nameof(ProductId))]
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
 
+        [Required]
         public int ClientId { get; set; }
 
         [ForeignKey(nameof(ClientId))]
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

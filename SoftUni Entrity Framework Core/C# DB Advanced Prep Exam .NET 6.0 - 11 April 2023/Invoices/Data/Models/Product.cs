@@ -17,7 +17,7 @@ namespace Invoices.Data.Models
         [Required]
         [MinLength(9)]
         [MaxLength(30)]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [Range(5.00, 1000.00)]
@@ -26,6 +26,6 @@ namespace Invoices.Data.Models
         [Required]
         public CategoryType CategoryType { get; set; }
 
-        public ICollection<ProductClient> MyProperty { get; set; }
+        public virtual ICollection<ProductClient> ProductsClients { get; set; } = null!;
     }
 }

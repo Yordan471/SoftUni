@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Invoices.Data.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Invoices.Data.Models
@@ -11,27 +12,28 @@ namespace Invoices.Data.Models
         [Required]
         [MinLength(10)]
         [MaxLength(20)]
-        public string StreetName { get; set; }
+        public string StreetName { get; set; } = null!;
 
         [Required]
         public int StreetNumber { get; set; }
 
         [Required]
-        public string PostCode { get; set; }
+        public string PostCode { get; set; } = null!;
 
         [Required]
         [MinLength(5)]
         [MaxLength(15)]
-        public string City { get; set; }
+        public string City { get; set; } = null!;
 
         [Required]
         [MinLength(5)]
         [MaxLength(15)]
-        public string Country { get; set; }
+        public string Country { get; set; } = null!;
 
+        [Required]
         public int ClientId { get; set; }
 
         [ForeignKey(nameof(ClientId))]
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Invoices.Data.Models.Enums
 {
-    internal class CurrencyType
+    public enum CurrencyType
     {
+        BGN,
+        EUR,
+        USD
     }
 }

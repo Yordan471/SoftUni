@@ -1,6 +1,6 @@
 ﻿using Invoices.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+
 
 namespace Invoices.Data
 {
@@ -15,6 +15,17 @@ namespace Invoices.Data
         { 
         }
 
+        public DbSet<Address> Addresses { get; set; }
+        
+        public DbSet<Client> Clients { get; set; }
+
+        public DbSet<Invoice> Invoices { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<ProductClient> ProductsClients { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -26,7 +37,8 @@ namespace Invoices.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-                  
+            modelBuilder.Entity<ProductClient>()
+               .HasKey(pc => new { pc.ProductId, pc.ClientId });
         }
     }
 }

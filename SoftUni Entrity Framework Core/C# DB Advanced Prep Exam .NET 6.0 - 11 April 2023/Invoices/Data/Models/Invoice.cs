@@ -18,14 +18,18 @@ namespace Invoices.Data.Models
         public DateTime IssueDate { get; set; }
 
         [Required]
+        public DateTime DueDate { get; set; }
+
+        [Required]
         public decimal Amount { get; set; }
 
         [Required]
-        public CurrencyType MyProperty { get; set; }
+        public CurrencyType CurrencyType { get; set; }
 
+        [Required]
         public int ClientId { get; set; }
 
         [ForeignKey(nameof(ClientId))]
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

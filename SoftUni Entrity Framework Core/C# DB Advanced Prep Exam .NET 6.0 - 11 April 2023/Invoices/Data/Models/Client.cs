@@ -10,17 +10,17 @@ namespace Invoices.Data.Models
         [Required]
         [MinLength(10)]
         [MaxLength(25)]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [MinLength(10)]
         [MaxLength(15)]
-        public string NumberVat { get; set; }
+        public string NumberVat { get; set; } = null!;
 
-        public ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
 
-        public ICollection<Invoice> Addresses { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
 
-        public ICollection<ProductClient> ProductsClients { get; set; }
+        public virtual ICollection<ProductClient> ProductsClients { get; set; }
     }
 }
