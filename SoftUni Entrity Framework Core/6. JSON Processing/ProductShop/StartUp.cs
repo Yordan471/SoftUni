@@ -20,8 +20,13 @@ namespace ProductShop
             //string inputJson = File.ReadAllText(@"../../../Datasets/products.json");
             //string result = ImportProducts(context, inputJson);
 
-            string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
-            string result = ImportCategories(context, inputJson);
+            // Category
+            //string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
+            //string result = ImportCategories(context, inputJson);
+
+            // CategoryProduct
+            string inputJson = File.ReadAllText(@"../../../Datasets/categories-products.json");
+            string result = ImportCategoryProducts(context, inputJson);
 
             Console.WriteLine(result);
         }
@@ -103,6 +108,34 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {validCategories.Count}";
+        }
+
+        public static string ImportCategoryProducts(ProductShopContext context, string inputJson)
+        {
+            IMapper mapper = MappingMethod();
+
+            ImportCategoryProductDto[] categoryProductDtos = 
+                JsonConvert.DeserializeObject<ImportCategoryProductDto[]>(inputJson);
+
+            ICollection<CategoryProduct> validCategoryProductDtos = new HashSet<CategoryProduct>();
+
+            foreach (var categoryProduct in categoryProductDtos)
+            {
+                if (!context.Categories.Any(c => c.Id == categoryProduct.CategoryId) ||
+                    !context.Products.Any(p => p.Id == categoryProduct.ProductId))
+                {
+                    continue;
+                }
+
+                CategoryProduct validCategoryProduct = mapper.Map<CategoryProduct>(categoryProduct);
+
+                validCategoryProductDtos.Add(validCategoryProduct);
+            }
+
+            context.CategoriesProducts.AddRange(validCategoryProductDtos);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCategoryProductDtos.Count}";
         }
     }
 }
