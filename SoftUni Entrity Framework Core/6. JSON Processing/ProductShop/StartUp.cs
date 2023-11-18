@@ -17,8 +17,11 @@ namespace ProductShop
             //string result = ImportUsers(context, inputJson);
 
             // Products
-            string inputJson = File.ReadAllText(@"../../../Datasets/products.json");
-            string result = ImportProducts(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/products.json");
+            //string result = ImportProducts(context, inputJson);
+
+            string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
+            string result = ImportCategories(context, inputJson);
 
             Console.WriteLine(result);
         }
@@ -73,6 +76,33 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {validProducts.Count}";
+        }
+
+        public static string ImportCategories(ProductShopContext context, string inputJson)
+        {
+            IMapper mapper = MappingMethod();
+
+            ImportCategoryDto[] categoryDtos = 
+                JsonConvert.DeserializeObject<ImportCategoryDto[]>(inputJson);
+
+            ICollection<Category> validCategories = new HashSet<Category>();
+
+            foreach (var categoryDto in categoryDtos)
+            {
+                if (categoryDto.Name == null)
+                {
+                    continue;
+                }
+
+                Category validCategory = mapper.Map<Category>(categoryDto);
+
+                validCategories.Add(validCategory);
+            }
+
+            context.Categories.AddRange(validCategories);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCategories.Count}";
         }
     }
 }
