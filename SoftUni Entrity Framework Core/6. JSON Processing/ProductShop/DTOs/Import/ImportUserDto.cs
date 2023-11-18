@@ -15,6 +15,15 @@ namespace ProductShop.DTOs.Import
         [JsonProperty("lastName")]
         public string LastName { get; set; } = null!;
 
+        public string FullName 
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
+
         [JsonProperty("age")]
         public int? Age { get; set; }
     }

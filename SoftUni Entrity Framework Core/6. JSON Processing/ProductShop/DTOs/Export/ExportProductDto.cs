@@ -9,13 +9,13 @@ namespace ProductShop.DTOs.Export
 {
     public class ExportProductDto
     {
-        [JsonProperty("firstName")]
-        public string? FirstName { get; set; }
+        [JsonProperty("name")]
+        public string ProductName { get; set; } = null!;
 
-        [JsonProperty("lastName")]
-        public string LastName { get; set; } = null!;
+        [JsonProperty("price")]
+        public decimal ProductPrice { get; set; }
 
-        [JsonProperty("age")]
-        public int? Age { get; set; }
+        [JsonProperty("seller")]
+        public string SellerName { get; set; } = null!;
     }
 }
