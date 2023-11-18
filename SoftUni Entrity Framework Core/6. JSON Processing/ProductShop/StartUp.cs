@@ -174,7 +174,7 @@ namespace ProductShop
         public static string GetSoldProducts(ProductShopContext context)
         {
             var users = context.Users
-                .Where(u => u.ProductsBought.Any())
+                .Where(u => u.ProductsSold.Any(p => p.Buyer != null))
                 .OrderBy(u => u.LastName)
                 .ThenBy(u => u.FirstName)
                 .AsNoTracking()
