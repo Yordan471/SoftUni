@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using ProductShop.Data;
+using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 
@@ -143,6 +145,8 @@ namespace ProductShop
 
         public static string GetProductsInRange(ProductShopContext context)
         {
+            //IMapper mapper = MappingMethod();
+
             var products = context.Products
                 .Where(p => p.Price >= 500 && p.Price <= 1000)
                 .OrderBy(p => p.Price)
@@ -154,6 +158,14 @@ namespace ProductShop
                 })
                 .AsNoTracking()
                 .AsEnumerable();
+
+            // DTO + Auto Mapper
+            //ExportProductDto[] productss = context.Products
+            //    .Where(p => p.Price >= 500 && p.Price <= 1000)
+            //    .OrderBy(p => p.Price)
+            //    .AsNoTracking()
+            //    .ProjectTo<ExportProductDto>(mapper.ConfigurationProvider)
+            //    .ToArray();
 
             return JsonConvert.SerializeObject(products, Formatting.Indented);
         }
