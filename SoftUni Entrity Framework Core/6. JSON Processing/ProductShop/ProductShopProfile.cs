@@ -10,6 +10,7 @@ namespace ProductShop
         {
             // User
             this.CreateMap<ImportUserDto, User>();
+            this.CreateMap<ImportProductDto, Product>();
         }
     }
 }

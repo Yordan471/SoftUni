@@ -19,6 +19,14 @@ namespace ProductShop
             Console.WriteLine(result);  
         }
 
+        public static IMapper MappingMethod()
+        {
+            IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
+            cfg.AddProfile<ProductShopProfile>()));
+
+            return mapper;
+        }
+
         public static string ImportUsers(ProductShopContext context, string inputJson)
         {
             IMapper mapper = MappingMethod();
@@ -41,12 +49,11 @@ namespace ProductShop
             return $"Successfully imported {validUsers.Count}";
         }
 
-        public static IMapper MappingMethod()
+        public static string ImportProducts(ProductShopContext context, string inputJson)
         {
-            IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
-            cfg.AddProfile<ProductShopProfile>()));
+            IMapper mapper = MappingMethod();
 
-            return mapper;
-        }
+
+        }     
     }
 }
