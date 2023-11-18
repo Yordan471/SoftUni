@@ -12,11 +12,15 @@ namespace ProductShop
         {
             ProductShopContext context = new ProductShopContext();
 
-            string inputJson = File.ReadAllText(@"../../../Datasets/users.json");
+            // Users
+            //string inputJson = File.ReadAllText(@"../../../Datasets/users.json");
+            //string result = ImportUsers(context, inputJson);
 
-            string result = ImportUsers(context, inputJson);
+            // Products
+            string inputJson = File.ReadAllText(@"../../../Datasets/products.json");
+            string result = ImportProducts(context, inputJson);
 
-            Console.WriteLine(result);  
+            Console.WriteLine(result);
         }
 
         public static IMapper MappingMethod()
@@ -53,7 +57,22 @@ namespace ProductShop
         {
             IMapper mapper = MappingMethod();
 
+            ImportProductDto[] productDtos =
+                JsonConvert.DeserializeObject<ImportProductDto[]>(inputJson);
 
-        }     
+            ICollection<Product> validProducts = new HashSet<Product>();
+
+            foreach (var productDto in productDtos)
+            {
+                Product validProduct = mapper.Map<Product>(productDto);
+
+                validProducts.Add(validProduct);
+            }
+
+            context.Products.AddRange(validProducts);
+            context.SaveChanges();
+
+            return $"Successfully imported {validProducts.Count}";
+        }
     }
 }
