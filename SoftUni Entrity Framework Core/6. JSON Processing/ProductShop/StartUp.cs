@@ -31,7 +31,8 @@ namespace ProductShop
             //string inputJson = File.ReadAllText(@"../../../Datasets/categories-products.json");
             //string result = ImportCategoryProducts(context, inputJson);
 
-            Console.WriteLine(GetProductsInRange(context));
+            //Console.WriteLine(GetProductsInRange(context));
+            Console.WriteLine(GetSoldProducts(context));
 
             //Console.WriteLine(result);
         }
@@ -168,6 +169,31 @@ namespace ProductShop
             //    .ToArray();
 
             return JsonConvert.SerializeObject(products, Formatting.Indented);
+        }
+
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsBought.Any())
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .AsNoTracking()
+                .Select(u => new 
+                {
+                    firstName = u.FirstName,
+                    lastName = u.LastName,
+                    soldProducts = u.ProductsSold.Select(p => new 
+                    {
+                        name = p.Name,
+                        price = p.Price,
+                        buyerFirstName = p.Buyer.FirstName,
+                        buyerLastName = p.Buyer.LastName
+                    })
+                    .ToArray()
+                })
+                .ToArray();
+
+            return JsonConvert.SerializeObject(users, Formatting.Indented);
         }
     }
 }
