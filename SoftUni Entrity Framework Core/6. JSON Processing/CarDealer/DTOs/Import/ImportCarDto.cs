@@ -20,6 +20,7 @@ namespace CarDealer.DTOs.Import
         [JsonProperty("model")]
         public string Model { get; set; } = null!;
 
+        [JsonProperty("traveledDistance")]
         public long TravelledDistance { get; set; }
 
         public ICollection<int> PartsId { get; set; }

@@ -35,7 +35,10 @@ namespace CarDealer
             //string result = ImportSales(context, inputJson);
 
             // Problem 14
-            Console.WriteLine(GetOrderedCustomers(context));
+            //Console.WriteLine(GetOrderedCustomers(context));
+
+            // Problem 15
+            Console.WriteLine(GetCarsFromMakeToyota(context));
 
             //Console.WriteLine(result);
         }
@@ -118,6 +121,7 @@ namespace CarDealer
 
             context.PartsCars.AddRange(validPartCars);
             context.Cars.AddRange(validCars);
+
             context.SaveChanges();
 
             return $"Successfully imported {validCars.Count}.";
@@ -184,6 +188,38 @@ namespace CarDealer
                 .AsEnumerable();
 
             return JsonConvert.SerializeObject(customers, Formatting.Indented);
+        }
+
+        // Problem 15
+        public static string GetCarsFromMakeToyota(CarDealerContext context)
+        {
+            string carToyota = "Toyota";
+
+            var cars = context.Cars
+                .Where(c => c.Make == carToyota)
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TravelledDistance)
+                .Select(c => new
+                {
+                    c.Id,
+                    c.Make,
+                    c.Model,
+                    TraveledDistance = c.TravelledDistance,
+                })
+                .AsNoTracking()
+                .AsEnumerable();
+
+            var toyotaCars = context.Cars.Where(c => c.Make == "Toyota").OrderBy(c => c.Model)
+                                         .ThenByDescending(c => c.TravelledDistance)
+                                         .Select(c => new
+                                         {
+                                             Id = c.Id,
+                                             Make = c.Make,
+                                             Model = c.Model,
+                                             TravelledDistance = c.TravelledDistance
+                                         }).ToList();
+
+            return JsonConvert.SerializeObject (toyotaCars, Formatting.Indented);
         }
 
         public static IMapper CreateMapper()
