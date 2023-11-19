@@ -21,8 +21,12 @@ namespace CarDealer
             //string result = ImportParts(context, inputJson);
 
             // Problem 11
-            string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
-            string result = ImportCars(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
+            //string result = ImportCars(context, inputJson);
+
+            // Problem 12
+            string inputJson = File.ReadAllText(@"../../../Datasets/customers.json");
+            string result = ImportCustomers(context, inputJson);
 
             Console.WriteLine(result);
         }
@@ -110,6 +114,27 @@ namespace CarDealer
             return $"Successfully imported {validCars.Count}.";
         }
 
+        // Problem 12
+        public static string ImportCustomers(CarDealerContext context, string inputJson)
+        {
+            IMapper mapper = CreateMapper();
+
+            ImportCustomerDto[] customers = JsonConvert.DeserializeObject<ImportCustomerDto[]>(inputJson);
+
+            ICollection<Customer> validCustomers = new HashSet<Customer>();
+
+            foreach (var customer in customers)
+            {
+                Customer validCustomer = mapper.Map<Customer>(customer);
+
+                validCustomers.Add(validCustomer);
+            }
+
+            context.Customers.AddRange(validCustomers);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCustomers.Count}.";
+        }
         public static IMapper CreateMapper()
         {
             IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
