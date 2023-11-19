@@ -38,7 +38,10 @@ namespace CarDealer
             //Console.WriteLine(GetOrderedCustomers(context));
 
             // Problem 15
-            Console.WriteLine(GetCarsFromMakeToyota(context));
+            //Console.WriteLine(GetCarsFromMakeToyota(context));
+
+            // Problem 16
+            Console.WriteLine(GetLocalSuppliers(context));
 
             //Console.WriteLine(result);
         }
@@ -208,18 +211,25 @@ namespace CarDealer
                 })
                 .AsNoTracking()
                 .AsEnumerable();
+          
+            return JsonConvert.SerializeObject(cars, Formatting.Indented);
+        }
 
-            var toyotaCars = context.Cars.Where(c => c.Make == "Toyota").OrderBy(c => c.Model)
-                                         .ThenByDescending(c => c.TravelledDistance)
-                                         .Select(c => new
-                                         {
-                                             Id = c.Id,
-                                             Make = c.Make,
-                                             Model = c.Model,
-                                             TravelledDistance = c.TravelledDistance
-                                         }).ToList();
+        // Problem 16
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            var suppliers = context.Suppliers
+                .Where(s => s.IsImporter == false)
+                .Select(s => new
+                {
+                    s.Id,
+                    s.Name,
+                    PartsCount = s.Parts.Count
+                })
+                .AsNoTracking()
+                .AsEnumerable();
 
-            return JsonConvert.SerializeObject (toyotaCars, Formatting.Indented);
+            return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
         }
 
         public static IMapper CreateMapper()
