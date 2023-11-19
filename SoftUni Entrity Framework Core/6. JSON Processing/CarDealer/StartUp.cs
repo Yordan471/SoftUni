@@ -12,13 +12,16 @@ namespace CarDealer
         {
             CarDealerContext context = new CarDealerContext();
 
-            // Problem 1
+            // Problem 9
             //string inputJson = File.ReadAllText(@"../../../Datasets/suppliers.json");
             //string result = ImportSuppliers(context, inputJson);
 
-            // Problem 2
-            string inputJson = File.ReadAllText(@"../../../Datasets/parts.json");
-            string result = ImportParts(context, inputJson);
+            // Problem 10
+            //string inputJson = File.ReadAllText(@"../../../Datasets/parts.json");
+            //string result = ImportParts(context, inputJson);
+
+            // Problem 11
+
 
             Console.WriteLine(result);
         }
@@ -71,6 +74,16 @@ namespace CarDealer
 
             return $"Successfully imported {validParts.Count}.";
         }
+
+        // Problem 11
+
+        public static string ImportCars(CarDealerContext context, string inputJson)
+        {
+            IMapper mapper = CreateMapper();
+
+
+        }
+
         public static IMapper CreateMapper()
         {
             IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
