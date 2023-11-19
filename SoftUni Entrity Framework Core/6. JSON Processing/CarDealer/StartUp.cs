@@ -12,8 +12,13 @@ namespace CarDealer
         {
             CarDealerContext context = new CarDealerContext();
 
-            string inputJson = File.ReadAllText(@"../../../Datasets/suppliers.json");
-            string result = ImportSuppliers(context, inputJson);
+            // Problem 1
+            //string inputJson = File.ReadAllText(@"../../../Datasets/suppliers.json");
+            //string result = ImportSuppliers(context, inputJson);
+
+            // Problem 2
+            string inputJson = File.ReadAllText(@"../../../Datasets/parts.json");
+            string result = ImportParts(context, inputJson);
 
             Console.WriteLine(result);
         }
@@ -21,7 +26,7 @@ namespace CarDealer
         // Problem 9
         public static string ImportSuppliers(CarDealerContext context, string inputJson)
         {
-            IMapper mapper = Mapper();
+            IMapper mapper = CreateMapper();
 
             ImportSupplierDto[] suppliers = JsonConvert.DeserializeObject<ImportSupplierDto[]>(inputJson);
 
@@ -43,9 +48,30 @@ namespace CarDealer
         //Problem 10
         public static string ImportParts(CarDealerContext context, string inputJson)
         {
+            IMapper mapper = CreateMapper();
 
+            ImportPartDto[] parts = JsonConvert.DeserializeObject<ImportPartDto[]>(inputJson);
+
+            ICollection<Part> validParts = new HashSet<Part>();
+
+            foreach (var part in parts)
+            {
+                if (!context.Suppliers.Any(s => s.Id == part.SupplierId))
+                {
+                    continue;
+                }
+
+                Part validPart = mapper.Map<Part>(part);
+
+                validParts.Add(validPart);
+            }
+
+            context.Parts.AddRange(validParts);
+            context.SaveChanges();
+
+            return $"Successfully imported {validParts.Count}.";
         }
-        public static IMapper Mapper()
+        public static IMapper CreateMapper()
         {
             IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
             cfg.AddProfile<CarDealerProfile>()));
