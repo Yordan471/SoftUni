@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarDealer.DTOs.Import
 {
-    public class ImportSuppliersDto
+    public class ImportSupplierDto
     {
         [JsonProperty("name")]
         public string Name { get; set; } = null!;
