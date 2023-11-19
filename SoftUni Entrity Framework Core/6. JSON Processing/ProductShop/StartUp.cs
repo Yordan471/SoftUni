@@ -15,19 +15,19 @@ namespace ProductShop
         {
             ProductShopContext context = new ProductShopContext();
 
-            // Users
+            // Problem 1 Users
             //string inputJson = File.ReadAllText(@"../../../Datasets/users.json");
             //string result = ImportUsers(context, inputJson);
 
-            // Products
+            // Problem 2 Products
             //string inputJson = File.ReadAllText(@"../../../Datasets/products.json");
             //string result = ImportProducts(context, inputJson);
 
-            // Category
+            // Problem 3 Category
             //string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
             //string result = ImportCategories(context, inputJson);
 
-            // CategoryProduct
+            // Problem 4 CategoryProduct
             //string inputJson = File.ReadAllText(@"../../../Datasets/categories-products.json");
             //string result = ImportCategoryProducts(context, inputJson);
 
@@ -41,19 +41,13 @@ namespace ProductShop
             //Console.WriteLine(GetCategoriesByProductsCount(context));
 
             // Problem 8
-            Console.WriteLine(GetUsersWithProducts(context));
+            //Console.WriteLine(GetUsersWithProducts(context));
 
             //Console.WriteLine(result);
         }
 
-        public static IMapper MappingMethod()
-        {
-            IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
-            cfg.AddProfile<ProductShopProfile>()));
-
-            return mapper;
-        }
-
+        
+        // ProductShop context Problems
         public static string ImportUsers(ProductShopContext context, string inputJson)
         {
             IMapper mapper = MappingMethod();
@@ -259,6 +253,15 @@ namespace ProductShop
             {
                 NullValueHandling = NullValueHandling.Ignore
             });
+        }
+
+        // Mapper method
+        public static IMapper MappingMethod()
+        {
+            IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
+            cfg.AddProfile<ProductShopProfile>()));
+
+            return mapper;
         }
     }
 }

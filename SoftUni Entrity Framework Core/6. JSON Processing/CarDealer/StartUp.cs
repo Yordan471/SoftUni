@@ -41,7 +41,10 @@ namespace CarDealer
             //Console.WriteLine(GetCarsFromMakeToyota(context));
 
             // Problem 16
-            Console.WriteLine(GetLocalSuppliers(context));
+            //Console.WriteLine(GetLocalSuppliers(context));
+
+            // Problem 17
+            Console.WriteLine(GetCarsWithTheirListOfParts(context));
 
             //Console.WriteLine(result);
         }
@@ -230,6 +233,48 @@ namespace CarDealer
                 .AsEnumerable();
 
             return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
+        }
+
+        //Problem 17
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var cars = context.Cars
+                .Select(c => new
+                {
+                    car = new
+                    {
+                        Make = c.Make,
+                        Model = c.Model,
+                        TravelledDistance = c.TravelledDistance
+                    },
+                    parts = c.PartsCars.Select(pc => new
+                    {
+                        Name = pc.Part.Name,
+                        Price = $"{pc.Part.Price:F2}"
+                    }).ToArray()
+                }).ToArray();
+
+            var carss = context.Cars
+            .Select(c => new
+            {
+                car = new
+                {
+                    c.Make,
+                    c.Model,
+                    TraveledDistance = c.TravelledDistance
+                },
+                parts = c.PartsCars.Select(cp => new
+                {
+                    cp.Part.Name,
+                    Price = $"{cp.Part.Price:F2}"
+                })
+                    .AsEnumerable()
+            }
+            )
+            .AsNoTracking()
+            .AsEnumerable();
+                     
+            return JsonConvert.SerializeObject(cars);
         }
 
         public static IMapper CreateMapper()
