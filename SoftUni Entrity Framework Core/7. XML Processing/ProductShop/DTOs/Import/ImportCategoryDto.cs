@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ProductShop.DTOs.Import
 {
-    internal class ImportCategoryDto
+    [XmlType("Category")]
+    public class ImportCategoryDto
     {
+        [XmlElement("name")]
+        public string Name { get; set; } = null!;
     }
 }

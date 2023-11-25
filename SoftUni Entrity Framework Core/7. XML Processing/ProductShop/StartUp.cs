@@ -18,8 +18,12 @@ namespace ProductShop
             //string result = ImportUsers(context, inputXml);
 
             // Problem 2
-            string inputXml = File.ReadAllText(@"../../../Datasets/products.xml");
-            string result = ImportProducts(context, inputXml);
+            //string inputXml = File.ReadAllText(@"../../../Datasets/products.xml");
+            //string result = ImportProducts(context, inputXml);
+
+            // Problem 3
+            string inputXml = File.ReadAllText(@"../../../Datasets/categories.xml");
+            string result = ImportCategories(context, inputXml);
 
             Console.WriteLine(result);
         }
@@ -49,6 +53,7 @@ namespace ProductShop
             return $"Successfully imported {validUsers.Count}";
         }
 
+        // Problem 2
         public static string ImportProducts(ProductShopContext context, string inputXml)
         {
             string rootName = "Products";
@@ -73,6 +78,36 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {validProducts.Count}";
+        }
+
+        // Problem 3
+        public static string ImportCategories(ProductShopContext context, string inputXml)
+        {
+            IMapper mapper = CreateMapper();
+
+            string xmlRootName = "Categories";
+
+            XmlHelper xmlHelper = new();
+            ImportCategoryDto[] categoryDtos = xmlHelper.Deserialize<ImportCategoryDto[]>(inputXml, xmlRootName);
+
+            ICollection<Category> validCategories = new HashSet<Category>();
+
+            foreach (var categoryDto in categoryDtos)
+            {
+                if (string.IsNullOrEmpty(categoryDto.Name))
+                {
+                    continue;
+                }
+
+                Category validCategory = mapper.Map<Category>(categoryDto);
+
+                validCategories.Add(validCategory);
+            }
+
+            context.Categories.AddRange(validCategories);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCategories.Count}";
         }
 
         public static IMapper CreateMapper()
