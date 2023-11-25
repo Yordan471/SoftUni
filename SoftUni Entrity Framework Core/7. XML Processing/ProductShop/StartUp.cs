@@ -13,11 +13,18 @@ namespace ProductShop
         {
             ProductShopContext context = new ProductShopContext();
 
-            string inputXml = File.ReadAllText(@"../../../Datasets/users.xml");
-            string result = ImportUsers(context, inputXml);
+            // Problem 1
+            //string inputXml = File.ReadAllText(@"../../../D*/atasets/users.xml");
+            //string result = ImportUsers(context, inputXml);
+
+            // Problem 2
+            string inputXml = File.ReadAllText(@"../../../Datasets/products.xml");
+            
+
             Console.WriteLine(result);
         }
 
+        // Problem 1
         public static string ImportUsers(ProductShopContext context, string inputXml)
         {
             string xmlRootName = "Users";
@@ -40,6 +47,11 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {validUsers.Count}";
+        }
+
+        public static string ImportProducts(ProductShopContext context, string inputXml)
+        {
+
         }
 
         public static IMapper CreateMapper()
