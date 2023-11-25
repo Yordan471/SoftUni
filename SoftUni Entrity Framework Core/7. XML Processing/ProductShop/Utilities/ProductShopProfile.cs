@@ -2,14 +2,14 @@
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 
-namespace ProductShop
+namespace ProductShop.Utilities
 {
     public class ProductShopProfile : Profile
     {
         public ProductShopProfile()
         {
             // User
-            this.CreateMap<ImportUserDto, User>();
+            CreateMap<ImportUserDto, User>();
         }
     }
 }
