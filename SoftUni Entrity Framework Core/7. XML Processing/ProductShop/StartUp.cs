@@ -19,7 +19,7 @@ namespace ProductShop
 
             // Problem 2
             string inputXml = File.ReadAllText(@"../../../Datasets/products.xml");
-            
+            string result = ImportProducts(context, inputXml);
 
             Console.WriteLine(result);
         }
@@ -51,7 +51,28 @@ namespace ProductShop
 
         public static string ImportProducts(ProductShopContext context, string inputXml)
         {
+            string rootName = "Products";
 
+            IMapper mapper = CreateMapper();
+
+            XmlHelper xmlHelper = new();
+
+            ImportProducDto[] importedProductDtos = 
+                xmlHelper.Deserialize<ImportProducDto[]>(inputXml, rootName);
+
+            ICollection<Product> validProducts = new HashSet<Product>();
+
+            foreach (var productDto in importedProductDtos)
+            {
+                Product validProduct = mapper.Map<Product>(productDto);
+
+                validProducts.Add(validProduct);
+            }
+
+            context.Products.AddRange(validProducts);
+            context.SaveChanges();
+
+            return $"Successfully imported {validProducts.Count}";
         }
 
         public static IMapper CreateMapper()
