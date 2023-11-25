@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using ProductShop.Data;
+using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 using ProductShop.Utilities;
@@ -14,20 +17,23 @@ namespace ProductShop
             ProductShopContext context = new ProductShopContext();
 
             // Problem 1
-            //string inputXml = File.ReadAllText(@"../../../D*/atasets/users.xml");
+            //string inputXml = File.ReadAllText(@"../../../Datasets/users.xml");
             //string result = ImportUsers(context, inputXml);
 
             // Problem 2
-            //string inputXml = File.ReadAllText(@"../../../Datasets/products.xml");
-            //string result = ImportProducts(context, inputXml);
+            string inputXml = File.ReadAllText(@"../../../Datasets/products.xml");
+            string result = ImportProducts(context, inputXml);
 
             // Problem 3
             //string inputXml = File.ReadAllText(@"../../../Datasets/categories.xml");
             //string result = ImportCategories(context, inputXml);
 
             // Problem 4
-            string inputXml = File.ReadAllText(@"../../../Datasets/categories-products.xml");
-            string result = ImportCategoryProducts(context, inputXml);
+            //string inputXml = File.ReadAllText(@"../../../Datasets/categories-products.xml");
+            //string result = ImportCategoryProducts(context, inputXml);
+
+            // Problem 5
+            //Console.WriteLine(GetProductsInRange(context));
 
             Console.WriteLine(result);
         }
@@ -144,6 +150,36 @@ namespace ProductShop
             context.SaveChanges();
 
             return $"Successfully imported {validCategoryProducts.Count}";
+        }
+
+        // Problem 5
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            IMapper mapper = CreateMapper();
+            XmlHelper xmlHelper = new();
+
+            //ExportProductDto[] productDtos = context.Products
+            //    .Where(p => p.Price >= 500 && p.Price <= 1000)
+            //    .OrderBy(p => p.Price)
+            //    .Take(10)
+            //    .ProjectTo<ExportProductDto>(mapper.ConfigurationProvider)
+            //    .AsNoTracking()
+            //    .ToArray();
+
+            ExportProductDto[] productDtos = context.Products
+                .Where(p => p.Price >= 500 && p.Price <= 1000)               
+                .Select(p => new ExportProductDto()
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    Buyer = p.Buyer.FirstName + " " + p.Buyer.LastName
+                })
+                .OrderBy(p => p.Price)
+                .Take(10)
+                .AsNoTracking()
+                .ToArray();
+
+            return xmlHelper.Serializer<ExportProductDto[]>(productDtos, "Products");
         }
 
         public static IMapper CreateMapper()
