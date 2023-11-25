@@ -8,13 +8,13 @@ using System.Xml.Serialization;
 
 namespace ProductShop.Utilities
 {
-    public class XlmHelper
+    public class XmlHelper
     {
         public T Deserialize<T>(string inputXml, string rootName)
         {
             XmlRootAttribute root = new(rootName);
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T[]), root);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T), root);
 
             StringReader reader = new StringReader(inputXml);
 

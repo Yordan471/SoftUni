@@ -2,7 +2,7 @@
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
 
-namespace ProductShop.Utilities
+namespace ProductShop
 {
     public class ProductShopProfile : Profile
     {
