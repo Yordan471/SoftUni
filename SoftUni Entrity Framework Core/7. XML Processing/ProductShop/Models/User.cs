@@ -18,7 +18,8 @@
 
         public int? Age { get; set; }
 
-        public ICollection<Product> ProductsSold { get; set; } = null!;
-        public ICollection<Product> ProductsBought { get; set; } = null!;
+        public virtual ICollection<Product> ProductsSold { get; set; } = null!;
+
+        public virtual ICollection<Product> ProductsBought { get; set; } = null!;
     }
 }
