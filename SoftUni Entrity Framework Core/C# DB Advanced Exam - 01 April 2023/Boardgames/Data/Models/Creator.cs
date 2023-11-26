@@ -7,7 +7,7 @@ namespace Boardgames.Data.Models
     {
         public Creator() 
         {
-            BoardGames = new HashSet<BoardGame>();
+            BoardGames = new HashSet<Boardgame>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace Boardgames.Data.Models
         [StringLength(CreatorNameLengthMax)]
         public string LastName { get; set; } = null!;
 
-        public virtual ICollection<BoardGame> BoardGames { get; set; }
+        public virtual ICollection<Boardgame> BoardGames { get; set; }
     }
 }

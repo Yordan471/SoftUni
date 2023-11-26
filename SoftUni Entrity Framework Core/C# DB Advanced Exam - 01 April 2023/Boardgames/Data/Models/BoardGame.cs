@@ -6,9 +6,9 @@ using static Boardgames.Utilities.GlobalConstraints;
 
 namespace Boardgames.Data.Models
 {
-    public class BoardGame
+    public class Boardgame
     {
-        public BoardGame() 
+        public Boardgame() 
         {
             BoardgamesSellers = new HashSet<BoardGameSeller>();
         }
