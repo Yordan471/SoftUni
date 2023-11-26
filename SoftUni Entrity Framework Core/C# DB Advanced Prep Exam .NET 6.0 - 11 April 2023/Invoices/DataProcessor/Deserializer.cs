@@ -120,9 +120,7 @@
                     Amount = invoiceDto.Amount,
                     ClientId = invoiceDto.ClientId
                 };
-
-                
-
+              
                 validInvoices.Add(validInvoice);
                 sb.AppendLine(string.Format(SuccessfullyImportedInvoices, validInvoice.Number));
             }

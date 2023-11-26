@@ -19,9 +19,9 @@ namespace Invoices.DataProcessor.ExportDto
         public decimal Amount { get; set; }
 
         [XmlElement("DueDate")]
-        public DateTime DueDate { get; set; }
+        public string DueDate { get; set; }
 
         [XmlElement("Currency")]
-        public CurrencyType CurrencyType { get; set; }
+        public string CurrencyType { get; set; }
     }
 }
