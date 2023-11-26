@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using static Boardgames.Utilities.GlobalConstraints
+using static Boardgames.Utilities.GlobalConstraints;
 
 namespace Boardgames.Data.Models
 {
@@ -7,7 +7,7 @@ namespace Boardgames.Data.Models
     {
         public Creator() 
         {
-            BoardGames = new HashSet<Boardgame>();
+            Boardgames = new HashSet<Boardgame>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace Boardgames.Data.Models
         [StringLength(CreatorNameLengthMax)]
         public string LastName { get; set; } = null!;
 
-        public virtual ICollection<Boardgame> BoardGames { get; set; }
+        public virtual ICollection<Boardgame> Boardgames { get; set; }
     }
 }

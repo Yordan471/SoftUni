@@ -7,7 +7,7 @@ namespace Boardgames.Data.Models
     {
         public Seller() 
         {
-            BoardgamesSellers = new HashSet<BoardGameSeller>();
+            BoardgamesSellers = new HashSet<BoardgameSeller>();
         }
 
         [Key]

@@ -10,7 +10,7 @@ namespace Boardgames.Data.Models
     {
         public Boardgame() 
         {
-            BoardgamesSellers = new HashSet<BoardGameSeller>();
+            BoardgamesSellers = new HashSet<BoardgameSeller>();
         }
 
         [Key]
@@ -38,9 +38,9 @@ namespace Boardgames.Data.Models
         public int CreatorId { get; set; }
 
         [Required]
-        [ForeignKey("CreatorId")]
+        [ForeignKey(nameof(CreatorId))]
         public virtual Creator Creator { get; set; } = null!;
 
-        public ICollection<BoardgameSeller> BoardgamesSellers  { get; set; }
+        public virtual ICollection<BoardgameSeller> BoardgamesSellers  { get; set; }
     }
 }

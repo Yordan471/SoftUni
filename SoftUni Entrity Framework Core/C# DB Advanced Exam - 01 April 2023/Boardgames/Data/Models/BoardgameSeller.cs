@@ -13,13 +13,13 @@ namespace Boardgames.Data.Models
         [Required]
         public int BoardgameId { get; set; }
 
-        [ForeignKey("BoardGameId")]
-        public Boardgame Boardgame { get; set; } = null!;
+        [ForeignKey(nameof(BoardgameId))]
+        public virtual Boardgame Boardgame { get; set; } = null!;
 
         [Required]
         public int SellerId { get; set; }
 
-        [ForeignKey("SellerId")]
-        public Seller Seller { get; set; } = null!;
+        [ForeignKey(nameof(SellerId))]
+        public virtual Seller Seller { get; set; } = null!;
     }
 }
