@@ -1,6 +1,7 @@
 ﻿namespace Invoices.DataProcessor
 {
     using System.ComponentModel.DataAnnotations;
+    using AutoMapper;
     using Invoices.Data;
 
     public class Deserializer
@@ -19,6 +20,7 @@
 
         public static string ImportClients(InvoicesContext context, string xmlString)
         {
+
             throw new NotImplementedException();
         }
 
@@ -41,6 +43,14 @@
             var validationResult = new List<ValidationResult>();
 
             return Validator.TryValidateObject(dto, validationContext, validationResult, true);
+        }
+
+        public static IMapper CreateMapper()
+        {
+            IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
+            cfg.AddProfile<InvoicesProfile>()));
+
+            return mapper;
         }
     } 
 }
