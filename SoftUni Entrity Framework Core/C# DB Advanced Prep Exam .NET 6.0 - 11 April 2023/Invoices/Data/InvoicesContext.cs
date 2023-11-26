@@ -31,7 +31,8 @@ namespace Invoices.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    .UseSqlServer(Configuration.ConnectionString);
+                    .UseSqlServer(Configuration.ConnectionString)
+                    .UseLazyLoadingProxies();
             }
         }
 

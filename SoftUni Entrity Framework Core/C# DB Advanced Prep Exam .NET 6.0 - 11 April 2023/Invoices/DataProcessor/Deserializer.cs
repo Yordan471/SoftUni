@@ -1,12 +1,14 @@
 ﻿namespace Invoices.DataProcessor
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Globalization;
     using System.Text;
     using AutoMapper;
     using Invoices.Data;
     using Invoices.Data.Models;
     using Invoices.DataProcessor.ImportDto;
     using Invoices.Utilities;
+    using Newtonsoft.Json;
 
     public class Deserializer
     {
@@ -82,7 +84,40 @@
 
         public static string ImportInvoices(InvoicesContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            IMapper mapper = CreateMapper();
+
+            ImportJSONInvoicesDto[] invoiceDtos = 
+                JsonConvert.DeserializeObject<ImportJSONInvoicesDto[]>(jsonString);
+
+            ICollection<Invoice> validinvoices = new HashSet<Invoice>();
+            StringBuilder sb = new();
+
+            foreach (var invoiceDto in invoiceDtos)
+            {
+                if (!IsValid(invoiceDto))
+                {                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                if (invoiceDto.DueDate == 
+                    DateTime.ParseExact("01/01/0001", "dd/MM/yyyy", CultureInfo.InvariantCulture) ||
+                    invoiceDto.IssueDate == 
+                    DateTime.ParseExact("01/01/0001", "dd/MM/yyyy", CultureInfo.InvariantCulture))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Invoice validInvoice = mapper.Map<Invoice>(invoiceDto);
+
+                validinvoices.Add(validInvoice);
+                sb.AppendLine(string.Format(SuccessfullyImportedInvoices, validInvoice.Amount));
+            }
+
+            context.Invoices.AddRange(validinvoices);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportProducts(InvoicesContext context, string jsonString)

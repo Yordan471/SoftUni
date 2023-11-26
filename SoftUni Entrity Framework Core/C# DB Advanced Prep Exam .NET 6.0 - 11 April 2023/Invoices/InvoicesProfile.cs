@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Invoices.Data.Models;
+using Invoices.DataProcessor.ImportDto;
 
 namespace Invoices
 {
@@ -6,7 +8,8 @@ namespace Invoices
     {
         public InvoicesProfile()
         {
-           
+            // Invoice
+            this.CreateMap<ImportJSONInvoicesDto, Invoice>();
         }
     }
 }
