@@ -4,32 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Invoices.Utilities
 {
     public class GlobalConstants
     {
         // Products
-        const int ProductNameLengthConstraintMin = 9;
-        const int ProductNameLengthConstraintMax = 30;
-        const decimal ProductPriceRangeMin = 5.0M;
-        const decimal ProductPriceRangeMax = 1000.00M;
+        public const int ProductNameLengthConstraintMin = 9;
+        public const int ProductNameLengthConstraintMax = 30;
+        public const decimal ProductPriceRangeMin = 5.0M;
+        public const decimal ProductPriceRangeMax = 1000.00M;
 
         // Addresses
-        const int AddressesStreetNameLengthMin = 10;
-        const int AddressesStreetNameLengthMax = 20;
-        const int AddressesCityNameLengthMin = 5;
-        const int AddressesCityNameLengthMax = 15;
-        const int AddressesCountryNameLengthMin = 5;
-        const int AddressesCountryNameLengthMax = 5;
+        public const int AddressesStreetNameLengthMin = 10;
+        public const int AddressesStreetNameLengthMax = 20;
+        public const int AddressesCityNameLengthMin = 5;
+        public const int AddressesCityNameLengthMax = 15;
+        public const int AddressesCountryNameLengthMin = 5;
+        public const int AddressesCountryNameLengthMax = 5;
 
         // Invoices
-        const int InvoicesNumberRangeMin = 1000000000;
-        const int InvoicesNumberRangeMax = 1500000000;
+        public const int InvoicesNumberRangeMin = 1000000000;
+        public const int InvoicesNumberRangeMax = 1500000000;
 
         // Client
-        const int ClientFullNameLengthMin = 10;
-        const int ClientFullNameLengthMax = 25;
-        const int ClientVatNumberLengthMin = 10;
-        const int ClientVatNumberLengthMax = 25;
+        public const int ClientFullNameLengthMin = 10;
+        public const int ClientFullNameLengthMax = 25;
+        public const int ClientVatNumberLengthMin = 10;
+        public const int ClientVatNumberLengthMax = 25;
     }
 }
