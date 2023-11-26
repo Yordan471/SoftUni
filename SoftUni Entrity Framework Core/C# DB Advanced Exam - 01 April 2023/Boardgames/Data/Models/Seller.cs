@@ -27,6 +27,6 @@ namespace Boardgames.Data.Models
         [Required]
         public string Website { get; set; } = null!;
 
-        public ICollection<BoardgameSeller> BoardgamesSellers  { get; set; }
+        public virtual ICollection<BoardgameSeller> BoardgamesSellers  { get; set; }
     }
 }

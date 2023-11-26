@@ -21,6 +21,6 @@ namespace Boardgames.Data.Models
         [StringLength(CreatorNameLengthMax)]
         public string LastName { get; set; } = null!;
 
-        public ICollection<BoardGame> BoardGames { get; set; }
+        public virtual ICollection<BoardGame> BoardGames { get; set; }
     }
 }
