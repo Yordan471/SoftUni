@@ -1,8 +1,11 @@
 ﻿namespace Invoices.DataProcessor
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Text;
     using AutoMapper;
     using Invoices.Data;
+    using Invoices.Data.Models;
+    using Invoices.DataProcessor.ImportDto;
     using Invoices.Utilities;
 
     public class Deserializer
@@ -24,7 +27,56 @@
             string rootXmlName = "Clients";
             XmlHelper xmlHelper = new XmlHelper();
 
-                throw new NotImplementedException();
+            ImportXmlClientDto[] importXmlClientDtos = 
+                xmlHelper.Deserialize<ImportXmlClientDto[]>(xmlString, rootXmlName);
+
+            ICollection<Client> validClients = new HashSet<Client>();
+            ICollection<Address> validAddresses = new HashSet<Address>();
+
+            StringBuilder sb = new();
+
+            foreach (ImportXmlClientDto clientDto in importXmlClientDtos)
+            {              
+                if (!IsValid(clientDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Client validClient = new()
+                {
+                    Name = clientDto.Name,
+                    NumberVat = clientDto.NumberVat
+                };
+
+                foreach (var AddressDto in clientDto.Addresses)
+                {
+                    if (!IsValid(AddressDto))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    Address validAddress = new()
+                    {
+                        StreetName = AddressDto.StreetName,
+                        StreetNumber = AddressDto.StreetNumber,
+                        PostCode = AddressDto.PostCode,
+                        City = AddressDto.City,
+                        Country = AddressDto.Country,
+                    };
+
+                    validClient.Addresses.Add(validAddress);
+                }
+
+                validClients.Add(validClient);
+                sb.AppendLine(string.Format(SuccessfullyImportedClients, validClient.Name));
+            }
+
+            context.Clients.AddRange(validClients);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
 
@@ -44,6 +96,7 @@
         {
             var validationContext = new ValidationContext(dto);
             var validationResult = new List<ValidationResult>();
+
 
             return Validator.TryValidateObject(dto, validationContext, validationResult, true);
         }
