@@ -3,6 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Invoices.Data;
+    using Invoices.Utilities;
 
     public class Deserializer
     {
@@ -20,8 +21,10 @@
 
         public static string ImportClients(InvoicesContext context, string xmlString)
         {
+            string rootXmlName = "Clients";
+            XmlHelper xmlHelper = new XmlHelper();
 
-            throw new NotImplementedException();
+                throw new NotImplementedException();
         }
 
 
