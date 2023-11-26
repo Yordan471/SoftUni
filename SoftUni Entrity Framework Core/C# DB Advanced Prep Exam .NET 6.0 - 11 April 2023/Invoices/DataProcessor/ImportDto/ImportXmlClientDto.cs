@@ -20,7 +20,7 @@ namespace Invoices.DataProcessor.ImportDto
         [XmlElement("NumberVat")]
         public string NumberVat { get; set; } = null!;
 
-        [XmlElement("Addresses")]
-        public virtual Address[] Addresses { get; set; }
+        [XmlArray("Addresses")]
+        public virtual ImportXmlAddressesDto[] Addresses { get; set; } = null!;
     }
 }

@@ -15,7 +15,7 @@ namespace Invoices.Utilities
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T), root);
 
-            StringReader reader = new StringReader(inputXml);
+            using StringReader reader = new StringReader(inputXml);
 
             T deserializedObjects = (T)xmlSerializer.Deserialize(reader);
 

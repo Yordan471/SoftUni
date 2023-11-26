@@ -10,6 +10,9 @@ namespace Invoices
         {
             // Invoice
             this.CreateMap<ImportJSONInvoicesDto, Invoice>();
+
+            // Product
+            this.CreateMap<ImportJSONProductDto, Product>();
         }
     }
 }

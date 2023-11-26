@@ -33,7 +33,6 @@
                 xmlHelper.Deserialize<ImportXmlClientDto[]>(xmlString, rootXmlName);
 
             ICollection<Client> validClients = new HashSet<Client>();
-            ICollection<Address> validAddresses = new HashSet<Address>();
 
             StringBuilder sb = new();
 
@@ -84,18 +83,17 @@
 
         public static string ImportInvoices(InvoicesContext context, string jsonString)
         {
-            IMapper mapper = CreateMapper();
-
             ImportJSONInvoicesDto[] invoiceDtos = 
                 JsonConvert.DeserializeObject<ImportJSONInvoicesDto[]>(jsonString);
 
-            ICollection<Invoice> validinvoices = new HashSet<Invoice>();
+            ICollection<Invoice> validInvoices = new HashSet<Invoice>();
             StringBuilder sb = new();
 
             foreach (var invoiceDto in invoiceDtos)
             {
                 if (!IsValid(invoiceDto))
-                {                    sb.AppendLine(ErrorMessage);
+                {                   
+                    sb.AppendLine(ErrorMessage);
                     continue;
                 }
 
@@ -108,13 +106,28 @@
                     continue;
                 }
 
-                Invoice validInvoice = mapper.Map<Invoice>(invoiceDto);
+                if (invoiceDto.IssueDate > invoiceDto.DueDate)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
 
-                validinvoices.Add(validInvoice);
-                sb.AppendLine(string.Format(SuccessfullyImportedInvoices, validInvoice.Amount));
+                Invoice validInvoice = new Invoice()
+                {
+                    Number = invoiceDto.Number,
+                    IssueDate = invoiceDto.IssueDate,
+                    DueDate = invoiceDto.DueDate,
+                    Amount = invoiceDto.Amount,
+                    ClientId = invoiceDto.ClientId
+                };
+
+                
+
+                validInvoices.Add(validInvoice);
+                sb.AppendLine(string.Format(SuccessfullyImportedInvoices, validInvoice.Number));
             }
 
-            context.Invoices.AddRange(validinvoices);
+            context.Invoices.AddRange(validInvoices);
             context.SaveChanges();
 
             return sb.ToString().TrimEnd();
@@ -122,9 +135,51 @@
 
         public static string ImportProducts(InvoicesContext context, string jsonString)
         {
+            ImportJSONProductDto[] productDtos = JsonConvert.DeserializeObject<ImportJSONProductDto[]>(jsonString);
 
+            ICollection<Product> validProducts = new HashSet<Product>();
+            StringBuilder sb = new();
 
-            throw new NotImplementedException();
+            foreach (var productDto in productDtos)
+            {
+                if (!IsValid(productDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Product validProduct = new()
+                {
+                    Name = productDto.Name,
+                    Price = productDto.Price,
+                    CategoryType = productDto.CategoryType,
+                };
+
+                foreach (var clientId in productDto.Clients.Distinct())
+                {
+                    Client id = context.Clients.Find(clientId);
+
+                    if (id == null)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    validProduct.ProductsClients.Add(new ProductClient()
+                    {
+                        Client = id
+                    }); 
+                }
+
+                validProducts.Add(validProduct);
+                sb.AppendLine(string.Format(SuccessfullyImportedProducts,
+                    validProduct.Name, validProduct.ProductsClients.Count));
+            }
+            
+            context.Products.AddRange(validProducts);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static bool IsValid(object dto)

@@ -4,6 +4,13 @@ namespace Invoices.Data.Models
 {
     public class Client
     {
+        public Client() 
+        {
+            Addresses = new HashSet<Address>();
+            Invoices = new HashSet<Invoice>();
+            ProductsClients = new HashSet<ProductClient>();
+        }
+
         [Key]
         public int Id { get; set; }
 

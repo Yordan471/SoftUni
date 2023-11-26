@@ -11,6 +11,11 @@ namespace Invoices.Data.Models
 {
     public class Product
     {
+        public Product ()
+        {
+            ProductsClients = new HashSet<ProductClient>();
+        }
+
         [Key]
         public int Id { get; set; }
 

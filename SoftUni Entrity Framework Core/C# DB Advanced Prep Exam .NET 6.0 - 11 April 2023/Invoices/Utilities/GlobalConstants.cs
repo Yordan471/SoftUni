@@ -21,7 +21,7 @@ namespace Invoices.Utilities
         public const int AddressesCityNameLengthMin = 5;
         public const int AddressesCityNameLengthMax = 15;
         public const int AddressesCountryNameLengthMin = 5;
-        public const int AddressesCountryNameLengthMax = 5;
+        public const int AddressesCountryNameLengthMax = 15;
 
         // Invoices
         public const int InvoicesNumberRangeMin = 1000000000;
@@ -31,6 +31,6 @@ namespace Invoices.Utilities
         public const int ClientFullNameLengthMin = 10;
         public const int ClientFullNameLengthMax = 25;
         public const int ClientVatNumberLengthMin = 10;
-        public const int ClientVatNumberLengthMax = 25;
+        public const int ClientVatNumberLengthMax = 15;
     }
 }
