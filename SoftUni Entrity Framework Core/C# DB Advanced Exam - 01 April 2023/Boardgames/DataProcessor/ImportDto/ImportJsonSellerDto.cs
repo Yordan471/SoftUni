@@ -20,6 +20,7 @@ namespace Boardgames.DataProcessor.ImportDto
         public string Country { get; set; } = null!;
 
         [Required]
+        [RegularExpression(SellarWebsiteRegexConstraint)]
         public string Website { get; set; } = null!;
 
         public int[] Boardgames { get; set; } = null!;

@@ -26,8 +26,9 @@ namespace Boardgames.DataProcessor.ImportDto
         public int YearPublished { get; set; }
 
         [Required]
+        [Range(0, 4)]
         [XmlElement("CategoryType")]
-        public CategoryType CategoryType { get; set; }
+        public int CategoryType { get; set; }
 
         [Required]
         [XmlElement("Mechanics")]

@@ -8,11 +8,6 @@ namespace Boardgames.DataProcessor.ImportDto
     [XmlType("Creator")]
     public class ImportXmlCreatorDto
     {       
-        public ImportXmlCreatorDto() 
-        {
-            Boardgames = new HashSet<ImportXmlBoardgameDto>();
-        }
-
         [Required]
         [MinLength(CreatorNameLengthMin)]
         [MaxLength(CreatorNameLengthMax)]
@@ -26,6 +21,6 @@ namespace Boardgames.DataProcessor.ImportDto
         public string LastName { get; set; } = null!;
 
         [XmlArray("Boardgames")]
-        public virtual ICollection<ImportXmlBoardgameDto> Boardgames { get; set; }
+        public virtual ImportXmlBoardgameDto[] Boardgames { get; set; }
     }
 }

@@ -4,6 +4,7 @@
     using System.Text;
     using Boardgames.Data;
     using Boardgames.Data.Models;
+    using Boardgames.Data.Models.Enums;
     using Boardgames.DataProcessor.ImportDto;
     using Boardgames.Utilities;
     using Newtonsoft.Json;
@@ -55,7 +56,7 @@
                         Name = boardgame.Name,
                         Rating = boardgame.Rating,
                         YearPublished = boardgame.YearPublished,
-                        CategoryType = boardgame.CategoryType,
+                        CategoryType = (CategoryType)boardgame.CategoryType,
                         Mechanics = boardgame.Mechanics,
                     };
 
@@ -67,7 +68,7 @@
                     SuccessfullyImportedCreator, validCreator.FirstName, validCreator.LastName, validCreator.Boardgames.Count));
             }
 
-            context.AddRange(validCreators);
+            context.Creators.AddRange(validCreators);
             context.SaveChanges();
 
             return sb.ToString().TrimEnd();
@@ -117,7 +118,7 @@
                     SuccessfullyImportedSeller, validSeller.Name, validSeller.BoardgamesSellers.Count));
             }
 
-            context.AddRange(validSellers);
+            context.Sellers.AddRange(validSellers);
             context.SaveChanges();
 
             return sb.ToString().TrimEnd();
