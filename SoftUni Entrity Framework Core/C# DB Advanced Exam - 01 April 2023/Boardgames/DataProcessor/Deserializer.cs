@@ -15,7 +15,7 @@
 
         public static string ImportCreators(BoardgamesContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            
         }
 
         public static string ImportSellers(BoardgamesContext context, string jsonString)
