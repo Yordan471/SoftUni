@@ -6,6 +6,7 @@
     using Boardgames.Data.Models;
     using Boardgames.DataProcessor.ImportDto;
     using Boardgames.Utilities;
+    using Newtonsoft.Json;
 
     public class Deserializer
     {
@@ -74,7 +75,52 @@
 
         public static string ImportSellers(BoardgamesContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            ImportJsonSellerDto[] jsonSellerDtos = JsonConvert.DeserializeObject<ImportJsonSellerDto[]>(jsonString);
+
+            ICollection<Seller> validSellers = new HashSet<Seller>();
+            StringBuilder sb = new();
+
+            foreach (var sellerDto in jsonSellerDtos)
+            {
+                if (!IsValid(sellerDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Seller validSeller = new Seller()
+                {
+                    Name = sellerDto.Name,
+                    Address = sellerDto.Address,
+                    Country = sellerDto.Country,
+                    Website = sellerDto.Website
+                };
+
+                foreach (var boardgame in sellerDto.Boardgames.Distinct())
+                {
+                    Boardgame existingBoardgame = context.Boardgames.Find(boardgame);
+
+                    if (existingBoardgame == null)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    validSeller.BoardgamesSellers.Add(new BoardgameSeller()
+                    {
+                        Boardgame = existingBoardgame
+                    });
+                }
+
+                validSellers.Add(validSeller);
+                sb.AppendLine(string.Format(
+                    SuccessfullyImportedSeller, validSeller.Name, validSeller.BoardgamesSellers.Count));
+            }
+
+            context.AddRange(validSellers);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         private static bool IsValid(object dto)
