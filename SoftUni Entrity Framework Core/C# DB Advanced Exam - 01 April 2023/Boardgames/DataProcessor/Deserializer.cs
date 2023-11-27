@@ -1,8 +1,12 @@
 ﻿namespace Boardgames.DataProcessor
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Text;
     using Boardgames.Data;
-   
+    using Boardgames.Data.Models;
+    using Boardgames.DataProcessor.ImportDto;
+    using Boardgames.Utilities;
+
     public class Deserializer
     {
         private const string ErrorMessage = "Invalid data!";
@@ -15,7 +19,57 @@
 
         public static string ImportCreators(BoardgamesContext context, string xmlString)
         {
-            
+            XmlHelper xmlHelper = new XmlHelper();
+            string xmlRootName = "Creators";
+
+            ImportXmlCreatorDto[] xmlCreatorDros = xmlHelper.Deserialize<ImportXmlCreatorDto[]>(xmlString, xmlRootName);
+
+            ICollection<Creator> validCreators = new HashSet<Creator>();
+            StringBuilder sb = new();
+
+            foreach (var creatorDto in xmlCreatorDros)
+            {
+                if (!IsValid(creatorDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Creator validCreator = new()
+                {
+                    FirstName = creatorDto.FirstName,
+                    LastName = creatorDto.LastName,
+                };
+
+                foreach (var boardgame in creatorDto.Boardgames)
+                {
+                    if (!IsValid(boardgame))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    Boardgame validBoardgame = new()
+                    {
+                        Name = boardgame.Name,
+                        Rating = boardgame.Rating,
+                        YearPublished = boardgame.YearPublished,
+                        CategoryType = boardgame.CategoryType,
+                        Mechanics = boardgame.Mechanics,
+                    };
+
+                    validCreator.Boardgames.Add(validBoardgame);
+                }
+
+                validCreators.Add(validCreator);
+                sb.AppendLine(string.Format(
+                    SuccessfullyImportedCreator, validCreator.FirstName, validCreator.LastName, validCreator.Boardgames.Count));
+            }
+
+            context.AddRange(validCreators);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportSellers(BoardgamesContext context, string jsonString)
