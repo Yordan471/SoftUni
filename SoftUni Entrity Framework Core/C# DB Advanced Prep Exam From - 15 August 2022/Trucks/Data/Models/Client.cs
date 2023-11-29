@@ -24,6 +24,6 @@ namespace Trucks.Data.Models
         [Required]
         public string Type { get; set; } = null!;
 
-        public ICollection<ClientTruck> ClientsTrucks { get; set; }
+        public virtual ICollection<ClientTruck> ClientsTrucks { get; set; }
     }
 }

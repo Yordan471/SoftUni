@@ -14,12 +14,12 @@ namespace Trucks.Data.Models
         public int ClientId { get; set; }
 
         [ForeignKey(nameof(ClientId))]
-        public Client Client { get; set; } = null!;
+        public virtual Client Client { get; set; } = null!;
 
         [Required]
         public int TruckId { get; set; }
 
         [ForeignKey(nameof(TruckId))]
-        public Truck Truck { get; set; } = null!;
+        public virtual Truck Truck { get; set; } = null!;
     }
 }

@@ -19,6 +19,6 @@ namespace Trucks.Data.Models
 
         public string? Position { get; set; }
 
-        public ICollection<Truck> Trucks { get; set; }
+        public virtual ICollection<Truck> Trucks { get; set; }
     }
 }

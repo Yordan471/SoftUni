@@ -41,8 +41,8 @@ namespace Trucks.Data.Models
         public int DespatcherId { get; set; }
 
         [ForeignKey(nameof(DespatcherId))]
-        public Despatcher Despatcher { get; set; } = null!;
+        public virtual Despatcher Despatcher { get; set; } = null!;
 
-        public ICollection<ClientTruck> ClientsTrucks { get; set; }
+        public virtual ICollection<ClientTruck> ClientsTrucks { get; set; }
     }
 }
