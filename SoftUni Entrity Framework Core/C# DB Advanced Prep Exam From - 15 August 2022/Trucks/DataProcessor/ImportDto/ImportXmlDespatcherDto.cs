@@ -18,6 +18,6 @@ namespace Trucks.DataProcessor.ImportDto
         public string? Position { get; set; }
 
         [XmlArray("Trucks")]
-        public virtual ICollection<Truck> Trucks { get; set; }
+        public virtual ImportXmlTruckDto[] Trucks { get; set; }
     }
 }
