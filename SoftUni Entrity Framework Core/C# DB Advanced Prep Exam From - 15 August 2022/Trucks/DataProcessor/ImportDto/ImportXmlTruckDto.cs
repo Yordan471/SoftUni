@@ -8,6 +8,7 @@ namespace Trucks.DataProcessor.ImportDto
     [XmlType("Truck")]
     public class ImportXmlTruckDto
     {
+        [Required]
         [RegularExpression(TruckRegistrationNumberRegexValidation)]
         [XmlElement("RegistrationNumber")]
         public string? RegistrationNumber { get; set; }

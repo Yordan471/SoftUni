@@ -74,7 +74,7 @@
                 }
 
                 validDespatchers.Add(validDespatcher);
-                sb.AppendLine($"Successfully imported despatcher – {validDespatcher.Name} with {validDespatcher.Trucks.Count} trucks.");
+                sb.AppendLine(string.Format(SuccessfullyImportedDespatcher, validDespatcher.Name, validDespatcher.Trucks.Count));
             }
 
             context.AddRange(validDespatchers);
@@ -128,7 +128,7 @@
                 }
 
                 validClients.Add(validClient);
-                sb.AppendLine($"Successfully imported client - {validClient.Name} with {validClient.ClientsTrucks.Count} trucks.");
+                sb.AppendLine(string.Format(SuccessfullyImportedClient, validClient.Name, validClient.ClientsTrucks.Count));
             }
 
             context.Clients.AddRange(validClients);

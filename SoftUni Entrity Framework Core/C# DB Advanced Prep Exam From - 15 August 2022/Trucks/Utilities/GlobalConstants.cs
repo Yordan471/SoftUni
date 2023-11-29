@@ -6,7 +6,7 @@ namespace Trucks.Utilities
     {
         // Truck
         public const int TruckRegistrationNumberLength = 8;
-        public const string TruckRegistrationNumberRegexValidation = @"[A-Z]{2}\d{4}[A-Z]{2}";
+        public const string TruckRegistrationNumberRegexValidation = @"[A-Z]{2}\d{4}[A-Z]{2}";                                                                    
         public const int TruckVitNumberLength = 17;
         public const int TruckTankCapacityMin = 950;
         public const int TruckTankCapacityMax = 1420;
