@@ -83,7 +83,7 @@
         }
         public static string ImportClient(TrucksContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            
         }
 
         private static bool IsValid(object dto)
