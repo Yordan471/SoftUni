@@ -11,7 +11,7 @@ namespace Trucks.DataProcessor.ImportDto
         [Required]
         [RegularExpression(TruckRegistrationNumberRegexValidation)]
         [XmlElement("RegistrationNumber")]
-        public string? RegistrationNumber { get; set; }
+        public string RegistrationNumber { get; set; } = null!;
 
         [Required]
         [MinLength(TruckVitNumberLength)]
