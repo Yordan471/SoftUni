@@ -24,10 +24,10 @@ namespace Footballers.DataProcessor.ImportDto
 
         [Required]
         [XmlElement("BestSkillType")]
-        public BestSkillType BestSkillType { get; set; }
+        public int BestSkillType { get; set; }
 
         [Required]
         [XmlElement("PositionType")]
-        public PositionType PositionType { get; set; }     
+        public int PositionType { get; set; }     
     }
 }
