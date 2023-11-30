@@ -25,6 +25,6 @@ namespace Footballers.Data.Models
         [Required]
         public int Trophies { get; set; }
 
-        public virtual TeamFootballer TeamsFootballers { get; set; }
+        public virtual ICollection<TeamFootballer> TeamsFootballers { get; set; }
     }
 }
