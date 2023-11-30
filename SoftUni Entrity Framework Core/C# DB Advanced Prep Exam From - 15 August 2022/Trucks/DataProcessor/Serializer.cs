@@ -7,7 +7,7 @@
     {
         public static string ExportDespatchersWithTheirTrucks(TrucksContext context)
         {
-            throw new NotImplementedException();
+            //var despatchers = context.Despatchers
         }
 
         public static string ExportClientsWithMostTrucks(TrucksContext context, int capacity)
