@@ -7,7 +7,7 @@ namespace Footballers.Data.Models
     {
         public Coach() 
         {
-            FootBallers = new HashSet<Footballer>();
+            Footballers = new HashSet<Footballer>();
         }
 
         [Key]
@@ -20,6 +20,6 @@ namespace Footballers.Data.Models
         [Required]
         public string Nationality { get; set; } = null!;
 
-        public virtual ICollection<Footballer> FootBallers { get; set; }
+        public virtual ICollection<Footballer> Footballers { get; set; }
     }
 }
