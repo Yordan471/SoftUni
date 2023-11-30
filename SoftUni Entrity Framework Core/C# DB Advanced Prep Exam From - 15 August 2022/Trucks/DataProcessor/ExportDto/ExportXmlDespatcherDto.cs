@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Trucks.DataProcessor.ExportDto
 {
@@ -16,5 +11,7 @@ namespace Trucks.DataProcessor.ExportDto
 
         [XmlAttribute("TrucksCount")]
         public int TrucksCount { get; set; }
+
+        public ExportXmlTruckDto[] Trucks { get; set; }
     }
 }
