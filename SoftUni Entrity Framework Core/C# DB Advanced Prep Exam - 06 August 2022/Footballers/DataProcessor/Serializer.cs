@@ -7,7 +7,10 @@
     {
         public static string ExportCoachesWithTheirFootballers(FootballersContext context)
         {
-            throw new NotImplementedException();
+            var coaches = context.Coaches.
+                Where(c => c.Footballers.Any())
+                .ToArray()
+                .Select()
         }
 
         public static string ExportTeamsWithMostFootballers(FootballersContext context, DateTime date)
