@@ -1,6 +1,8 @@
 ﻿namespace Footballers.DataProcessor
 {
     using Data;
+    using Footballers.DataProcessor.ExportDto;
+    using Footballers.Utilities;
     using Newtonsoft.Json;
 
     public class Serializer
@@ -10,7 +12,26 @@
             var coaches = context.Coaches.
                 Where(c => c.Footballers.Any())
                 .ToArray()
-                .Select()
+                .Select(c => new ExportXmlCoachesDto()
+                {
+                    Name = c.Name,
+                    FootballersCount = c.Footballers.Count,
+                    Footballers = c.Footballers.Select(f => new ExportXmlFootballerDto()
+                    {
+                        Name = f.Name,
+                        PositionType = f.PositionType
+                    })
+                    .OrderBy(f => f.Name)
+                    .ToArray()
+                })
+                .OrderByDescending(c => c.FootballersCount)
+                .ThenBy(f => f.Name)
+                .ToArray();
+
+            XmlHelper xmlHelper = new XmlHelper();
+            string xmlRootName = "Coaches";
+
+            return xmlHelper.Serializer(coaches, xmlRootName);
         }
 
         public static string ExportTeamsWithMostFootballers(FootballersContext context, DateTime date)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Footballers.Data.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace Footballers.DataProcessor.ExportDto
         public string Name { get; set; }
 
         [XmlElement("Position")]
-        public string PositionCategory { get; set; }
+        public PositionType PositionType { get; set; }
     }
 }
