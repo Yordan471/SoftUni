@@ -15,7 +15,7 @@ namespace Footballers.Utilities
         // Team
         public const int TeamNameLengthMin = 3;
         public const int TeamNameLengthMax = 40;
-        public const string TeamNameRegularExpressionValidation = @"[A-Za-z0-9 ._-]";
+        public const string TeamNameRegularExpressionValidation = @"^[a-zA-Z0-9 .-]+$";
         public const int TeamNationalityLengthMin = 2;
         public const int TeamNationalityLengthMax = 40;
 
