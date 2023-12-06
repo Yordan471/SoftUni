@@ -56,7 +56,7 @@
 
         public static string ImportManufacturers(ArtilleryContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            
         }
 
         public static string ImportShells(ArtilleryContext context, string xmlString)
