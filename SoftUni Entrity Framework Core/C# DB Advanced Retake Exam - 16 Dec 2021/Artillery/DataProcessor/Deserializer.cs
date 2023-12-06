@@ -1,6 +1,11 @@
 ﻿namespace Artillery.DataProcessor
 {
     using Artillery.Data;
+    using Artillery.Data.Models;
+    using Artillery.DataProcessor.ImportDto;
+    using Artillery.Utilities;
+    using System.ComponentModel.DataAnnotations;
+    using System.Text;
 
     public class Deserializer
     {
@@ -17,7 +22,36 @@
 
         public static string ImportCountries(ArtilleryContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            XmlHelper xmlHelper = new();
+            string xmlRootName = "Countries";
+
+            ImportXmlCountryDto[] countryDtos = xmlHelper.Deserialize<ImportXmlCountryDto[]>(xmlString, xmlRootName);
+
+            ICollection<Country> validCountries = new HashSet<Country>();
+            StringBuilder sb = new();
+
+            foreach (var countryDto in countryDtos)
+            {
+                if (!IsValid(countryDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Country validCountry = new Country()
+                {
+                    CountryName = countryDto.CountryName,
+                    ArmySize = countryDto.ArmySize,
+                };
+
+                validCountries.Add(validCountry);
+                sb.AppendLine(string.Format(SuccessfulImportCountry, validCountry.CountryName, validCountry.ArmySize));
+            }
+
+            context.Countries.AddRange(validCountries);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportManufacturers(ArtilleryContext context, string xmlString)

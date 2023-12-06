@@ -13,7 +13,7 @@ namespace Artillery.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required]       
         [StringLength(ManufacturerNameLengthMax)]
         public string ManufacturerName { get; set; } = null!;
 

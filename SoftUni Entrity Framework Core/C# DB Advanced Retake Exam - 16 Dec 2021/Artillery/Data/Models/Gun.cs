@@ -29,7 +29,7 @@ namespace Artillery.Data.Models
         [Range(GunBarrelLengthMin, GunBarrelLengthMax)]
         public double BarrelLength { get; set; }
 
-        public int NumberBuild { get; set; }
+        public int? NumberBuild { get; set; }
 
         [Required]
         [Range(GunRangeMin, GunRangeMax)]
