@@ -130,7 +130,7 @@
 
         public static string ImportGuns(ArtilleryContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            
         }
         private static bool IsValid(object obj)
         {
