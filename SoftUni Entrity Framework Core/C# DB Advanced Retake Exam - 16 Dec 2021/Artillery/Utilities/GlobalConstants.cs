@@ -21,11 +21,17 @@ namespace Artillery.Utilities
         public const int ManufacturerFoundedLengthMax = 100;
 
         // Shell
-        public const int ShellWeightMin = 100;
-        public const int ShellWeightMax = 1350000;
-        public const double ShellGunWeightMin = 2.00;
-        public const double ShellGunWeightMax = 35.00;
-        public const int ShellRangeMin = 1;
-        public const int ShellRangeMax = 100000;
+        public const double ShellWeightMin = 2.00;
+        public const double ShellWeightMax = 1600.00;
+        public const int ShellCaliberLengthMin = 4;
+        public const int ShellCaliberLengthMax = 30;
+
+        // Gun
+        public const int GunWeightMin = 100;
+        public const int GunWeightMax = 1350000;
+        public const double GunBarrelLengthMin = 2.00;
+        public const double GunBarrelLengthMax = 35.00;
+        public const int GunRangeMin = 1;
+        public const int GunRangeMax = 100000;
     }
 }
