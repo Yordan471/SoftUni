@@ -21,6 +21,6 @@ namespace Artillery.Data.Models
         [Range(CountryArmySizeMin, CountryArmySizeMax)]
         public int ArmySize { get; set; }
 
-        public virtual CountryGun CountriesGuns { get; set; }
+        public virtual ICollection<CountryGun> CountriesGuns { get; set; }
     }
 }

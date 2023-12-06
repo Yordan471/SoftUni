@@ -43,8 +43,8 @@ namespace Artillery.Data.Models
         public int ShellId { get; set; }
 
         [ForeignKey(nameof(ShellId))]
-        public Shell Shell { get; set; } = null!;
+        public virtual Shell Shell { get; set; } = null!;
 
-        public ICollection<CountryGun> CountriesGuns { get; set; }
+        public virtual ICollection<CountryGun> CountriesGuns { get; set; }
     }
 }
