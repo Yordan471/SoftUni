@@ -56,7 +56,42 @@
 
         public static string ImportManufacturers(ArtilleryContext context, string xmlString)
         {
-            
+            XmlHelper xmlHelper = new();
+            string xmlRootName = "Manufacturers";
+
+            ImportXmlManufacturerDto[] manufacturerDtos =
+                xmlHelper.Deserialize<ImportXmlManufacturerDto[]>(xmlString, xmlRootName);
+
+            ICollection<Manufacturer> validManufacturers = new HashSet<Manufacturer>();
+            StringBuilder sb = new();
+
+            foreach (var manufacturerDto in manufacturerDtos)
+            {
+                if (!IsValid(manufacturerDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Manufacturer validManufacturer = new Manufacturer()
+                {
+                    ManufacturerName = manufacturerDto.ManufacturerName,
+                    Founded = manufacturerDto.Founded
+                };
+
+                string[] foundedArr = validManufacturer.Founded.Split(", ", StringSplitOptions.RemoveEmptyEntries);
+                string townName = foundedArr[foundedArr.Length - 2];
+                string countryName = foundedArr[foundedArr.Length - 1];
+
+                validManufacturers.Add(validManufacturer);
+                sb.AppendLine(string.Format(
+                    SuccessfulImportManufacturer, validManufacturer.ManufacturerName, townName, countryName));
+            }
+
+            context.Manufacturers.AddRange(validManufacturers);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportShells(ArtilleryContext context, string xmlString)
