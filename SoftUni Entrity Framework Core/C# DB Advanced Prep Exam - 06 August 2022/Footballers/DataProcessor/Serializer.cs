@@ -1,9 +1,11 @@
 ﻿namespace Footballers.DataProcessor
 {
     using Data;
+    using Footballers.Data.Models.Enums;
     using Footballers.DataProcessor.ExportDto;
     using Footballers.Utilities;
     using Newtonsoft.Json;
+    using System.Globalization;
 
     public class Serializer
     {
@@ -42,13 +44,13 @@
                 .Select(t => new
                 {
                     t.Name,
-                    Footballers = t.TeamsFootballers.Select(f => new
+                    Footballers = t.TeamsFootballers.Where(f => f.Footballer.ContractStartDate >= date).Select(f => new
                     {
                         FootballerName = f.Footballer.Name,
-                        ContractStartDate = f.Footballer.ContractStartDate.ToString("d"),
-                        ContractEndDate = f.Footballer.ContractEndDate.ToString("d"),
-                        f.Footballer.BestSkillType,
-                        f.Footballer.PositionType
+                        ContractStartDate = f.Footballer.ContractStartDate.ToString("d", CultureInfo.InvariantCulture),
+                        ContractEndDate = f.Footballer.ContractEndDate.ToString("d", CultureInfo.InvariantCulture),
+                        BestSkillType = f.Footballer.BestSkillType.ToString(),
+                        PositionType = f.Footballer.PositionType.ToString()
                     })
                     .OrderByDescending(f => f.ContractEndDate)
                     .ThenBy(f => f.FootballerName)

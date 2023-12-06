@@ -1,0 +1,153 @@
+[
+  {
+    "Name": "Manchester City F.C.",
+    "Footballers": [
+      {
+        "FootballerName": "Bruno Guimaraes",
+        "ContractStartDate": "21-Jun-20",
+        "ContractEndDate": "30-Jul-24",
+        "BestSkillType": "Dribble",
+        "PositionType": "Midfielder"
+      },
+      {
+        "FootballerName": "Erling Haland",
+        "ContractStartDate": "24-Jul-20",
+        "ContractEndDate": "28-Jun-25",
+        "BestSkillType": "Shoot",
+        "PositionType": "Forward"
+      },
+      {
+        "FootballerName": "Nico Schlotterbeck",
+        "ContractStartDate": "25-Jul-20",
+        "ContractEndDate": "21-Mar-25",
+        "BestSkillType": "Defence",
+        "PositionType": "Defender"
+      },
+      {
+        "FootballerName": "Marco Reus",
+        "ContractStartDate": "08-Jun-20",
+        "ContractEndDate": "13-May-25",
+        "BestSkillType": "Pass",
+        "PositionType": "Midfielder"
+      },
+      {
+        "FootballerName": "Jan Oblak",
+        "ContractStartDate": "09-Jun-20",
+        "ContractEndDate": "03-Feb-25",
+        "BestSkillType": "Defence",
+        "PositionType": "Goalkeeper"
+      }
+    ]
+  },
+  {
+    "Name": "Paris Saint-Germain F.C.",
+    "Footballers": [
+      {
+        "FootballerName": "Karim Benzema",
+        "ContractStartDate": "17-Jun-20",
+        "ContractEndDate": "22-May-25",
+        "BestSkillType": "Shoot",
+        "PositionType": "Forward"
+      },
+      {
+        "FootballerName": "Hugo Lloris",
+        "ContractStartDate": "10-Jun-20",
+        "ContractEndDate": "19-Jul-24",
+        "BestSkillType": "Defence",
+        "PositionType": "Goalkeeper"
+      },
+      {
+        "FootballerName": "Son Heung-Min",
+        "ContractStartDate": "18-Jun-20",
+        "ContractEndDate": "09-Jan-24",
+        "BestSkillType": "Speed",
+        "PositionType": "Forward"
+      },
+      {
+        "FootballerName": "Harry Kane",
+        "ContractStartDate": "29-Dec-21",
+        "ContractEndDate": "06-Feb-26",
+        "BestSkillType": "Shoot",
+        "PositionType": "Forward"
+      }
+    ]
+  },
+  {
+    "Name": "Liverpool F.C.",
+    "Footballers": [
+      {
+        "FootballerName": "Andrew Robertson",
+        "ContractStartDate": "13-Jun-21",
+        "ContractEndDate": "30-Nov-23",
+        "BestSkillType": "Pass",
+        "PositionType": "Defender"
+      },
+      {
+        "FootballerName": "Alisson",
+        "ContractStartDate": "01-Jan-22",
+        "ContractEndDate": "28-Aug-26",
+        "BestSkillType": "Defence",
+        "PositionType": "Goalkeeper"
+      },
+      {
+        "FootballerName": "Sadio Mane",
+        "ContractStartDate": "08-Jun-20",
+        "ContractEndDate": "02-Feb-25",
+        "BestSkillType": "Shoot",
+        "PositionType": "Forward"
+      }
+    ]
+  },
+  {
+    "Name": "Olympique Lyonnais",
+    "Footballers": [
+      {
+        "FootballerName": "Patrik Schick",
+        "ContractStartDate": "06-Jun-20",
+        "ContractEndDate": "23-Nov-22",
+        "BestSkillType": "Shoot",
+        "PositionType": "Forward"
+      },
+      {
+        "FootballerName": "Sofiane Boufal",
+        "ContractStartDate": "13-Jun-21",
+        "ContractEndDate": "22-Jul-25",
+        "BestSkillType": "Pass",
+        "PositionType": "Midfielder"
+      },
+      {
+        "FootballerName": "Bremer",
+        "ContractStartDate": "27-Jul-20",
+        "ContractEndDate": "04-Sep-24",
+        "BestSkillType": "Defence",
+        "PositionType": "Defender"
+      }
+    ]
+  },
+  {
+    "Name": "Tottenham Hotspur F.C.",
+    "Footballers": [
+      {
+        "FootballerName": "Wojiech Szczesny",
+        "ContractStartDate": "28-Jul-20",
+        "ContractEndDate": "14-Jan-23",
+        "BestSkillType": "Defence",
+        "PositionType": "Goalkeeper"
+      },
+      {
+        "FootballerName": "Lionel Messi",
+        "ContractStartDate": "21-Mar-20",
+        "ContractEndDate": "04-Jul-23",
+        "BestSkillType": "Dribble",
+        "PositionType": "Defender"
+      },
+      {
+        "FootballerName": "Neymar",
+        "ContractStartDate": "10-Jun-21",
+        "ContractEndDate": "04-Feb-26",
+        "BestSkillType": "Dribble",
+        "PositionType": "Forward"
+      }
+    ]
+  }
+]
