@@ -96,7 +96,36 @@
 
         public static string ImportShells(ArtilleryContext context, string xmlString)
         {
-            
+            XmlHelper xmlHelper = new XmlHelper();
+            string xmlRootName = "Shells";
+
+            ImportXmlShellDto[] shellDtos = xmlHelper.Deserialize<ImportXmlShellDto[]>(xmlString, xmlRootName);
+
+            ICollection<Shell> validShells = new HashSet<Shell>();
+            StringBuilder sb = new();
+
+            foreach (var shellDto in shellDtos)
+            {
+                if (!IsValid(shellDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Shell validShell = new()
+                {
+                    ShellWeight = shellDto.ShellWeight,
+                    Caliber = shellDto.Caliber
+                };
+
+                validShells.Add(validShell);
+                sb.AppendLine(string.Format(SuccessfulImportShell, validShell.Caliber, validShell.ShellWeight));
+            }
+
+            context.Shells.AddRange(validShells);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportGuns(ArtilleryContext context, string jsonString)
