@@ -65,7 +65,7 @@
             ICollection<Manufacturer> validManufacturers = new HashSet<Manufacturer>();
             StringBuilder sb = new();
 
-            foreach (var manufacturerDto in manufacturerDtos)
+            foreach (var manufacturerDto in manufacturerDtos.Distinct())
             {
                 if (!IsValid(manufacturerDto))
                 {
@@ -96,7 +96,7 @@
 
         public static string ImportShells(ArtilleryContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            
         }
 
         public static string ImportGuns(ArtilleryContext context, string jsonString)
