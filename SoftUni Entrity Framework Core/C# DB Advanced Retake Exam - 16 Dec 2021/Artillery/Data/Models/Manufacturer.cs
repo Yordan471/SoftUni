@@ -21,6 +21,6 @@ namespace Artillery.Data.Models
         [StringLength(ManufacturerFoundedLengthMax)]
         public string Founded { get; set; } = null!;
 
-        public ICollection<Gun> Guns { get; set; }
+        public virtual ICollection<Gun> Guns { get; set; }
     }
 }
