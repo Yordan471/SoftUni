@@ -2,8 +2,10 @@
 {
     using Artillery.Data;
     using Artillery.Data.Models;
+    using Artillery.Data.Models.Enums;
     using Artillery.DataProcessor.ImportDto;
     using Artillery.Utilities;
+    using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations;
     using System.Text;
 
@@ -130,7 +132,56 @@
 
         public static string ImportGuns(ArtilleryContext context, string jsonString)
         {
-            
+            ImportJsonGunDto[] gunDtos = JsonConvert.DeserializeObject<ImportJsonGunDto[]>(jsonString);
+
+            ICollection<Gun> validGuns = new HashSet<Gun>();
+            StringBuilder sb = new();
+
+            foreach (var gunDto in gunDtos)
+            {
+                if (!IsValid(gunDto))
+                {
+                    sb.AppendLine(ErrorMessage); 
+                    continue;
+                }
+
+                GunType gunType;
+                bool isGunType = Enum.TryParse(gunDto.GunType, out gunType);
+
+                if (isGunType == false)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Gun validGun = new()
+                {
+                    ManufacturerId = gunDto.ManufacturerId,
+                    GunWeight = gunDto.GunWeight,
+                    BarrelLength = gunDto.BarrelLength,
+                    NumberBuild = gunDto.NumberBuild,
+                    Range = gunDto.Range,
+                    GunType = gunType
+                };
+
+                foreach (var countryId in gunDto.Countries)
+                {
+                    CountryGun validCountryGun = new()
+                    {
+                        CountryId = countryId,
+                        Gun = validGun
+                    };
+                }
+
+                validGuns.Add(validGun);
+                sb.AppendLine(string.Format(
+                    SuccessfulImportGun, validGun.GunType.ToString(), validGun.GunWeight, validGun.BarrelLength));
+            }
+
+            context.Guns.AddRange(validGuns);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
         private static bool IsValid(object obj)
         {
