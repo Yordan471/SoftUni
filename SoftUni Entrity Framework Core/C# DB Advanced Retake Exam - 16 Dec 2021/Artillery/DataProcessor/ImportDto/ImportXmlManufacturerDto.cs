@@ -15,7 +15,7 @@ namespace Artillery.DataProcessor.ImportDto
 
         [Required]
         [MaxLength(ManufacturerFoundedLengthMax)]
-        [MinLength(ManufacturerNameLengthMin)]
+        [MinLength(ManufacturerFoundedLengthMin)]
         [XmlElement("Founded")]
         public string Founded { get; set; } = null!;
     }

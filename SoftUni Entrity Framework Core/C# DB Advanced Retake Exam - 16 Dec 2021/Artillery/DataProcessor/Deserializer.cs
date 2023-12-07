@@ -67,9 +67,12 @@
             ICollection<Manufacturer> validManufacturers = new HashSet<Manufacturer>();
             StringBuilder sb = new();
 
-            foreach (var manufacturerDto in manufacturerDtos.Distinct())
+            foreach (var manufacturerDto in manufacturerDtos)
             {
-                if (!IsValid(manufacturerDto))
+                var uniqueManufacturer = validManufacturers.
+                    FirstOrDefault(x => x.ManufacturerName == manufacturerDto.ManufacturerName);
+
+                if (!IsValid(manufacturerDto) || uniqueManufacturer != null)
                 {
                     sb.AppendLine(ErrorMessage);
                     continue;
@@ -82,9 +85,11 @@
                 };
 
                 string[] foundedArr = validManufacturer.Founded.Split(", ", StringSplitOptions.RemoveEmptyEntries);
-                string townName = foundedArr[foundedArr.Length - 2];
-                string countryName = foundedArr[foundedArr.Length - 1];
+                Stack<string> queueArr = new Stack<string>(foundedArr);
 
+                string countryName = queueArr.Pop();
+                string townName = queueArr.Pop();
+                
                 validManufacturers.Add(validManufacturer);
                 sb.AppendLine(string.Format(
                     SuccessfulImportManufacturer, validManufacturer.ManufacturerName, townName, countryName));
@@ -168,7 +173,7 @@
                 {
                     CountryGun validCountryGun = new()
                     {
-                        CountryId = countryId,
+                        CountryId = countryId.Id,
                         Gun = validGun
                     };
                 }

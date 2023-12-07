@@ -27,6 +27,9 @@ namespace Artillery.DataProcessor.ImportDto
         [Range(0, 5)]
         public string GunType { get; set; } = null!;
 
-        public int[] Countries { get; set; }
+        [Required]
+        public int ShellId { get; set; }
+
+        public ImportJsonCountryDto[] Countries { get; set; }
     }
 }

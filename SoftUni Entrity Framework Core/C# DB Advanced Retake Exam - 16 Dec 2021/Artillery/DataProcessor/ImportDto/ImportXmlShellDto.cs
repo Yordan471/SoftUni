@@ -7,8 +7,8 @@ namespace Artillery.DataProcessor.ImportDto
     [XmlType("Shell")]
     public class ImportXmlShellDto
     {
-        [Required]
-        [Range(ShellWeightMin, ShellWeightMax)]
+
+        [Range(2, 1600)]
         [XmlElement("ShellWeight")]
         public double ShellWeight { get; set; }
 
@@ -16,6 +16,6 @@ namespace Artillery.DataProcessor.ImportDto
         [MaxLength(ShellCaliberLengthMax)]
         [MinLength(ShellCaliberLengthMin)]
         [XmlElement("Caliber")]
-        public string Caliber { get; set; } = null!;
+        public string Caliber { get; set; }
     }
 }
