@@ -2,6 +2,6 @@
 {
     public static class Configuration
     {
-        public static string ConnectionString = @"Server=.;Database=Theatre;Integrated Security=True;Encrypt=False";
+        public static string ConnectionString = @"Server=DESKTOP-U0UT8KF\SQLEXPRESS;Database=Theatre;Integrated Security=True;Encrypt=False";
     }
 }
