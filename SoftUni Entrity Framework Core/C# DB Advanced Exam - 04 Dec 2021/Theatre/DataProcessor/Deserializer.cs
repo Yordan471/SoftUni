@@ -85,7 +85,7 @@
 
         public static string ImportCasts(TheatreContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            
         }
 
         public static string ImportTtheatersTickets(TheatreContext context, string jsonString)
