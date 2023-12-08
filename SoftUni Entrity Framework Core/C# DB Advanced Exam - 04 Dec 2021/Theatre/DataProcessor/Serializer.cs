@@ -55,7 +55,7 @@
                     .Select(c => new ExportXmlCastDto()
                     {
                         FullName = c.FullName,
-                        MainCharacter = $"Plays main character in '{c.Play.Title}'"
+                        MainCharacter = $"Plays main character in '{c.Play.Title}'."
                     })
                     .OrderByDescending(c => c.FullName)
                     .ToArray()

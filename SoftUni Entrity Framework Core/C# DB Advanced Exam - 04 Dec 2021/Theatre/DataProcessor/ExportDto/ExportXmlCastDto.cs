@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Theatre.DataProcessor.ExportDto
 {
-    [XmlType("Cast")]
+    [XmlType("Actor")]
     public class ExportXmlCastDto
     {
         [XmlAttribute("FullName")]

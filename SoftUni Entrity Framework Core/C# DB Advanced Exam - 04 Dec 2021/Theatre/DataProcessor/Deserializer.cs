@@ -38,14 +38,14 @@
             string[] genreArray = new string[]
             {
                 "Drama",
-                "omedy",
+                "Comedy",
                 "Romance",
                 "Musical"
             };
 
             foreach (var playDto in playDtos)
             {
-                if (IsValid(playDto))
+                if (!IsValid(playDto))
                 {
                     sb.AppendLine(ErrorMessage);
                     continue;
@@ -70,7 +70,9 @@
                     Title = playDto.Title,
                     Duration = validTimeSpan,
                     Rating = playDto.Rating,
-                    Genre = Enum.Parse<Genre>(playDto.Genre)
+                    Genre = Enum.Parse<Genre>(playDto.Genre),
+                    Description = playDto.Description,
+                    Screenwriter = playDto.Screenwriter
                 };
 
                 validPlays.Add(validPlay);

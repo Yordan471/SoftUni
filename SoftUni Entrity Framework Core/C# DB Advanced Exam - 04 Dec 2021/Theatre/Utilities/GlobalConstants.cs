@@ -19,14 +19,14 @@ namespace Theatre.Utilities
         // Play
         public const int PlayTitleLengthMin = 4;
         public const int PlayTitleLengthMax = 50;
-        public const float PlayRatingMin = 0.00f;
-        public const float PlayRatingMax = 10.00f;
+        public const float PlayRatingMin = 0.0f;
+        public const float PlayRatingMax = 10f;
         public const int PlayDescriptionLengthMax = 700;
         public const int PlayScreenwriterLengthMin = 4;
         public const int PlayScreenwriterLengthMax = 30;
 
         // Cast
-        public const int CastFullNameLengthMin = 3;
+        public const int CastFullNameLengthMin = 4;
         public const int CastFullNameLengthMax = 40;
         public const string CastPhoneNumberRegularExpressionValidation = @"\+44-\d{2}-\d{3}-\d{4}";
 

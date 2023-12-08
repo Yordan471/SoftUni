@@ -20,7 +20,7 @@ namespace Theatre.DataProcessor.ImportDto
 
         [Required]
         [Range(PlayRatingMin, PlayRatingMax)]
-        [XmlElement("Rating")]
+        [XmlElement("Raiting")]
         public float Rating { get; set; }
 
         [Required]
