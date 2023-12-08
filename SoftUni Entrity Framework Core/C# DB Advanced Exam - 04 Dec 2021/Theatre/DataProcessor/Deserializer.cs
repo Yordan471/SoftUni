@@ -21,7 +21,7 @@
 
         public static string ImportPlays(TheatreContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            
         }
 
         public static string ImportCasts(TheatreContext context, string xmlString)
