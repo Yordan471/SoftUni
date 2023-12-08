@@ -17,7 +17,7 @@ namespace Theatre.DataProcessor.ExportDto
         public string Duration { get; set; }
 
         [XmlAttribute("Rating")]
-        public float Rating { get; set; }
+        public string Rating { get; set; }
 
         [XmlAttribute("Genre")]
         public string Genre { get; set; }

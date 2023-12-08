@@ -3,6 +3,8 @@
     using Newtonsoft.Json;
     using System;
     using Theatre.Data;
+    using Theatre.DataProcessor.ExportDto;
+    using Theatre.Utilities;
 
     public class Serializer
     {
@@ -39,7 +41,33 @@
 
         public static string ExportPlays(TheatreContext context, double raiting)
         {
-            throw new NotImplementedException();
+            var plays = context.Plays
+                .Where(p => p.Rating <= raiting)
+                .ToArray()
+                .Select(p => new ExportXmlPlayDto()
+                {
+                    Title = p.Title,
+                    Duration = p.Duration.ToString("c"),
+                    Rating = p.Rating == 0 ? "Premier" : p.Rating.ToString(),
+                    Genre = p.Genre.ToString(),
+                    Actors = p.Casts
+                    .Where(c => c.IsMainCharacter == true)
+                    .Select(c => new ExportXmlCastDto()
+                    {
+                        FullName = c.FullName,
+                        MainCharacter = $"Plays main character in '{c.Play.Title}'"
+                    })
+                    .OrderByDescending(c => c.FullName)
+                    .ToArray()
+                })
+                .OrderBy(p => p.Title)
+                .ThenByDescending(p => p.Genre)
+                .ToArray();
+
+            XmlHelper xmlHelper = new();
+            string xmlRootName = "Plays";
+
+            return xmlHelper.Serializer(plays, xmlRootName);
         }
     }
 }
