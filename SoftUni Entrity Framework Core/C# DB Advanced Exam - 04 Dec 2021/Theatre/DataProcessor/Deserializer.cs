@@ -85,7 +85,49 @@
 
         public static string ImportCasts(TheatreContext context, string xmlString)
         {
-            
+            XmlHelper xmlHelper = new XmlHelper();
+            string xmlRootName = "Casts";
+
+            ImportXmlCastDto[] castDtos = xmlHelper.Deserialize<ImportXmlCastDto[]>(xmlString, xmlRootName);
+
+            ICollection<Cast> validCasts = new HashSet<Cast>();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var castDto in castDtos)
+            {
+                if (!IsValid(castDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                bool validIsMainCharacter;
+                bool isValidBoolean = bool.TryParse(castDto.IsMainCharacter, out validIsMainCharacter);
+
+                if (!isValidBoolean)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Cast validCast = new()
+                {
+                    FullName = castDto.FullName,
+                    IsMainCharacter = validIsMainCharacter,
+                    PhoneNumber = castDto.PhoneNumber,
+                    PlayId = castDto.PlayId
+                };
+
+                validCasts.Add(validCast);
+
+                string mainOrLesser = validCast.IsMainCharacter == true ? "main" : "lesser";
+                sb.AppendLine(string.Format(SuccessfulImportActor, validCast.FullName, mainOrLesser));
+            }
+
+            context.Casts.AddRange(validCasts);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         public static string ImportTtheatersTickets(TheatreContext context, string jsonString)
