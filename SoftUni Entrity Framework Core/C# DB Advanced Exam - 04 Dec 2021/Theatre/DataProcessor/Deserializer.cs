@@ -1,5 +1,6 @@
 ﻿namespace Theatre.DataProcessor
 {
+    using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations;
     using System.Globalization;
     using System.Text;
@@ -132,7 +133,54 @@
 
         public static string ImportTtheatersTickets(TheatreContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            ImportJsonTheatreDto[] theatreDtos = 
+                JsonConvert.DeserializeObject<ImportJsonTheatreDto[]>(jsonString);
+
+            ICollection<Theatre> validTheatres = new HashSet<Theatre>();
+            StringBuilder sb = new();
+
+            foreach (var theaterDto in theatreDtos)
+            {
+                if (!IsValid(theaterDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Theatre validTheater = new()
+                {
+                    Name = theaterDto.Name,
+                    NumberOfHalls = theaterDto.NumberOfHalls,
+                    Director = theaterDto.Director,
+                };
+
+                foreach (var ticketDto in theaterDto.Tickets)
+                {
+                    if (!IsValid(ticketDto))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    Ticket validTicket = new()
+                    {
+                        Price = ticketDto.Price,
+                        RowNumber = ticketDto.RowNumber,
+                        PlayId = ticketDto.PlayId,
+                    };
+
+                    validTheater.Tickets.Add(validTicket);
+                }
+
+                validTheatres.Add(validTheater);
+                sb.AppendLine(string.Format(
+                    SuccessfulImportTheatre, validTheater.Name, validTheater.Tickets.Count));
+            }
+
+            context.Theatres.AddRange(validTheatres);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
 
