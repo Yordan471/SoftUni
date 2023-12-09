@@ -23,7 +23,7 @@ namespace VaporStore.Data.Models
         public string Cvc { get; set; } = null!;
 
         [Required]
-        public Enums.Type Type { get; set; }
+        public CardType Type { get; set; }
 
         [Required]
         public int UserId { get; set; }
