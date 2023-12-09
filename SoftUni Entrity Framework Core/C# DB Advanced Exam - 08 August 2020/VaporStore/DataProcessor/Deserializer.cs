@@ -9,6 +9,7 @@
     using VaporStore.Data.Models;
     using VaporStore.Data.Models.Enums;
     using VaporStore.DataProcessor.ImportDto;
+    using VaporStore.Utilities;
 
     public static class Deserializer
     {
@@ -184,7 +185,72 @@
 
         public static string ImportPurchases(VaporStoreDbContext context, string xmlString)
         {
-            throw new NotImplementedException();
+            XmlHelper xmlHelper = new XmlHelper();
+            string xmlRootName = "Purchases";
+
+            ImportXmlPurchaseDto[] purchaseDtos = 
+                xmlHelper.Deserialize<ImportXmlPurchaseDto[]>(xmlRootName, xmlRootName);
+
+            ICollection<Purchase> validPurchases = new HashSet<Purchase>();
+            StringBuilder sb = new StringBuilder();
+            string[] purchaseType = new string[] { "Retail", "Digital" };
+
+            foreach (var purchaseDto in purchaseDtos)
+            {
+                if (!IsValid(purchaseDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                if (!purchaseType.Contains(purchaseDto.Type))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                DateTime parseDate;
+                bool isDateValid = DateTime.TryParseExact(
+                    purchaseDto.Date,
+                    "dd/MM/yyyy HH:mm",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out parseDate);
+
+                if (!isDateValid)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Card card = new Card()
+                {
+                    Number = purchaseDto.Card
+                };
+
+                Game game = new()
+                {
+                    Name = purchaseDto.Title
+                };
+
+                Purchase validPurchase = new()
+                {
+                    Type = Enum.Parse<PurchaseType>(purchaseDto.Type),
+                    ProductKey = purchaseDto.ProductKey,
+                    Card = card,
+                    Date = parseDate,
+                    Game = game
+                };
+
+                validPurchases.Add(validPurchase);
+                sb.AppendLine(string.Format(
+                    SuccessfullyImportedPurchase, validPurchase.Game.Name, validPurchase.Card.User.FullName));
+            }
+
+            context.Purchases.AddRange(validPurchases);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         private static bool IsValid(object dto)

@@ -26,6 +26,7 @@ namespace VaporStore.DataProcessor.ImportDto
         public string ProductKey { get; set; } = null!;
 
         [Required]
+        [RegularExpression(@"^\d{4} \d{4} \d{4} \d{4}$")]
         [XmlElement("Card")]
         public string Card { get; set; } = null!;
 
