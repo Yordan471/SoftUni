@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace VaporStore.Data.Models
 {
-    public class Genre
+    public class Tag
     {
-        public Genre () 
+        public Tag() 
         {
-            Games = new HashSet<Game>();
+            GameTags = new HashSet<GameTag>();
         }
 
         [Key]
@@ -20,6 +20,6 @@ namespace VaporStore.Data.Models
         [Required]
         public string Name { get; set; } = null!;
 
-        public virtual ICollection<Game> Games { get; set; }
+        public virtual ICollection<GameTag> GameTags { get; set; }
     }
 }
