@@ -23,7 +23,7 @@ namespace TeisterMask.Data.Models
         public DateTime OpenDate { get; set; }
 
         [Required]
-        public DateTime DueTime { get; set; }
+        public DateTime DueDate { get; set; }
 
         [Required]
         public ExecutionType ExecutionType { get; set; }
