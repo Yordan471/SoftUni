@@ -16,8 +16,8 @@ namespace TeisterMask.Utilities
         public const string EmployeePhoneRegularExpressionValidation = @"^[0-9]{3}-[0-9]{3}-[0-9]{4}$";
 
         // Project
-        public const int ProjectNameLengthmin = 2;
-        public const int ProjectNameLengthmax = 40;
+        public const int ProjectNameLengthMin = 2;
+        public const int ProjectNameLengthMax = 40;
 
         // Task
         public const int TaskNameLengthMin = 2;
