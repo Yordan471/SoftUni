@@ -17,6 +17,14 @@
         {
         }
 
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<EmployeeTask> EmployeesTasks { get; set; }
+
+        public DbSet<Project> Projects { get; set; }
+
+        public DbSet<Task> Tasks { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -29,6 +37,9 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .Entity<EmployeeTask>()
+                .HasKey(et => new { et.EmployeeId, et.TaskId });
         }
     }
 }
