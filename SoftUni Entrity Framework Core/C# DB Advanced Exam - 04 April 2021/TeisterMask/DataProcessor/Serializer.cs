@@ -17,7 +17,7 @@
                 .ToArray()
                 .Select(p => new ExportXmlProjectDto
                 {
-                    TaskCount = p.Tasks.Count,
+                    TasksCount = p.Tasks.Count,
                     ProjectName = p.Name,
                     HasEndDate = p.DueDate == null ? "No" : "Yes",
                     Tasks = p.Tasks.Select(t => new ExportXmlTaskDto
@@ -28,7 +28,7 @@
                     .OrderBy(t => t.Name)
                     .ToArray()
                 })
-                .OrderByDescending(p => p.TaskCount)
+                .OrderByDescending(p => p.TasksCount)
                 .ThenBy(p => p.ProjectName)
                 .ToArray();
 
@@ -48,19 +48,20 @@
                     Username = e.Username,
                     Tasks = e.EmployeesTasks
                     .Where(et => et.Task.OpenDate >= date)
+                    .ToArray()
+                    .OrderByDescending(et => et.Task.DueDate)
+                    .ThenBy(et => et.Task.Name)
                     .Select(et => new
                     {
                         TaskName = et.Task.Name,
                         OpenDate = et.Task.OpenDate.ToString("d", CultureInfo.InvariantCulture),
                         DueDate = et.Task.DueDate.ToString("d", CultureInfo.InvariantCulture),
-                        LavelType = et.Task.LabelType.ToString(),
+                        LabelType = et.Task.LabelType.ToString(),
                         ExecutionType = et.Task.ExecutionType.ToString()
                     })
-                    .OrderByDescending(t => t.DueDate)
-                    .ThenBy(t => t.TaskName)
                     .ToArray()
                 })
-                .OrderByDescending(e => e.Tasks.Count())
+                .OrderByDescending(e => e.Tasks.Length)
                 .ThenBy(e => e.Username)
                 .Take(10)
                 .ToArray();
