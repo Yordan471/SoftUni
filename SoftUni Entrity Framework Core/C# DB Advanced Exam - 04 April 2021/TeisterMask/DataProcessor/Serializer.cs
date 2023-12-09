@@ -5,12 +5,37 @@
     using Newtonsoft.Json;
     using System.Globalization;
     using TeisterMask.Data.Models.Enums;
+    using TeisterMask.DataProcessor.ExportDto;
+    using TeisterMask.Utilities;
 
     public class Serializer
     {
         public static string ExportProjectWithTheirTasks(TeisterMaskContext context)
         {
-            throw new NotImplementedException();
+            var projects = context.Projects
+                .Where(p => p.Tasks.Any())
+                .ToArray()
+                .Select(p => new ExportXmlProjectDto
+                {
+                    TaskCount = p.Tasks.Count,
+                    ProjectName = p.Name,
+                    HasEndDate = p.DueDate == null ? "No" : "Yes",
+                    Tasks = p.Tasks.Select(t => new ExportXmlTaskDto
+                    {
+                        Name = t.Name,
+                        Label = t.LabelType.ToString()
+                    })
+                    .OrderBy(t => t.Name)
+                    .ToArray()
+                })
+                .OrderByDescending(p => p.TaskCount)
+                .ThenBy(p => p.ProjectName)
+                .ToArray();
+
+            XmlHelper xmlHelper = new();
+            string xmlRootName = "Projects";
+
+            return xmlHelper.Serializer(projects, xmlRootName);
         }
 
         public static string ExportMostBusiestEmployees(TeisterMaskContext context, DateTime date)

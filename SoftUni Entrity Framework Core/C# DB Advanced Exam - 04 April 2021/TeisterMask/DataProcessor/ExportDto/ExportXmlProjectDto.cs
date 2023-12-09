@@ -18,5 +18,8 @@ namespace TeisterMask.DataProcessor.ExportDto
 
         [XmlElement("HasEndDate")]
         public string HasEndDate { get; set; }
+
+        [XmlArray("Tasks")]
+        public ExportXmlTaskDto[] Tasks { get; set; }
     }
 }

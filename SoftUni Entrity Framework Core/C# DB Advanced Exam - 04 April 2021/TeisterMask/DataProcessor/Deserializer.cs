@@ -56,13 +56,22 @@ namespace TeisterMask.DataProcessor
                     continue;
                 }
 
-                DateTime parseDueDate;
-                bool isValidDueDate = DateTime.TryParseExact(
-                    projectDto.OpenDate,
+                DateTime? parseDueDate = null;
+
+                if (!String.IsNullOrEmpty(projectDto.DueDate))
+                {
+                    DateTime parseDueDateDt;
+
+                    bool isValidDueDate = DateTime.TryParseExact(
+                    projectDto.DueDate,
                     "dd/MM/yyyy",
                     CultureInfo.InvariantCulture,
                     DateTimeStyles.None,
-                    out parseDueDate);
+                    out parseDueDateDt);
+
+                    parseDueDate = parseDueDateDt;
+                }
+                
 
                 Project validProject = new()
                 {
@@ -81,7 +90,7 @@ namespace TeisterMask.DataProcessor
 
                     DateTime parseTaskOpenDate;
                     bool isValidTaskOpenDate = DateTime.TryParseExact(
-                        projectDto.OpenDate,
+                        taskDto.OpenDate,
                         "dd/MM/yyyy",
                         CultureInfo.InvariantCulture,
                         DateTimeStyles.None,
@@ -89,7 +98,7 @@ namespace TeisterMask.DataProcessor
 
                     DateTime parseTaskDueDate;
                     bool isValidTaskDueDate = DateTime.TryParseExact(
-                        projectDto.OpenDate,
+                        taskDto.DueDate,
                         "dd/MM/yyyy",
                         CultureInfo.InvariantCulture,
                         DateTimeStyles.None,
@@ -136,6 +145,7 @@ namespace TeisterMask.DataProcessor
 
             ICollection<Employee> validEmployees = new HashSet<Employee>();
             StringBuilder sb = new();
+            int employeeTasksCount = 0;
 
             foreach (var employeeDto in employeeDtos)
             {
@@ -156,24 +166,24 @@ namespace TeisterMask.DataProcessor
                 {
                     Task existingTask = context.Tasks.Find(taskId);
 
-                    if (existingTask != null)
+                    if (existingTask == null)
                     {
                         sb.AppendLine(ErrorMessage);
                         continue;
                     }
 
                     validEmployee.EmployeesTasks.Add(new EmployeeTask()
-                    {
-                        Employee = validEmployee,
-                        TaskId = taskId,
+                    {             
+                        Task = existingTask,
                     });
                 }
 
                 validEmployees.Add(validEmployee);
                 sb.AppendLine(string.Format(
                     SuccessfullyImportedEmployee, validEmployee.Username, validEmployee.EmployeesTasks.Count));
+                employeeTasksCount += validEmployee.EmployeesTasks.Count;
             }
-
+            Console.WriteLine(employeeTasksCount);
             context.Employees.AddRange(validEmployees);
             context.SaveChanges();
 
