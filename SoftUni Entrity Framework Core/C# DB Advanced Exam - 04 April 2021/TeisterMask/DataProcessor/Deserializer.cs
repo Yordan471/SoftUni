@@ -12,6 +12,7 @@ namespace TeisterMask.DataProcessor
     using System.Text;
     using System.Globalization;
     using TeisterMask.Data.Models.Enums;
+    using Newtonsoft.Json;
 
     public class Deserializer
     {
@@ -130,7 +131,53 @@ namespace TeisterMask.DataProcessor
 
         public static string ImportEmployees(TeisterMaskContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            ImportJsonEmployeeDto[] employeeDtos = 
+                JsonConvert.DeserializeObject<ImportJsonEmployeeDto[]>(jsonString);
+
+            ICollection<Employee> validEmployees = new HashSet<Employee>();
+            StringBuilder sb = new();
+
+            foreach (var employeeDto in employeeDtos)
+            {
+                if (!IsValid(employeeDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Employee validEmployee = new()
+                {
+                    Username = employeeDto.Username,
+                    Email = employeeDto.Email,
+                    Phone = employeeDto.Phone
+                };
+
+                foreach (var taskId in employeeDto.Tasks.Distinct())
+                {
+                    Task existingTask = context.Tasks.Find(taskId);
+
+                    if (existingTask != null)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    validEmployee.EmployeesTasks.Add(new EmployeeTask()
+                    {
+                        Employee = validEmployee,
+                        TaskId = taskId,
+                    });
+                }
+
+                validEmployees.Add(validEmployee);
+                sb.AppendLine(string.Format(
+                    SuccessfullyImportedEmployee, validEmployee.Username, validEmployee.EmployeesTasks.Count));
+            }
+
+            context.Employees.AddRange(validEmployees);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
         private static bool IsValid(object dto)
