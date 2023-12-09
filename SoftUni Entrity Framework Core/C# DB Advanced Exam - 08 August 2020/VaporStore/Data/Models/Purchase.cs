@@ -22,18 +22,18 @@ namespace VaporStore.Data.Models
         public string ProductKey { get; set; } = null!;
 
         [Required]
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Required]
         public int CardId { get; set; }
 
         [ForeignKey(nameof(CardId))]
-        public Card Card { get; set; } = null!;
+        public virtual Card Card { get; set; } = null!;
 
         [Required]
         public int GameId { get; set; }
 
         [ForeignKey(nameof(GameId))]
-        public Game Game { get; set; } = null!;
+        public virtual Game Game { get; set; } = null!;
     }
 }

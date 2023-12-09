@@ -23,7 +23,7 @@ namespace VaporStore.Data.Models
 
         [Required]
         [RegularExpression(@"^[A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]+$")]
-        public string Fullname { get; set; } = null!;
+        public string FullName { get; set; } = null!;
 
         [Required]
         public string Email { get; set; } = null!;
