@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace VaporStore.DataProcessor.ImportDto
 
         [Required]
         [RegularExpression(@"^\d{3}$")]
+        [JsonProperty("CVC")]
         public string Cvc { get; set; } = null!;
 
         [Required]
