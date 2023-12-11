@@ -2,6 +2,7 @@
 { 
     using Data;
     using Newtonsoft.Json;
+    using VaporStore.DataProcessor.ExportDto;
 
     public static class Serializer
     {
@@ -36,7 +37,14 @@
 
         public static string ExportUserPurchasesByType(VaporStoreDbContext context, string purchaseType)
         {
-            throw new NotImplementedException();
+            var users = context.Users
+                .Where(u => u.Cards.Any(c => c.Purchases.Any()))
+                .ToArray()
+                .Select(u => new ExportXmlUserDto
+                {
+                    username = u.Username,
+                    Purchases = u.Cards.
+                })
         }
     }
 }
