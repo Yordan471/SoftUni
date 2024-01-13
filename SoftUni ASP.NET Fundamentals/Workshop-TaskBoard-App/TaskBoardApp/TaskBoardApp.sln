@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp", "TaskBoardAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Data", "TaskBoardApp.Data\TaskBoardApp.Data.csproj", "{AC72401F-0A1F-4963-9FD2-006613A03D07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Web.ViewModels", "TaskBoardApp.Web.ViewModels\TaskBoardApp.Web.ViewModels.csproj", "{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AC72401F-0A1F-4963-9FD2-006613A03D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC72401F-0A1F-4963-9FD2-006613A03D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC72401F-0A1F-4963-9FD2-006613A03D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
