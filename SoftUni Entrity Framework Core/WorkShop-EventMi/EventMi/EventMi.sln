@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMi", "EventMi\EventMi.csproj", "{2A79478E-17F1-4BD4-9B61-6E1B99A4F0A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMi.Core", "EventMi.Core\EventMi.Core.csproj", "{D614EA95-AFE2-4600-AAFF-FD4ABFEA55DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMe.Infrastructure", "EventMe.Infrastructure\EventMe.Infrastructure.csproj", "{0816632F-37CD-4E75-A3DD-2D1203DE4B49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2A79478E-17F1-4BD4-9B61-6E1B99A4F0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A79478E-17F1-4BD4-9B61-6E1B99A4F0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A79478E-17F1-4BD4-9B61-6E1B99A4F0A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D614EA95-AFE2-4600-AAFF-FD4ABFEA55DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D614EA95-AFE2-4600-AAFF-FD4ABFEA55DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D614EA95-AFE2-4600-AAFF-FD4ABFEA55DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D614EA95-AFE2-4600-AAFF-FD4ABFEA55DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0816632F-37CD-4E75-A3DD-2D1203DE4B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0816632F-37CD-4E75-A3DD-2D1203DE4B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0816632F-37CD-4E75-A3DD-2D1203DE4B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0816632F-37CD-4E75-A3DD-2D1203DE4B49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
