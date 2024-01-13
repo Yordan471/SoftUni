@@ -14,7 +14,7 @@ namespace TaskBoardApp
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
            
             builder.Services.
-                AddDbContext<ApplicationDbContext>(options =>
+                AddDbContext<TaskBoardAppDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.
                 AddDatabaseDeveloperPageExceptionFilter();
@@ -34,7 +34,7 @@ namespace TaskBoardApp
                 options.Password.RequiredLength = builder.Configuration
                 .GetValue<int>("Identity:Password:RequiredLength"); ;
             })
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<TaskBoardAppDbContext>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
