@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskBoardApp.Data;
+using TaskBoardApp.Services.Contracts;
 
 namespace TaskBoardApp
 {
@@ -35,6 +36,9 @@ namespace TaskBoardApp
                 .GetValue<int>("Identity:Password:RequiredLength"); ;
             })
                 .AddEntityFrameworkStores<TaskBoardAppDbContext>();
+
+            builder.Services.AddScoped<IBoardService, IBoardService>();
+            
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

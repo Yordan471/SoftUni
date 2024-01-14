@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using TaskBoardApp.Data.Models;
 using Task = TaskBoardApp.Data.Models.Task;
 namespace TaskBoardApp.Data
@@ -18,7 +19,10 @@ namespace TaskBoardApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.
+                GetAssembly(typeof(TaskBoardAppDbContext)));
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

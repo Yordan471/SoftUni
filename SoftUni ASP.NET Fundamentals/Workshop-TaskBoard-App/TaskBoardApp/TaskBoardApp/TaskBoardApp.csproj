@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaskBoardApp.Data\TaskBoardApp.Data.csproj" />
+    <ProjectReference Include="..\TaskBoardApp.Services\TaskBoardApp.Services.csproj" />
     <ProjectReference Include="..\TaskBoardApp.Web.ViewModels\TaskBoardApp.Web.ViewModels.csproj" />
   </ItemGroup>
 

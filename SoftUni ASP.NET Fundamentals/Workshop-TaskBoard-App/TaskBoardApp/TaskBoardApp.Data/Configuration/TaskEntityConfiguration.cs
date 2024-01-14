@@ -34,6 +34,7 @@ namespace TaskBoardApp.Data.Configuration
                     Id = 1,
                     Title = "Improve CSS Styles",
                     Description = "Implement better styling for all public pages",
+                    CreateOn = DateTime.Now.AddYears(-200),
                     OwnerId = "1d8385c6-330f-4549-bf3b-9b2eef2ebf76",
                     BoardId = 1
                 },
@@ -42,6 +43,7 @@ namespace TaskBoardApp.Data.Configuration
                     Id = 2,
                     Title = "Android Client App",
                     Description = "Create Android Client App",
+                    CreateOn = DateTime.Now.AddYears(-5),
                     OwnerId = "83a769e2-dfb5-4e05-91c3-52e0e1d89b38",
                     BoardId = 2
                 },
@@ -50,6 +52,7 @@ namespace TaskBoardApp.Data.Configuration
                     Id = 3,
                     Title = "Desctop Client App",
                     Description = "Create Windows Forms",
+                    CreateOn = DateTime.Now.AddYears(-1),
                     OwnerId = "98948336-7b10-4d64-8e7f-f247e03e5a50",
                     BoardId = 3
                 },
@@ -58,6 +61,7 @@ namespace TaskBoardApp.Data.Configuration
                     Id = 4,
                     Title = "Create Tasks",
                     Description = "Implement [Create Task] page",
+                    CreateOn = DateTime.Now.AddYears(-1),
                     OwnerId = "83a769e2-dfb5-4e05-91c3-52e0e1d89b38",
                     BoardId = 2
                 }

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp", "TaskBoardApp\TaskBoardApp.csproj", "{77FAFD4C-9314-4F06-BA19-052BBBE96053}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskBoardApp", "TaskBoardApp\TaskBoardApp.csproj", "{77FAFD4C-9314-4F06-BA19-052BBBE96053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Data", "TaskBoardApp.Data\TaskBoardApp.Data.csproj", "{AC72401F-0A1F-4963-9FD2-006613A03D07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskBoardApp.Data", "TaskBoardApp.Data\TaskBoardApp.Data.csproj", "{AC72401F-0A1F-4963-9FD2-006613A03D07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Web.ViewModels", "TaskBoardApp.Web.ViewModels\TaskBoardApp.Web.ViewModels.csproj", "{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskBoardApp.Web.ViewModels", "TaskBoardApp.Web.ViewModels\TaskBoardApp.Web.ViewModels.csproj", "{FE57DB62-EE2D-45DF-9455-687FF76DCBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Common", "TaskBoardApp.Common\TaskBoardApp.Common.csproj", "{DE3E0235-E34B-474D-BC37-D459C64A31DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskBoardApp.Common", "TaskBoardApp.Common\TaskBoardApp.Common.csproj", "{DE3E0235-E34B-474D-BC37-D459C64A31DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Data.Models", "TaskBoardApp.Data.Models\TaskBoardApp.Data.Models.csproj", "{7DAA99AA-0381-4A45-AFA4-8857C4E6680E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskBoardApp.Data.Models", "TaskBoardApp.Data.Models\TaskBoardApp.Data.Models.csproj", "{7DAA99AA-0381-4A45-AFA4-8857C4E6680E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskBoardApp.Services", "TaskBoardApp.Services\TaskBoardApp.Services.csproj", "{67CB7000-9024-462D-B77B-53628FB1547B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7DAA99AA-0381-4A45-AFA4-8857C4E6680E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DAA99AA-0381-4A45-AFA4-8857C4E6680E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DAA99AA-0381-4A45-AFA4-8857C4E6680E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CB7000-9024-462D-B77B-53628FB1547B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CB7000-9024-462D-B77B-53628FB1547B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CB7000-9024-462D-B77B-53628FB1547B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CB7000-9024-462D-B77B-53628FB1547B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
