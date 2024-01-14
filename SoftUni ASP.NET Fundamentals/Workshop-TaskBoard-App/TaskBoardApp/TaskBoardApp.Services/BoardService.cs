@@ -19,6 +19,7 @@ namespace TaskBoardApp.Services
         {
             this.taskBoardDbContext = taskBoardDbContext;
         }
+
         public async Task<IEnumerable<BoardAllViewModel>> AllAsync()
         {
             return await taskBoardDbContext.Boards
@@ -37,6 +38,25 @@ namespace TaskBoardApp.Services
             // If We want to take only tasks for certain owner then
             // We give as argument in AllAsync(string ownerId)
             //Add Where(t => t.OwnerId = ownerId)
+        }
+
+        public async Task<bool> ExistingByIdAsync(int id)
+        {
+            return await taskBoardDbContext.Boards
+                .AnyAsync(b => b.Id == id);
+        }
+
+        public async Task<IEnumerable<BoardSelectModel>> SelectAllBoardAsync()
+        {
+            ICollection<BoardSelectModel> selectAllBoards = await taskBoardDbContext.Boards
+                .Select(b => new BoardSelectModel
+                {
+                    Id = b.Id,
+                    Name = b.Name,
+                })
+                .ToArrayAsync();
+
+            return selectAllBoards;
         }
     }
 }
