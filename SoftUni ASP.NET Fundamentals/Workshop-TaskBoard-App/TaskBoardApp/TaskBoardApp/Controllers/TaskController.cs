@@ -58,5 +58,21 @@ namespace TaskBoardApp.Controllers
 
             return RedirectToAction("All", "Board");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                TaskDetailsViewModel viewModel =
+                    await this.taskService.GetForDetailsByIdAsync(id);
+
+                return this.View(viewModel);
+            }
+            catch (Exception)
+            {
+                return this.RedirectToAction("All", "Board");
+            }
+        }
     }
 }

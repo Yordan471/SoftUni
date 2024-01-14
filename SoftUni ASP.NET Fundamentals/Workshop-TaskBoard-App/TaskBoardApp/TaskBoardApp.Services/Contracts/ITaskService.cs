@@ -10,5 +10,7 @@ namespace TaskBoardApp.Services.Contracts
     public interface ITaskService
     {
         Task AddTaskAsync(string ownerId, TaskFormModel viewModel);
+
+        Task<TaskDetailsViewModel> GetForDetailsByIdAsync(int Id);
     }
 }

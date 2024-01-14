@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,25 @@ namespace TaskBoardApp.Services
 
             await taskBoardDbContext.Tasks.AddAsync(createTask);
             await taskBoardDbContext.SaveChangesAsync();
+        }
+
+        public async Task<TaskDetailsViewModel> GetForDetailsByIdAsync(int id)
+        {
+            TaskDetailsViewModel? viewModel = await this.taskBoardDbContext
+                .Tasks
+                .Where(t => t.Id == id)
+                .Select(t => new TaskDetailsViewModel
+                {
+                    Id = t.Id,
+                    Title = t.Title,
+                    Description = t.Description,
+                    Owner = t.Owner.UserName,
+                    CreatedOn = t.CreateOn.ToString("f"),
+                    Board = t.Board.Name
+                })
+                .FirstOrDefaultAsync();
+
+            return viewModel;
         }
     }
 }
