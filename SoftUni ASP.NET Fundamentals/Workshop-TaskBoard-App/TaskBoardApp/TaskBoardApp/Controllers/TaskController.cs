@@ -164,7 +164,7 @@ namespace TaskBoardApp.Controllers
             return View(viewMode);
         }
 
-        [HttpDelete]
+        [HttpPost]
         public async Task<IActionResult> Delete(TaskViewModel viewModel)
         {
             Data.Models.Task task =
