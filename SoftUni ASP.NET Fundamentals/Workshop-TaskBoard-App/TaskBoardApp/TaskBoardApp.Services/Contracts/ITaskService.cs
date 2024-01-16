@@ -15,6 +15,6 @@ namespace TaskBoardApp.Services.Contracts
 
         Task<Data.Models.Task> GetTaskByIdAsync(int id);
 
-        void EditedTaskAsync(Data.Models.Task task, TaskFormModel viewModel);
+        Task EditedTaskAsync(Data.Models.Task task, TaskFormModel viewModel);
     }
 }

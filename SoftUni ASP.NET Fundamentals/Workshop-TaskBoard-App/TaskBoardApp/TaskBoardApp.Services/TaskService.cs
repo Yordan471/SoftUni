@@ -35,7 +35,7 @@ namespace TaskBoardApp.Services
             await taskBoardDbContext.SaveChangesAsync();
         }
 
-        public async void EditedTaskAsync(Data.Models.Task task, TaskFormModel viewModel)
+        public async Task EditedTaskAsync(Data.Models.Task task, TaskFormModel viewModel)
         {
             task.Title = viewModel.Title;
             task.Description = viewModel.Description;

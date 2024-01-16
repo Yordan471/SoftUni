@@ -77,7 +77,7 @@ namespace TaskBoardApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edin(int id)
+        public async Task<IActionResult> Edit(int id)
         {
             Data.Models.Task task = await taskService.GetTaskByIdAsync(id);
 
@@ -132,7 +132,7 @@ namespace TaskBoardApp.Controllers
                 return View(viewModel);
             }
 
-            taskService.EditedTaskAsync(task, viewModel);
+            await taskService.EditedTaskAsync(task, viewModel);
 
             return RedirectToAction("All", "Board");
         }
