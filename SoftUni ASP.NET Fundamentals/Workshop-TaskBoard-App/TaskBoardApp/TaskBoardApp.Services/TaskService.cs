@@ -35,6 +35,15 @@ namespace TaskBoardApp.Services
             await taskBoardDbContext.SaveChangesAsync();
         }
 
+        public async void EditedTaskAsync(Data.Models.Task task, TaskFormModel viewModel)
+        {
+            task.Title = viewModel.Title;
+            task.Description = viewModel.Description;
+            task.BoardId = viewModel.BoardId;
+
+            await taskBoardDbContext.SaveChangesAsync();
+        }
+
         public async Task<TaskDetailsViewModel> GetForDetailsByIdAsync(int id)
         {
             TaskDetailsViewModel? viewModel = await this.taskBoardDbContext
@@ -52,6 +61,13 @@ namespace TaskBoardApp.Services
                 .FirstOrDefaultAsync();
 
             return viewModel;
+        }
+
+        public async Task<Data.Models.Task> GetTaskByIdAsync(int id)
+        {
+            Data.Models.Task task = await taskBoardDbContext.Tasks.FindAsync(id);
+
+            return task;
         }
     }
 }

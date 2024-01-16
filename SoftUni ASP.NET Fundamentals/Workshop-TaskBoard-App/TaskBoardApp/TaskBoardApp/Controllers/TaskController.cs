@@ -4,6 +4,7 @@ using TaskBoardApp.Data;
 using TaskBoardApp.Extensions;
 using TaskBoardApp.Services;
 using TaskBoardApp.Services.Contracts;
+using TaskBoardApp.Web.ViewModels.Board;
 using TaskBoardApp.Web.ViewModels.Task;
 using static TaskBoardApp.Extensions.ClaimsPrincipleExtensions;
 
@@ -74,5 +75,68 @@ namespace TaskBoardApp.Controllers
                 return this.RedirectToAction("All", "Board");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edin(int id)
+        {
+            Data.Models.Task task = await taskService.GetTaskByIdAsync(id);
+
+            if (task == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUserId = this.User.GetId();
+            if (currentUserId != task.OwnerId)
+            {
+                return Unauthorized();
+            }
+
+            TaskFormModel viewModel = new TaskFormModel()
+            {
+                Title = task.Title,
+                Description = task.Description,
+                BoardId = task.BoardId,
+                Boards = await boardService.SelectAllBoardAsync()
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, TaskFormModel viewModel)
+        {
+            Data.Models.Task task = await taskService.GetTaskByIdAsync(id);
+
+            if (task == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUserId = this.User.GetId();
+            if (currentUserId != task.OwnerId)
+            {
+                return Unauthorized();
+            }
+
+            IEnumerable<BoardSelectModel> boardSelectModel = await boardService.SelectAllBoardAsync();
+
+            if (!boardSelectModel.Any(b => b.Id == viewModel.BoardId))
+            {
+                ModelState.AddModelError(nameof(viewModel.BoardId), "Board does not exist");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                viewModel.Boards = await boardService.SelectAllBoardAsync();
+                return View(viewModel);
+            }
+
+            taskService.EditedTaskAsync(task, viewModel);
+
+            return RedirectToAction("All", "Board");
+        }
+
+
     }
 }

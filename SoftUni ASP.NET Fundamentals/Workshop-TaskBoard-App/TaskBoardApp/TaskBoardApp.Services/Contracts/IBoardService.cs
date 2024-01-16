@@ -15,7 +15,5 @@ namespace TaskBoardApp.Services.Contracts
         Task<IEnumerable<BoardSelectModel>> SelectAllBoardAsync();
 
         Task<bool> ExistingByIdAsync(int id);
-
-
     }
 }
