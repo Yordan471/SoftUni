@@ -137,6 +137,53 @@ namespace TaskBoardApp.Controllers
             return RedirectToAction("All", "Board");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Data.Models.Task task = 
+                await taskService.GetTaskByIdAsync(id);
 
+            if (task == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUserId = this.User.GetId();
+            if (currentUserId != task.OwnerId)
+            {
+                return Unauthorized();
+            }
+
+            TaskViewModel viewMode = new()
+            {
+                Id = task.Id,
+                Title = task.Title,
+                Description = task.Description
+            };
+
+            return View(viewMode);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(TaskViewModel viewModel)
+        {
+            Data.Models.Task task =
+                await taskService.GetTaskByIdAsync(viewModel.Id);
+
+            if (task == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUserId = this.User.GetId();
+            if (currentUserId != task.OwnerId)
+            {
+                return Unauthorized();
+            }
+
+            await taskService.DeleteTaskAsync(task);
+
+            return RedirectToAction("All", "Board");
+        }
     }
 }
