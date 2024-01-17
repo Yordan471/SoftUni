@@ -40,6 +40,7 @@ namespace TaskBoardApp
 
             builder.Services.AddScoped<IBoardService, BoardService>();
             builder.Services.AddScoped<ITaskService, TaskService>();
+            builder.Services.AddScoped<IHomeService, HomeService>();
 
             builder.Services.AddControllersWithViews();
 
