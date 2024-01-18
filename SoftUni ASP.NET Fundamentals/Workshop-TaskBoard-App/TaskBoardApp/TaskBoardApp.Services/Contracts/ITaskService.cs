@@ -18,5 +18,9 @@ namespace TaskBoardApp.Services.Contracts
         Task EditedTaskAsync(Data.Models.Task task, TaskFormModel viewModel);
 
         Task DeleteTaskAsync(Data.Models.Task task);
+
+        Task<int> GetTasksCountForUser(string userId);
+
+        Task<int> GetTasksCount();
     }
 }

@@ -75,5 +75,19 @@ namespace TaskBoardApp.Services
 
             return task;
         }
+
+        public async Task<int> GetTasksCount()
+        {
+            return await taskBoardDbContext.Tasks.CountAsync();
+        }
+
+        public async Task<int> GetTasksCountForUser(string userId)
+        {
+            int countUserTasks = await this.taskBoardDbContext.Tasks
+                .Where(t => t.OwnerId == userId)
+                .CountAsync();
+
+            return countUserTasks;
+        }
     }
 }

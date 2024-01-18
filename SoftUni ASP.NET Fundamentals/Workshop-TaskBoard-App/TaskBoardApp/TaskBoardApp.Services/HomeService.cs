@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,32 @@ namespace TaskBoardApp.Services
 
         public async Task<IEnumerable<string>> GetAllBoardNames()
         {
-            var boardNames = dbContext.Boards
+            var boardNames = await dbContext.Boards
                 .Select(b => b.Name)
-                .Distinct();
+                .Distinct()
+                .ToArrayAsync();
 
             return boardNames;
         }
 
-        public Task<ICollection<HomeBoardModel>> GetAllTasksForBoards(string boardName)
+        public async Task<ICollection<HomeBoardModel>> GetAllTasksForBoards(Task<IEnumerable<string>> boardNames)
         {
-            
+            ICollection<HomeBoardModel> tasksInBoard = new HashSet<HomeBoardModel>();
+
+            foreach (var boardName in await boardNames)
+            {
+                int tasksCount = await dbContext.Tasks
+                .Where(t => t.Board.Name == boardName)
+                .CountAsync();
+
+                tasksInBoard.Add(new HomeBoardModel
+                {
+                    BoardName = boardName,
+                    TaskCount = tasksCount
+                });
+            }
+
+            return tasksInBoard;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TaskBoardApp.Web.ViewModels.Home
     {
         public int AllTasksCount { get; set; }
 
-        public List<HomeBoardModel> BoardsWithTasksCount { get; set; }
+        public ICollection<HomeBoardModel> BoardsWithTasksCount { get; set; } = null!;
 
         public int UserTasksCount { get; set; }
     }

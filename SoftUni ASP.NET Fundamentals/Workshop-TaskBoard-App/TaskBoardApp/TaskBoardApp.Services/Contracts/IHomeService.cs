@@ -11,6 +11,7 @@ namespace TaskBoardApp.Services.Contracts
     {
         public Task<IEnumerable<string>> GetAllBoardNames();
 
-        public Task<ICollection<HomeBoardModel>> GetAllTasksForBoards(string boardName);
+        public Task<ICollection<HomeBoardModel>> 
+            GetAllTasksForBoards(Task<IEnumerable<string>> boardName);
     }
 }
