@@ -17,7 +17,7 @@ namespace TaskBoardApp.Controllers
             this.taskService = taskService;
         }
 
-        public async IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var boardNames = homeService.GetAllBoardNames();
 
