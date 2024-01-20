@@ -9,6 +9,11 @@ namespace Library.Data.Models
 {
     public class Book
     {
+        public Book() 
+        {
+            UsersBooks = new HashSet<Book>();
+        }
+
         /// <summary>
         /// Book Identifier
         /// </summary>
