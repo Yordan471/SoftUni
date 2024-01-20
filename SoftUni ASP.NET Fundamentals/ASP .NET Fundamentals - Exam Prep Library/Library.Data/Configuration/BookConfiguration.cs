@@ -13,6 +13,10 @@ namespace Library.Data.Configuration
                 .WithMany(c => c.Books)
                 .HasForeignKey(b => b.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Property(b => b.Rating)
+                .HasPrecision(18, 2);
         }
     }
 }
