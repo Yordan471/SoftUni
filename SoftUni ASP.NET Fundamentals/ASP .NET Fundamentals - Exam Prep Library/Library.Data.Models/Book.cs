@@ -11,7 +11,7 @@ namespace Library.Data.Models
     {
         public Book() 
         {
-            UsersBooks = new HashSet<Book>();
+            UsersBooks = new HashSet<IdentityUserBook>();
         }
 
         /// <summary>
