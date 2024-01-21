@@ -1,4 +1,6 @@
+using Library.Contracts;
 using Library.Data;
+using Library.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +25,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .GetValue<bool>("Identity:Password:RequireUppercase");
 })
     .AddEntityFrameworkStores<LibraryDbContext>();
+
+builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddControllersWithViews();
 
