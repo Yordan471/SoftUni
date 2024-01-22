@@ -68,16 +68,19 @@ namespace Library.Controllers
         {
             decimal rating;
 
-            if (decimal.TryParse(addBookViewModel.Rating, out rating) || rating < 0 || rating > 10)
+            if (!decimal.TryParse(addBookViewModel.Rating, out rating) || rating < 0 || rating > 10)
             {
                 ModelState.AddModelError(nameof(addBookViewModel.Rating),
                     "Rating must be a number between 0 and 10");
-                
+                addBookViewModel = await
+                bookService.AddNewBookViewModelWithCategories();
                 return View(addBookViewModel);
             }
 
             if (!ModelState.IsValid)
             {
+                addBookViewModel = await
+                bookService.AddNewBookViewModelWithCategories();
                 return View(addBookViewModel);
             }
 
