@@ -2,6 +2,7 @@
 using Library.Data;
 using Library.Data.Models;
 using Library.Models.BookViewModels;
+using Library.Models.CategoryViewModels;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,22 @@ namespace Library.Service
         public BookService(LibraryDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task AddBookToAllAsync(AddBookViewModel addBookViewModel)
+        {
+            Book book = new Book
+            {
+                Title = addBookViewModel.Title,
+                Author = addBookViewModel.Author,
+                Description = addBookViewModel.Description,
+                Rating = decimal.Parse(addBookViewModel.Rating),
+                ImageUrl = addBookViewModel.Url,
+                CategoryId = addBookViewModel.CategoryId
+            };
+
+            await dbContext.Books.AddAsync(book);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task AddBookToCollectionAsync(string userId, BookViewModel bookViewModel)
@@ -34,6 +51,23 @@ namespace Library.Service
                 await dbContext.UsersBooks.AddAsync(userBook);
                 await dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task<AddBookViewModel> AddNewBookViewModelWithCategories()
+        {
+            ICollection<CategoryViewModel> categories = await dbContext.Categories
+                .Select(c => new CategoryViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                }).ToArrayAsync();
+
+            AddBookViewModel viewModel = new AddBookViewModel
+            {
+                Categories = categories
+            };
+
+            return viewModel;
         }
 
         public async Task<IEnumerable<AllBookViewModel>> GetAllBooksAsync()

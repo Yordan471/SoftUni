@@ -54,9 +54,36 @@ namespace Library.Controllers
             return RedirectToAction(nameof(All));
         }
 
-        public IActionResult Add()
+        [HttpGet]
+        public async Task<IActionResult> Add()
         {
-            return View();
+            AddBookViewModel addBookViewModel = await
+                bookService.AddNewBookViewModelWithCategories();
+
+            return View(addBookViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AddBookViewModel addBookViewModel)
+        {
+            decimal rating;
+
+            if (decimal.TryParse(addBookViewModel.Rating, out rating) || rating < 0 || rating > 10)
+            {
+                ModelState.AddModelError(nameof(addBookViewModel.Rating),
+                    "Rating must be a number between 0 and 10");
+                
+                return View(addBookViewModel);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(addBookViewModel);
+            }
+
+            await bookService.AddBookToAllAsync(addBookViewModel);
+
+            return RedirectToAction(nameof(All));
         }
 
         public async Task<IActionResult> RemoveFromCollection(int id)

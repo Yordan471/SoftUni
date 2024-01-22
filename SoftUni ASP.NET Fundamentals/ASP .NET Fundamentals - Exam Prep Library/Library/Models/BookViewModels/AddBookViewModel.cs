@@ -40,22 +40,25 @@ namespace Library.Models.BookViewModels
         /// <summary>
         /// Image of the Book
         /// </summary>
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string Url { get; set; } = null!;
 
         /// <summary>
         /// Book Rating
         /// </summary>
         [Required]
-        [Range((double)RatingMaxValue, (double)RatingMinValue)]
-        public decimal Rating { get; set; }
+        //[Range((double)RatingMaxValue, (double)RatingMinValue)]
+        public string Rating { get; set; } = null!;
 
         /// <summary>
         /// Book CategoryId
         /// </summary>
         [Required]
+        // Must be above 0
+        [Range(1, int.MaxValue)]
         public int CategoryId { get; set; }
 
-        public ICollection<CategoryViewModel> Categories { get; set; } = null!;
+        public ICollection<CategoryViewModel> Categories { get; set; } = 
+            new List<CategoryViewModel>();
     }
 }
