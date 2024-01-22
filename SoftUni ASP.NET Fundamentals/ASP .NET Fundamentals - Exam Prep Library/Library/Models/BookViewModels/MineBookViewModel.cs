@@ -1,6 +1,6 @@
 ﻿using System.Composition.Convention;
 
-namespace Library.Models
+namespace Library.Models.BookViewModels
 {
     public class MineBookViewModel
     {

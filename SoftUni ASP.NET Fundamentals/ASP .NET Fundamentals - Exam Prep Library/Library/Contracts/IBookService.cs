@@ -1,4 +1,4 @@
-﻿using Library.Models;
+﻿using Library.Models.BookViewModels;
 
 namespace Library.Contracts
 {
@@ -6,11 +6,12 @@ namespace Library.Contracts
     {
         public Task<IEnumerable<AllBookViewModel>> GetAllBooksAsync();
 
-        public Task<IEnumerable<MineBookViewModel>> GetMineBooksAsync(string id);
+        public Task<ICollection<MineBookViewModel>> GetMineBooksAsync(string id);
 
         public Task<BookViewModel> GetBookByIdAsync(int id);
 
         public Task AddBookToCollectionAsync(string userId, BookViewModel bookViewModel);
 
+        public Task RemoveBookViewModelByIdAsync(string userId, int bookId);
     }
 }

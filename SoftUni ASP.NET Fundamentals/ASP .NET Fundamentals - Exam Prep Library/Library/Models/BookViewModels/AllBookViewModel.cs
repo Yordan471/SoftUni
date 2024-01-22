@@ -1,6 +1,6 @@
 ﻿using Library.Data.Models;
 
-namespace Library.Models
+namespace Library.Models.BookViewModels
 {
     public class AllBookViewModel
     {

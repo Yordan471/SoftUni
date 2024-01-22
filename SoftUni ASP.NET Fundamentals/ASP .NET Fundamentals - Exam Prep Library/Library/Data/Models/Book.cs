@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static Library.Common.EntityValidationConstants.Book;
@@ -13,61 +14,43 @@ namespace Library.Data.Models
             UsersBooks = new HashSet<IdentityUserBook>();
         }
 
-        /// <summary>
-        /// Book Identifier
-        /// </summary>
+        [Comment("Book Identifier")]
         [Key]
         public int Id { get; set; }
 
-        /// <summary>
-        /// Book Title
-        /// </summary>
+        [Comment("Book Title")]
         [Required]
         [StringLength(TitleMaxLength)]
         public string Title { get; set; } = null!;
 
-        /// <summary>
-        /// Author Name
-        /// </summary>
+        [Comment("Author Name")]
         [Required]
         [StringLength(AuthorMaxLength)]
         public string Author { get; set; } = null!;
 
-        /// <summary>
-        /// Book Description
-        /// </summary>
+        [Comment("Book Description")]
         [Required]
         [StringLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
 
-        /// <summary>
-        /// Image of the Book
-        /// </summary>
+        [Comment("Image of the Book")]
         [Required]
         public string ImageUrl { get; set; } = null!;
 
-        /// <summary>
-        /// Book Rating
-        /// </summary>
+        [Comment("Book Rating")]
         [Required]
         [Range((double)RatingMaxValue, (double)RatingMinValue)]
         public decimal Rating { get; set; }
 
-        /// <summary>
-        /// Book CategoryId
-        /// </summary>
+        [Comment("Book CategoryId")]
         [Required]
         public int CategoryId { get; set; }
 
-        /// <summary>
-        /// Book Category
-        /// </summary>
+        [Comment("Book Category")]
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
 
-        /// <summary>
-        /// Collection of users with books
-        /// </summary>
+        [Comment("Collection of users with books")]
         public ICollection<IdentityUserBook> UsersBooks { get; set; }
     }
 }

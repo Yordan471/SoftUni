@@ -1,12 +1,11 @@
-﻿using Library.Data.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Library.Models.CategoryViewModels;
 using System.ComponentModel.DataAnnotations;
 using static Library.Common.EntityValidationConstants.Book;
 using static Library.Common.ValidationsErrorMessages;
 
-namespace Library.Models
+namespace Library.Models.BookViewModels
 {
-    public class BookViewModel
+    public class AddBookViewModel
     {
         /// <summary>
         /// Book Identifier
@@ -18,7 +17,7 @@ namespace Library.Models
         /// Book Title
         /// </summary>
         [Required]
-        [StringLength(TitleMaxLength, MinimumLength = TitleMinLength, 
+        [StringLength(TitleMaxLength, MinimumLength = TitleMinLength,
             ErrorMessage = BookTitleInccorectLength)]
         public string Title { get; set; } = null!;
 
@@ -42,7 +41,7 @@ namespace Library.Models
         /// Image of the Book
         /// </summary>
         [Required]
-        public string ImageUrl { get; set; } = null!;
+        public string Url { get; set; } = null!;
 
         /// <summary>
         /// Book Rating
@@ -56,5 +55,7 @@ namespace Library.Models
         /// </summary>
         [Required]
         public int CategoryId { get; set; }
+
+        public ICollection<CategoryViewModel> Categories { get; set; } = null!;
     }
 }

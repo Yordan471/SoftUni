@@ -1,7 +1,7 @@
 ﻿using Library.Contracts;
 using Library.Data;
 using Library.Data.Models;
-using Library.Models;
+using Library.Models.BookViewModels;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -65,7 +65,7 @@ namespace Library.Service
                 }).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<MineBookViewModel>> GetMineBooksAsync(string id)
+        public async Task<ICollection<MineBookViewModel>> GetMineBooksAsync(string id)
         {
             return await dbContext.UsersBooks
                 .Where(ub => ub.CollectorId == id)
@@ -78,6 +78,18 @@ namespace Library.Service
                     Description = ub.Book.Description,
                     Category = ub.Book.Category.Name
                 }).ToArrayAsync();
+        }
+
+        public async Task RemoveBookViewModelByIdAsync(string userId, int bookId)
+        {
+            var removeBook = await dbContext.UsersBooks
+                .FirstOrDefaultAsync(ub => ub.CollectorId == userId && ub.BookId == bookId);
+
+            if (removeBook != null)
+            {
+                dbContext.UsersBooks.Remove(removeBook);
+                await dbContext.SaveChangesAsync();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using static Library.Common.EntityValidationConstants.Category;
 
 namespace Library.Data.Models
@@ -10,22 +11,16 @@ namespace Library.Data.Models
             Books = new HashSet<Book>();    
         }
 
-        /// <summary>
-        /// Category Identifier
-        /// </summary>
+        [Comment("Category Identifier")]
         [Key]
         public int Id { get; set; }
 
-        /// <summary>
-        /// Category Name
-        /// </summary>
+        [Comment("Category Name")]
         [Required]
         [StringLength(NameMaxLength)]
         public string Name { get; set; } = null;
 
-        /// <summary>
-        /// Collection of Books
-        /// </summary>
+        [Comment("Collection of Books")]
         public ICollection<Book> Books { get; set; }
     }
 }
