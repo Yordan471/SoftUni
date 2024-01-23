@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SoftUniBazar.Data;
+using SoftUniBazar.SoftUniBazar.Service;
+using SoftUniBazar.SoftUniBazar.Service.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,8 @@ builder.Services
     .GetValue<bool>("Identity:Password:RequireUppercase");
 })
     .AddEntityFrameworkStores<BazarDbContext>();
+
+builder.Services.AddScoped<IAdService, AdService>();
 
 builder.Services.AddControllersWithViews();
 

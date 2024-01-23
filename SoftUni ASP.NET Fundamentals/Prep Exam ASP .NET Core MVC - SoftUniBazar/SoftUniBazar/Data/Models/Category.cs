@@ -1,9 +1,9 @@
-﻿namespace SoftUniBazar.Data.Models
-{
-    using Microsoft.EntityFrameworkCore;
-    using System.ComponentModel.DataAnnotations;
-    using static SoftUniBazar.Common.EntityValidationConstants.Category;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using static SoftUniBazar.Common.EntityValidationConstants.Category;
 
+namespace SoftUniBazar.Data.Models
+{
     public class Category
     {
         public Category() 

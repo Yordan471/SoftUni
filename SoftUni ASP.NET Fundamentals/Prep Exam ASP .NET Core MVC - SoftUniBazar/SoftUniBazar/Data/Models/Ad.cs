@@ -1,11 +1,11 @@
-﻿namespace SoftUniBazar.Data.Models
-{
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.EntityFrameworkCore;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using static SoftUniBazar.Common.EntityValidationConstants.Ad;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using static SoftUniBazar.Common.EntityValidationConstants.Ad;
 
+namespace SoftUniBazar.Data.Models
+{
     public class Ad
     {
         [Comment("Ad identifier")]
