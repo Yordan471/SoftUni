@@ -10,27 +10,27 @@
         /// <summary>
         /// Name of Ad
         /// </summary>
-        public string Name { get; set; } = null!;
+        public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// Ad image
         /// </summary>
-        public string ImageUrl { get; set; } = null!;
+        public string ImageUrl { get; set; } = string.Empty;
 
         /// <summary>
         /// Ad date of creation
         /// </summary>
-        public string CreatedOn { get; set; } = null!;
+        public string CreatedOn { get; set; } = string.Empty;
 
         /// <summary>
         /// Ad category
         /// </summary>
-        public string Category { get; set; } = null!;
+        public string Category { get; set; } = string.Empty;
 
         /// <summary>
         /// Ad description
         /// </summary>
-        public string Description { get; set; } = null!;
+        public string Description { get; set; } = string.Empty;
 
         /// <summary>
         /// Ad Price
@@ -40,6 +40,6 @@
         /// <summary>
         /// Ad Seller
         /// </summary>
-        public string Seller { get; set; } = null!;
+        public string Owner { get; set; } = string.Empty;
     }
 }

@@ -17,6 +17,8 @@ namespace SoftUniBazar.SoftUniBazar.Service
 
         public async Task<ICollection<AllAdViewModel>> GetAllAdViewModelsAsync()
         {
+            string? ownerName = await dbContext.Ads.Select(a => a.Owner.UserName).FirstOrDefaultAsync();
+
             return await dbContext.Ads.Select(a => new AllAdViewModel
             {
                 Id = a.Id,
@@ -26,7 +28,7 @@ namespace SoftUniBazar.SoftUniBazar.Service
                 Category = a.Category.Name,
                 Description = a.Description,
                 Price = a.Price,
-                Seller = a.Owner.UserName
+                Owner = a.Owner.UserName
             }).ToArrayAsync();
         }
 
