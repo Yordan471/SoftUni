@@ -1,4 +1,4 @@
-﻿using SoftUniBazar.ViewModel;
+﻿using SoftUniBazar.ViewModel.Ad;
 
 namespace SoftUniBazar.SoftUniBazar.Service.Contracts
 {

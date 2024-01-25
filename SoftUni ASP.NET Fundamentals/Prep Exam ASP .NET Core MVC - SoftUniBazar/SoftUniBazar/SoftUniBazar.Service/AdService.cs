@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftUniBazar.Data;
 using SoftUniBazar.SoftUniBazar.Service.Contracts;
-using SoftUniBazar.ViewModel;
+using SoftUniBazar.ViewModel.Ad;
 
 namespace SoftUniBazar.SoftUniBazar.Service
 {
@@ -21,6 +21,7 @@ namespace SoftUniBazar.SoftUniBazar.Service
                 Id = a.Id,
                 Name = a.Name,
                 CreatedOn = a.CreatedOn.ToString(),
+                ImageUrl = a.ImageUrl,
                 Category = a.Category.Name,
                 Description = a.Description,
                 Price = a.Price,

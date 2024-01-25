@@ -1,4 +1,4 @@
-﻿namespace SoftUniBazar.ViewModel
+﻿namespace SoftUniBazar.ViewModel.Ad
 {
     public class AllAdViewModel
     {
@@ -11,6 +11,11 @@
         /// Name of Ad
         /// </summary>
         public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// Ad image
+        /// </summary>
+        public string ImageUrl { get; set; } = null!;
 
         /// <summary>
         /// Ad date of creation

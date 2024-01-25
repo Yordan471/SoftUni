@@ -28,6 +28,7 @@ builder.Services
     .AddEntityFrameworkStores<BazarDbContext>();
 
 builder.Services.AddScoped<IAdService, AdService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddControllersWithViews();
 
