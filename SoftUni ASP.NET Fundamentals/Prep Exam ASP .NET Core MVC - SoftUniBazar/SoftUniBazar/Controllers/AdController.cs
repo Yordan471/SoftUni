@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SoftUniBazar.Data;
 using SoftUniBazar.SoftUniBazar.Service.Contracts;
 using SoftUniBazar.ViewModel.Ad;
 
@@ -32,6 +33,18 @@ namespace SoftUniBazar.Controllers
             };
 
             return View(addAdViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AddAdViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Categories = await categoryService.GetAllCategories();
+                return View(model);
+            }
+
+            
         }
     }
 }

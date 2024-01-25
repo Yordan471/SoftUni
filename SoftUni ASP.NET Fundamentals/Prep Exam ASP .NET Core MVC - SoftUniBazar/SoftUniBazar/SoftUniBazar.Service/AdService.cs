@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftUniBazar.Data;
+using SoftUniBazar.Data.Models;
 using SoftUniBazar.SoftUniBazar.Service.Contracts;
 using SoftUniBazar.ViewModel.Ad;
 
@@ -27,6 +28,17 @@ namespace SoftUniBazar.SoftUniBazar.Service
                 Price = a.Price,
                 Seller = a.Owner.UserName
             }).ToArrayAsync();
+        }
+
+        public Task SaveAddAdModelToDbAsync(AddAdViewModel model)
+        {
+            Ad ad = new()
+            {
+                Name = model.Name,
+                Description = model.Description,
+                Price = model.Price,
+                OwnerId = model.
+            }
         }
     }
 }
