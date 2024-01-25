@@ -2,6 +2,7 @@
 using SoftUniBazar.Data;
 using SoftUniBazar.SoftUniBazar.Service.Contracts;
 using SoftUniBazar.ViewModel.Ad;
+using static SoftUniBazar.Extensions.ClaimsPrincipleExtensions;
 
 namespace SoftUniBazar.Controllers
 {
@@ -44,7 +45,11 @@ namespace SoftUniBazar.Controllers
                 return View(model);
             }
 
-            
+            string userId =  GetId(User);
+
+            await adService.SaveAddAdModelToDbAsync(model, userId);
+
+            return RedirectToAction(nameof(All));
         }
     }
 }

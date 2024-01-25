@@ -6,6 +6,6 @@ namespace SoftUniBazar.SoftUniBazar.Service.Contracts
     {
         Task<ICollection<AllAdViewModel>> GetAllAdViewModelsAsync();
 
-        Task SaveAddAdModelToDbAsync(AddAdViewModel model);
+        Task SaveAddAdModelToDbAsync(AddAdViewModel model, string userId);
     }
 }

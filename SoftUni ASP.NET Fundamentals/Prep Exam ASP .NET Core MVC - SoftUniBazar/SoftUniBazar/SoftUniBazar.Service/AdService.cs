@@ -30,15 +30,24 @@ namespace SoftUniBazar.SoftUniBazar.Service
             }).ToArrayAsync();
         }
 
-        public Task SaveAddAdModelToDbAsync(AddAdViewModel model)
+        public async Task SaveAddAdModelToDbAsync(AddAdViewModel model, string userId)
         {
+            string dateTimeNow = DateTime.UtcNow.ToString("yyyy-MM-dd H:mm");
+            DateTime dateTime = DateTime.Parse(dateTimeNow);
+
             Ad ad = new()
             {
                 Name = model.Name,
                 Description = model.Description,
                 Price = model.Price,
-                OwnerId = model.
-            }
+                OwnerId = userId,
+                ImageUrl = model.ImageUrl,
+                CreatedOn = dateTime,
+                CategoryId = model.CategoryId,
+            };
+
+            await dbContext.Ads.AddAsync(ad);
+            await dbContext.SaveChangesAsync();
         }
     }
 }
