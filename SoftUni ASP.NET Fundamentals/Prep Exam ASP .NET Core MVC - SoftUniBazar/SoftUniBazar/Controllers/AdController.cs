@@ -62,6 +62,7 @@ namespace SoftUniBazar.Controllers
             return RedirectToAction(nameof(All));
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             Ad ad = await adService.GetAdByIdAsync(id);
@@ -77,7 +78,35 @@ namespace SoftUniBazar.Controllers
                 return Unauthorized();
             }
 
-            return adService.EditAd(ad);
+            return View(await adService.GetEditAdAsync(ad));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, AddAdViewModel model)
+        {
+            Ad adToEdit = await adService.GetAdByIdAsync(id);
+
+            if (adToEdit == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUseUd = GetId(this.User);
+            if (adToEdit.Owner.Id != currentUseUd)
+            {
+                return Unauthorized();
+            }
+
+            var categories = await categoryService.GetAllCategories();
+            if (!categories.Any(c => c.Id == model.CategoryId))
+            {
+                ModelState.AddModelError(nameof(model.CategoryId), CategoryDoesNotExist);
+                return View(model);
+            }
+
+            await adService.PostEditAdAsync(adToEdit, model);
+
+            return RedirectToAction(nameof(All));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SoftUniBazar.SoftUniBazar.Service
             this.categoryService = categoryService;
         }
 
-        public async Task<AddAdViewModel> EditAd(Ad adToEdit)
+        public async Task<AddAdViewModel> GetEditAdAsync(Ad adToEdit)
         {
             AddAdViewModel editedAd = new()
             {
@@ -71,6 +71,17 @@ namespace SoftUniBazar.SoftUniBazar.Service
             };
 
             await dbContext.Ads.AddAsync(ad);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task PostEditAdAsync(Ad adToEdit, AddAdViewModel model)
+        {
+            adToEdit.Name = model.Name;
+            adToEdit.Description = model.Description;
+            adToEdit.Price = model.Price;
+            adToEdit.CategoryId = model.CategoryId;
+            adToEdit.ImageUrl = model.ImageUrl;
+
             await dbContext.SaveChangesAsync();
         }
     }
