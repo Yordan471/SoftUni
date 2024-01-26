@@ -99,5 +99,22 @@ namespace SoftUniBazar.SoftUniBazar.Service
         {
             await dbContext.AdsBuyers.AddAsync(entry);
         }
+
+        public async Task<ICollection<AllAdViewModel>> GetAllAdsForBuyerAsync(string userId)
+        {
+            return await dbContext.AdsBuyers
+                .Where(ab => ab.BuyerId == userId)
+                .Select(ab => new AllAdViewModel
+            {
+                    Id = ab.Ad.Id,
+                    Name = ab.Ad.Name,
+                    Description = ab.Ad.Description,
+                    Price = ab.Ad.Price,
+                    ImageUrl = ab.Ad.ImageUrl,
+                    CreatedOn = ab.Ad.CreatedOn.ToString("yyyy-MM-dd H:mm"),
+                    Category = ab.Ad.Category.Name,
+                    Owner = ab.Ad.Owner.UserName
+            }).ToArrayAsync();
+        }
     }
 }

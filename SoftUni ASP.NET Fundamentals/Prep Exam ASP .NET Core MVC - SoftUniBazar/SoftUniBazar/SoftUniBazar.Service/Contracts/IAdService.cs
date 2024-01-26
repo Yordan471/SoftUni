@@ -18,5 +18,7 @@ namespace SoftUniBazar.SoftUniBazar.Service.Contracts
         Task<bool> AdBuyerEntryExistAsync(AdBuyer entry);
 
         Task AddAdBuyerEntryAsync(AdBuyer entry);
+
+        Task<ICollection<AllAdViewModel>> GetAllAdsForBuyerAsync(string userId);
     }
 }

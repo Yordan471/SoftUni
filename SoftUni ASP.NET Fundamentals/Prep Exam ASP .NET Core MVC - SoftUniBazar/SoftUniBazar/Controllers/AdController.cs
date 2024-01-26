@@ -109,6 +109,15 @@ namespace SoftUniBazar.Controllers
             return RedirectToAction(nameof(All));
         }
 
+        public async Task<IActionResult> Cart()
+        {
+            string currentUserId = GetId(this.User);
+
+            var userAds = adService.GetAllAdsForBuyerAsync(currentUserId);
+
+            return View(userAds);
+        }
+
         public async Task<IActionResult> AddToCart(int id)
         {
             Ad ad = await adService.GetAdByIdAsync(id);
