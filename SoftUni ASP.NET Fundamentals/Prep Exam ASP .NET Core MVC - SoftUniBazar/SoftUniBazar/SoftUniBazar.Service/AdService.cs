@@ -84,5 +84,20 @@ namespace SoftUniBazar.SoftUniBazar.Service
 
             await dbContext.SaveChangesAsync();
         }
+
+        public async Task<bool> AdBuyerEntryExistAsync(AdBuyer entry)
+        {
+            if (await dbContext.AdsBuyers.ContainsAsync(entry))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task AddAdBuyerEntryAsync(AdBuyer entry)
+        {
+            await dbContext.AdsBuyers.AddAsync(entry);
+        }
     }
 }

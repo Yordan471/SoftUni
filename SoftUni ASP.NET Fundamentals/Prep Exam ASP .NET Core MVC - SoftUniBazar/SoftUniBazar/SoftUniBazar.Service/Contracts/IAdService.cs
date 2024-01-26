@@ -14,5 +14,9 @@ namespace SoftUniBazar.SoftUniBazar.Service.Contracts
         Task<AddAdViewModel> GetEditAdAsync(Ad adToEdit);
 
         Task PostEditAdAsync(Ad adToEdit, AddAdViewModel model);
+
+        Task<bool> AdBuyerEntryExistAsync(AdBuyer entry);
+
+        Task AddAdBuyerEntryAsync(AdBuyer entry);
     }
 }
