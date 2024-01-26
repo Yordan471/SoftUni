@@ -73,7 +73,7 @@ namespace SoftUniBazar.Controllers
             }
 
             string currentUseUd = GetId(this.User);
-            if (ad.Owner.Id != currentUseUd)
+            if (ad.OwnerId != currentUseUd)
             {
                 return Unauthorized();
             }
@@ -92,7 +92,7 @@ namespace SoftUniBazar.Controllers
             }
 
             string currentUseUd = GetId(this.User);
-            if (adToEdit.Owner.Id != currentUseUd)
+            if (adToEdit.OwnerId != currentUseUd)
             {
                 return Unauthorized();
             }
@@ -157,8 +157,10 @@ namespace SoftUniBazar.Controllers
 
             if (await adService.AdBuyerEntryExistAsync(adBuyer))
             {
-
+                await adService.RemoveAdBuyerEntryAsync(adBuyer);
             }
+
+            return RedirectToAction(nameof(All));
         }
     }
 }
