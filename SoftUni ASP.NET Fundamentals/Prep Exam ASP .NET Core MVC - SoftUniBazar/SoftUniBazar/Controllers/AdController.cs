@@ -113,7 +113,7 @@ namespace SoftUniBazar.Controllers
         {
             string currentUserId = GetId(this.User);
 
-            var userAds = adService.GetAllAdsForBuyerAsync(currentUserId);
+            var userAds = await adService.GetAllAdsForBuyerAsync(currentUserId);
 
             return View(userAds);
         }
@@ -142,6 +142,23 @@ namespace SoftUniBazar.Controllers
             await adService.AddAdBuyerEntryAsync(adBuyer);
 
             return RedirectToAction(nameof(Cart));
+        }
+
+        public async Task<IActionResult> RemoveFromCart(int id)
+        {
+            string currentUserId = GetId(User);
+
+            Ad adToRemove = await adService.GetAdByIdAsync(id);
+            AdBuyer adBuyer = new AdBuyer()
+            {
+                AdId = id,
+                BuyerId = currentUserId
+            };
+
+            if (await adService.AdBuyerEntryExistAsync(adBuyer))
+            {
+
+            }
         }
     }
 }

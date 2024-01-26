@@ -98,6 +98,7 @@ namespace SoftUniBazar.SoftUniBazar.Service
         public async Task AddAdBuyerEntryAsync(AdBuyer entry)
         {
             await dbContext.AdsBuyers.AddAsync(entry);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task<ICollection<AllAdViewModel>> GetAllAdsForBuyerAsync(string userId)
@@ -115,6 +116,12 @@ namespace SoftUniBazar.SoftUniBazar.Service
                     Category = ab.Ad.Category.Name,
                     Owner = ab.Ad.Owner.UserName
             }).ToArrayAsync();
+        }
+
+        public async Task RemoveAdBuyerEntryAsync(AdBuyer entry)
+        {
+            dbContext.AdsBuyers.Remove(entry);
+            await dbContext.SaveChangesAsync();
         }
     }
 }
