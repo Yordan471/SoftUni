@@ -1,4 +1,5 @@
-﻿using SoftUniBazar.ViewModel.Ad;
+﻿using SoftUniBazar.Data.Models;
+using SoftUniBazar.ViewModel.Ad;
 
 namespace SoftUniBazar.SoftUniBazar.Service.Contracts
 {
@@ -7,5 +8,9 @@ namespace SoftUniBazar.SoftUniBazar.Service.Contracts
         Task<ICollection<AllAdViewModel>> GetAllAdViewModelsAsync();
 
         Task SaveAddAdModelToDbAsync(AddAdViewModel model, string userId);
+
+        Task<Ad> GetAdByIdAsync(int id);
+
+        Task<AddAdViewModel> EditAd(Ad adToEdit);
     }
 }

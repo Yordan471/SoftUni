@@ -9,10 +9,32 @@ namespace SoftUniBazar.SoftUniBazar.Service
     public class AdService : IAdService
     {
         private readonly BazarDbContext dbContext;
+        private readonly ICategoryService categoryService;
 
-        public AdService(BazarDbContext dbContext)
+        public AdService(BazarDbContext dbContext, ICategoryService categoryService)
         {
             this.dbContext = dbContext;
+            this.categoryService = categoryService;
+        }
+
+        public async Task<AddAdViewModel> EditAd(Ad adToEdit)
+        {
+            AddAdViewModel editedAd = new()
+            {
+                Name = adToEdit.Name,
+                Description = adToEdit.Description,
+                ImageUrl = adToEdit.ImageUrl,
+                Price = adToEdit.Price,
+                CategoryId = adToEdit.CategoryId,
+                Categories = await categoryService.GetAllCategories()
+            };
+
+            return editedAd;
+        }
+
+        public async Task<Ad> GetAdByIdAsync(int id)
+        {
+            return await dbContext.Ads.FirstAsync(a => a.Id == id);
         }
 
         public async Task<ICollection<AllAdViewModel>> GetAllAdViewModelsAsync()

@@ -4,6 +4,8 @@ using SoftUniBazar.SoftUniBazar.Service.Contracts;
 using SoftUniBazar.ViewModel.Ad;
 using static SoftUniBazar.Extensions.ClaimsPrincipleExtensions;
 using static SoftUniBazar.Common.EntityValidationErrorMessages;
+using SoftUniBazar.Data.Models;
+using SoftUniBazar.Extensions;
 
 namespace SoftUniBazar.Controllers
 {
@@ -58,6 +60,24 @@ namespace SoftUniBazar.Controllers
             await adService.SaveAddAdModelToDbAsync(model, userId);
 
             return RedirectToAction(nameof(All));
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Ad ad = await adService.GetAdByIdAsync(id);
+
+            if (ad == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUseUd = GetId(this.User);
+            if (ad.Owner.Id != currentUseUd)
+            {
+                return Unauthorized();
+            }
+
+            return adService.EditAd(ad);
         }
     }
 }
