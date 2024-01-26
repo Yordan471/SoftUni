@@ -3,6 +3,7 @@ using SoftUniBazar.Data;
 using SoftUniBazar.SoftUniBazar.Service.Contracts;
 using SoftUniBazar.ViewModel.Ad;
 using static SoftUniBazar.Extensions.ClaimsPrincipleExtensions;
+using static SoftUniBazar.Common.EntityValidationErrorMessages;
 
 namespace SoftUniBazar.Controllers
 {
@@ -39,6 +40,13 @@ namespace SoftUniBazar.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddAdViewModel model)
         {
+            var categories = await categoryService.GetAllCategories();
+            
+            if (!categories.Any(c => c.Id == model.CategoryId))
+            {
+                ModelState.AddModelError(nameof(model.CategoryId), CategoryDoesNotExist);
+            }
+
             if (!ModelState.IsValid)
             {
                 model.Categories = await categoryService.GetAllCategories();
