@@ -10,7 +10,17 @@ builder.Services.AddDbContext<HomiesDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+{
+    options.SignIn.RequireConfirmedAccount = builder.Configuration
+    .GetValue<bool>("Identity:SignIn:RequireConfirmedAccount");
+    options.Password.RequireDigit = builder.Configuration
+    .GetValue<bool>("Identity:Password:RequireDigit");
+    options.Password.RequireNonAlphanumeric = builder.Configuration
+    .GetValue<bool>("Identity:Password:RequireNonAlphanumeric");
+    options.Password.RequireUppercase = builder.Configuration
+    .GetValue<bool>("Identity:Password:RequireUppercase");
+})
     .AddEntityFrameworkStores<HomiesDbContext>();
 builder.Services.AddControllersWithViews();
 
