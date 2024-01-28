@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homies", "Homies\Homies.csproj", "{6284C577-833D-4B62-994B-F748F2BE2305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homies", "Homies\Homies.csproj", "{6284C577-833D-4B62-994B-F748F2BE2305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homies.Common", "Homies.Common\Homies.Common.csproj", "{609A6137-92D3-4133-94D8-0BD7EE24821C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6284C577-833D-4B62-994B-F748F2BE2305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6284C577-833D-4B62-994B-F748F2BE2305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6284C577-833D-4B62-994B-F748F2BE2305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609A6137-92D3-4133-94D8-0BD7EE24821C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609A6137-92D3-4133-94D8-0BD7EE24821C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609A6137-92D3-4133-94D8-0BD7EE24821C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609A6137-92D3-4133-94D8-0BD7EE24821C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
