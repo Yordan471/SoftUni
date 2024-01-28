@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Homies.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Type = Homies.Data.Models.Type;
 
 namespace Homies.Data
 {
@@ -9,6 +11,13 @@ namespace Homies.Data
             : base(options)
         {
         }
+
+        public DbSet<Event> Events { get; set; }
+
+        public DbSet<Type> Types { get; set; }
+
+        public DbSet<EventParticipant> EventsParticipants { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder

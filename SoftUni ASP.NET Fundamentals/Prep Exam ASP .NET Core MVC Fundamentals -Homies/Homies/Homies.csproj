@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Models\" />
+    <ProjectReference Include="..\Homies.Common\Homies.Common.csproj" />
   </ItemGroup>
 
 </Project>
