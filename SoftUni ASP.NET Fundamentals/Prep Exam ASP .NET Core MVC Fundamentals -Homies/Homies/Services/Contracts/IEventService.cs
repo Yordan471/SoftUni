@@ -16,5 +16,9 @@ namespace Homies.Services.Contracts
         public Task RemoveEventParticipantAsync(EventParticipant eventParticipant);
 
         public Task MapAddEventViewModelToEventAsync(AddEventViewModel addEventViewModel, string userId);
+
+        public AddEventViewModel MapEventToEventViewModel(Event eventToEdit);
+
+        public Task MapEditEventViewModelToEventSaveChangesAsync(AddEventViewModel ediViewModel, Event eventToEdit);
     }
 }

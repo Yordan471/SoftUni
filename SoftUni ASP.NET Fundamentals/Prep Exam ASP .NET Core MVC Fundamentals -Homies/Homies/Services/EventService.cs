@@ -73,6 +73,33 @@ namespace Homies.Services
             await dbContext.SaveChangesAsync();
         }
 
+        public async Task MapEditEventViewModelToEventSaveChangesAsync(AddEventViewModel editEventViewModel, Event eventToEdit)
+        {
+            eventToEdit.Name = editEventViewModel.Name;
+            eventToEdit.Description = editEventViewModel.Description;
+            eventToEdit.Start = editEventViewModel.Start;
+            eventToEdit.End = editEventViewModel.End;
+            eventToEdit.TypeId = editEventViewModel.TypeId;
+
+            await dbContext.SaveChangesAsync();
+        }
+
+        public AddEventViewModel MapEventToEventViewModel(Event eventToEdit)
+        {
+            string startDateTimeFormat = "yyyy-MM-dd H:mm";
+
+            AddEventViewModel eventViewModel = new()
+            {
+                Name = eventToEdit.Name,
+                Description = eventToEdit.Description,
+                Start = eventToEdit.Start,
+                End = eventToEdit.End,
+                TypeId = eventToEdit.TypeId,
+            };
+
+            return eventViewModel;
+        }
+
         public async Task RemoveEventParticipantAsync(EventParticipant eventParticipant)
         {
             dbContext.EventsParticipants.Remove(eventParticipant);

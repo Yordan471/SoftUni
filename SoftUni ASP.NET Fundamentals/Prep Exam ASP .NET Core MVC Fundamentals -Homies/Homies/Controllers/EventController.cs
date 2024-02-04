@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.IIS.Core;
 using static Homies.Extensions.ClaimsPrincipleExtensions;
 using static Homies.Common.ModelStateErrorMessages.AddModelStateErrorMessages;
+using System.Xml.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Homies.Controllers
 {
@@ -97,6 +99,55 @@ namespace Homies.Controllers
             await eventService.MapAddEventViewModelToEventAsync(addEventViewModel, userId);
 
             return RedirectToAction(nameof(All));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            Event eventToEdit = await eventService.GetEventByIdAsync(id);
+
+            if (eventToEdit == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUserId = ClaimsPrincipleExtensions.GetUserById(this.User);
+            if (currentUserId != eventToEdit.OrganiserId)
+            {
+                return Unauthorized();
+            }
+
+            AddEventViewModel eventViewModel = eventService.MapEventToEventViewModel(eventToEdit);
+
+            return View(eventViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, AddEventViewModel editEventViewModel)
+        {
+            Event eventToEdit = await eventService.GetEventByIdAsync(id);
+
+            if (eventToEdit == null)
+            {
+                return BadRequest();
+            }
+
+            string currentUser = ClaimsPrincipleExtensions.GetUserById(this.User);
+            if (currentUser != eventToEdit.OrganiserId)
+            {
+                return Unauthorized();
+            }
+
+            IEnumerable<TypeViewModel> types = await typeService.GetAllTypesAsync();
+
+            if (!types.Any(e => e.Id == editEventViewModel.TypeId))
+            {
+                ModelState.AddModelError(nameof(editEventViewModel.TypeId), AddTypeIdDoesNotExist);
+            }
+
+            await eventService.MapEditEventViewModelToEventSaveChangesAsync(editEventViewModel, eventToEdit);
+
+            return RedirectToAction(nameof(All));   
         }
     }
 }
