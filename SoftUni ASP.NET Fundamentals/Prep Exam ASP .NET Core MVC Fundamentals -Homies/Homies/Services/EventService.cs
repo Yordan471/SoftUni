@@ -3,6 +3,7 @@ using Homies.Data.Models;
 using Homies.Services.Contracts;
 using Homies.ViewModels.EventViewModels;
 using Microsoft.EntityFrameworkCore;
+using Event = Homies.Data.Models.Event;
 
 namespace Homies.Services
 {
@@ -33,7 +34,7 @@ namespace Homies.Services
         {
             string startDateTimeFormat = "yyyy-MM-dd H:mm";
 
-            return dbContext.Events.Select(e => new EventViewModel
+            return await dbContext.Events.Select(e => new EventViewModel
             {
                 Id = e.Id,
                 Name = e.Name,
@@ -41,7 +42,7 @@ namespace Homies.Services
                 Start = e.Start.ToString(startDateTimeFormat),
                 Type = e.Type.Name
             }).AsNoTracking()
-            .AsEnumerable();
+            .ToListAsync();
         }
 
         public async Task<Event> GetEventByIdAsync(int id)
@@ -53,6 +54,23 @@ namespace Homies.Services
         {
             return await dbContext.EventsParticipants
                 .FirstAsync(ep => ep.EventId == id && ep.HelperId == userId);
+        }
+
+        public async Task MapAddEventViewModelToEventAsync(AddEventViewModel addEventViewModel, string userId)
+        {
+            Event addEvent = new()
+            {
+                Name = addEventViewModel.Name,
+                Description = addEventViewModel.Description,
+                OrganiserId = userId,
+                CreatedOn = DateTime.UtcNow,
+                Start = addEventViewModel.Start,
+                End = addEventViewModel.End,
+                TypeId = addEventViewModel.TypeId,
+            };
+            
+            await dbContext.Events.AddAsync(addEvent);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task RemoveEventParticipantAsync(EventParticipant eventParticipant)
