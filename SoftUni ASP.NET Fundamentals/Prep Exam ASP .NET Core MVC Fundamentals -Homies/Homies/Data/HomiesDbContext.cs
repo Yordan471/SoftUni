@@ -1,4 +1,5 @@
 ﻿using Homies.Data.Models;
+using Homies.Data.Models.Configurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Type = Homies.Data.Models.Type;
@@ -20,6 +21,8 @@ namespace Homies.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new EventParticipantConfiguration());
+
             //modelBuilder
             //    .Entity<Type>()
             //    .HasData(new Type()
