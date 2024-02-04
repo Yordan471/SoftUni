@@ -1,5 +1,6 @@
 ﻿using Homies.Data.Models;
 using Homies.ViewModels.EventViewModels;
+using Homies.ViewModels.TypeViewModels;
 
 namespace Homies.Services.Contracts
 {
@@ -20,5 +21,9 @@ namespace Homies.Services.Contracts
         public AddEventViewModel MapEventToEventViewModel(Event eventToEdit);
 
         public Task MapEditEventViewModelToEventSaveChangesAsync(AddEventViewModel ediViewModel, Event eventToEdit);
+
+        public Task<EventDetailsViewModel> MapEventToEventDetailsViewModel(Event eventDetails, IEnumerable<TypeViewModel> types);
+
+        public Task<IEnumerable<EventJoinedViewModel>> GetAllMyJointEventsAsync(string userId);
     }
 }

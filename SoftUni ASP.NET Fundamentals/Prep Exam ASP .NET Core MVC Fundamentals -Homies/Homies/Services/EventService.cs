@@ -2,6 +2,8 @@
 using Homies.Data.Models;
 using Homies.Services.Contracts;
 using Homies.ViewModels.EventViewModels;
+using Homies.ViewModels.TypeViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Event = Homies.Data.Models.Event;
 
@@ -10,6 +12,7 @@ namespace Homies.Services
     public class EventService : IEventService
     {
         private readonly HomiesDbContext dbContext;
+
         public EventService(HomiesDbContext dbContext) 
         {
             this.dbContext = dbContext;
@@ -19,7 +22,7 @@ namespace Homies.Services
         {
             EventParticipant eventParticipant = new()
             {
-                Event = eventDb,
+                EventId = eventDb.Id,
                 HelperId = userId
             };
 
@@ -43,6 +46,23 @@ namespace Homies.Services
                 Type = e.Type.Name
             }).AsNoTracking()
             .ToListAsync();
+        }
+
+        public async Task<IEnumerable<EventJoinedViewModel>> GetAllMyJointEventsAsync(string userId)
+        {
+            string startDateTimeFormat = "yyyy-MM-dd H:mm";
+
+            return await dbContext.EventsParticipants
+                .Where(ep => ep.HelperId == userId)
+                .Select(ep => new EventJoinedViewModel
+                {
+                    Id = ep.Event.Id,
+                    Name = ep.Event.Name,
+                    Start = ep.Event.Start.ToString(startDateTimeFormat),
+                    Type = ep.Event.Type.Name,
+                    Organiser = ep.Event.Organiser.UserName
+                }).AsNoTracking()
+                .ToArrayAsync();
         }
 
         public async Task<Event> GetEventByIdAsync(int id)
@@ -82,6 +102,29 @@ namespace Homies.Services
             eventToEdit.TypeId = editEventViewModel.TypeId;
 
             await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<EventDetailsViewModel> MapEventToEventDetailsViewModel(Event eventDetails, IEnumerable<TypeViewModel> types)
+        {
+            string startDateTimeFormat = "yyyy-MM-dd H:mm";
+
+            IdentityUser organiser = await dbContext.Users.FirstAsync(u => u.Id == eventDetails.OrganiserId);
+
+            string type = types.FirstOrDefault(t => t.Id == eventDetails.TypeId).Name;
+
+            EventDetailsViewModel eventDetailsViewModel = new()
+            {
+                Id = eventDetails.Id,
+                Name = eventDetails.Name,
+                Description = eventDetails.Description,
+                Start = eventDetails.Start.ToString(startDateTimeFormat),
+                End = eventDetails.End.ToString(startDateTimeFormat),
+                CreatedOn = eventDetails.CreatedOn.ToString(startDateTimeFormat),
+                Organiser = organiser.UserName,
+                Type = type
+            };
+
+            return eventDetailsViewModel;
         }
 
         public AddEventViewModel MapEventToEventViewModel(Event eventToEdit)

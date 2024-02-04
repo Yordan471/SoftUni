@@ -34,7 +34,7 @@ namespace Homies.Data.Models
         [Comment("Event organiser identifier")]
         [Required]
         [ForeignKey(nameof(OrganiserId))]
-        public IdentityUser? Organiser { get; set; }
+        public IdentityUser Organiser { get; set; } = null!;
 
         [Comment("Event created on")]
         [Required]

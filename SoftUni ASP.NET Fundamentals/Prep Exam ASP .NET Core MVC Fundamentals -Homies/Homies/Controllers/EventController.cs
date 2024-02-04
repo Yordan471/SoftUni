@@ -9,6 +9,7 @@ using static Homies.Extensions.ClaimsPrincipleExtensions;
 using static Homies.Common.ModelStateErrorMessages.AddModelStateErrorMessages;
 using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Homies.Controllers
 {
@@ -31,8 +32,7 @@ namespace Homies.Controllers
             return View(allEvents);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Joined(int id)
+        public async Task<IActionResult> Join(int id)
         {
             Event dbEvent = await eventService.GetEventByIdAsync(id);
 
@@ -49,6 +49,16 @@ namespace Homies.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Joined()
+        {
+            string userId = ClaimsPrincipleExtensions.GetUserById(this.User);
+
+            IEnumerable<EventJoinedViewModel> myJoinedEventViewModels =
+                await eventService.GetAllMyJointEventsAsync(userId);
+
+            return View(myJoinedEventViewModels);
+        }
+
         public async Task<IActionResult> Leave(int id)
         {
             string userId = ClaimsPrincipleExtensions.GetUserById(this.User);
@@ -118,6 +128,7 @@ namespace Homies.Controllers
             }
 
             AddEventViewModel eventViewModel = eventService.MapEventToEventViewModel(eventToEdit);
+            eventViewModel.Types = await typeService.GetAllTypesAsync();
 
             return View(eventViewModel);
         }
@@ -148,6 +159,24 @@ namespace Homies.Controllers
             await eventService.MapEditEventViewModelToEventSaveChangesAsync(editEventViewModel, eventToEdit);
 
             return RedirectToAction(nameof(All));   
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            Event getEvent = await eventService.GetEventByIdAsync(id);
+
+            if (getEvent == null)
+            {
+                return BadRequest();
+            }
+
+            IEnumerable<TypeViewModel> types = await typeService.GetAllTypesAsync();
+
+            EventDetailsViewModel eventDetailsViewModel = await
+                eventService.MapEventToEventDetailsViewModel(getEvent, types);
+
+            return View(eventDetailsViewModel);
         }
     }
 }
