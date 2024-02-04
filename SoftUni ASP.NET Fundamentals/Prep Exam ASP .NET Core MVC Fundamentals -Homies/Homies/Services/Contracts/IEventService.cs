@@ -9,6 +9,10 @@ namespace Homies.Services.Contracts
 
         public Task<Event> GetEventByIdAsync(int id);
 
-        public Task AddEventParticipantToDbAsync(int id, string userId);
+        public Task AddEventParticipantToDbAsync(Event dbEvent, string userId);
+
+        public Task<EventParticipant> GetEventParticipantAsync(int id, string userId);
+
+        public Task RemoveEventParticipantAsync(EventParticipant eventParticipant);
     }
 }

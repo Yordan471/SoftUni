@@ -24,20 +24,37 @@ namespace Homies.Controllers
             return View(allEvents);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Joined(int id)
         {
             Event dbEvent = await eventService.GetEventByIdAsync(id);
 
             if (dbEvent == null)
             {
-
                 return BadRequest();
             }
 
-             string userId = ClaimsPrincipleExtensions.GetUserById(this.User);
+            string userId = ClaimsPrincipleExtensions.GetUserById(this.User);
 
-            
+            await eventService.AddEventParticipantToDbAsync(dbEvent, userId);
+
+            return RedirectToAction(nameof(Joined));
+        }
+
+        public async Task<IActionResult> Leave(int id)
+        {
+            string userId = ClaimsPrincipleExtensions.GetUserById(this.User);
+
+            EventParticipant eventParticipant = await eventService.GetEventParticipantAsync(id, userId);
+
+            if (eventParticipant == null)
+            {
+                return BadRequest();
+            }
+
+            await eventService.RemoveEventParticipantAsync(eventParticipant);
+
+            return RedirectToAction(nameof(All));
         }
     }
 }

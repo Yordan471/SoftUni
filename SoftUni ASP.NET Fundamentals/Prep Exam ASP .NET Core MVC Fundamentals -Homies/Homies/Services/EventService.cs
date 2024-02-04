@@ -48,5 +48,17 @@ namespace Homies.Services
         {
             return await dbContext.Events.FirstAsync(e => e.Id == id);
         }
+
+        public async Task<EventParticipant> GetEventParticipantAsync(int id, string userId)
+        {
+            return await dbContext.EventsParticipants
+                .FirstAsync(ep => ep.EventId == id && ep.HelperId == userId);
+        }
+
+        public async Task RemoveEventParticipantAsync(EventParticipant eventParticipant)
+        {
+            dbContext.EventsParticipants.Remove(eventParticipant);
+            await dbContext.SaveChangesAsync();
+        }
     }
 }
