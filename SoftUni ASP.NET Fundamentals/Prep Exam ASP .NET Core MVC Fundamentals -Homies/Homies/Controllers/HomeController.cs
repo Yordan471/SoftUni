@@ -4,10 +4,15 @@ using System.Diagnostics;
 
 namespace Homies.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+               return RedirectToAction("All", "Event");
+            }
+
             return View();
         }
 
