@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Models\" />
+    <ProjectReference Include="..\Watchlist.Common\Watchlist.Common.csproj" />
   </ItemGroup>
 
 </Project>
