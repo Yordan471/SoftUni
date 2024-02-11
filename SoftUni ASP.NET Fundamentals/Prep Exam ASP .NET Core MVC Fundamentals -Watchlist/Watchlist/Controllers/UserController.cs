@@ -46,7 +46,7 @@ namespace Watchlist.Controllers
             {
                 await signInManager.SignInAsync(user, isPersistent: false);
 
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "User");
             }
 
             foreach (var error in result.Errors)
@@ -81,7 +81,7 @@ namespace Watchlist.Controllers
 
                 if (result.Succeeded)
                 {
-                    RedirectToAction("All", "Movie");
+                    return RedirectToAction("All", "Movies");
                 }
             }
 
@@ -90,7 +90,6 @@ namespace Watchlist.Controllers
             return View(loginViewModel);
         }
 
-        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();

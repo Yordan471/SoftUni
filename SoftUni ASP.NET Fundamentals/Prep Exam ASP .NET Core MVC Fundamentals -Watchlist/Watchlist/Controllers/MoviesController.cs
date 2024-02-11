@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Watchlist.Services.Contracts;
 
 namespace Watchlist.Controllers
 {
-    public class MovieController : Controller
+    [Authorize]
+    public class MoviesController : Controller
     {
         private readonly IMovieService movieService;
 
-        public MovieController(IMovieService movieService) 
+        public MoviesController(IMovieService movieService) 
         {
             this.movieService = movieService;
         }
@@ -17,5 +19,7 @@ namespace Watchlist.Controllers
 
             return View(movies);
         }
+
+
     }
 }
