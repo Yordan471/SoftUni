@@ -36,6 +36,7 @@ namespace Watchlist.ViewModels.UserViewModels
         /// Register confirm password compare with Password
         /// </summary>
         [Required]
+        [DataType(DataType.Password)]
         [Compare(nameof(Password))]
         public string ConfirmPassword { get; set; } = null!;
     }

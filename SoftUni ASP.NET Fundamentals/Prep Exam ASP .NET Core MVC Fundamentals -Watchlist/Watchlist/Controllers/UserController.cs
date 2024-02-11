@@ -45,16 +45,57 @@ namespace Watchlist.Controllers
             if (result.Succeeded)
             {
                 await signInManager.SignInAsync(user, isPersistent: false);
+
+                return RedirectToAction("Login", "Home");
             }
 
-            return RedirectToAction("All", "Movies");
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View(registerModel);
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             var loginView = new UserLoginViewModel();
 
             return View(loginView);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(UserLoginViewModel loginViewModel)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(loginViewModel);
+            }
+
+            var user = await userManager.FindByNameAsync(loginViewModel.UserName);
+
+            if (user != null)
+            {
+                var result = await signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
+
+                if (result.Succeeded)
+                {
+                    RedirectToAction("All", "Movie");
+                }
+            }
+
+            ModelState.AddModelError("", "Invalid Login");
+
+            return View(loginViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
