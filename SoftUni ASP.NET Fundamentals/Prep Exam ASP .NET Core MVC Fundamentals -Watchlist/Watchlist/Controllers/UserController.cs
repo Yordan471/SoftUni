@@ -5,12 +5,12 @@ using Watchlist.ViewModels.UserViewModels;
 
 namespace Watchlist.Controllers
 {
-    public class AccountController : Controller
+    public class UserController : Controller
     {
         private readonly SignInManager<User> signInManager;
         private readonly UserManager<User> userManager;
 
-        public AccountController(
+        public UserController(
             SignInManager<User> signInManager,
             UserManager<User> userManager)
         {
