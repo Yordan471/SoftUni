@@ -49,5 +49,12 @@ namespace Watchlist.Controllers
 
             return RedirectToAction("All", "Movies");
         }
+
+        public IActionResult Login()
+        {
+            var loginView = new UserLoginViewModel();
+
+            return View(loginView);
+        }
     }
 }
