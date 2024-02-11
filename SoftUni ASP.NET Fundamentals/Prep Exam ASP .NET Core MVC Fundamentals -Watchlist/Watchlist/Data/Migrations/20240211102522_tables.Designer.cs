@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Watchlist.Data;
 
@@ -11,9 +12,10 @@ using Watchlist.Data;
 namespace Watchlist.Data.Migrations
 {
     [DbContext(typeof(WatchlistDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240211102522_tables")]
+    partial class tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,33 +179,6 @@ namespace Watchlist.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Action"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Comedy"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Drama"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Horror"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Romantic"
-                        });
                 });
 
             modelBuilder.Entity("Watchlist.Data.Models.Movie", b =>

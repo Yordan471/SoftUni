@@ -8,6 +8,16 @@ namespace Watchlist.Common
 {
     public static class EntityValidationsConstants
     {
+        public static class User
+        {
+            public const int UserNameMaxLength = 20;
+            public const int UserNameMinLength = 5;
+            public const int EmailMaxLength = 60;
+            public const int EmailMinLength = 10;
+            public const int PasswordMaxLength = 20;
+            public const int PasswordMinLength = 5;
+        }
+
         public static class Movie
         {
             public const int TitleMaxLength = 50;

@@ -1,10 +1,12 @@
-﻿@{
+﻿@model UserRegisterViewModel
+
+@{
     ViewData["Title"] = "Register";
 }
 
 <h1 class="text-center">@ViewData["Title"]</h1>
 
-@*<div class="row">
+<div class="row">
     <div class="col-md-4 offset-md-4">
         <form id="registerForm" method="post">
             <hr />
@@ -39,4 +41,3 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-*@

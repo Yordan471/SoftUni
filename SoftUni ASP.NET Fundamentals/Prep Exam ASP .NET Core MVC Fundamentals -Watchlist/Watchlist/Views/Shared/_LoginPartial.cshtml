@@ -1,4 +1,8 @@
-﻿@*
+﻿@using Microsoft.AspNetCore.Identity;
+@using Watchlist.Data.Models;
+@inject SignInManager<User> SignInManager;
+@inject UserManager<User> UserManager;
+
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
@@ -18,7 +22,7 @@
         </li>
     }
 </ul>
-*@
+
 
 @*
     USE THIS CODE IF YOU ARE SCAFFOLDING IDENTITY

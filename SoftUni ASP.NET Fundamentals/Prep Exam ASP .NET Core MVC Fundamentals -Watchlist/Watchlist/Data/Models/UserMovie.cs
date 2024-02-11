@@ -14,7 +14,7 @@ namespace Watchlist.Data.Models
 
         [Comment("User entity")]
         [ForeignKey(nameof(UserId))]
-        public IdentityUser User { get; set; } = null!;
+        public User User { get; set; } = null!;
 
         [Comment("Movie identifier")]
         [Required]

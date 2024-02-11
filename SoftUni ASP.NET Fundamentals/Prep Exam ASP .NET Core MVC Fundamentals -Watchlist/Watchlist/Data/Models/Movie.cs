@@ -44,6 +44,6 @@ namespace Watchlist.Data.Models
         public Genre Genre { get; set; } = null!;
 
         [Comment("Collection for users and movies")]
-        public UserMovie UsersMovies { get; set; }
+        public ICollection<UserMovie> UsersMovies { get; set; }
     }
 }
