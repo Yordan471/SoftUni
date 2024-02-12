@@ -1,4 +1,5 @@
-﻿using Watchlist.ViewModels.MovieViewModels;
+﻿using Watchlist.Data.Models;
+using Watchlist.ViewModels.MovieViewModels;
 
 namespace Watchlist.Services.Contracts
 {
@@ -6,6 +7,8 @@ namespace Watchlist.Services.Contracts
     {
         public Task<ICollection<MovieViewModel>> GetAllMoviesAsync();
 
-        public Task<ICollection<MovieViewModel>> GetAllWatchedMoviesAsync(userId);
+        public Task<ICollection<MovieViewModel>> GetAllWatchedMoviesAsync(string userId);
+
+        public Task AddMovieAndSaveDbAsync(Movie movie);
     }
 }

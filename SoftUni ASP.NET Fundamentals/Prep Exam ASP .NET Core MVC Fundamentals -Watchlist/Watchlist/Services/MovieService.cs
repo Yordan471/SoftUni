@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Watchlist.Data;
+using Watchlist.Data.Models;
 using Watchlist.Services.Contracts;
 using Watchlist.ViewModels.MovieViewModels;
 
@@ -12,6 +13,12 @@ namespace Watchlist.Services
         public MovieService(WatchlistDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task AddMovieAndSaveDbAsync(Movie movie)
+        {
+            await dbContext.AddAsync(movie);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task<ICollection<MovieViewModel>> GetAllMoviesAsync()
