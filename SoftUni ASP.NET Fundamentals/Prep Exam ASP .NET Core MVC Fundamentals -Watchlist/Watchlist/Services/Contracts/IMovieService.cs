@@ -18,5 +18,7 @@ namespace Watchlist.Services.Contracts
         public Task AddUserMovieToDbAsync(UserMovie userMovie);
 
         public Task AddEntityToDbAsync<T>(T entity);
+
+        public Task RemoveUserMovieFromDbAsync(UserMovie userMovie);
     }
 }

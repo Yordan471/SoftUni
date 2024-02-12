@@ -63,5 +63,11 @@ namespace Watchlist.Services
                 .Where(m => m.UsersMovies.Where(um => um.UserId == userId))
                 .Select(m => new MovieViewModel())
         }
+
+        public async Task RemoveUserMovieFromDbAsync(UserMovie userMovie)
+        {
+            dbContext.Remove(userMovie);
+            await dbContext.SaveChangesAsync();
+        }
     }
 }
