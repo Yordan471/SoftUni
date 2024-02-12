@@ -15,10 +15,32 @@ namespace Watchlist.Services
             this.dbContext = dbContext;
         }
 
+        public async Task AddEntityToDbAsync<T>(T entity)
+        {
+            await dbContext.AddAsync(entity);
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task AddMovieAndSaveDbAsync(Movie movie)
         {
             await dbContext.AddAsync(movie);
             await dbContext.SaveChangesAsync();
+        }
+
+        public async Task AddUserMovieToDbAsync(UserMovie userMovie)
+        {
+            await dbContext.AddAsync(userMovie);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<bool> CheckIfMovieIdExistsInDbAsync(int id)
+        {
+            return await dbContext.Movies.AnyAsync(m => m.Id == id);
+        }
+
+        public async Task<bool> CheckIfUserMovieExistsInDbAsync(UserMovie userMovie)
+        {
+            return await dbContext.UsersMovies.ContainsAsync(userMovie);
         }
 
         public async Task<ICollection<MovieViewModel>> GetAllMoviesAsync()

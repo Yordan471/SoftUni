@@ -84,5 +84,34 @@ namespace Watchlist.Controllers
 
             return RedirectToAction(nameof(All));
         }
+
+        public async Task<IActionResult> AddToCollection(int id)
+        {
+            bool movieExists = await movieService.CheckIfMovieIdExistsInDbAsync(id);
+
+            if (!movieExists)
+            {
+                return BadRequest();
+            }
+
+             string userId = ClaimsPrincipleExtensions.GetId(this.User);
+
+            UserMovie userMovie = new()
+            {
+                UserId = userId,
+                MovieId = id
+            };
+
+            bool userMovieExists = await movieService.CheckIfUserMovieExistsInDbAsync(userMovie);
+
+            if (userMovieExists)
+            {
+                return RedirectToAction(nameof(All));
+            }
+
+            await movieService.AddEntityToDbAsync(userMovie);
+
+            return RedirectToAction(nameof(All));
+        }
     }
 }
