@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Watchlist.Data.Models;
 using Watchlist.ViewModels.UserViewModels;
 
 namespace Watchlist.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private readonly SignInManager<User> signInManager;
@@ -19,6 +21,7 @@ namespace Watchlist.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             var registerModel = new UserRegisterViewModel();
@@ -27,6 +30,7 @@ namespace Watchlist.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(UserRegisterViewModel registerModel)
         {
             if (!ModelState.IsValid)
@@ -44,8 +48,6 @@ namespace Watchlist.Controllers
 
             if (result.Succeeded)
             {
-                await signInManager.SignInAsync(user, isPersistent: false);
-
                 return RedirectToAction("Login", "User");
             }
 
@@ -58,6 +60,7 @@ namespace Watchlist.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             var loginView = new UserLoginViewModel();
@@ -66,6 +69,7 @@ namespace Watchlist.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginViewModel loginViewModel)
         {
             if(!ModelState.IsValid)

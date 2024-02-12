@@ -24,8 +24,8 @@ namespace Watchlist.Common
             public const int TitleMinLength = 10;
             public const int DirectorMaxLength = 50;
             public const int DirectorMinLength = 5;
-            public const double RatingMaxValue = 10.00;
-            public const double RatingMinValue = 0.00;
+            public const decimal RatingMaxValue = 10.00M;
+            public const decimal RatingMinValue = 0.00M;
         }
 
         public static class Genre

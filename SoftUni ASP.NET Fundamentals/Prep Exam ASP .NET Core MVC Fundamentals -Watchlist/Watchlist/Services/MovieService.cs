@@ -27,5 +27,12 @@ namespace Watchlist.Services
             }).AsNoTracking()
             .ToArrayAsync();
         }
+
+        public Task<ICollection<MovieViewModel>> GetAllWatchedMoviesAsync(string userId)
+        {
+            return dbContext.Movies
+                .Where(m => m.UsersMovies.Where(um => um.UserId == userId))
+                .Select(m => new MovieViewModel())
+        }
     }
 }
