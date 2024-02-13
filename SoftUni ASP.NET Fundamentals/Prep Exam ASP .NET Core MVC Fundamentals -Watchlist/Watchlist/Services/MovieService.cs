@@ -57,11 +57,30 @@ namespace Watchlist.Services
             .ToArrayAsync();
         }
 
-        public Task<ICollection<MovieViewModel>> GetAllWatchedMoviesAsync(string userId)
+        public async Task<ICollection<MovieViewModel>> GetAllWatchedMoviesAsync(string userId)
         {
-            return dbContext.Movies
-                .Where(m => m.UsersMovies.Where(um => um.UserId == userId))
-                .Select(m => new MovieViewModel())
+            var user = await dbContext.Users
+                .Where(u => u.Id == userId)
+                .Include(u => u.UsersMovies)
+                .ThenInclude(um => um.Movie)
+                .ThenInclude(m => m.Genre)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                throw new ArgumentException("Invalid user ID");
+            }
+
+            return user.UsersMovies.Select(m => new MovieViewModel()
+            {
+                Director = m.Movie.Director,
+                Genre = m.Movie.Genre.Name,
+                Id = m.MovieId,
+                ImageUrl = m.Movie.ImageUrl,
+                Title = m.Movie.Title,
+                Rating = m.Movie.Rating,
+            }).ToArray();
         }
 
         public async Task RemoveUserMovieFromDbAsync(UserMovie userMovie)

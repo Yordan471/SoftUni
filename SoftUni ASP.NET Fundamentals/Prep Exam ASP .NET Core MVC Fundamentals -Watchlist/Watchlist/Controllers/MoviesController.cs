@@ -31,9 +31,9 @@ namespace Watchlist.Controllers
         {
             string userId = ClaimsPrincipleExtensions.GetId(this.User);
 
-            var watchedMovies = movieService.GetAllWatchedMoviesAsync(userId);
+            var watchedMovies = await movieService.GetAllWatchedMoviesAsync(userId);
 
-            return View();
+            return View(watchedMovies);
         }
 
         [HttpGet]
