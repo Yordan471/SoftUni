@@ -85,9 +85,10 @@ namespace Watchlist.Controllers
             return RedirectToAction(nameof(All));
         }
 
-        public async Task<IActionResult> AddToCollection(int id)
+        [HttpPost]
+        public async Task<IActionResult> AddToCollection(int movieId)
         {
-            bool movieExists = await movieService.CheckIfMovieIdExistsInDbAsync(id);
+            bool movieExists = await movieService.CheckIfMovieIdExistsInDbAsync(movieId);
 
             if (!movieExists)
             {
@@ -99,7 +100,7 @@ namespace Watchlist.Controllers
             UserMovie userMovie = new()
             {
                 UserId = userId,
-                MovieId = id
+                MovieId = movieId
             };
 
             bool userMovieExists = await movieService.CheckIfUserMovieExistsInDbAsync(userMovie);
@@ -114,9 +115,9 @@ namespace Watchlist.Controllers
             return RedirectToAction(nameof(All));
         }
 
-        public async Task<IActionResult> RemoveFromCollection(int id)
+        public async Task<IActionResult> RemoveFromCollection(int movieId)
         {
-            bool movieExists = await movieService.CheckIfMovieIdExistsInDbAsync(id);
+            bool movieExists = await movieService.CheckIfMovieIdExistsInDbAsync(movieId);
 
             if (!movieExists)
             {
@@ -128,7 +129,7 @@ namespace Watchlist.Controllers
             UserMovie userMovie = new()
             {
                 UserId = userId,
-                MovieId = id
+                MovieId = movieId
             };
 
             bool userMovieExists = await movieService.CheckIfUserMovieExistsInDbAsync(@userMovie);

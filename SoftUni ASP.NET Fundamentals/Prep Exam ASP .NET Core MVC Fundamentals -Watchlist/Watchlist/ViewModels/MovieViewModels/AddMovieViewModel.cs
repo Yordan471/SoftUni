@@ -29,7 +29,6 @@ namespace Watchlist.ViewModels.MovieViewModels
         [Required]
         public int GenreId { get; set; }
 
-        [Required]
-        public IEnumerable<AllGenreViewModel> Genres { get; set; }
+        public IEnumerable<AllGenreViewModel> Genres { get; set; } = new List<AllGenreViewModel>();
     }
 }

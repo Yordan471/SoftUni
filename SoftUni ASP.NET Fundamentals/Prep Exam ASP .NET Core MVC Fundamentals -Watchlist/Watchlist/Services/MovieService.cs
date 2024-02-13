@@ -45,7 +45,9 @@ namespace Watchlist.Services
 
         public async Task<ICollection<MovieViewModel>> GetAllMoviesAsync()
         {
-            return await dbContext.Movies.Include(m => m.Genre).Select(m => new MovieViewModel()
+            return await dbContext.Movies
+                .Include(m => m.Genre)
+                .Select(m => new MovieViewModel()
             {
                 Id = m.Id,
                 Title = m.Title,
