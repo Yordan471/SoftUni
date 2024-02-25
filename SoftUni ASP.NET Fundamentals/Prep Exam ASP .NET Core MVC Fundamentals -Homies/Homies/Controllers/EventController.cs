@@ -59,6 +59,7 @@ namespace Homies.Controllers
             return View(myJoinedEventViewModels);
         }
 
+        [HttpPost]
         public async Task<IActionResult> Leave(int id)
         {
             string userId = ClaimsPrincipleExtensions.GetUserById(this.User);

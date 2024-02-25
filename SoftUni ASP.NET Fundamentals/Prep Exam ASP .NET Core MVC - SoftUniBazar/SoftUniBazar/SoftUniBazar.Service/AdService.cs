@@ -41,11 +41,13 @@ namespace SoftUniBazar.SoftUniBazar.Service
         {
             string? ownerName = await dbContext.Ads.Select(a => a.Owner.UserName).FirstOrDefaultAsync();
 
+            string dateTimeFormat = "yyyy-MM-dd H:mm";
+
             return await dbContext.Ads.Select(a => new AllAdViewModel
             {
                 Id = a.Id,
                 Name = a.Name,
-                CreatedOn = a.CreatedOn.ToString(),
+                CreatedOn = a.CreatedOn.ToString(dateTimeFormat),
                 ImageUrl = a.ImageUrl,
                 Category = a.Category.Name,
                 Description = a.Description,
